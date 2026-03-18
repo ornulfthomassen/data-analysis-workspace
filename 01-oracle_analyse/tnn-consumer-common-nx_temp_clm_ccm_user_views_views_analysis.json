@@ -1,0 +1,2026 @@
+[
+    {
+        "view_name":"KIM_ORDER_MATCH_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_ORDERS_ML_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CTI_CONS_CUSTOMER_CDK_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_TVILLING_ESIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CHECK_SWAP_PROD_IN_PTC",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_DETAIL_FACT2_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_PRODUCT_ATTRIBUTE_VTMP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_ANALYTICS_FACT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_MIN_SKY_DETAILS",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DATE_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DELORDER_LINE_DETAIL_FACT_VA_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_LASR_FACT_DETAIL_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_A_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CUSTOMER_HOUSEHOLD_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MAX_FIX_CHURN_GRUNNLAG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DEVICE_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CI_CAMPAIGN",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_HANDSET_HISTORY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_CUSTOMER_MAPPING_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MOB_SUBSCR",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_B2_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_DEALER_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_MATCH_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_SUBSCR_HANDSET_HIST_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CONTACTED_DT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_GALAXY_PRODUCT_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_OB_CUST_CONTACT_HISTORY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_AST_RESPONSE",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_SUBS_BILLSHOCK_AGG",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SE_NET_REV_WO_BIND_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_RESPONSE_REASON_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CHURN_GROUP_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MPORT_DETAILS",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CONTACT_VS_RESPONSE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SCORING_TABLE_CUST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CHURN_FORECAST_ST_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PRODUCT_TREATMENT_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PRODUCT_DIM_MOB_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_LAST_PERIOD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SE_FEE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"LIGHT_ANALYSIS_STOCK_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PRODUCT_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_DETAIL_FACT_ORD_MAT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_HANDSET_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CON_SNA_AGG_MAXMONTH",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_DATE_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PRODUCT_TYPE_CONFIG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MBB_S",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MPP_S",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MPR_S",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_CURRENT_SUBS_PROFIT_PERIOD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_STAGE_PRESCORE_MAP2_DATA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_HH",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"BALANCE_MOBILE_SEGMENT_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"HOUSEHOLD_LAT_LONG_SHOP_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MBB_SP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_RANK_GROUP_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"LIGHT_STOCK_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SAS_CONTACT_RAW",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_CONNECT_ID_SUBSCR_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_VIYA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_FACT_MOB_MV",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYSE_USE_AGG_MAINNUMBER",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_MONTH_SUBSI_CUST_HH",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CUSTOMER_RESPONSE_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_FIX",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_SUBSCRIPTION_MAPPING",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SUBS_END_DATES",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SE_TRAFFIC_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CUSTOMER_EVENTS_CHURN_2018_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CHURN_DSL",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_LASR_AGG",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ESP_TRIGGER_HISTORY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_E_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_LASR_DET",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_FACT_MOB_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SE_NET_USE_WO_CPA_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_DATAKONTROLL_HISTORY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"TMP_CUSTOMER_TV_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_CLM_SEGMENT_CUSTOMER",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_AGREEMENT_DEVICE_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_TWIN",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DEALER_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_LASR_FACT_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_KAMP_18",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CAMPAIGN_COMMUNICATION_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_DETAIL_FACT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_DATAPAKKE_HISTORY_SUBS_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MB_USAGE_CURRENT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_MONTH_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DIMPOSTNUMMER_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_RESPONSE_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CI_CELL_PACKAGE",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"T_ORDERLINE_NEWSALE",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SUBSCR_FB_MEMBERS",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_F_MOB_MV_OLD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_OWNER_2Y_PORT_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_TMP_PRODUCT_OFFER",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"VYA_SUBSCRIPTION_MAPPING",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_NYSALG_SWAP_BINDING_CHURN",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"TALKMORE_DETAILS_TMP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MOB_SP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CHANNEL_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_SUBSCRIPTION_STATUS_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CI_CHANNEL",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DELV_ORDER_DETAIL_FACT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_ORDER_LINE_REP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_HANDSET_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_CONNECT_ID_CUST_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_COMMUNICATION_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_2016_TEST_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_NRPORT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CUSTOMER_SEGMENT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_TREATMENT_HANDSET_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MPP_SP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DELORDER_LINE_DETAIL_ANALYSE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CONTACT_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_SERVICE_PROVIDER_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_KURT_CHAIN_AFFILIATION_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MAIN_NUMBER_2Y_PORT_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PER_TERMINAL_INFO",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_CURR_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SUBS_PROD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_REPORT_20141204_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_STATUS_RANK_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_TREATMENT_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MOBILE_PROFIT_CATEGORY",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_UTVALGTE_ORDRE_CLASSIC",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_CUST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KOMMUNEKATEGORI_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MONITOR_PROD_CHANGE_FB",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCM_AGREEMENT_DEVICE_ACTIVE",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_B_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_SALGSTAVLE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCDW_CA_CON_USAGE_AGG",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_MAX_CUST_RESPONSE_KEY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_C_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PROFIT_SEGMENT_HIST_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"BALANCE_MBB_CHURN_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MPORT_TAVLA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_HOUSEHOLD_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CLM_LIVSFASE_SEGMENT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"GPD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_PRODUCT_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYSE_CON_SUBSCR_AGG",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ACTIVITY_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_OTHR",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DELV_ORDER_LINE_DETAIL_FACT_MV",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_DATE_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"UPSALE_KS_INTERACTION_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"BALANCE_MOBILE_SEGMENT_W_AG2_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCM_OVERDUE_INVOICE_DATES",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_LINE_FACT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PRESENTED_DT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_RESPONSE_DT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_ROLLOVER_LAST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_DSL",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_DETAIL_FACT_VOLD",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_MPORT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_F_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_LOAD_LOG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MPR_SP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_AGE_GROUP_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SUBS_SP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_MAX_CONTACT_KEY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCM_KURT_CHAIN_AFILIATION",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCDW_PRODUCT_OFFER_MAPPING",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_MONTH_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"HANDSET_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_D30_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"EVENT_MODEL_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_TREATMENT_PRODUCT_M_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MAX_DSL_CHURN_GRUNNLAG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SJEKK_ORDRE_KIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_TREATMENT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ANALYTICAL_MASTER_TABLE_MBB",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_CONNECT_ID_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_TREATMENT_DIM_VO",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_MEASURE_TYPE_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_LASR_FACT_DETAIL_P_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_TEST_ANALYSE_MART",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ADM_MONTH_SUBS_CUST_HH",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CONTACT_HANDSET_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_PRODUCT_ATTRIBUTE_V2",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SUBS_S",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ANALYTICAL_VIEW",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCDW_SUBSCRIBED_PRODUCT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_TMP_SUBSCRIBED_PRODUCT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PRIMARY_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_HANDSET_HIST_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CLOSE_CALL_EVENT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CCDW_SUBSCRIPTION_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_CCDW_SUBSCRIPTION",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_HOUSEHOLD_MAPPING_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_ORDER_LINE_TYPE_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_MOB_SUBSCR_MASTER",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_SUBSCRIPTION_MASTER_HIST",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_AGG_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_PRODUCT_ATTRIBUTE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_MOB_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ONL_ORDERS_20131022_TODAY",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"UPSALE_KS_INTERA_KURT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_TWIN_D30_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KS_INTERACTION_ORDERMATCH_D_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_FROM_ORDER_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_ORDER_LINE_PRODUCT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PD_WIP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_TWIN_CURR_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_MPORT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_TMP_MINE_KONTAKTER_ALL",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_MAX_RESPONSE_KEY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_POSTCODE_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"LIGHT_STOCK_MV",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PROFIT_SEGMENT_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SOURCE_SYSTEM_DIM_VA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_USAGE_MOBILE_TWIN_MONTH_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"BALANCE_MOBILE_SEGMENT_W_AGG_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_PRODUCT_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SE_SUB_PRODUCT_BY_MONTH_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"MOB_S",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SCORING_TABLE_MBB",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ORDER_LINE_DETAIL_FACT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_VA_HIST_DELTA_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_SOURCE_SYSTEM_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"LIGHT_AGREEMENT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_NEWSLETTER_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"UPSALE_KS_INTERA_MAIN_NR_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_MAX_ORDER_DATE_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_GROUP_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"TREATMENT_DEFAULT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SUBSCRIPTION_SEGMENT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DATE_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_GALAXY_DATE_DIM_MV",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"PRODUCT_DIM_V_WIP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"SNOWDEPT_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ST_IN",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"VYA_CUSTOMER_MAPPING",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DIMPOSTNUMMER",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_CURRENT_SUBS_PROFIT_CAT",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"NEWSALE_BANK_ID_MATCH",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"CUSTOMER_EVENTS_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"ADM_WEEK_DIM_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"V_SEGMENT_MODEL",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"VIYA_KIM_SJEKK",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"TEST_ORDER_1_DAY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_CAMPAIGN_COMMUNICATION_DIM",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"TEST_CCM_SUBS_DATA",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"DUMMY_V",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    },
+    {
+        "view_name":"KIM_SUBS_TRAFFIC_GROUP",
+        "functionality":"Error during analysis",
+        "data_sources":[
+
+        ],
+        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+    }
+]
