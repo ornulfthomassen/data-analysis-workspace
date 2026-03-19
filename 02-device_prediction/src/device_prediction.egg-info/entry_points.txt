@@ -1,0 +1,2 @@
+[console_scripts]
+device-prediction = device_prediction.cli:main
