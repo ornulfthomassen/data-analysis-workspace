@@ -7,7 +7,6 @@ Monorepo for dataanalyse-prosjekter hos Telenor Norge Consumer.
 | Mappe | Beskrivelse | Status |
 |-------|-------------|--------|
 | `01-oracle_analyse/` | Oracle-kodeanalyse med LLM (Gemini 2.5 Flash) | Prosedyrer ferdig, views må kjøres på nytt |
-| `02-device_prediction/` | Survival-modell for enhetsbytte | Flyttet til [eget repo](https://github.com/ornulfthomassen/device-prediction) |
 
 ## Oppsett
 

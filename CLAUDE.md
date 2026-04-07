@@ -6,7 +6,6 @@ Monorepo for dataanalyse-prosjekter hos Telenor Norge Consumer. Hvert delprosjek
 
 ```
 01-oracle_analyse/    Oracle-kodeanalyse med LLM (Gemini)
-02-device_prediction/ Survival-modell for enhetsbytte (flyttet til eget repo)
 ```
 
 ## Miljø
@@ -47,10 +46,6 @@ pandas, vertexai (Gemini), tqdm, Google Cloud CLI (`bq`, `gcloud`)
 
 1. Autentiser: `gcloud auth application-default login`
 2. Kjør notebook-cellene sekvensielt. Celler med LLM-kall har checkpoint/resume-logikk.
-
-## 02 — Device Prediction (flyttet)
-
-Survival-analysemodell som predikerer tid-til-enhetsbytte for mobilabonnenter. Flyttet til eget repo. Kildekoden finnes også i git-historikken her (`git show HEAD:02-device_prediction/`).
 
 ## Konvensjoner
 
