@@ -1,0 +1,12 @@
+[project]
+name = "oracle-analyse"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas",
+    "google-cloud-aiplatform",
+    "google-cloud-bigquery",
+    "db-dtypes",
+    "tqdm",
+    "networkx",
+]
