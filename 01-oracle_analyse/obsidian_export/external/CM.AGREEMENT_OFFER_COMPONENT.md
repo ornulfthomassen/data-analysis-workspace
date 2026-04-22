@@ -1,0 +1,5 @@
+# CM.AGREEMENT_OFFER_COMPONENT
+
+This is an external dependency, not defined within the analyzed Oracle schemas.
+
+#external-dependency 

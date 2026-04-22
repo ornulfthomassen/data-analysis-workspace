@@ -1,0 +1,5 @@
+# crm_analyse.kim_churn_group_dim
+
+This is an external dependency, not defined within the analyzed Oracle schemas.
+
+#external-dependency 
