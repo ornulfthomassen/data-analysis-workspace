@@ -1,6 +1,6 @@
 # Oracle Analyse
 
-Automatisert analyse og avhengighetskartlegging av Oracle-databaseobjekter (views og prosedyrer) fra fire skjemaer. Tre-stegs pipeline:
+Automatisert analyse og avhengighetskartlegging av Oracle-databaseobjekter (views og prosedyrer) fra fire skjemaer. Fire-stegs pipeline:
 
 ## Steg 1: LLM-analyse av SQL-kildekode
 
@@ -88,12 +88,31 @@ RETURN src.schema_name AS src_schema, src.object_name AS src_object,
        d.linked_table AS via_table;
 ```
 
+## Steg 4: Generer Obsidian-filer (Visualisering)
+
+Etter at JSON-analysene er fullført, kan du generere et komplett Obsidian-vault for å visualisere avhengighetene som en graf.
+
+```bash
+python generate_obsidian_files.py
+```
+
+Dette scriptet gjør følgende:
+1.  Oppretter en `obsidian_export`-mappe.
+2.  Genererer en Markdown-fil for hver prosedyre og hvert view.
+3.  Genererer "stub"-filer for alle eksterne avhengigheter (tabeller etc.).
+4.  Linker avhengigheter med piler (`←` for lesing, `→` for skriving) for tydelig retning.
+5.  Inkluderer metadata som `Schema` og `Type` i hver fil.
+
+Åpne `obsidian_export`-mappen i Obsidian for å se grafen.
+Obsidian er en kraftig kunnskapsbase som lar deg organisere notater og visualisere sammenhenger mellom dem ved hjelp av en grafvisning. Du kan laste ned Obsidian her: [https://obsidian.md/download](https://obsidian.md/download)
+
 ## Filstruktur
 
 ```
 config.py                     # Delt konfig: skjemaregister, GCP-hjelpefunksjoner
 analyze_views.py              # CLI for viewanalyse (steg 1)
 analyze_procedures.py         # CLI for prosedyreanalyse (steg 1)
+generate_obsidian_files.py    # CLI for Obsidian-generering (steg 4)
 pyproject.toml                # Avhengigheter
 view_and_proc_oracle_agent_analysis.ipynb  # Opprinnelig notebok (referanse)
 bkp/                          # Tidligere analyseresultater
@@ -103,4 +122,5 @@ dependency_analysis/
 ├── spanner_ddl.sql           # Steg 3: DDL for Spanner-tabeller + property graph
 ├── load_to_spanner.py        # Steg 3: Last data inn i Spanner
 └── output/                   # Genererte JSON-filer
+obsidian_export/              # Genererte markdown-filer for Obsidian
 ```
