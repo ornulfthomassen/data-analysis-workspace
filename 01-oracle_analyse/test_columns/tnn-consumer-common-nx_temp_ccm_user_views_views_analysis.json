@@ -1,0 +1,21 @@
+[
+    {
+        "view_name": "ADM_WEEK_DIM_V",
+        "functionality": "This view aggregates data from the date dimension materialized view (GALAXY.DATE_DIM_MV) to provide weekly summary information. It calculates various date components like year week number, relative week, min/max year month numbers, min/max relative months, min/max year keys, min/max date keys, min/max actual dates, and counts of total and working days for each week, filtered for dates from 2013-01-01 up to two years in the future.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "YEAR_WEEK_NUMBER",
+                    "RELATIVE_WEEK",
+                    "YEAR_MONTH_NUMBER",
+                    "RELATIVE_MONTH",
+                    "YEAR",
+                    "DATE_KEY",
+                    "DAY",
+                    "TYPE_OF_DAY"
+                ]
+            }
+        ]
+    }
+]

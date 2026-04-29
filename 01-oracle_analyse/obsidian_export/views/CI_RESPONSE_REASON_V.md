@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, CI_RESPONSE_REASON_V, is a direct projection of the CLM_CCM.CI_RESPONSE_REASON table or view. It selects all specified columns (WHYREASON, WHYREASONDESCRIPTION, TYPE, ACTIVE, HITRATE, EXTENDED_PEACEKEEPING_FLAG) without any filtering, aggregations, joins, or transformations. Its primary purpose is likely to provide a simplified or schema-specific access point to the underlying data, potentially for security, abstraction, or adherence to naming conventions within the CCM schema.
+Creates a view `CI_RESPONSE_REASON_V` in the CCM schema that directly mirrors the columns and content of the `CLM_CCM.CI_RESPONSE_REASON` table. It provides a direct projection of the source table, possibly for schema separation or access control.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.CI_RESPONSE_REASON]]
+| Column Name |
+|---|
+| WHYREASON |
+| WHYREASONDESCRIPTION |
+| TYPE |
+| ACTIVE |
+| HITRATE |
+| EXTENDED_PEACEKEEPING_FLAG |
 

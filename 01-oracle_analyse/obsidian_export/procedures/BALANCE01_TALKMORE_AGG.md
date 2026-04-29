@@ -3,13 +3,45 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure manages and populates a partitioned aggregation table for 'Talkmore' subscription balances. It dynamically creates the target table 'CLM_ADM.BALANCE_TALKMORE_AGG' if it doesn't exist, initializing it as a partitioned table with initial partitions. For a specified range of months (or the previous month by default), it iterates through each month, drops any existing partition for that month, and then re-creates a new partition. It then calculates and inserts aggregated data, specifically the distinct count of `DIRECTORY_NUMBER_ID` for 'Talkmore' subscriptions (identified by product description containing 'TALKMORE'), categorized by product description and payment type (Prepaid/Postpaid), for each month into the respective partitions. This process effectively maintains a historical summary of 'Talkmore' subscription counts, refreshing data for the specified periods.
+This procedure creates a partitioned aggregate table `BALANCE_TALKMORE_AGG` if it does not exist. It then iterates through a range of months (either specified by parameters or defaulting to the previous month), dropping and re-adding partitions for each month in the target table. Finally, it inserts aggregated 'Talkmore' subscription balance data from the `CM.SUBSCRIPTION` and `CM.PROD_SERV_MAPPING` tables into the newly prepared partition for the respective month.
 
 ## Data Sources (Inputs)
-- ← [[CM.SUBSCRIPTION]]
-- ← [[CM.PROD_SERV_MAPPING]]
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| DATE_KEY |
+| YEAR_MONTH_NUMBER |
+- ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| S212_PRODUCT_ID |
+| SUBSCR_VALID_FROM_DATE |
+| SUBSCR_VALID_TO_DATE |
+| DIRECTORY_NUMBER_ID |
+- ← [[CM.PROD_SERV_MAPPING]]
+| Column Name |
+|---|
+| PRODUCT_UNIT_ID |
+| PRODUCT_DESCR |
+| PRODUCT_PREPAID |
 
 ## Target Tables (Outputs)
 - → [[CLM_ADM.BALANCE_TALKMORE_AGG]]
+| Column Name |
+|---|
+| REFRESH_DATE |
+| PERIOD_MONTH_KEY |
+| YEAR_MONTH |
+| PRIM_PRODUCT_DESC |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| BALANCE |
 

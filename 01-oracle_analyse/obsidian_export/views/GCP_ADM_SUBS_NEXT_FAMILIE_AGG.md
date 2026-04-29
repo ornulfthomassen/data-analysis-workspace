@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct pass-through or alias for the `ADM_SUBS_NEXT_FAMILIE_AGG` object (likely a table or another view) from the `CLM_ADM` schema. It exposes the same columns and data without any transformation, filtering, or aggregation being performed within this specific view definition. Its primary purpose could be to provide access to the underlying data under a different schema (CCM) or for security/aliasing reasons.
+Creates a view that is a direct pass-through or alias of the CLM_ADM.ADM_SUBS_NEXT_FAMILIE_AGG object, exposing all its columns under a new view name and schema (CCM).
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBS_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| LAST_SUBSCRIPTION_SEQ |
+| LAST_PRODUCT_OFFER_ID |
+| MAX_END_DATE |
+| ANTALL |
 

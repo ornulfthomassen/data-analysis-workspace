@@ -3,8 +3,89 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view (`PRODUCT_DIM_VA`) acts as a prepared product dimension for analytical purposes. It selects a comprehensive set of product attributes, standardizing data types (primarily casting to VARCHAR2 with specified lengths) and handling NULL values by replacing them with a default placeholder ('-1') for most columns. This ensures data consistency and readiness for downstream reporting or analytical processes, effectively serving as a data transformation layer for product master data.
+This view, PRODUCT_DIM_VA, serves as a product dimension for analytical purposes. It selects a comprehensive set of product-related attributes, standardizing their data types to VARCHAR2 and replacing NULL values with a placeholder (-1) for most columns. It also handles specific NULL scenarios, such as defaulting PRODUCT_FAMILY_NAME to DRM_COMMON_PORTFOLIO when the former is NULL.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRODUCT_TYPE_NAME |
+| PRODUCT_TYPE_DESC |
+| PRODUCT_BRAND |
+| DRM_PRODUCT_BUSINESS_AREA |
+| DRM_PRODUCT_BUSINESS_AREA_DET |
+| DRM_PRODUCT_ACCESS_PAYTYPE |
+| DRM_PRODUCT_GROUP |
+| DRM_MARKET_PRODUCT_GROUP |
+| DRM_MARKET_PRODUCT |
+| DRM_MARKET_PRODUCT_CATEGORY |
+| DRM_MARKET_PRODUCT_FAMILY |
+| DRM_MARKET_PRODUCT_BELONGING |
+| DRM_RESPONSIBLE_1 |
+| DRM_RESPONSIBLE_2 |
+| DRM_RESPONSIBLE_3 |
+| DRM_CLASSIFICATION |
+| DRM_CALCULATION_FACTOR |
+| DRM_ACTUAL_VALUE |
+| DRM_PRODUCT_DESC |
+| DRM_PRODUCT_CLASS |
+| DRM_PRODUCT_NEED |
+| DRM_SELF_SERVICE |
+| DRM_BINDING_TYPE |
+| DRM_IS_VALUE_CHAIN |
+| DRM_MEASURING_UNIT |
+| PRODUCT_PAYTYPE |
+| PRIMARY_PRODUCT_FLAG |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_PRODUCT_ID_2 |
+| SOURCE_PRODUCT_ID_3 |
+| SOURCE_PRODUCT_ID_4 |
+| PRICE_CATEGORY |
+| PRICE_CATEGORY_DESC |
+| PRODUCT_INITIATION_PRICE |
+| PRODUCT_PERIODIC_PRICE |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| SOURCE_SYSTEM_NAME |
+| RUN_ID |
+| SEQ_ID |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_CATEGORY_NAME |
+| PRODUCT_CATEGORY_DESC |
+| PRODUCT_OFFER_TEXT_ID |
+| PRODUCT_PORTFOLIO_NAME |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| PRODUCT_PAYMENT_TYPE_NAME |
+| PRODUCT_BINDING_TYPE_NAME |
+| DRM_PARTNER_SERVICES |
+| ESTABLISHMENT_PRICE |
+| MONTHLY_PRICE |
+| PRICE_VAT_DESC |
+| INCLUDED_MINUTES |
+| INCLUDED_SMS |
+| INCLUDED_MMS |
+| INCLUDED_DATA |
+| BAUD_UPLOAD |
+| BAUD_DOWNLOAD |
+| BAUD_REDUCTION_QUOTA |
+| PRICE_DATA_AFTER_INCLUDED |
+| MAX_MONTHLY_DATA_CHARGE |
+| PRICE_SMS_AFTER_INCLUDED |
+| PRICE_MMS |
+| TK_PRODUCT_RANK |
+| TK_INCOME_SERVICE |
 

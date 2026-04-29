@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a historical overview of rotations, incorporating discounts deducted from monthly prices. It serves as a foundational dataset for tracking such changes.
+Forms the basis for a historical overview of rotations with discounts deducted from the monthly price.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.ah_2372_change_res_NW]]
+| Column Name |
+|---|
+| YEAR_WEEK |
+| CHANGE_GROUP |
+| IB_POID |
+| IB_PRODUCT |
+| PORT_TO |
+| UB_POID |
+| UB_PRODUCT |
+| PORT_FROM |
+| IB_NET_PRICE |
+| UB_NET_PRICE |
+| ANTALL |
 

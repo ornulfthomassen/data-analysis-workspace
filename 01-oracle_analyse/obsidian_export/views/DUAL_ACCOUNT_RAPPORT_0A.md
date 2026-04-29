@@ -3,11 +3,32 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view identifies and reports on 'dual account' discrepancies related to TnN mobile service provisioning and the relationship between MSISDNs and Connect IDs. Specifically, it flags accounts that are missing an MSISDN ('ACC_MSISDN = 'null'') and have an 'ACC_USER_ID' starting with 'tnn_mobile_0%'. It categorizes these issues based on whether the corresponding subscription (from CM.SUBSCRIPTION) is closed or open, and checks for correct or problematic linkages with 'Connect IDs' (from CM.SUBSCRIBED_OFFER_CONFIGURATION, identified by PARAMETER_ID = 2100). The view aims to highlight situations requiring manual intervention due to missing MSISDNs and potential inconsistencies in how TnN services are associated with Connect IDs, differentiating between active and inactive subscriptions.
+Identifies and categorizes 'dual account' scenarios in Telenor's service provisioning system where FIM user accounts lack an MSISDN, by correlating FIM account details (from COMOYO schema) with subscription and Connect ID statuses (from CM schema). It distinguishes between closed and open subscriptions and highlights cases requiring manual handling due to potential inconsistencies in Connect ID assignments.
 
 ## Data Sources (Inputs)
 - ← [[COMOYO.FIM_USER]]
+| Column Name |
+|---|
+| USER_ID |
 - ← [[COMOYO.FIM_USER_ACCOUNTS]]
+| Column Name |
+|---|
+| USER_ID |
+| ACC_USER_ID |
+| ACC_MSISDN |
+| ACC_ID |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCR_VALID_TO_DATE |
+| INFO_IS_DELETED |
 - ← [[CM.SUBSCRIBED_OFFER_CONFIGURATION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| PARAMETER_ID |
+| PARAMETER_VALUE |
+| INFO_IS_DELETED |
+| VALID_TO_DATE |
 

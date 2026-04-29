@@ -3,11 +3,64 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-This procedure first checks for the existence of a table named 'CCM_SUBS_EQUIPMENT_INFO_CP' (determined by the variable V_TABLE) and drops it if it exists. It then creates this table as a permanent table, populating it with subscription and equipment information derived from a temporary source table. Finally, it creates a unique index and two non-unique indexes on the newly created table for performance optimization.
+Recreates the `CCM_SUBS_EQUIPMENT_INFO_CP` table. If the table already exists, it is dropped. Then, a new `CCM_SUBS_EQUIPMENT_INFO_CP` table is created as a copy of `TMP_CCM_SUBS_EQUIPMENT_INFO`, including a derived IMEI column, and unique and non-unique indexes are created on it.
 
 ## Data Sources (Inputs)
 - ← [[TMP_CCM_SUBS_EQUIPMENT_INFO]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SIM_ICC_ID |
+| SIM_IMSI_NUMBER |
+| SIM_NETTWORK_SUPPORTED |
+| SIM_FORM_FACTOR_NAME |
+| SIM_ESIM_TYPE_NAME |
+| DEVICE_TAC |
+| DEVICE_TAC_NUM |
+| DEVICE_IMEI |
+| DEVICE_ID |
+| DEVICE_MODEL_NAME |
+| DEVICE_MODEL_ID |
+| DEVICE_USE_FIRST_DATE |
+| DEVICE_USE_LAST_DATE |
+| DEVICE_AGRMT_OFFER_ID |
+| DEVICE_AGRMT_PRODUCT_KEY_SWAP |
+| DEVICE_AGRMT_END_DATE_SWAP |
+| DEVICE_AGRMT_PRODUCT_KEY_INSR |
+| DEVICE_AGRMT_END_DATE_INSR |
+| GTIN |
+| GTIN_MANUFACTURER |
+| GTIN_MODEL_NAME |
+| GTIN_COLOR_NAME |
+| GTIN_TOTAL_SIZE |
 
 ## Target Tables (Outputs)
 - → [[CCM_SUBS_EQUIPMENT_INFO_CP]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SIM_ICC_ID |
+| SIM_IMSI_NUMBER |
+| SIM_NETTWORK_SUPPORTED |
+| SIM_FORM_FACTOR_NAME |
+| SIM_ESIM_TYPE_NAME |
+| DEVICE_TAC |
+| DEVICE_TAC_NUM |
+| DEVICE_IMEI |
+| DEVICE_IMEI_FULL |
+| DEVICE_ID |
+| DEVICE_MODEL_NAME |
+| DEVICE_MODEL_ID |
+| DEVICE_USE_FIRST_DATE |
+| DEVICE_USE_LAST_DATE |
+| DEVICE_AGRMT_OFFER_ID |
+| DEVICE_AGRMT_PRODUCT_KEY_SWAP |
+| DEVICE_AGRMT_END_DATE_SWAP |
+| DEVICE_AGRMT_PRODUCT_KEY_INSR |
+| DEVICE_AGRMT_END_DATE_INSR |
+| GTIN |
+| GTIN_MANUFACTURER |
+| GTIN_MODEL_NAME |
+| GTIN_COLOR_NAME |
+| GTIN_TOTAL_SIZE |
 

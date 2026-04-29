@@ -1,0 +1,194 @@
+[
+  {
+    "name": "customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "master_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_sk",
+    "type": "INTEGER"
+  },
+  {
+    "name": "household_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "tnd_user_id",
+    "type": "STRING"
+  },
+  {
+    "name": "tnd_tnuid",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_type_id",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_status_id",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_surname",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_middle_name",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_first_name",
+    "type": "STRING"
+  },
+  {
+    "name": "date_of_birth",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "date_of_birth_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_age",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "commercial_customer_name",
+    "type": "STRING"
+  },
+  {
+    "name": "organisation_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "organization_type_id",
+    "type": "STRING"
+  },
+  {
+    "name": "info_reg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "avg_month_net_amount",
+    "type": "FLOAT"
+  },
+  {
+    "name": "avg_month_gross_amount",
+    "type": "FLOAT"
+  },
+  {
+    "name": "owner_mob_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "payer_mob_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_mob_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_mob_sub_num_biz",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_mob_sub_num_cons",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "owner_fix_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "payer_fix_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_fix_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_fix_sub_num_biz",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_fix_sub_num_cons",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "owner_ftv_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "payer_ftv_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_ftv_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_ftv_sub_num_biz",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "user_ftv_sub_num_cons",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "owner_mob_agr_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "net_fee_last_month",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "traffic_net_amount_this_month",
+    "type": "FLOAT"
+  },
+  {
+    "name": "traffic_net_amount_last_month",
+    "type": "FLOAT"
+  },
+  {
+    "name": "associated_customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "associated_nbr_businesses",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "associated_month_net_amount",
+    "type": "FLOAT"
+  },
+  {
+    "name": "associated_mob_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "associated_fix_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "associated_ftv_sub_num",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  }
+]

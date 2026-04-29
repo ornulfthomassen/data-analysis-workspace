@@ -3,8 +3,93 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `CI_CUST_CONTACT_HISTORY2_FIX` in the `CCM` schema, primarily serves as a wrapper or a 'fixed' version of another object with the exact same name located in the `clm_kim` schema. Its main function is to expose customer contact history data, performing explicit `CAST` operations on several key identifier columns (like `CUSTOMER_SK`, `SOURCE_SUBSCRIPTION_ID`, `MAIN_NUMBER_SK`, `SUBSCRIPTION_ID`, `OB_SUBSCRIPTION_ID`) to `VARCHAR` data types. This suggests a purpose of data type standardization, potentially for consistency or integration with other systems, without altering the core data or performing complex aggregations or joins.
+Creates a unified view of customer contact history by selecting all columns from an existing contact history source and applying specific data type conversions (CAST to VARCHAR) for key identifier columns such as customer SKs and subscription IDs. This view likely serves to standardize or fix data types for consumption.
 
 ## Data Sources (Inputs)
 - ← [[clm_kim.CI_CUST_CONTACT_HISTORY2_FIX]]
+| Column Name |
+|---|
+| CONTACT_WEEK |
+| CONTACT_KEY |
+| CONTACT_DTTM |
+| CUSTOMER_SK |
+| SEQUENCE_NO |
+| AB_TEST_TYPE |
+| ACTIVITY_DESCRIPTION |
+| ACTIVITY_ID |
+| ACTIVITY_MAIN_OBJECTIVE |
+| ACTIVITY_OBJECTIVE |
+| ACTIVITY_PRODUCT_TYPE |
+| ACTIVITY_TYPE |
+| CAMPAIGN_CATEGORY |
+| CAMPAIGN_DESCRIPTION |
+| CAMPAIGN_ID |
+| CHANNEL |
+| CLM_CAMPAIGN |
+| CLM_PLAN |
+| CLM_PROGRAM |
+| CUSTOMER_FLAG |
+| DIALOG_ID |
+| DIALOGID |
+| DIALOGUE_ID |
+| DYNAMIC_LANDING_PAGE |
+| EXISTING_PRODUCT_ID |
+| FAR_ID |
+| OCS_CAMPAIGN_CD |
+| PREVIOUS_ACTIVITY_ID |
+| PRODUCT_ACTION_1 |
+| PRODUCT_ACTION_2 |
+| PRODUCT_ACTION_3 |
+| PRODUCT_ACTION_4 |
+| PRODUCT_ID_1 |
+| PRODUCT_ID_2 |
+| PRODUCT_ID_3 |
+| PRODUCT_ID_4 |
+| PRODUCT_TYPE_1 |
+| PRODUCT_TYPE_2 |
+| PRODUCT_TYPE_3 |
+| PRODUCT_TYPE_4 |
+| SOURCE_SUBSCRIPTION_ID |
+| STAGED_ACTIVITY |
+| TARGET_PRODUCT_LIST |
+| TRIGGER_ID |
+| USER_FIRST_NAME |
+| UPDATE_COMMIT_TIME_C_UDF |
+| INSERT_COMMIT_TIME_C_UDF |
+| ARBITRATION_VALUE |
+| HASBEENSHOWNTOCUSTOMER |
+| MAIN_NUMBER_SK |
+| PROPENSITY |
+| STEP |
+| SUBSCRIPTION_ID |
+| VALID_REPLY |
+| VALIDATEPRODUCTS |
+| UPDATE_COMMIT_TIME_N_UDF |
+| INSERT_COMMIT_TIME_N_UDF |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| CHANNEL_CD |
+| CHANNEL_NM |
+| CHANNEL_DESC |
+| COMMUNICATION_CD |
+| COMMUNICATION_NM |
+| CAMPAIGN_TYPE_CD |
+| CAMPAIGN_TYPE_DESC |
+| OB_SUBSCRIPTION_ID |
+| COMMIT_TIME_SDW |
+| INSERT_DTTM_STAGE |
+| PACKAGE_HASH_VAL |
+| CELL_PACKAGE_SK |
+| TREATMENT_HASH_VAL |
+| TREATMENT_SK |
+| CAMPAIGN_SK |
+| VOLUME |
+| CONTACT_KEY_1_0 |
+| CUST_RESPONSE_KEY_1_0 |
+| ORDER_ID_1_0 |
+| ORDER_MATCH_KEY_1_0 |
+| ORDER_RANK_1_0 |
+| ORDER_RANK_GROUP_KEY_1_0 |
+| EFFECT_TYPE_1_0 |
+| EFFECT_RANK_1_0 |
 

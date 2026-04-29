@@ -3,19 +3,71 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `ADM_MOBILE_WIFI_TRAFFIC_DAILY2` processes daily mobile and WiFi traffic data. For a specified range of dates (or determined dynamically from the latest `CDR.CDR_GENEVA` load date), it performs the following steps for each day: 
-1. Ensures the existence and proper partitioning of the main historical table `ADM_MOBILE_WIFI_TRAFFIC_HIST`.
-2. Creates a temporary staging table (`TMP_MOBILE_WIFI_TRAFFIC_HIST`) by selecting raw traffic data from `CDR.CDR_GENEVA`.
-3. Enriches this staged data by joining with `CCDW.SUBSCRIPTION_MAPPING`.
-4. Inserts unique records from the temporary table into the main `ADM_MOBILE_WIFI_TRAFFIC_HIST` table, avoiding duplicates.
-It also handles the creation, optional dropping, and recreation of indexes on the historical table for performance optimization.
+This procedure processes daily mobile WiFi traffic data for a specified date range. It dynamically creates and manages a partitioned historical table named `ADM_MOBILE_WIFI_TRAFFIC_HIST` in the `CLM_ADM` schema. For each day in the range, it extracts, aggregates, and transforms data from `CDR.CDR_GENEVA`, stores it temporarily in `TMP_MOBILE_WIFI_TRAFFIC_HIST`, and then inserts distinct records into the appropriate daily partition of the main historical table, joining with `CCDW.SUBSCRIPTION_MAPPING` and avoiding duplicates based on `EVENT_DATE_KEY`, `SUBSCRIPTION_ID`, `BEARER`, and `TIERID_3`.
 
 ## Data Sources (Inputs)
-- ← [[CDR.CDR_GENEVA]]
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| SUBOBJECT_NAME |
+| OWNER |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+- ← [[CDR.CDR_GENEVA]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| CALLING_MAIN_DIRECTORY_NUMBER |
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| TIERID_3 |
+| BEARER |
+| EVENT_START_DATE_TIME |
+- ← [[CLM_ADM.TMP_MOBILE_WIFI_TRAFFIC_HIST]]
+| Column Name |
+|---|
+| EVENT_DATE |
+| MAIN_NUMBER |
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| TIERID_3 |
+| BEARER |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
+- ← [[CLM_ADM.ADM_MOBILE_WIFI_TRAFFIC_HIST]]
+| Column Name |
+|---|
+| EVENT_DATE_KEY |
+| SUBSCRIPTION_ID |
+| BEARER |
+| TIERID_3 |
 
 ## Target Tables (Outputs)
-- → [[ADM_MOBILE_WIFI_TRAFFIC_HIST]]
-- → [[TMP_MOBILE_WIFI_TRAFFIC_HIST]]
+- → [[CLM_ADM.ADM_MOBILE_WIFI_TRAFFIC_HIST]]
+| Column Name |
+|---|
+| EVENT_DATE_KEY |
+| EVENT_DATE |
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+| GENEVA_CALL_TYPE |
+| TIERID_3 |
+| BEARER |
+- → [[CLM_ADM.TMP_MOBILE_WIFI_TRAFFIC_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| TIERID_3 |
+| BEARER |
+| EVENT_DATE |
 

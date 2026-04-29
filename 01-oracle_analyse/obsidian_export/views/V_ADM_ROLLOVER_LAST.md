@@ -3,8 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct projection or an alias for the `ADM_ROLLOVER_LAST` table from the `CLM_ADM` schema. It provides all columns and rows from the source table without any transformations, aggregations, or filtering, effectively mirroring the underlying table data.
+Creates a view that directly exposes specific rollover-related data for subscriptions, acting as a direct projection of the `ADM_ROLLOVER_LAST` table.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_ROLLOVER_LAST]]
+| Column Name |
+|---|
+| IB_PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| MB_ROLLOVER_LAST1 |
+| MB_ROLLOVER_LAST2 |
+| MB_ROLLOVER_LAST3 |
 

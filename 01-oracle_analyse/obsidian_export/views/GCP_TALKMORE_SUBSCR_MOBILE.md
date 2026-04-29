@@ -3,8 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves to provide a standardized and cleaned representation of mobile subscription data. It selects all columns from the `INVENTORY_SUBSCR_MOBILE` table, applies a `TRIM()` function to various ID-related fields to remove leading/trailing whitespace, and renames the columns with a consistent `TALKMORE_` prefix for better clarity and integration, likely for downstream reporting or system consumption (e.g., in a GCP context as suggested by the view name).
+Creates a standardized view of mobile subscription inventory data by selecting and trimming specific columns from the TALKMORE.INVENTORY_SUBSCR_MOBILE table, renaming them with a consistent prefix.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_SUBSCR_MOBILE]]
+| Column Name |
+|---|
+| ID |
+| SERVICE_ID |
+| PHONE_NUMBER |
+| USER_ID |
+| OWNER_ID |
+| ACCOUNT_ID |
+| PAYER_ID |
+| RATE_PLAN_ID |
+| PRODUCT_ID |
+| SYSTEM_ACTIVE |
+| TELENOR_ACTIVE |
+| IS_FICTIVE |
+| SUBSCRIPTION_STATUS |
+| SERVICE_STATUS |
+| SIM_STATUS |
+| EXPORT_CREATED_DATE |
 

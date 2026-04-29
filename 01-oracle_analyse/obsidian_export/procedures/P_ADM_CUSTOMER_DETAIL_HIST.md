@@ -3,15 +3,95 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_CUSTOMER_DETAIL_HIST populates or updates a specific monthly partition in the `ADM_CUSTOMER_DETAIL_HIST` table. It gathers detailed customer subscription data for a given month (P_YYYYMM) by joining information from subscription history, aggregated subscription data, and product dimensions. It calculates metrics for both customer owners and users of subscriptions, such as the number of mobile subscriptions, main subscription details (MB usage, net fee, net use), and previously BankID usage (currently commented out). The data is first built into a temporary table and then efficiently moved into the target partitioned table using an `EXCHANGE PARTITION` operation. It includes checks for data availability in source tables and error handling.
+This procedure processes historical customer subscription data for a given month, aggregates it by customer owner and user, and stores the results in a partitioned historical customer detail table. It ensures the target partition exists, creates a temporary table with the aggregated data, and then uses an exchange partition operation to move the data into the permanent historical table.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DAY |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| CUSTOMER_SK_USER |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+| NET_FEE |
+| NET_USE |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+- ← [[ADM_CUSTOMER_DETAIL_HIST]]
 
 ## Target Tables (Outputs)
-- → [[ADM_CUSTOMER_DETAIL_HIST]]
 - → [[TMP_CUSTOMER_DETAIL_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| OWNER_NO_MOB |
+| OWNER_MAIN_SUBSCR_MB_LAST1 |
+| OWNER_MAIN_SUBSCR_MB_3MO |
+| OWNER_MAIN_SUBSCR_NET_FEE |
+| OWNER_MAIN_SUBSCR_NET_USE |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_MB |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_KR |
+| OWNER_NO_MOB_BANK_ID |
+| OWNER_BANKID_USED_LAST1 |
+| OWNER_BANKID_USED_LAST2 |
+| OWNER_BANKID_USED_LAST3 |
+| USER_NO_MOB |
+| USER_MAIN_SUBSCR_MB_LAST1 |
+| USER_MAIN_SUBSCR_MB_3MO |
+| USER_MAIN_SUBSCR_NET_FEE |
+| USER_MAIN_SUBSCR_NET_USE |
+| USER_MAIN_SUBSCRIPTIPON_ID_MB |
+| USER_MAIN_SUBSCRIPTIPON_ID_KR |
+| USER_NO_MOB_BANK_ID |
+| USER_BANKID_USED_LAST1 |
+| USER_BANKID_USED_LAST2 |
+| USER_BANKID_USED_LAST3 |
+- → [[ADM_CUSTOMER_DETAIL_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| OWNER_NO_MOB |
+| OWNER_MAIN_SUBSCR_MB_LAST1 |
+| OWNER_MAIN_SUBSCR_MB_3MO |
+| OWNER_MAIN_SUBSCR_NET_FEE |
+| OWNER_MAIN_SUBSCR_NET_USE |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_MB |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_KR |
+| OWNER_NO_MOB_BANK_ID |
+| OWNER_BANKID_USED_LAST1 |
+| OWNER_BANKID_USED_LAST2 |
+| OWNER_BANKID_USED_LAST3 |
+| USER_NO_MOB |
+| USER_MAIN_SUBSCR_MB_LAST1 |
+| USER_MAIN_SUBSCR_MB_3MO |
+| USER_MAIN_SUBSCR_NET_FEE |
+| USER_MAIN_SUBSCR_NET_USE |
+| USER_MAIN_SUBSCRIPTIPON_ID_MB |
+| USER_MAIN_SUBSCRIPTIPON_ID_KR |
+| USER_NO_MOB_BANK_ID |
+| USER_BANKID_USED_LAST1 |
+| USER_BANKID_USED_LAST2 |
+| USER_BANKID_USED_LAST3 |
 

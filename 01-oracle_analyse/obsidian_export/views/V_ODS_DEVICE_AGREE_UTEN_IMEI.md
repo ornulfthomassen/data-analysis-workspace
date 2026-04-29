@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies and retrieves active device agreements that are missing valid IMEI information (indicated by 'imei_full < 0'). It specifically filters for agreements with 'SRC_ROOT_PRODUCT_ID' equal to '770', an 'Original_Start_date' from January 1, 2019, up to 5 days before the current date, and an 'end_date' of '9999-12-31' (implying active agreements). The purpose is for reporting on these device agreements without IMEI through IMM and BI systems to KS.
+Provides a view of device agreements that do not have an associated IMEI, filtered by specific product, start date, and end date for reporting purposes.
 
 ## Data Sources (Inputs)
 - ← [[ODS.AGREEMENT_ODS_MOB]]
+| Column Name |
+|---|
+| CUSTOMER_ID_OWNER |
+| SRC_AGREEMENT_ID |
+| SRC_AGRM_AGREEMENT_OFFER_ID |
+| Original_Start_date |
+| src_service_order_id |
+| imei_full |
+| SRC_ROOT_PRODUCT_ID |
+| end_date |
 

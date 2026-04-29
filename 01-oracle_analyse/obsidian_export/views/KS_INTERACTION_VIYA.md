@@ -3,10 +3,99 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named KS_INTERACTION_VIYA, provides a consolidated and enriched dataset of customer interactions from the CRM system. It combines detailed interaction records with customer and subscription master data. The view includes a wide range of interaction-related attributes (e.g., duration, type, queue, agent info) and links them to customer and subscription identifiers. The data is filtered to only include interactions from the current day onwards (`START_CAL_DATE >= TRUNC(SYSDATE)`), suggesting it's primarily for real-time or daily analysis of recent customer interactions, potentially for a 'Viya' specific reporting or analytical tool based on the view name.
+Provides a comprehensive view of customer interactions scheduled for today or later, enriching core interaction details with associated customer and subscription identification through joins with customer mapping and subscription history tables.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KS_INTERACTION]]
+| Column Name |
+|---|
+| XPROD |
+| WRAP_DURATION |
+| WRAP_COUNT |
+| VQ_RESOURCE_KEY |
+| VPROD |
+| VIRTUALQUEUE |
+| UNIT_NUMBER |
+| TS1 |
+| TRANSFERREASON |
+| TOTAL_DURATION |
+| TECHNICAL_RESULT |
+| TEAM_NUMBER |
+| TARGET_ADDRESS |
+| START_CAL_DT_NEXT_NUM |
+| START_CAL_DATE_NEXT |
+| START_CAL_DATE |
+| SP_TRANSFER |
+| SKILL |
+| SITE_NAME |
+| RINGT_SIST |
+| RESULT_REASON |
+| RESOURCE_TYPE |
+| QUEUE_TYPE |
+| QUEUE_SHORTNAME |
+| QUEUE_PROGRAM |
+| QUEUE_DURATION |
+| QUEUE_CLIENT |
+| ORIGIN_SITE |
+| ORDINAL |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| LOAD_DATE |
+| LAST_SEGMENT |
+| KURT_ID_USER |
+| KURT_ID_OWNER |
+| KSTATUS |
+| KEYED_NUMBER_NUM |
+| KEYED_NUMBER |
+| INTERACTION_TYPE_KEY |
+| INTERACTION_SEGMENT_ID |
+| INTERACTION_ID |
+| INN_OUT |
+| HANDLE_COUNT |
+| GAD_INFO |
+| FULLFØRT_KONSULT |
+| FORHANDLERKODE |
+| FAILEDREASON |
+| ESKALERT_TIL |
+| END_CAL_DT |
+| END_CAL_DATE_NUM |
+| END_CAL_DATE |
+| EMPLOYEE_NUMBER |
+| EMPLOYEE_ID |
+| DEALERIDENTIFY |
+| CUSTOMER_WAIT_DURATION |
+| CUSTOMER_RING_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_HANDLE_DURATION |
+| CUSTOMER_HANDLE_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_DIAL_COUNT |
+| CONSULT_DONE |
+| CONSULT |
+| CONNID |
+| COMPANY_NAME |
+| CBTYPE |
+| CALLED_SERVICE |
+| CALLBACK |
+| CALL_FROM_NUM |
+| CALL_FROM |
+| BRUKTYP |
+| BEDTYP |
+| B_NUMBER |
+| AVTALE |
+| ALDERKAT |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER_SK |
+| MAIN_NUMBER |
+| ORIGINAL_START_DATE |
+| END_DATE |
 

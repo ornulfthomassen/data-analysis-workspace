@@ -3,24 +3,160 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_SUBS_USAGE_MONTH_DET2`, processes and aggregates detailed mobile subscription usage data for a specified month (`P_YYYYMM`). It performs a series of steps:
-1.  **Source Data Validation**: It first checks the availability and integrity of source data in `GALAXY.DATE_DIM_MV` and `GALAXY.SUBSCR_USAGE_MOBILE_DAY_FACT_V` for the target month.
-2.  **Temporary Table Management**: It uses a temporary staging table, `TMP_SUBS_USAGE_MONTH_DET`, which is dropped if it exists from a previous run, to hold the aggregated data.
-3.  **Partition Management**: For the permanent target table, `ADM_SUBS_USAGE_MONTH_DET2`, it checks if the monthly partition already exists. If not, it creates a new partition for the target month. It includes logic to prevent overwriting existing data in a partition unless explicitly allowed.
-4.  **Data Transformation and Aggregation**: It constructs the aggregated usage data by joining various source tables (`CLM_ADM.ADM_MONTH_DIM`, `GALAXY.SUBSCR_USAGE_MOBILE_DAY_FACT_V`, `CCDW.SUBSCRIPTION_MAPPING`, `CM.REL_SUBSCRIPTION`). The aggregation involves summing various usage metrics (e.g., call price, net/gross amounts, volume, duration, roaming cost) and grouping by numerous dimensional keys (e.g., subscription ID, product key, market area key, call type key).
-5.  **Data Loading (Partition Exchange)**: The aggregated data from the temporary table `TMP_SUBS_USAGE_MONTH_DET` is efficiently loaded into the corresponding partition of the permanent target table `ADM_SUBS_USAGE_MONTH_DET2` using an `ALTER TABLE ... EXCHANGE PARTITION` statement.
-6.  **Statistics Gathering**: Finally, it gathers statistics on the newly loaded partition to ensure optimal query performance.
-
-The overall purpose is to populate a partitioned data mart table with monthly detailed mobile subscription usage statistics, ensuring data quality and efficient loading processes.
+This procedure processes and aggregates mobile usage data for a specified month (`P_YYYYMM`). It performs a data consistency check on source tables, then creates a temporary table (`CLM_ADM.TMP_SUBS_USAGE_MONTH_DET`) by joining and aggregating data from multiple source tables. Finally, it uses an `ALTER TABLE ... EXCHANGE PARTITION` statement to replace or add a partition in the permanent target table (`CLM_ADM.ADM_SUBS_USAGE_MONTH_DET2`) with the data from the temporary table. It handles partition creation and potential overwrites based on input parameters.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| YEAR_MONTH_NUMBER |
 - ← [[GALAXY.SUBSCR_USAGE_MOBILE_DAY_FACT_V]]
+| Column Name |
+|---|
+| PARENT_SUBSCRIPTION_KEY |
+| SUBSCRIPTION_KEY |
+| MAIN_NUMBER |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| EVENT_DATE_KEY |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FIRST_DATE_KEY |
+| LAST_DATE_KEY |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
 - ← [[CM.REL_SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID_OWNER |
+| SUBSCR_ID_MEMBER |
 
 ## Target Tables (Outputs)
-- → [[TMP_SUBS_USAGE_MONTH_DET]]
-- → [[ADM_SUBS_USAGE_MONTH_DET2]]
+- → [[CLM_ADM.TMP_SUBS_USAGE_MONTH_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| NET_REVENUE |
+| MAX_EVENT_DATE_KEY |
+- → [[CLM_ADM.ADM_SUBS_USAGE_MONTH_DET2]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| NET_REVENUE |
+| MAX_EVENT_DATE_KEY |
 

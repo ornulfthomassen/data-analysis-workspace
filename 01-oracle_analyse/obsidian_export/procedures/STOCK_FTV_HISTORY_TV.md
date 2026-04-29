@@ -3,33 +3,305 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The Oracle SQL procedure `STOCK_FTV_HISTORY_TV` is designed to process and aggregate daily TV subscription and agreement history data. It performs the following main steps:
-1.  **Extracts Raw Agreement Data:** It retrieves agreement details from the `KAS` schema (tables like `AVTALE`, `KUNDE`, `MARKEDSAVTALE_RESSURS`, `MARKEDSAVTALE`), filtering by status, dates, and product numbers, and stores this in a temporary raw table (`TMP_STOCK_FTV_HIST_TVAGREE_RAW`).
-2.  **Extracts Raw Subscription Data:** It pulls subscribed product information from `CCDW.SUBSCRIBED_PRODUCT` and various `GALAXY` dimension tables (like `DATE_DIM_MV`, `SUBSCRIPTION`, `PRODUCT_DIM`, `SUBSCRIPTION_DIM_MV`), filtering by dates and product offer IDs, and aggregates initial counts. This data is stored in another temporary raw table (`TMP_STOCK_FTV_HIST_TVSTOCK_RAW`).
-3.  **Enriches Raw Data (Problematic Section):** A section intended to 'add segments' attempts to create `TMP_STOCK_FTV_HIST_TV_RAW`. The SQL statement for this step is malformed/incomplete in the provided script, as it attempts to use `V_TABLE_RAW` (the target table) as a source within its own `CREATE TABLE AS SELECT` statement (`FROM '||V_TABLE_RAW||' BAL`). It also references `V_TABLE_A_RAW` and joins with several dimension tables (`GALAXY.DATE_DIM_MV`, `CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V`, `GALAXY.CUSTOMER_DIM`, `CRM_ANALYSE.LIVSFASESEGMENT_MOBILE`, `W_DUAL_PLAY`) to enrich the data with customer demographics and segmentation information.
-4.  **Aggregates Detailed Data:** Finally, it aggregates data from `STOCK_FTV_HISTORY_TV_DET` (a table that is used as a source but whose creation is not explicitly shown in the provided script fragment) into a summary aggregate table (`STOCK_FTV_HISTORY_TV_AGG`). The aggregation includes sums (`BALANCE`), refresh dates, various period keys, customer age, customer types, segment IDs, and product keys. All created tables are temporary, being dropped and recreated during each execution of the procedure.
+The procedure collects daily data on TV subscription agreements and active subscriptions. It extracts raw data into temporary tables, then attempts to combine and enrich this data with customer (owner, payer, user) details, product attributes, and location information into a detailed permanent table. Finally, it aggregates this detailed data into a summary permanent table, providing a daily snapshot of TV subscription states and related demographics/product details.
 
 ## Data Sources (Inputs)
 - ← [[KAS.AVTALE]]
+| Column Name |
+|---|
+| AVTALE_NR |
+| ANTALL |
+| ABONNENT_NR |
+| PRODUKT_NR |
+| STATUS |
+| FRA_DATO |
+| TIL_DATO |
 - ← [[KAS.KUNDE]]
+| Column Name |
+|---|
+| ABONNENT_NR |
+| ETTERNAVN |
+| KUNDE_TYPE |
+| ANTALL |
+| FORETAKSNR |
+| KURT_ID |
+| ADRESSE_NR |
+| ANL_ADRESSE |
+| POST_NR |
+| KOLL_ID |
 - ← [[KAS.MARKEDSAVTALE_RESSURS]]
+| Column Name |
+|---|
+| RESSURS_ID |
+| RESSURS_TYPE |
+| LOGISK_SLETTET |
+| MARKEDSAVTALE_NR |
 - ← [[KAS.MARKEDSAVTALE]]
+| Column Name |
+|---|
+| MARKEDSAVTALE_NR |
+| MARKEDS_PRODUKT_ID |
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_SEQ |
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| START_DATE |
+| END_DATE |
+| BUSINESS_AREA_ID |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| DATE_KEY |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
 - ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PARENT_SUBSCRIPTION_ID |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| START_DATE |
+| END_DATE |
+| ORIGINAL_START_DATE |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME_USE |
 - ← [[GALAXY.SUBSCRIPTION_DIM_MV]]
-- ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
-- ← [[GALAXY.CUSTOMER_DIM]]
-- ← [[CRM_ANALYSE.LIVSFASESEGMENT_MOBILE]]
-- ← [[W_DUAL_PLAY]]
+| Column Name |
+|---|
+| SUBSCRIPTION_KEY |
+| SUBSCR_USER_LOC_KEY |
 - ← [[TMP_STOCK_FTV_HIST_TVAGREE_RAW]]
+| Column Name |
+|---|
+| AVTALE_NR |
+| ANTALL_AVTALE |
+| MARKEDSAVTALE_NR |
+| MARKEDS_PRODUKT_ID |
+| ABONNENT_NR |
+| PRODUKT_NR |
+| STATUS |
+| FRA_DATO |
+| TIL_DATO |
+| ETTERNAVN |
+| KUNDE_TYPE |
+| ANTALL_KUNDE |
+| FORETAKSNR |
+| KURT_ID |
+| ADRESSE_NR |
+| ANL_ADRESSE |
+| POST_NR |
+| KOLL_ID |
+| SUBSCRIPTION_SEQ |
 - ← [[TMP_STOCK_FTV_HIST_TV_RAW]]
+| Column Name |
+|---|
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_CUSTOMER_KEY |
+| PAYER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| SUBSCRIPTION_KEY |
+| PARENT_SUBSCRIPTION_KEY |
+| PRIM_PRODUCT_KEY |
+| SUB_PRODUCT_KEY |
+| ACTIVATED_DT_KEY |
+| SUBS_INST_LOCATION_KEY |
+- ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
+- ← [[GALAXY.CUSTOMER_DIM]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| CUSTOMER_TYPE_ID |
+| DATE_OF_BIRTH |
+| COUNTERPART_KEY |
+- ← [[CRM_ANALYSE.LIVSFASESEGMENT_MOBILE]]
+| Column Name |
+|---|
+| KURT_ID |
+| START_DATE |
+| END_DATE |
+| SEGMENT_ID |
+- ← [[W_DUAL_PLAY]]
+| Column Name |
+|---|
+| DP_LOCATION_KEY |
+| GRUNNKRETSNR |
+| KAS_DUALPLAY |
+| DUALPLAY |
+| NO_SYSTEMS |
+| NO_PRODUCTS |
 - ← [[STOCK_FTV_HISTORY_TV_DET]]
+| Column Name |
+|---|
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_AGE |
+| CUSTOMER_TYPE_ID_OWNER |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| CUSTOMER_TYPE_ID_PAYER |
+| PAYER_COUNTERPART_KEY |
+| USER_AGE |
+| CUSTOMER_TYPE_ID_USER |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| PRIM_PRODUCT_KEY |
+| SUB_PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| DISCOUNT_PRODUCT_KEY |
+| ACTIVATED_DT_KEY |
+| GRUNNKRETSNR |
+| KAS_DUALPLAY |
+| DUALPLAY |
+| NO_SYSTEMS |
+| NO_PRODUCTS |
 
 ## Target Tables (Outputs)
 - → [[TMP_STOCK_FTV_HIST_TVAGREE_RAW]]
+| Column Name |
+|---|
+| SUBSCRIPTION_SEQ |
+| ANTALL_AVTALE |
+| MARKEDSAVTALE_NR |
+| MARKEDS_PRODUKT_ID |
+| AVTALE_NR |
+| ABONNENT_NR |
+| PRODUKT_NR |
+| STATUS |
+| FRA_DATO |
+| TIL_DATO |
+| ETTERNAVN |
+| KUNDE_TYPE |
+| ANTALL_KUNDE |
+| FORETAKSNR |
+| KURT_ID |
+| ADRESSE_NR |
+| ANL_ADRESSE |
+| POST_NR |
+| KOLL_ID |
 - → [[TMP_STOCK_FTV_HIST_TVSTOCK_RAW]]
+| Column Name |
+|---|
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_SEQ |
+| SUBSCRIPTION_ID |
+| PARENT_SUBSCRIPTION_ID |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| PRIM_PRODUCT_KEY |
+| PRIM_POID |
+| PRIM_PRODUCT_NAME_USE |
+| SUB_PRODUCT_KEY |
+| SUB_POID |
+| SUB_PRODUCT_NAME_USE |
+| ACTIVATED_DT_KEY |
+| SUBS_INST_LOCATION_KEY |
+| MIN_SUB_PROD_START_DATE |
+| MAX_SUB_PROD_START_DATE |
+| ANTALL |
 - → [[TMP_STOCK_FTV_HIST_TV_RAW]]
+| Column Name |
+|---|
+| SUBSCRIPTION_SEQ |
+| ANTALL_AVTALE |
+| MARKEDSAVTALE_NR |
+| MARKEDS_PRODUKT_ID |
+| AVTALE_NR |
+| ABONNENT_NR |
+| PRODUKT_NR |
+| STATUS |
+| FRA_DATO |
+| TIL_DATO |
+| ETTERNAVN |
+| KUNDE_TYPE |
+| ANTALL_KUNDE |
+| FORETAKSNR |
+| KURT_ID |
+| ADRESSE_NR |
+| ANL_ADRESSE |
+| POST_NR |
+| KOLL_ID |
+- → [[STOCK_FTV_HISTORY_TV_DET]]
+| Column Name |
+|---|
+| REFRESH_DATE |
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_TYPE_ID_OWNER |
+| OWNER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| CUSTOMER_SK_PAYER |
+| CUSTOMER_TYPE_ID_PAYER |
+| PAYER_COUNTERPART_KEY |
+| CUSTOMER_SK_USER |
+| CUSTOMER_TYPE_ID_USER |
+| USER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| SUBSCRIPTION_KEY |
+| PARENT_SUBSCRIPTION_KEY |
+| PRIM_PRODUCT_KEY |
+| SUB_PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| PROFIT_CAT_TALE |
+| PROFIT_CAT_PAY_TYPE |
+| PROFIT_PERIOD |
+| VAR_SEGMENT |
+| CHURN_SEGMENT |
+| FAMILY_BONUS_FLG |
+| DISCOUNT_PRODUCT_KEY |
+| ACTIVATED_DT_KEY |
+| GRUNNKRETSNR |
+| KAS_DUALPLAY |
+| DUALPLAY |
+| NO_SYSTEMS |
+| NO_PRODUCTS |
 - → [[STOCK_FTV_HISTORY_TV_AGG]]
+| Column Name |
+|---|
+| BALANCE |
+| REFRESH_DATE |
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_AGE |
+| CUSTOMER_TYPE_ID_OWNER |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| CUSTOMER_TYPE_ID_PAYER |
+| PAYER_COUNTERPART_KEY |
+| USER_AGE |
+| CUSTOMER_TYPE_ID_USER |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| PRIM_PRODUCT_KEY |
+| SUB_PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| DISCOUNT_PRODUCT_KEY |
+| ACTIVATED |
+| GRUNNKRETSNR |
+| KAS_DUALPLAY |
+| DUALPLAY |
+| NO_SYSTEMS |
+| NO_PRODUCTS |
 

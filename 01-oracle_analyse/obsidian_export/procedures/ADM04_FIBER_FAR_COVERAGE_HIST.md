@@ -3,12 +3,44 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-The procedure extracts fiber coverage data from the `FAR.FIBER_FAR_COVERAGE` table for a specific month (`V_YYYYMM`), stages this data into a temporary table named `TMP_FIBER_FAR_COVERAGE_HIST`. After creating and populating the temporary table, it then moves this data into a monthly partition of a permanent historical table, `ADM_FIBER_FAR_COVERAGE_HIST`, using an `ALTER TABLE ... EXCHANGE PARTITION` operation. It handles the dropping and recreation of the temporary table and the creation of the target partition if it doesn't already exist.
+Loads historical fiber far coverage data for the previous month into a permanent, partitioned administrative table (`ADM_FIBER_FAR_COVERAGE_HIST`). It uses a temporary staging table (`TMP_FIBER_FAR_COVERAGE_HIST`) to extract and prepare the data, which is then quickly integrated into the target table via a partition exchange operation. The process also handles partition creation and gathers table statistics.
 
 ## Data Sources (Inputs)
 - ← [[FAR.FIBER_FAR_COVERAGE]]
+| Column Name |
+|---|
+| FAR_ID |
+| SOURCE |
+| CONNECTION |
+| TECHNOLOGY |
+| DETAIL_1 |
+| DETAIL_2 |
+| CONSUMER_PROVIDER |
+| BUSINESS_PROVIDER |
 
 ## Target Tables (Outputs)
-- → [[TMP_FIBER_FAR_COVERAGE_HIST]]
-- → [[ADM_FIBER_FAR_COVERAGE_HIST]]
+- → [[CRM_ANALYSE.TMP_FIBER_FAR_COVERAGE_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FAR_ID |
+| SOURCE |
+| CONNECTION |
+| TECHNOLOGY |
+| DETAIL_1 |
+| DETAIL_2 |
+| CONSUMER_PROVIDER |
+| BUSINESS_PROVIDER |
+- → [[CRM_ANALYSE.ADM_FIBER_FAR_COVERAGE_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FAR_ID |
+| SOURCE |
+| CONNECTION |
+| TECHNOLOGY |
+| DETAIL_1 |
+| DETAIL_2 |
+| CONSUMER_PROVIDER |
+| BUSINESS_PROVIDER |
 

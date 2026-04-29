@@ -3,8 +3,34 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct projection of the `ADM_PROFIT_CAT_MND_SUBS_HIST` table or view. Its primary purpose is to expose monthly subscription profit categorization history, including details such as period key, subscription IDs, market area, payment type, product brand, event dates, active days, revenue factors, various fees (initiation, periodic, usage), discounts, roaming costs, adjusted revenue, and cumulative distribution values by category. It essentially provides a direct alias or a wrapper around the underlying data source.
+Creates a pass-through view named GCP_ADM_PROFIT_CAT_MND_SUBS_HIST in the CCM schema, exposing all columns directly from the CLM_ADM.ADM_PROFIT_CAT_MND_SUBS_HIST source view or table without any transformations or filtering. It serves as an alias or a schema transfer mechanism.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_PROFIT_CAT_MND_SUBS_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MARKET_AREA_ID |
+| PAYMENT_TYPE |
+| PRODUCT_BRAND |
+| LAST_EVENT_DATE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_REVENUE_ADJUSTED |
+| CUME_DIST_VALUE |
+| CATEGORY |
+| PT_CUME_DIST_VALUE |
+| PT_CATEGORY |
 

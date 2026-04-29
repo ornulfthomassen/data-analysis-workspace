@@ -3,9 +3,20 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves device information by linking IMEI to Global Trade Item Number (GTIN) and its associated product properties (manufacturer, model, color, size). It truncates the IMEI to 14 characters and filters for devices with a 15-character IMEI.
+Combines device GTIN (Global Trade Item Number) information with its detailed properties, specifically extracting a truncated IMEI, the GTIN itself, and various GTIN-related attributes like manufacturer, model, color, and size, for devices with a 15-character IMEI.
 
 ## Data Sources (Inputs)
 - ← [[fps.terminal_gtin]]
+| Column Name |
+|---|
+| imei |
+| gtin |
 - ← [[fps.terminal_gtin_properties]]
+| Column Name |
+|---|
+| manufacturer |
+| model_name |
+| color_name |
+| total_size |
+| gtin |
 

@@ -3,8 +3,40 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view, `VYA_USAGE_DAY`, serves as a direct alias or a wrapper view for `clm_ccm.VA_USAGE_DAY`. It selects all columns from the source view, effectively re-exposing daily usage data, including volume metrics (e.g., total volume, volume down, volume in MB), daily and weekly temporal information, subscription identifiers, product details (name, offer, payment, reporting, category, group, family, price, POID, reporting codes), included data, and device characteristics (camera, type, manufacturer, OS, class). Its primary purpose is likely to provide access to this detailed daily usage information under a different schema (`CLM_ADM`) or for abstraction/security purposes.
+Creates a wrapper view, `VYA_USAGE_DAY`, in the `CLM_ADM` schema by selecting all columns directly from the `VA_USAGE_DAY` view in the `clm_ccm` schema. It serves to expose the underlying view's data, potentially for schema separation or controlled access.
 
 ## Data Sources (Inputs)
-- ← [[clm_ccm.VA_USAGE_DAY]]
+- ← [[VA_USAGE_DAY]]
+| Column Name |
+|---|
+| VOLUME_TOTAL |
+| VOLUME_DOWN |
+| VOLUME_MB_01 |
+| VOLUME_MB_01_NAME |
+| DAY |
+| DAY_OF_WEEK |
+| SUBSCRIPTION_KEY |
+| PRODUCT_NAME |
+| PRODUCT_OFFER_NAME |
+| PRODUCT_COMMON_PAYMENT |
+| PRODUCT_COMMON_REPORTING |
+| PRODUCT_COMMON_CATEGORY |
+| PRODUCT_COMMON_GROUP |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_MONTHLY_PRICE |
+| PRODUCT_POID |
+| INVOICE_REPORTING_CODE_3 |
+| PRODUCT_MB_INCLUDED_DATA |
+| USAGE_PRODUCT_FAMILY_NAME |
+| DISCOUNTED_PRODUCT_NAME |
+| USAGE_PRODUCT_NAME |
+| USAGE_PRODUCT_POID |
+| USAGE_PRODUCT_MONTHLY_PRICE |
+| DEVICE_CAMERA_INFO |
+| DEVICE_TYPE |
+| DEVICE_MANUFACTURER |
+| DEVICE_MARKETING_NAME |
+| DEVICE_COMMON_MANUFACTURER |
+| DEVICE_OS_INFO |
+| DEVICE_CLASS |
 

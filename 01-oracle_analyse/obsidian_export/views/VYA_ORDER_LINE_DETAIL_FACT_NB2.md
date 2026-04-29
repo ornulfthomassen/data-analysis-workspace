@@ -3,12 +3,44 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This Oracle SQL view, `VYA_ORDER_LINE_DETAIL_FACT_NB2`, is designed to construct detailed order line fact records. Its primary purpose is to capture and standardize information related to 'Nettbutikken' (webshop) initiated device changes or new device sales that might not originate from traditional order entries. It populates a wide range of fact and dimension attributes, often using fixed values (e.g., for order category, KPIs like `KPI_NEWSALE` and `KPI_GROSS_SALE_CE`, indicating specific types of transactions). The view integrates device insight data with various related dimension tables (date, dealer, device) and specifically filters out records that are already present in the main `ORDER_LINE_DETAIL_FACT_MV` by checking for `NULL` IMEI values from that materialized view, suggesting it acts as a supplementary source for specific webshop transactions.
+This view generates order line detail fact records for new device sales originating from the 'Nettbutikken' (online store) that are not already present in the main `ORDER_LINE_DETAIL_FACT_MV` table. It populates these records with specific device, date, and dealer information, assigning default or literal values to many columns, and setting certain key performance indicators (KPIs) to indicate a new device sale or gross sale.
 
 ## Data Sources (Inputs)
 - ← [[CCM.VYA_INSIGHT_DEVICE_FROM_NB]]
+| Column Name |
+|---|
+| IMEI_FULL |
+| HANDSET_KEY |
+| HANDSET_DELIVERED_DATE |
+| HANDSET_DELIVERED_DTTM |
+| IMEI_USE |
 - ← [[GALAXY.DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| SOURCE_DEVICE_ID |
 - ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| IMEI |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| WEEK_NUMBER |
+| RELATIVE_WEEK |
+| MONTH_NUMBER |
+| RELATIVE_MONTH |
+| YEAR |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR_QUARTER_NUMBER |
+| DATE_KEY |
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| START_DT_KEY |
+| END_DT_KEY |
+| SOURCE_DEALER_ID |
 

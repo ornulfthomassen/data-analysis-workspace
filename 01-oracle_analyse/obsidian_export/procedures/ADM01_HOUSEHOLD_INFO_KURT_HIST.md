@@ -3,15 +3,132 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-This Oracle PL/SQL procedure is designed to maintain and populate a historical household information table named `ADM_HOUSEHOLD_INFO_KURT_HIST`. It first checks if the target table exists. If not, it creates the partitioned table with specified columns, indexes (unique and bitmap), and sets it to NOLOGGING mode. Subsequently, it determines the latest period to process (typically the previous month from SYSDATE). It then dynamically adds a new partition for this month if it doesn't already exist and inserts consolidated customer and household data from various `CLM_CCM` tables into the `ADM_HOUSEHOLD_INFO_KURT_HIST` table for that specific month. The procedure also gathers statistics on the table/partition and logs its execution status.
+This procedure manages a historical, partitioned table named ADM_HOUSEHOLD_INFO_KURT_HIST in the CRM_ANALYSE schema. It checks for the table's existence, creating it with appropriate indexes if it doesn't exist. For each execution, it determines the previous month and verifies if data for that month is already present in the historical table. If not, it creates a new partition for the month (if needed) and inserts aggregated customer and household information into it. The data is sourced from CLM_CCM.CCM_CUSTOMER, CLM_CCM.CCM_CUSTOMER_CONTACT_INFO, and CLM_CCM.CCM_HOUSEHOLD_INFO. It also logs execution status and gathers table statistics.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| SUBOBJECT_NAME |
+| OWNER |
 - ← [[DUAL]]
 - ← [[CRM_ANALYSE.ADM_HOUSEHOLD_INFO_KURT_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CLM_CCM.CCM_CUSTOMER]]
+| Column Name |
+|---|
+| KURT_ID |
+| HOUSEHOLD_ID |
+| DATE_OF_BIRTH |
+| AGE |
+| GENDER |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE |
+| SMS_MOBIL |
 - ← [[CLM_CCM.CCM_CUSTOMER_CONTACT_INFO]]
+| Column Name |
+|---|
+| KURT_ID |
+| STREET_POSTAL_CODE |
+| STREET_POSTAL_ADDRESS |
 - ← [[CLM_CCM.CCM_HOUSEHOLD_INFO]]
+| Column Name |
+|---|
+| HOUSEHOLD_ID |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| ADRESSE |
+| POSTNR |
+| POSTSTED |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
 
 ## Target Tables (Outputs)
 - → [[CRM_ANALYSE.ADM_HOUSEHOLD_INFO_KURT_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| HOUSEHOLD_ID |
+| DATE_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_ACCEPT_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| ADRESSE |
+| POSTNR |
+| POSTSTED |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| RES_TELENOR_DM |
+| SMS_AKSEPT_FLAG |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE |
+| SMS_MOBIL |
 

@@ -3,8 +3,53 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a filtered set of detailed daily subscription usage records. It selects all columns from the source view/table `VDO_SUBS_USAGE_DET_DAY`, specifically for records where the `LOAD_DATE_KEY` falls within a predefined range (20240613 to 20240699), likely representing a specific period for data loading or event recording.
+Creates a daily detailed view of subscription usage data, selecting all columns from the source view 'VDO_SUBS_USAGE_DET_DAY' and filtering records based on a specific range of 'LOAD_DATE_KEY' values (between 20240613 and 20240699).
 
 ## Data Sources (Inputs)
 - ← [[CCM.VDO_SUBS_USAGE_DET_DAY]]
+| Column Name |
+|---|
+| LOAD_DATE_KEY |
+| EVENT_DATE_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_CUSTOMER_SK |
+| USER_CUSTOMER_SK |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMEI_HASH |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
 

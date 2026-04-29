@@ -3,8 +3,39 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a direct, unfiltered, and untransformed exposure of all columns from the 'SUBSCRIPTION' table located in the 'CCDW' schema. Its purpose is to serve as an alias or an access layer, making the core subscription data available under the 'CRM_ANALYSE' schema, potentially for reporting or analytical purposes.
+Creates a view that exposes specific columns from the CCDW.SUBSCRIPTION table for analysis.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_OFFER_ID |
+| MARKET_AREA_ID |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| KURT_ID_USER_2 |
+| SOURCE_SYSTEM_ID |
+| BUSINESS_AREA_ID |
+| DEALER_ID |
+| ACCOUNT_ID |
+| MAIN_NUMBER |
+| USER_ID |
+| ORIGINAL_START_DATE |
+| START_DATE |
+| END_DATE |
+| INFO_CHG_DATE |
+| PARENT_SUBSCRIPTION_ID |
+| BINDING_START_DATE |
+| BINDING_END_DATE |
+| CURRENT_STATUS |
+| SECRET_NUMBER_FLAG |
+| TERMINATION_REASON |
+| SOURCE_OWNER_ID |
+| SOURCE_PAYER_ID |
+| SOURCE_USER_ID |
+| RUN_ID |
+| SEQ_ID |
 

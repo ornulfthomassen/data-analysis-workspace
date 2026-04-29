@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates security agreement usage data per customer, counting occurrences of specific security actions (email verification, credit card monitoring, VPN token creation) and identifying the first and last dates these actions occurred for each customer.
+Aggregates security agreement usage data for customers, tracking the activation status and first/last activation dates for specific actions like e-post verification, credit card monitoring, and VPN token creation.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.V_CCM_AGRM_SFTY_USE]]
+| Column Name |
+|---|
+| KURT_ID |
+| ACTION_DESCRIPTION |
+| FIRST_DATE |
+| LAST_DATE |
 

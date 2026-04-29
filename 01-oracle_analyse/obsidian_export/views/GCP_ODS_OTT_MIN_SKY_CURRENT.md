@@ -3,9 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates 'Min Sky' application usage metrics, storage quotas, and user preferences at the customer level. It calculates various activity counts (foreground and connection events) over recent time periods (last 7, 30, 180 days), determines creation and last activity dates, and sums up storage quotas (total and used, converted to GB) and media file counts. The view also captures opt-out preferences for product improvement analytics and counts the number of distinct user IDs associated with each customer ID. This data is intended for loading into a data warehouse or analytical system.
+Aggregates 'Min Sky' service usage metrics per customer, providing consolidated activity dates, foreground/connection duration sums over various periods, total and used quota, media file counts, and opt-out preferences, by linking user data to customer IDs.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.SCD2_MIN_SKY_MAIN]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_CONNECTION_DTTM |
+| CURRENT_RECORD |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
 - ← [[ODS.CONNECT_ID_LINK]]
+| Column Name |
+|---|
+| USER_ID |
+| RANK_CONNECTION |
+| ACTIVE_FLAG |
+| CUSTOMER_ID |
 

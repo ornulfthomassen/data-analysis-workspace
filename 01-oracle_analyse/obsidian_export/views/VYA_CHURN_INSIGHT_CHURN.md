@@ -3,8 +3,77 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to provide comprehensive churn insights, likely for mobile phone plans (MPP), by aggregating various customer, subscription, and event-related data. It includes detailed metrics related to churn KPIs, porting events, terminations, customer demographics (age, gender, lifecycle segment), revenue, product attributes, and sales channels. The view consolidates information to facilitate analysis of customer churn behavior and prediction.
+Creates a view `VYA_CHURN_INSIGHT_CHURN` in the `CCM` schema, providing a direct projection of all columns from the `CCDW.CHURN_INSIGHT_CHURN` table or view.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.CHURN_INSIGHT_CHURN]]
+| Column Name |
+|---|
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| SUBSCRIPTION_KEY |
+| MPP_MAIN_ID_SK |
+| MPP_DEALER_CHAIN |
+| MPP_DEALER_NAME |
+| MPP_DEVICE_PRODUCERNAME |
+| MPP_DEVICE_MODELNAME |
+| MPP_CHANGETYPE |
+| MPP_IN_PORT_SP_NAME |
+| MPP_MB_LAST1 |
+| MPP_NET_REVENUE_ADJ |
+| MPP_NO_DAYS_MNO_START |
+| MPP_NO_DAYS_SUBS_START |
+| MPP_NO_MB_PCT_LAST1 |
+| MPP_NO_PORTING |
+| MPP_PROFIT_CAT |
+| MPP_PROD_ATTR_INCL_MB |
+| MPP_PROD_ATTR_MTH_FEE |
+| MPP_PRODUCT_FAMILY |
+| MPP_PRODUCT_NAME |
+| MPP_SALES_CH |
+| MPP_SUBS_START_REASON |
+| MPP_NEXT_FAMILIE_RABATT_STATUS |
+| MPP_SWAP_STATUS |
+| REVENUE_FEE_RATIO |
+| OWNER_AGE |
+| OWNER_GENDER |
+| OWNER_CLM_LIVSFASE_SEGMENT |
+| OWNER_NET_REVENUE |
+| OWNER_NO_FBR |
+| OWNER_NO_MBB |
+| OWNER_NO_MPP |
+| OWNER_NO_MPR |
+| OWNER_NO_PROD_CAT |
+| USER_AGE |
+| USER_GENDER |
+| USER_CLM_LIVSFASE_SEGMENT |
+| OWNER_USER_ROLES |
+| MPP_USER_BECAME_OWNER_FLG |
+| MPP_USER_BECAME_OWNER_DATE |
+| MONTHS_SINCE_OWNER_CHG |
+| U_13_RABATT |
+| U_30_RABATT |
+| FAMILIERABATT |
+| GRATIS_SIM |
+| DATA_BOOST |
+| AKTIVERT_NETTVERN_PLUSS |
+| EVENT_DATE |
+| EVENT_DTTM |
+| EVENT_STATUS_DATE |
+| EVENT_STATUS_DTTM |
+| KPI_CHURN |
+| KPI_CHURN_FC |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_OUTBOUND_FB |
+| KPI_PORTING_OUTBOUND_FB_FC |
+| KPI_PORTING_OUTBOUND_FC |
+| KPI_TERMINATION |
+| KPI_TERMINATION_FC |
+| SERV_PROVIDER_TO |
+| DAYS_BTW_OWNER_CHG_AND_CHURN |
+| CHURN_MONTH_DATE |
+| PERIOD_CATEGORY |
+| ACTIVATED_SAFE_FLAG |
 

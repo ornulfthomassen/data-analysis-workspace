@@ -3,8 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a filtered and de-duplicated list of consumer customer details. It selects various customer attributes such as customer number, type, IDs (KURT_ID, FAR_ID), contact numbers, address information, access type, and indicators for services like TV, broadband, and VoIP, along with status flags (STENGT, STENGT_STATUS, AKTIV). The data is filtered to include only records where the 'KURT_ID' is greater than 0. The GROUP BY clause on all selected columns ensures that only distinct combinations of these customer attributes are returned, effectively acting like a DISTINCT operation.
+Creates a view of customer data by selecting specific columns from `CCDW_CTI.CTI_CONS_CUSTOMER_CDK`, filtering records where 'KURT_ID' is greater than 0, and ensuring distinct combinations of the selected attributes.
 
 ## Data Sources (Inputs)
 - ← [[CCDW_CTI.CTI_CONS_CUSTOMER_CDK]]
+| Column Name |
+|---|
+| KUNDENUMMER |
+| KUNDETYPE |
+| KURT_ID |
+| FAR_ID |
+| KONTAKTNUMMER1 |
+| KONTAKTNUMMER2 |
+| GATEADRESSE |
+| POSTNUMMER |
+| POSTSTED |
+| AKSESSTYPE |
+| HAR_TV |
+| HAR_BREDBAND |
+| HAR_VOIP |
+| STENGT |
+| STENGT_STATUS |
+| AKTIV |
 

@@ -3,14 +3,32 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Manages the historical, partitioned table `ADM_CUSTOMER_MAPPING_HIST` for a specific month. It extracts customer mapping data from `CCDW.CUSTOMER_MAPPING`, stages it into a temporary table (`TMP_CUSTOMER_MAPPING_HIST`), and then uses an `ALTER TABLE ... EXCHANGE PARTITION` operation to update or add a partition in `ADM_CUSTOMER_MAPPING_HIST` with this new data. The procedure also handles partition existence checks, partition creation, index drops and creations (on `ADM_CUSTOMER_MAPPING_HIST`), and gathers statistics for the updated partition. It prevents overwriting existing data unless explicitly allowed.
+This procedure manages monthly partitions for the ADM_CUSTOMER_MAPPING_HIST table. It checks for the existence of the target table and the specific monthly partition (P_YYYYMM). If the partition does not exist, it creates it. It then populates a temporary table (TMP_CUSTOMER_MAPPING_HIST) with transformed customer mapping data from CCDW.CUSTOMER_MAPPING for the specified month. Finally, it exchanges the temporary table with the target partition in ADM_CUSTOMER_MAPPING_HIST, effectively loading the data. It also drops and recreates unique indexes and gathers statistics on the newly loaded partition.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
+- ← [[ADM_CUSTOMER_MAPPING_HIST]]
 - ← [[CCDW.CUSTOMER_MAPPING]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.ADM_CUSTOMER_MAPPING_HIST]]
-- → [[CLM_ADM.TMP_CUSTOMER_MAPPING_HIST]]
+- → [[TMP_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| KURT_KEY |
+| CUSTOMER_SK |
+| CUSTOMER_SK_KEY |
+- → [[ADM_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| KURT_KEY |
+| CUSTOMER_SK |
+| CUSTOMER_SK_KEY |
 

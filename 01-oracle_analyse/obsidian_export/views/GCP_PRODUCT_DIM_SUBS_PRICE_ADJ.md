@@ -3,10 +3,31 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and categorizes product price adjustments and discounts. It extracts adjustment details (override price, price reduction in absolute value and percentage) from product offer configurations based on specific configuration IDs (e.g., for age, family, or other discounts). These adjustments are then linked to product master data from the product dimension table. The view also includes specific default product keys with zero adjustments. Its primary purpose is to prepare and load product price reduction/override data for reporting or integration into other systems.
+The view `GCP_PRODUCT_DIM_SUBS_PRICE_ADJ` consolidates product price adjustment (discounts, overrides) information by combining product configuration data from PCAT schema with product dimension details from GALAXY.PRODUCT_DIM. It calculates various types of price adjustments (override price, price reduction, percentage reduction) based on configuration parameters and links them to specific products. The view also includes specific placeholder product keys for scenarios like 'no discount' or 'unknown discount'. Its primary purpose is to prepare and load price reduction/override data into the 'Mjøsa' system.
 
 ## Data Sources (Inputs)
 - ← [[PCAT.V_PRODUCT_OFFER_CONFIG_MV]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| CONFIGURATION_ID |
+| CONFIGURATION_VALUE |
+| CONFIGURATION_VALUE_DESCR |
 - ← [[PCAT.PRODUCT_OFFER]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| PUBLIC_NAME |
+| PRODUCT_OFFER_CATEGORY_ID |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_SYSTEM_NAME |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_REPORTING |
+| PRODUCT_NAME |
 

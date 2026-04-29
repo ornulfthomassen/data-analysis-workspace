@@ -3,8 +3,34 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides access to pre-calculated aggregated key performance indicators (KPIs) related to sales, product changes, and customer events (like change of ownership or subscription changes). These KPIs are aggregated by dealer, postal code, order status, and month, with values available at both postal code and dealer total levels, along with some percentage shares.
+Creates a view in the CCM schema named HS_TNB_AGGREG that mirrors all columns from the HS_TNB_AGGREG object in the adhoc_bs schema, effectively providing an alias or a schema-shifted copy of the source object.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.HS_TNB_AGGREG]]
+| Column Name |
+|---|
+| DEALER_NAME |
+| POSTNR |
+| POSTSTED |
+| ORDER_STATUS_NAME |
+| OSD_YEAR_MONTH |
+| KPI_NEWSALE_SPEACH_POSTNR |
+| KPI_PRODUCT_CHANGE_POSTNR |
+| KPI_NEWSALE_MPP_POSTNR |
+| KPI_NEWSALE_DEVICE_POSTNR |
+| KPI_CHANGE_OF_OWNER_MPP_POSTNR |
+| KPI_RETAIL_GROSS_MPP_POSTNR |
+| KPI_RETAIL_GROSS_MPP2_POSTNR |
+| ANTALL |
+| KPI_NEWSALE_SPEACH_DEALER_TOT |
+| KPI_PRODUCT_CHANGE_DEALER_TOT |
+| KPI_NEWSALE_MPP_DEALER_TOT |
+| KPI_NEWSALE_DEVICE_DEALER_TOT |
+| KPI_EIERSKIFTE_MPP_DEALER_TOT |
+| KPI_RETAIL_GROSS_MPP_DEAL_TOT |
+| KPI_RETAIL_GROSS_MPP2_DEAL_TOT |
+| NEWSALE_ANDEL |
+| ABOCHANGE_ANDEL |
+| KPI_NEWSALE_MPP_ANDEL |
+| KPI_NEWSALE_DEVICE_ANDEL |
 

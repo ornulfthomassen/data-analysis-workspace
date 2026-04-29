@@ -3,8 +3,13 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a dimension for measure types, standardizing NULL values in the 'MEASURE_TYPE_NAME' and 'MEASURE_TYPE_DESC' columns by replacing them with a placeholder ('-1') and ensuring consistent data types (VARCHAR2) and lengths for these columns. It serves to clean and prepare measure type data for reporting or analytical purposes by handling potential missing values and enforcing data consistency.
+Creates a dimension view by selecting all columns from the 'KIM_MEASURE_TYPE_DIM' table. It applies NULL value handling (replacing NULLs with -1) and type casting to 'MEASURE_TYPE_NAME' and 'MEASURE_TYPE_DESC' columns.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_MEASURE_TYPE_DIM]]
+| Column Name |
+|---|
+| MEASURE_TYPE_KEY |
+| MEASURE_TYPE_NAME |
+| MEASURE_TYPE_DESC |
 

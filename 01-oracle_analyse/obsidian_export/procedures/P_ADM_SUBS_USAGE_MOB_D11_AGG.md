@@ -3,18 +3,166 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_SUBS_USAGE_MOB_D11_AGG calculates and aggregates mobile subscription usage data. It performs a multi-stage aggregation process: First, it creates a detailed temporary table, 'TMP_SUBS_USAGE_D11_DET_KPI', by joining various dimension tables with raw usage data and augmenting it with derived key performance indicators (KPIs) such as roaming zone classification, destination zone, traffic type (e.g., MMS, SMS, Voice, Data), and detailed data package categories. Second, it aggregates this detailed data from the first temporary table into a second temporary table, 'TMP_SUBS_USAGE_MOB_D11_AGG'. This final aggregation summarizes usage metrics like MMS/SMS event counts, voice call durations/event counts, data volume (categorized by various data package and shared bucket types), and net revenue, broken down by roaming, destination, and traffic types. Both intermediate temporary tables are explicitly created, used, and then dropped within the procedure's execution.
+Enriches raw mobile usage data with KPI categorizations and then aggregates it into detailed mobile usage metrics by subscription, event date, and period. The procedure first creates a temporary table to store the enriched data (TMP_SUBS_USAGE_D11_DET_KPI) and then uses this enriched data to create a second temporary table (TMP_SUBS_USAGE_MOB_D11_AGG) containing various summed usage metrics like MMS count/revenue, SMS count/revenue, voice call count/minutes/revenue, and data volume, categorized by roaming zone, traffic type, and data package type.
 
 ## Data Sources (Inputs)
+- ← [[CLM_ADM.ADM_SUBS_USAGE_MONTH_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CCM.VYA_USAGE_DAY_RAW_FULL]]
 - ← [[GALAXY.CALL_TYPE_DIM]]
+| Column Name |
+|---|
+| CALL_TYPE_KEY |
+| EVENT_TYPE_ID |
 - ← [[GALAXY.ROAMING_COUNTRY_DIM_V]]
+| Column Name |
+|---|
+| ROAMING_COUNTRY_KEY |
+| DRM_CURRENT_COUNTRY_GROUPING |
 - ← [[GALAXY.DESTINATION_COUNTRY_DIM_V]]
+| Column Name |
+|---|
+| DESTINATION_COUNTRY_KEY |
+| DRM_CURRENT_COUNTRY_GROUPING |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_PAYTYPE |
+| SOURCE_SYSTEM_NAME |
+| DRM_COMMON_PRODUCT_CATEGORY |
 - ← [[GALAXY.TRAFFIC_TYPE_DIM_V]]
-- ← [[CLM_ADM.ADM_SUBS_USAGE_MONTH_DET]]
+| Column Name |
+|---|
+| TRAFFIC_TYPE_KEY |
+| REPORT_GROUP_3 |
+| SOURCE_SYSTEM_KEY_3 |
+| TRAFFIC_TYPE_NAME_1 |
+| TRAFFIC_TYPE_NAME_2 |
+| TRAFFIC_TYPE_NAME_3 |
+- ← [[TMP_SUBS_USAGE_D11_DET_KPI]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| EVENT_DATE_KEY |
+| SUBSCRIPTION_KEY |
+| SUB_NUMBER |
+| USAGE_NET_AMOUNT |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_DURATION |
+| USAGE_VOLUME_TOTAL |
+| KPI_TRAFFIC_TYPE_L1 |
+| KPI_ROAMING_SONE |
+| KPI_DESTINATION_SONE |
+| KPI_TRAFFIC_TYPE_L2 |
+| KPI_DATAPAKKE |
+| KPI_SHARED_BUCKET |
+| PRIM_PRODUCT_KEY |
 
 ## Target Tables (Outputs)
 - → [[TMP_SUBS_USAGE_D11_DET_KPI]]
 - → [[TMP_SUBS_USAGE_MOB_D11_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| EVENT_DATE_KEY |
+| SUBSCRIPTION_KEY |
+| SUB_NUMBER |
+| NET_REVENUE |
+| ANT_MMS |
+| ANT_MMS_DOM |
+| ANT_MMS_INTL_EU |
+| ANT_MMS_INTL_ROW |
+| ANT_MMS_ROAM_EU |
+| ANT_MMS_ROAM_ROW |
+| USAGE_NET_AMOUNT_MMS |
+| USAGE_NET_AMOUNT_MMS_DOM |
+| USAGE_NET_AMOUNT_MMS_INTL_EU |
+| USAGE_NET_AMOUNT_MMS_INTL_ROW |
+| USAGE_NET_AMOUNT_MMS_ROAM_EU |
+| USAGE_NET_AMOUNT_MMS_ROAM_ROW |
+| ANT_SMS |
+| ANT_SMS_DOM |
+| ANT_SMS_INTL_EU |
+| ANT_SMS_INTL_ROW |
+| ANT_SMS_ROAM_EU |
+| ANT_SMS_ROAM_ROW |
+| USAGE_NET_AMOUNT_SMS |
+| USAGE_NET_AMOUNT_SMS_DOM |
+| USAGE_NET_AMOUNT_SMS_INTL_EU |
+| USAGE_NET_AMOUNT_SMS_INTL_ROW |
+| USAGE_NET_AMOUNT_SMS_ROAM_EU |
+| USAGE_NET_AMOUNT_SMS_ROAM_ROW |
+| ANT_TALE |
+| ANT_TALE_DOM |
+| ANT_TALE_INTL_EU |
+| ANT_TALE_INTL_ROW |
+| ANT_TALE_ROAM_EU |
+| ANT_TALE_ROAM_ROW |
+| MIN_TALE |
+| MIN_TALE_DOM |
+| MIN_TALE_INTL_EU |
+| MIN_TALE_INTL_ROW |
+| MIN_TALE_ROAM_EU |
+| MIN_TALE_ROAM_ROW |
+| USAGE_NET_AMOUNT_TALE |
+| USAGE_NET_AMOUNT_TALE_DOM |
+| USAGE_NET_AMOUNT_TALE_INTL_EU |
+| USAGE_NET_AMOUNT_TALE_INTL_ROW |
+| USAGE_NET_AMOUNT_TALE_ROAM_EU |
+| USAGE_NET_AMOUNT_TALE_ROAM_ROW |
+| MB_DATA |
+| MB_DATA_DOM |
+| MB_DATA_DOM_MUSIC_FREEDM |
+| MB_DATA_DOM_ZERO_RATED |
+| MB_DATA_DOM_INCLUDED |
+| MB_DATA_DOM_INVOICED |
+| MB_DATA_DOM_REDUCED_SPEED |
+| MB_DATA_DOM_PACKAGE_CAMP |
+| MB_DATA_DOM_PACKAGE_PAID |
+| MB_DATA_DOM_SHARED_BUCKET |
+| MB_DATA_ROAM_EU |
+| MB_DATA_ROAM_EU_MUSIC_FREEDM |
+| MB_DATA_ROAM_EU_ZERO_RATED |
+| MB_DATA_ROAM_EU_INCLUDED |
+| MB_DATA_ROAM_EU_INVOICED |
+| MB_DATA_ROAM_EU_REDUCED_SPEED |
+| MB_DATA_ROAM_EU_PACKAGE_CAMP |
+| MB_DATA_ROAM_EU_PACKAGE_PAID |
+| MB_DATA_ROAM_EU_SHARED_BUCKET |
+| MB_DATA_ROAM_ROW |
+| MB_DATA_ROAM_ROW_MUSIC_FREEDM |
+| MB_DATA_ROAM_ROW_PACKAGE_CAMP |
+| MB_DATA_ROAM_ROW_PACKAGE_PAID |
+| MB_DATA_ROAM_ROW_OTHER |
+| MB_DATA_ROAM_OTHR |
+| MB_DATA_ROAM_OTHR_MUSIC_FREEDM |
+| MB_DATA_ROAM_OTHR_PACKAGE_CAMP |
+| MB_DATA_ROAM_OTHR_PACKAGE_PAID |
+| MB_DATA_ROAM_OTHR_OTHER |
+| MB_DATA_FBB_GARANTI |
+| MB_DATA_PACKAGE |
+| MB_DATA_PACKAGE_CAMP_OTHR |
+| MB_DATA_PACKAGE_COLA |
+| MB_DATA_PACKAGE_COLC |
+| MB_DATA_PACKAGE_CRLA |
+| MB_DATA_PACKAGE_CRLC |
+| MB_DATA_PACKAGE_CRUA |
+| MB_DATA_PACKAGE_TRLA |
+| MB_DATA_PACKAGE_PRCH_OTHR |
+| MB_DATA_PACKAGE_POLA |
+| MB_DATA_PACKAGE_POLC |
+| MB_DATA_PACKAGE_PRUC |
+| MB_DATA_PACKAGE_PXLC |
+| MB_DATA_PACKAGE_GOODIES |
+| MB_DATA_SHARED_BUCKET |
+| MB_DATA_SB_FAM_BONUS |
+| MB_DATA_SB_INCLUDED |
+| MB_DATA_SB_EXTRA |
+| USAGE_NET_AMOUNT_DATA |
+| USAGE_NET_AMOUNT_DATA_DOM |
+| USAGE_NET_AMOUNT_DATA_ROAM |
+| NO_PRIM_PRODUCT_KEY |
 

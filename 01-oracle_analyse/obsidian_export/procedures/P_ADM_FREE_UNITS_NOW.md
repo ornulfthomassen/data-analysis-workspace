@@ -3,23 +3,168 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_FREE_UNITS_NOW`, processes and aggregates 'free unit' data (such as data rollover, leftover, and included units) from an operational system (OCS) and other data sources. It transforms this raw data into two main analytical tables: `ADM_FREE_UNITS_SUBS` for subscription-related free units and `ADM_FREE_UNITS_AGRM` for agreement-related free units. The procedure follows an ETL pattern, creating intermediate temporary tables, then renaming these temporary tables to become the final permanent tables, while also managing backup versions of the permanent tables.
+This procedure extracts daily 'Free Units' data from the OCS system. It performs initial data quality checks, then transforms and categorizes the free units into subscription-level details. The processed data is stored in temporary tables and then promoted to the `ADM_FREE_UNITS_SUBS` analytical table using a rename strategy, ensuring a backup of the previous day's data. An agreement-level processing section (`ADM_FREE_UNITS_AGRM`) is present in the code but is explicitly disabled.
 
 ## Data Sources (Inputs)
 - ← [[OCS.OCS_FREE_UNITS]]
+| Column Name |
+|---|
+| FILE_DTTM |
+| SUBSCRIBER_KEY |
+| PRI_IDENTITY |
+| SUB_GROUP_KEY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_ID |
+| FREE_UNIT_OWNER_TYPE |
+| FREE_UNIT_ADD_OWNER_TYPE |
+| FREE_UNIT_TYPE_ID |
+| RENEWAL_POLICY_ID |
+| RENEWAL_FLAG |
+| ORIGIN_TYPE |
+| ORIGIN_ID |
+| INITIAL_TYPE |
+| INITIAL_ID |
+| INITIAL_FREE_UNIT_ID |
+| INIT_BALANCE |
+| RESERVE_AMOUNT |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+| EXP_DATE |
+| EFF_DATE |
+| PAY_OFFERING_METHOD |
+| PRE_BC_AMOUNT |
+| CREATE_DATE |
+| PPRE_BC_AMOUNT |
+| TARIFF_CODE |
+| LAST_UPDATE_TIME |
+| C_GATEVALUE1 |
+| C_GATEVALUE2 |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME |
+| LOAD_DTTM |
+- ← [[CLM_ADM.TMP_FREE_UNITS_RAW]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| SUBSCRIBER_KEY |
+| PRI_IDENTITY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| INIT_BALANCE |
+| CURRENT_BALANCE |
+| FREE_UNIT_OWNER_TYPE |
+| ORIGIN_TYPE |
+| POLICY_CYCLE_ID |
 - ← [[PCAT.COMPONENT]]
+| Column Name |
+|---|
+| SYSTEM_COMPONENT_ID |
+| SYSTEM_COMPONENT_TYPE |
+| NAME |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[CM.SUBSCRIPTION_OFFER_INCENTIVE]]
-- ← [[CCDW.AGREEMENT_MAPPING]]
-- ← [[CM.AGREEMENT_NEW]]
-- ← [[CCDW.AGREEMENT]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCRIBED_COMPONENT_ID |
+| INFO_IS_DELETED |
+| PRODUCT_OFFER_ID |
 
 ## Target Tables (Outputs)
-- → [[TMP_FREE_UNITS_RAW]]
-- → [[TMP_FREE_UNITS_SUBS]]
-- → [[ADM_FREE_UNITS_SUBS_BCK]]
-- → [[ADM_FREE_UNITS_SUBS]]
-- → [[TMP_FREE_UNITS_AGRM]]
-- → [[ADM_FREE_UNITS_AGRM_BCK]]
-- → [[ADM_FREE_UNITS_AGRM]]
+- → [[CLM_ADM.TMP_FREE_UNITS_RAW]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| SUBSCRIBER_KEY |
+| PRI_IDENTITY |
+| SUB_GROUP_KEY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_ID |
+| FREE_UNIT_OWNER_TYPE |
+| FREE_UNIT_ADD_OWNER_TYPE |
+| FREE_UNIT_TYPE_ID |
+| RENEWAL_POLICY_ID |
+| RENEWAL_FLAG |
+| ORIGIN_TYPE |
+| ORIGIN_ID |
+| INITIAL_TYPE |
+| INITIAL_ID |
+| INITIAL_FREE_UNIT_ID |
+| INIT_BALANCE |
+| RESERVE_AMOUNT |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+| EXP_DATE |
+| EFF_DATE |
+| PAY_OFFERING_METHOD |
+| PRE_BC_AMOUNT |
+| CREATE_DATE |
+| PPRE_BC_AMOUNT |
+| TARIFF_CODE |
+| LAST_UPDATE_TIME |
+| C_GATEVALUE1 |
+| C_GATEVALUE2 |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME |
+| LOAD_DTTM |
+- → [[CLM_ADM.TMP_FREE_UNITS_SUBS]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| LOAD_DATE |
+| FREE_UNIT_TYPE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| CURRENT_BALANCE_MB |
+| CURRENT_BALANCE |
+| COM_SYSTEM_COMPONENT_ID |
+| SIO_SUBSCRIBED_COMPONENT_ID |
+| NAME |
+- → [[CLM_ADM.ADM_FREE_UNITS_SUBS_BCK]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| LOAD_DATE |
+| FREE_UNIT_TYPE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| CURRENT_BALANCE_MB |
+| CURRENT_BALANCE |
+| COM_SYSTEM_COMPONENT_ID |
+| SIO_SUBSCRIBED_COMPONENT_ID |
+| NAME |
+- → [[CLM_ADM.ADM_FREE_UNITS_SUBS]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| LOAD_DATE |
+| FREE_UNIT_TYPE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| CURRENT_BALANCE_MB |
+| CURRENT_BALANCE |
+| COM_SYSTEM_COMPONENT_ID |
+| SIO_SUBSCRIBED_COMPONENT_ID |
+| NAME |
 

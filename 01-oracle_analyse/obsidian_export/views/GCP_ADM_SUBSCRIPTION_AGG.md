@@ -3,8 +3,67 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'GCP_ADM_SUBSCRIPTION_AGG', serves as a direct projection or alias of the 'ADM_SUBSCRIPTION_AGG' data source. It exposes pre-aggregated subscription-related metrics including data usage (MB), MMS/SMS counts and costs (KR), speech duration and numbers, and various gross/net financial fees (e.g., periodic, initiation, termination, usage, discounts). The 'PREV1', 'PREV2', 'PREV3' suffixes on many columns suggest that these metrics represent data from previous periods (e.g., previous 1, 2, or 3 months). The view itself does not perform any new aggregations or transformations, but rather provides a specific access point or logical layer for this pre-existing aggregated subscription data.
+Creates a view `GCP_ADM_SUBSCRIPTION_AGG` in the `CCM` schema, which mirrors all columns from the `CLM_ADM.ADM_SUBSCRIPTION_AGG` table, providing a direct projection of aggregated subscription data.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+| KR_MB_TOT_PREV1 |
+| KR_MB_TOT_PREV2 |
+| KR_MB_TOT_PREV3 |
+| NUMBER_OF_MMS_NORGE_PREV1 |
+| NUMBER_OF_MMS_NORGE_PREV2 |
+| NUMBER_OF_MMS_NORGE_PREV3 |
+| KR_MMS_NORGE_PREV1 |
+| KR_MMS_NORGE_PREV2 |
+| KR_MMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_NORGE_PREV1 |
+| NUMBER_OF_SMS_NORGE_PREV2 |
+| NUMBER_OF_SMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_UTLAND_PREV1 |
+| NUMBER_OF_SMS_UTLAND_PREV2 |
+| NUMBER_OF_SMS_UTLAND_PREV3 |
+| KR_SMS_NORGE_PREV1 |
+| KR_SMS_NORGE_PREV2 |
+| KR_SMS_NORGE_PREV3 |
+| KR_SMS_UTLAND_PREV1 |
+| KR_SMS_UTLAND_PREV2 |
+| KR_SMS_UTLAND_PREV3 |
+| DURAT_SPEECH_NORGE_PREV1 |
+| DURAT_SPEECH_NORGE_PREV2 |
+| DURAT_SPEECH_NORGE_PREV3 |
+| DURAT_SPEECH_UTLAND_PREV1 |
+| DURAT_SPEECH_UTLAND_PREV2 |
+| DURAT_SPEECH_UTLAND_PREV3 |
+| NUMBER_SPEECH_NORGE_PREV1 |
+| NUMBER_SPEECH_NORGE_PREV2 |
+| NUMBER_SPEECH_NORGE_PREV3 |
+| NUMBER_SPEECH_UTLAND_PREV1 |
+| NUMBER_SPEECH_UTLAND_PREV2 |
+| NUMBER_SPEECH_UTLAND_PREV3 |
+| KR_SPEECH_NORGE_PREV1 |
+| KR_SPEECH_NORGE_PREV2 |
+| KR_SPEECH_NORGE_PREV3 |
+| KR_SPEECH_UTLAND_PREV1 |
+| KR_SPEECH_UTLAND_PREV2 |
+| KR_SPEECH_UTLAND_PREV3 |
+| GROSS_FEE |
+| GROSS_PERIODIC_FEE_FULL |
+| NET_FEE |
+| NET_INITIATION_FEE |
+| NET_TERMINATION_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_PERIODIC_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| GROSS_USE |
+| NET_USE |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
 

@@ -3,11 +3,52 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and segments mobile balance data from two distinct sources ('BALANCE_MOBILE_SEGMENT_AGG' and 'BALANCE_TALKMORE_AGG') for CRM analysis. It calculates a net balance by subtracting 'OUT_PORT' for the first source. The view enriches the data with month dimension details (current and previous periods) and product dimension details for the Talkmore segment. It applies extensive filtering based on product descriptions to exclude certain categories (e.g., business, demo, twin, specific SMS/fixed-line products, private, and specific Talkmore products). Additionally, it transforms specific lifecycle segment names ('Barn' to 'Småbarnsfamilie', 'Ungdom' to 'Etablert barnefamilie') and handles null values by assigning 'Ukjent' (Unknown) or default numeric values. The final dataset is filtered to include data from December 2014 onwards, providing a consolidated, segmented, and cleaned view of mobile subscriber balances.
+Aggregates and unifies mobile segment balance data from `CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_AGG` and `CLM_ADM.BALANCE_TALKMORE_AGG` sources. It includes transformations, data cleaning (e.g., handling NULLs, excluding certain product descriptions), and filtering to focus on consumer/private mobile segments from December 2014 onwards, providing monthly and yearly period keys, product details, and various segment classifications.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_AGG]]
+| Column Name |
+|---|
+| BALANCE |
+| OUT_PORT |
+| REFRESH_DATE |
+| PERIOD_MONTH_KEY |
+| YEAR_MONTH |
+| PRIM_PRODUCT_DESC |
+| PRODUCT_KEY |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| BINDINGSSTATUS |
+| PROFIT_CAT_NAME2 |
+| PROFIT_CAT_NAME4 |
+| PROFIT_CAT_NAME7 |
+| PROFIT_CAT |
+| PROFIT_PERIOD |
+| VAR_SEGMENT_NAME |
+| CHURN_SEGMENT_NAME |
+| CHURN_SEGMENT_GROUP |
+| CLM_LIVSFASE_SEGMENT_NAME |
+| MAP2_SEGMENT_NAME |
 - ← [[ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PREV1_PERIOD_MONTH_KEY |
+| PREV2_PERIOD_MONTH_KEY |
+| PREV3_PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.BALANCE_TALKMORE_AGG]]
+| Column Name |
+|---|
+| BALANCE |
+| REFRESH_DATE |
+| YEAR_MONTH |
+| PERIOD_MONTH_KEY |
+| PRIM_PRODUCT_DESC |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
 

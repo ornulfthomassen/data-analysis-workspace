@@ -3,9 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view links subscription information with category-specific data, providing the subscription ID, a reporting period key, a derived 'profit period' key (two months prior to the reporting period), and a category. It effectively prepares data for category-based profit analysis or reporting at a subscription level, possibly incorporating a time lag for profit calculation.
+This view combines subscription mapping data with categorized profit data. It links profit categories to specific subscriptions, calculates a monthly period key and a 'profit period' key (two months prior) based on a period ID, and filters for a specific source system.
 
 ## Data Sources (Inputs)
 - ← [[PROFIT.CP_CAT_BED_PRIV]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| PERIOD_ID |
+| CATEGORY |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 

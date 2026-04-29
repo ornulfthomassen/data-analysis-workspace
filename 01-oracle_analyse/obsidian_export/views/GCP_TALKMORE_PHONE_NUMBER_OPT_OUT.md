@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves phone numbers and their associated types, specifically those identified as 'opt-out' within the 'Talkmore' system, from the inventory of phone numbers. It casts the phone number to a VARCHAR2(12) format.
+Presents phone numbers and their associated types from the 'INVENTORY_PHONE_NUMBER' table, specifically casting the 'PHONE_NUMBER' column to 'VARCHAR2(12)'.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_PHONE_NUMBER]]
+| Column Name |
+|---|
+| PHONE_NUMBER |
+| TYPE_NAME |
 

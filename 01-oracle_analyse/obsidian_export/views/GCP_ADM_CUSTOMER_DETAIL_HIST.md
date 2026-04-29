@@ -3,8 +3,34 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-The view `CCM.GCP_ADM_CUSTOMER_DETAIL_HIST` provides a direct projection of all columns from the `CLM_ADM.ADM_CUSTOMER_DETAIL_HIST` table or view. Its main purpose is to expose historical customer detail information, including mobile subscription details and BankID usage for both owners and users, potentially under a different schema (CCM) or as a preparatory step for data consumption in a Google Cloud Platform (GCP) environment. It does not perform any data transformations, filtering, or aggregations itself.
+Creates a view named GCP_ADM_CUSTOMER_DETAIL_HIST in the CCM schema, exposing all columns from the CLM_ADM.ADM_CUSTOMER_DETAIL_HIST object. This view essentially re-presents existing customer detail historical data.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_DETAIL_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| OWNER_NO_MOB |
+| OWNER_MAIN_SUBSCR_MB_LAST1 |
+| OWNER_MAIN_SUBSCR_MB_3MO |
+| OWNER_MAIN_SUBSCR_NET_FEE |
+| OWNER_MAIN_SUBSCR_NET_USE |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_MB |
+| OWNER_MAIN_SUBSCRIPTIPON_ID_KR |
+| OWNER_NO_MOB_BANK_ID |
+| OWNER_BANKID_USED_LAST1 |
+| OWNER_BANKID_USED_LAST2 |
+| OWNER_BANKID_USED_LAST3 |
+| USER_NO_MOB |
+| USER_MAIN_SUBSCR_MB_LAST1 |
+| USER_MAIN_SUBSCR_MB_3MO |
+| USER_MAIN_SUBSCR_NET_FEE |
+| USER_MAIN_SUBSCR_NET_USE |
+| USER_MAIN_SUBSCRIPTIPON_ID_MB |
+| USER_MAIN_SUBSCRIPTIPON_ID_KR |
+| USER_NO_MOB_BANK_ID |
+| USER_BANKID_USED_LAST1 |
+| USER_BANKID_USED_LAST2 |
+| USER_BANKID_USED_LAST3 |
 

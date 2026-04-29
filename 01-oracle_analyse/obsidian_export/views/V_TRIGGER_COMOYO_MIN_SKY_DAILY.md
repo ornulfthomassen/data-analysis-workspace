@@ -3,8 +3,19 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-Retrieves recent execution details (start/end times, status, errors) for a specific workflow instance named 's_mUpdate_ST_TRAFFIC' within the 'COMOYO' subject area and 'wf_PROC_MINSKY_DAILY' workflow, specifically for runs that started within approximately the last 12-36 hours (since yesterday noon). This view likely serves for monitoring or triggering based on the status of this particular daily data processing task.
+Monitors the run status and details of a specific daily Minsky process ('wf_PROC_MINSKY_DAILY' and 's_mUpdate_ST_TRAFFIC' within the 'COMOYO' subject area) that have started within the last 12 hours, by querying repository task instance run logs.
 
 ## Data Sources (Inputs)
 - ← [[PCT_REPOSITORY.REP_TASK_INST_RUN]]
+| Column Name |
+|---|
+| TASK_TYPE_NAME |
+| SUBJECT_AREA |
+| WORKFLOW_NAME |
+| INSTANCE_NAME |
+| START_TIME |
+| END_TIME |
+| RUN_ERR_CODE |
+| RUN_ERR_MSG |
+| RUN_STATUS_CODE |
 

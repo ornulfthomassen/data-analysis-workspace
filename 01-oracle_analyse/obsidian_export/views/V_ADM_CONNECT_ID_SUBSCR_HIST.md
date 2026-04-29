@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a direct projection of the `ADM_CONNECT_ID_SUBSCR_HIST` table, making its data available in the `CRM_ANALYSE` schema.
+Creates a view that directly projects specific columns from the 'clm_adm.ADM_CONNECT_ID_SUBSCR_HIST' table without any transformations or joins. It effectively acts as an alias or a restricted access layer for the underlying table.
 
 ## Data Sources (Inputs)
 - ← [[clm_adm.ADM_CONNECT_ID_SUBSCR_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CONNECT_ID |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
 

@@ -1,0 +1,188 @@
+# KIM_CONTACT_ORDER_MATCH_2_AAGE
+
+**Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
+
+## Description
+The procedure pre-processes order line details and campaign contact information into temporary tables, then joins these with various dimension tables to identify and match campaign contacts with relevant order data. It then iterates through the matched results, updating the permanent `KIM_CAMPAIGN_DETAIL_FACT` table with the best-matching order details (such as order ID, product keys, dealer, and binding benefits) for each contact. It also logs the procedure's execution status and record counts.
+
+## Data Sources (Inputs)
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_TMP2]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| RESPONSE_KEY |
+| KURT_ID_OWNER |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| CONTACT_DATE_KEY |
+| CONTACT_DTTM |
+| TREATMENT_KEY |
+- ← [[CRM_ANALYSE.KIM_RESPONSE_DIM]]
+| Column Name |
+|---|
+| RESPONSE_KEY |
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| OFFER_CATEGORY |
+| PRODUCT_ACT1 |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+- ← [[CRM_ANALYSE.KIM_TREATMENT_DIM]]
+| Column Name |
+|---|
+| TREATMENT_KEY |
+| OFFER_CATEGORY |
+| TREATMENT_PRODUCT_KEY |
+- ← [[CRM_ANALYSE.ORDER_LINE_DETAIL_FACT_TMP]]
+| Column Name |
+|---|
+| SOURCE_ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| BINDING_PRODUCT_KEY |
+| DEALER_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| SOURCE_SYSTEM_KEY |
+| HANDSET_KEY |
+| OWNER_CUSTOMER_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| ORDER_DTTM |
+| BINDING_TYPE_BENEFIT_KEY |
+- ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| ORDER_LINE_PRODUCT_KEY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PRODUCT_GROUP |
+- ← [[GALAXY.BINDING_TYPE_BENEFIT_DIM]]
+| Column Name |
+|---|
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_BENEFIT_DESC |
+- ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_TIME_KEY |
+| SOURCE_ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| BINDING_PRODUCT_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| HANDSET_KEY |
+| RESOURCE_VALUE |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| MARKET_AREA_KEY |
+| NUMBER_OF_ORDERS |
+| ORDER_SUBSCR_KEY |
+| ORDER_STATUS_REASON_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+- ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| SOURCE_DEALER_ID |
+- ← [[KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| CONTACT_DATE_KEY |
+| ORDER_MATCH_KEY |
+| TREATMENT_KEY |
+| CONTACT_KEY |
+- ← [[kim_update_20200226]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+- ← [[STLOG.ST_IN]]
+| Column Name |
+|---|
+| RUN_ID |
+| SEQ_ID |
+- ← [[CLM_CCM.GOV_DQ_MARTS]]
+| Column Name |
+|---|
+| SYSTEM_NM |
+| PROCESS_NM |
+| STATUS_NM |
+| RUNTIME |
+
+## Target Tables (Outputs)
+- → [[CLM_CCM.GOV_DQ_MARTS]]
+| Column Name |
+|---|
+| RUNTIME |
+| FREQ |
+| SYSTEM_NM |
+| PROCESS_NM |
+| STATUS_NM |
+| REASON |
+| PRIORITY |
+| START_TIME |
+| END_TIME |
+| PREV_OK_DTTM |
+| PREV_OK_RESSULT |
+| LAST_RESSULT |
+- → [[CRM_ANALYSE.ORDER_LINE_DETAIL_FACT_TMP]]
+| Column Name |
+|---|
+| ORDER_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_DTTM |
+| SOURCE_ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| BINDING_PRODUCT_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| HANDSET_KEY |
+| RESOURCE_VALUE |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| MARKET_AREA_KEY |
+| NUMBER_OF_ORDERS |
+| ORDER_SUBSCR_KEY |
+| ORDER_STATUS_REASON_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+- → [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_TMP2]]
+- → [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| ORDER_MATCH_KEY |
+| ORDER_RANK |
+| ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_FROM_PRODUCT_KEY |
+| ORDER_TO_PRODUCT_KEY |
+| ORDER_BINDING_PRODUCT_KEY |
+| ORDER_DEALER_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_SOURCE_SYSTEM_KEY |
+| BINDING_BENEFIT_DESC |
+| ORDER_HANDSET_KEY |
+| SEQ_ID_UPD |
+- → [[STLOG.ST_IN]]
+| Column Name |
+|---|
+| NUM_RECS_IN_TARGET |
+| CHECK_SUM_TARGET |
+

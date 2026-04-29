@@ -3,10 +3,29 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view calculates the aggregated net revenue (total of initiation, periodic, and discount fees) on a monthly basis for each subscription. It filters for specific market areas (likely Sweden, based on context) and 'Mobil Telefoni' (Mobile Telephony) products, explicitly excluding any revenues associated with 'Terminalbinding' (terminal binding) product types. The primary purpose is to provide net revenue figures for mobile subscriptions that are not tied to a device binding.
+Calculates the aggregated net revenue components (initiation, periodic, and discount fees) for mobile telephony subscriptions within specific market areas (2 and 4), excluding any revenue associated with 'Terminalbinding' type sub-products. The results are grouped by period month and subscription key.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.SUBSCR_FEE_MONTH_FACT_V]]
+| Column Name |
+|---|
+| PERIODE_MONTH_KEY |
+| SUBSCRIPTION_KEY |
+| NET_INITIATION_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| PRIM_PRODUCT_KEY |
+| SUB_PRODUCT_KEY |
+| MARKET_AREA_KEY |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_PRODUCT_AREA |
+| PRODUCT_BINDING_TYPE_NAME |
 - ← [[GALAXY.SUBSCRIPTION_DIM_MV]]
+| Column Name |
+|---|
+| SUBSCRIPTION_KEY |
 

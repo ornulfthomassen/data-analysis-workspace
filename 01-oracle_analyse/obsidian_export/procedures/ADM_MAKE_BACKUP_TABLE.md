@@ -3,9 +3,22 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `ADM_MAKE_BACKUP_TABLE`, is designed to rename an existing database table and its associated indexes. It effectively archives the original table by giving it a new name. The procedure performs several validation checks, including ensuring the old table name is provided, the new table name is valid (not null, sufficient length, starts with a character, no illegal characters), the new name is different from the old, the old table exists, and that no table already exists with the new name. It also verifies that all proposed new index names are available. If all checks pass, it executes `ALTER TABLE ... RENAME TO ...` and `ALTER INDEX ... RENAME TO ...` statements to rename the table and its indexes.
+Renames an existing Oracle table and its associated indexes to a new specified name, effectively creating a backup or historical version of the table. It performs comprehensive validation on the provided table names and checks for potential naming conflicts with existing database objects before executing the DDL operations. It returns status codes and error messages based on the outcome.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
 - ← [[DBA_IND_COLUMNS]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| TABLE_OWNER |
+| INDEX_NAME |
+
+## Target Tables (Outputs)
+- → [[P_TABLENAME_O]]
 

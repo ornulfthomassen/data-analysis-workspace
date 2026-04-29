@@ -3,17 +3,210 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The `P_ADM_CUSTOMER_INFO_HIST` procedure loads or updates historical customer and household information for a specified month (P_YYYYMM) into a partitioned table named `ADM_CUSTOMER_INFO_HIST`. It first validates the existence and status of required source data for the given month. If source data is valid, it manages partitions in the target table, ensuring the target partition exists. It then creates a temporary staging table (`TMP_CUSTOMER_INFO_HIST`) by selecting and transforming data from various customer and household dimension tables. Finally, it uses an `ALTER TABLE ... EXCHANGE PARTITION` statement to efficiently replace or load the data from the temporary staging table into the corresponding partition of `ADM_CUSTOMER_INFO_HIST`, followed by gathering statistics for performance optimization.
+This procedure `P_ADM_CUSTOMER_INFO_HIST` creates or refreshes a monthly historical snapshot of customer information. It first validates the existence of source data for the specified month (`P_YYYYMM`). If sources are valid, it creates a temporary table (`TMP_CUSTOMER_INFO_HIST`), populates it with transformed and joined data from various customer and household information tables. Finally, it adds a new partition to the `ADM_CUSTOMER_INFO_HIST` table for the target month (if it doesn't exist or is allowed to be overwritten) and then atomically replaces the content of this partition with the data from the temporary table using an `EXCHANGE PARTITION` operation. It also logs load history and handles various errors.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| LAST_DATE_KEY |
+| LAST_DATE |
+| PERIOD_MONTH_KEY |
+| NEXT_PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| DATE_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| FARID |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| POSTNR |
+| POSTSTED |
+| CU_HH_SAME_ADDR_FLAG |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| LEILIGHET_NR |
+| ADRESSETYPE |
+| ADRESSESTATUS |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_FIBER |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+| KURT_ID |
+| HOUSEHOLD_ID |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_HIST]]
-- ← [[CLM_ADM.ADM_HOUSEHOLD_INFO_KURT]]
-- ← [[CLM_ADM.ADM_HOUSEHOLD_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
+- ← [[CLM_ADM.ADM_HOUSEHOLD_INFO_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+- ← [[CLM_ADM.ADM_HOUSEHOLD_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| HOUSEHOLD_ID |
+- ← [[ADM_CUSTOMER_INFO_HIST]]
 
 ## Target Tables (Outputs)
-- → [[ADM_CUSTOMER_INFO_HIST]]
 - → [[TMP_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MONTH_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| POSTNR |
+| POSTSTED |
+| CU_HH_SAME_ADDR_FLAG |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| LEILIGHET_NR |
+| ADRESSETYPE |
+| ADRESSESTATUS |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+- → [[ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MONTH_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| POSTNR |
+| POSTSTED |
+| CU_HH_SAME_ADDR_FLAG |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| LEILIGHET_NR |
+| ADRESSETYPE |
+| ADRESSESTATUS |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+- → [[CRM_ANALYSE.ADM_LOAD_HISTORY]]
 

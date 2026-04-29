@@ -3,9 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves customer keys and their associated 'CU_NO_TV_FTV' attribute by joining a customer information table with a customer mapping view based on a common 'KURT_ID'. It essentially maps a generic customer ID ('KURT_ID') from one table to a 'CUSTOMER_KEY' and a specific customer attribute ('CU_NO_TV_FTV').
+Joins customer information from `CCM_CUSTOMER_INFO_2` with customer mapping data from `ADM_CUSTOMER_MAPPING_V` using a common `KURT_ID` to retrieve `CUSTOMER_KEY` and `CU_NO_TV_FTV`.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.CCM_CUSTOMER_INFO_2]]
+| Column Name |
+|---|
+| CU_NO_TV_FTV |
+| KURT_ID |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| KURT_ID |
 

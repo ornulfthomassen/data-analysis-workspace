@@ -3,8 +3,43 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, VYA_CUSTOMER_CHAIN_AFFILIATION, is designed to extract and present aggregated customer affiliation data, tracking customer interactions with dealer chains and IDs over time, and associated Key Performance Indicators (KPIs). It provides details like the number of dealer chains/IDs a customer interacted with, the first and last order dates and corresponding dealer affiliations, and lists of all related order dates, dealer chains, and dealer IDs. It also includes various KPIs such as binding, newsale, porting, product changes, termination, and gross sales, both as individual values and lists. The view appears to serve as an intermediate step for loading CCM_PRODUCT_SUBSCRIPTION-data to the 'Mjøsa' system, likely for analytical purposes.
+This view, VYA_CUSTOMER_CHAIN_AFFILIATION, serves as an interface for loading customer chain affiliation data, potentially related to product subscriptions, into a downstream system named MJØSA. It directly selects and projects data from the administrative table/view CLM_ADM.ADM_CUSTOMER_CHAIN_AFFILIATION, with minimal transformation (type casting for two columns).
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_CHAIN_AFFILIATION]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| NO_DEALER_CHAINS |
+| NO_DEALER_IDS |
+| LAST_ORDER_DT_KEY |
+| LAST_DEALER_CHAIN |
+| LAST_DEALER_ID |
+| LAST_TERMINAL_DEALER_CHAIN |
+| LAST_TERMINAL_DEALER_ID |
+| LAST_TERMINAL_SOURCE_ORDER_ID |
+| FIRST_ORDER_DT_KEY |
+| FIRST_DEALER_CHAIN |
+| FIRST_DEALER_ID |
+| FIRST_TERMINAL_DEALER_CHAIN |
+| FIRST_TERMINAL_DEALER_ID |
+| FIRST_TERMINAL_SOURCE_ORDER_ID |
+| ORDER_DT_KEY_LIST |
+| DEALER_CHAIN_LIST |
+| DEALER_ID_LIST |
+| KPI_BINDING_LIST |
+| KPI_NEWSALE_LIST |
+| KPI_NEWSALE_TERMINAL_LIST |
+| KPI_PORTING_INBOUND_LIST |
+| KPI_PRODUCT_CHANGE_LIST |
+| KPI_TERMINATION_LIST |
+| KPI_GROSS_SALE_LIST |
+| KPI_BINDING |
+| KPI_NEWSALE |
+| KPI_NEWSALE_TERMINAL |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_GROSS_SALE |
 

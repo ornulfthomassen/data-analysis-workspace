@@ -3,16 +3,50 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure identifies and consolidates service access information for Norwegian users. It first extracts unique user IDs associated with Norwegian phone numbers (from `USER_SERVICES_PHONES` and `FIM_USER_PHONES`) into a temporary staging table (`CCM_USER_SERVICE_NO_TMP`). Subsequently, it uses this list of Norwegian users to process their detailed service access records from `USER_SERVICES_SERVICE_scd` and aggregated daily connection data from `MINSKY_MAIN_DAILY`. The procedure calculates the first, last, and effective last usage dates for each user's service and stores the consolidated results in a new table (`CCM_USER_SERVICES_CP`), finally creating a unique index on this table for efficient access.
+This procedure consolidates and summarizes user service information, specifically for users with Norwegian phone numbers. It first identifies user IDs associated with Norwegian phone numbers from two different phone service tables, storing them in a temporary helper table. Then, it aggregates service usage data (first access, last access, and last used times) for these identified users from a service history table, joining with the helper table and a daily activity log, and stores the results in another helper table. Finally, it creates a unique index on the aggregated service usage table.
 
 ## Data Sources (Inputs)
 - ← [[COMOYO.USER_SERVICES_PHONES]]
+| Column Name |
+|---|
+| user_id |
+| file_date |
+| PHONES |
 - ← [[COMOYO.FIM_USER_PHONES]]
-- ← [[COMOYO.MINSKY_MAIN_DAILY]]
+| Column Name |
+|---|
+| user_id |
+| PH_MSISDN |
+- ← [[comoyo.minsky_main_daily]]
+| Column Name |
+|---|
+| load_date |
+| GLOBAL_ID |
+| LAST_CONNECTION_DTTM |
 - ← [[COMOYO.USER_SERVICES_SERVICE_scd]]
+| Column Name |
+|---|
+| USER_ID |
+| SERVICE_NAME |
+| SERVICE_FIRST_DATE |
+| END_DATE |
+| current_record |
 - ← [[CCM_USER_SERVICE_NO_TMP]]
+| Column Name |
+|---|
+| user_id |
 
 ## Target Tables (Outputs)
 - → [[CCM_USER_SERVICE_NO_TMP]]
+| Column Name |
+|---|
+| user_id |
 - → [[CCM_USER_SERVICES_CP]]
+| Column Name |
+|---|
+| USER_ID |
+| SERVICE_CD |
+| FIRST_ACCESS_TM |
+| LAST_ACCESS_TM |
+| LAST_USED |
 

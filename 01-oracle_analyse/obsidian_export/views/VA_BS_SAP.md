@@ -3,8 +3,52 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-Exposes raw SAP business transaction data, including order, material, billing, and shipping details, as a direct pass-through view from the source table. It essentially provides an alias or specific schema access to the underlying data.
+Provides a direct view of SAP business data by selecting all listed columns from the `THIRD_PARTY_SERVICES.BS_SAP` table.
 
 ## Data Sources (Inputs)
 - ← [[THIRD_PARTY_SERVICES.BS_SAP]]
+| Column Name |
+|---|
+| REFERENCE_NR |
+| ORDER_NR |
+| SOLD_TO |
+| SHIP_TO |
+| MATERIAL_NR |
+| MATERIAL_DESCR |
+| MANUF_COMP_NR |
+| INVOICED_QTY |
+| MATERIAL_GROUP |
+| MATERIAL_GROUP_NAME |
+| DOC_CREATED_DATE |
+| BILLING_DATE |
+| PROFIT_CENTER |
+| PROFIT_CENTER_DESCR |
+| INVOICE_NR |
+| SOLD_TO_NAME |
+| NODE1_OFFICE |
+| NODE2_OFFICE |
+| NODE3_OFFICE |
+| FREIGHT_COST |
+| BILLING_PERIOD |
+| BILLING_TYPE |
+| DELIVERY_NR |
+| ORDER_TYPE |
+| ORDER_TYPE_DESCR |
+| ORDER_REASON |
+| ORDER_REASON_DESCR |
+| SALES_GROUP |
+| SALES_GROUP_DESCR |
+| SHIP_TO_NAME |
+| SHIP_TO_ADDRESS |
+| SHIP_TO_CITY |
+| SHIP_TO_POSTALCODE |
+| SERIAL_NR |
+| ZZRMA_NR |
+| CHECKSUM |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME_INSERT |
+| FILE_NAME_UPDATE |
+| SYS_DATE_INSERT |
+| SYS_DATE_UPDATE |
 

@@ -3,9 +3,32 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates TV content product details with subscriber/usage base (UB/IB) information and various customer/product attributes. It derives a reporting period and applies specific business logic to categorize content segments based on product segment, unit price, and content segment from the joined tables. The view likely serves as a comprehensive data source for reporting and analysis related to TV program costs, subscriber metrics, and content performance.
+Combines TV content inventory, usage, and cost data with content product details to provide a comprehensive view of TV program economics.
 
 ## Data Sources (Inputs)
 - ← [[CCM.TV_CONTENT_IB_UB_V]]
+| Column Name |
+|---|
+| PERIOD |
+| PRODUCT_KEY |
+| S |
+| STATUS |
+| UNIT_PRICE |
+| SEGMENT |
+| CUSTOMER_SEGMENT |
+| CUSTOMER_TYPE |
+| GP_STATUS |
+| DECODER_STATUS |
+| UB |
+| IB |
 - ← [[QLIKVIEW.TV_CONTENT_PRODUCT_V]]
+| Column Name |
+|---|
+| PRODUCT_NR |
+| CONTENT_ID |
+| CONTENT_NAME |
+| SEGMENT |
+| CONTENT_GRP |
+| VENDOR |
+| PACKAGE_GRP |
 

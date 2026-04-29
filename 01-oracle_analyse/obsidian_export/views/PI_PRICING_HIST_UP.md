@@ -3,8 +3,29 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a dataset for tracking price changes on specific call plans ('ringeplaner'). The data is intended to be loaded into Viya for analysis and monitoring of these pricing updates. It consolidates various pricing and subscription-related attributes, including historical pricing details for both current and previous states (indicated by 'IB_' for 'inbound'/'initial' and 'UB_' for 'upgraded'/'updated').
+Creates a dataset loaded into Viya for tracking price changes on specific calling plans.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.mk_2233_tmp]]
+| Column Name |
+|---|
+| period_key |
+| subscription_key |
+| ib_market_area_key |
+| ib_prim_start |
+| ib_prim_end |
+| ib_prim_product_desc |
+| ib_poid |
+| ib_paytype |
+| ib_monthly_price |
+| ub_market_area_key |
+| ub_prim_start |
+| ub_prim_end |
+| ub_prim_product_desc |
+| ub_poid |
+| ub_paytype |
+| ub_monthly_price |
+| ub_status |
+| port_date |
+| port_to |
 

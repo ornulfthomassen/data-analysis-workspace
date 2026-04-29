@@ -3,9 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to extract customer-related information, specifically a customer SKU (CUSTOMER_SK), date of birth (DOB), and load timestamp (LOAD_DTTM). Its primary purpose, as indicated by the comments, is to temporarily provide customer Date of Birth data to facilitate the calculation of customer age at the order date. The view joins `CCM_CUSTOMER_V` with `ADM_CUSTOMER_MAPPING` on `KURT_ID` to achieve this. It is explicitly noted as a temporary view to be deleted soon.
+Creates a temporary view to extract customer date of birth (DOB) and customer_SK for calculating customer age at order date. This view is marked as temporary and intended for deletion.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.CCM_CUSTOMER_V]]
+| Column Name |
+|---|
+| DATE_OF_BIRTH |
+| LOAD_DTTM |
+| KURT_ID |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 

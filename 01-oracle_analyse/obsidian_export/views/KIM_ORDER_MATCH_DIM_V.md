@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a standardized view of the 'KIM_ORDER_MATCH_DIM' dimension, replacing NULL values in specific string columns with '-1' (casted to VARCHAR2) and ensuring consistent data types and lengths for these attributes. This is typical for preparing dimension data for reporting or analytical purposes, ensuring no NULLs for specific attributes and consistent string formatting.
+Creates a dimension view `KIM_ORDER_MATCH_DIM_V` by selecting all columns from `KIM_ORDER_MATCH_DIM`. It standardizes certain dimension attributes (`ORDER_MATCH_NAME`, `ORDER_MATCH_DESC`, `ORDER_MATCH_GROUP`, `ORDER_MATCH_SUB_GROUP`) by replacing NULL values with '-1' and explicitly casting them to VARCHAR2.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_ORDER_MATCH_DIM]]
+| Column Name |
+|---|
+| ORDER_MATCH_KEY |
+| ORDER_MATCH_NAME |
+| ORDER_MATCH_DESC |
+| ORDER_MATCH_GROUP |
+| ORDER_MATCH_RANK |
+| ORDER_MATCH_SUB_GROUP |
 

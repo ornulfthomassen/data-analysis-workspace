@@ -3,9 +3,37 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view combines detailed information about subscribed products from `CCDW.SUBSCRIBED_PRODUCT` with product type configuration data from `CLM_CCM.CCM_PRODUCT_TYPE_CONFIG`. It enriches the subscribed product records by fetching the product name and its parent description based on specific product categories/types defined by the `PTC.PARENT IN (...)` clause, providing a consolidated view of subscribed products with their descriptive attributes for CRM analysis.
+Retrieves details of subscribed products, enriching them with the product name and description by joining with a product type configuration table. It specifically filters for products belonging to a predefined set of parent product categories.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| RESOURCE_VALUE |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_CATEGORY_ID |
+| SOURCE_SYSTEM_ID |
+| BUSINESS_AREA_ID |
+| START_DATE |
+| END_DATE |
+| INFO_CHG_DATE |
+| RUN_ID |
+| SEQ_ID |
+| BINDING_START_DATE |
+| BINDING_END_DATE |
+| TERMINATION_FIXED_FEE |
+| TERMINATION_MONTH_FEE |
+| SYSTEM_COMPONENT_ID |
+| COMOYO_USER_ID |
+| BSB_AGREEMENT_ID |
+| BSB_AGREE_PRODUCT_OFFER_ID |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| DESCRIPTION |
+| ID |
+| PARENT |
 

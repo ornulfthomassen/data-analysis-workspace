@@ -1,0 +1,54 @@
+[
+  {
+    "name": "agreement_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_agrm_agreement_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_prod_agreement_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_prnt_agreement_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "original_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "src_agreement_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  }
+]

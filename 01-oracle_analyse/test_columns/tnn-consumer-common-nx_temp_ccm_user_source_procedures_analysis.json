@@ -1,0 +1,23 @@
+[
+    {
+        "procedure_name": "BASE64TOHEX",
+        "functionality": "Converts a Base64 encoded string into its hexadecimal representation by performing character-by-character lookups against predefined mapping tables.",
+        "data_sources": [
+            {
+                "table_name": "ccm.base64",
+                "columns": [
+                    "CHARACTER",
+                    "binary"
+                ]
+            },
+            {
+                "table_name": "ccm.ascii",
+                "columns": [
+                    "BIN",
+                    "HEX"
+                ]
+            }
+        ],
+        "target_tables": []
+    }
+]

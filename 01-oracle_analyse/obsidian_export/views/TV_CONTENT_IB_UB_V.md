@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view calculates and presents monthly 'Installed Base' (IB) and 'Usage Base' (UB) metrics for TV content. It aggregates content amounts by various dimensions (product, status, pricing, segment, customer type, decoder status) for specific periods: the beginning of each month and the most recent data point available ('MAX_PERIOD'). The 'IB' typically represents the installed base at the start of a given month, and 'UB' represents the installed base at the start of the subsequent month or the most current available base for the present month, facilitating period-over-period analysis of TV content subscriber or device base changes.
+This view calculates and aggregates 'In-Base' (IB) and 'Prior Base' (UB) metrics for TV content volumes. It processes data from the `QLIKVIEW.TV_CONTENT_VOLUME` table, focusing on the first day of each month and the latest available period, then groups and sums these metrics by various product, status, segment, and customer attributes.
 
 ## Data Sources (Inputs)
 - ← [[QLIKVIEW.TV_CONTENT_VOLUME]]
+| Column Name |
+|---|
+| PERIOD |
+| PRODUCT_KEY |
+| S |
+| STATUS |
+| UNIT_PRICE |
+| SEGMENT |
+| CUSTOMER_SEGMENT |
+| CUSTOMER_TYPE |
+| GP_STATUS |
+| DECODER_STATUS |
+| AMOUNT |
 

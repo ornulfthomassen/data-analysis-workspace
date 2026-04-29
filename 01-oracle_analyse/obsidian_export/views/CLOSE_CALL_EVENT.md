@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-For a specific customer identified by MAIN_NUMBER 41683262, this view identifies, for each of their non-'CALL' events, the chronologically first subsequent 'CALL' event. It then calculates and presents the key, date, and the number of days between the initial non-'CALL' event and this subsequent 'CALL' event. This can be used to analyze response times or follow-up activities after various customer interactions.
+This view identifies specific non-call events for a hardcoded main number (41683262) and associates each with the earliest subsequent call event (from the 'CALLS' partition) for the same main number. It calculates and returns details about this subsequent call, including its key, date, and the number of days elapsed since the initial non-call event.
 
 ## Data Sources (Inputs)
 - ← [[CUSTOMER_EVENTS]]
+| Column Name |
+|---|
+| EVENT_DATE |
+| EVENT |
+| KEY |
+| MAIN_NUMBER |
 

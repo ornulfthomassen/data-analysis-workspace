@@ -1,0 +1,127 @@
+# KIM_CONTACT_ORDER_MATCH_10
+
+**Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
+
+## Description
+This procedure identifies and updates campaign detail records (`CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT`) with matching order information based on various criteria including product group, brand, and household ID. It iterates through campaign details, finds the most relevant order details (using a complex ranking logic), and then updates the campaign records with order-specific keys and descriptions. It also logs the start and end status of its execution in a data quality monitoring table (`CLM_CCM.GOV_DQ_MARTS`).
+
+## Data Sources (Inputs)
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| SOURCE_SYSTEM_KEY |
+| MEASURE_TYPE |
+| CAMPAIGN_TYPE_DESC |
+| RESPONSE_KEY |
+| TREATMENT_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| CONTACT_DATE_KEY |
+| CUST_HOUSEHOLD_ID |
+| CONTACT_DTTM |
+| ORDER_MATCH_KEY |
+- ← [[CRM_ANALYSE.KIM_RESPONSE_DIM]]
+| Column Name |
+|---|
+| RESPONSE_KEY |
+| RESPONSE_GROUP |
+- ← [[CRM_ANALYSE.KIM_TREATMENT_DIM]]
+| Column Name |
+|---|
+| TREATMENT_KEY |
+| OFFER_CATEGORY |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+| PRODUCT_KEY_4 |
+| TREATMENT_PRODUCT_KEY |
+- ← [[CRM_ANALYSE.KIM_TREATMENT_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_PAYMENT |
+| PRIMARY_PRODUCT_FLAG |
+- ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_DT_KEY |
+| SOURCE_ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| BINDING_PRODUCT_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| HANDSET_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| MARKET_AREA_KEY |
+| NUMBER_OF_ORDERS |
+| ORDER_STATUS_REASON_KEY |
+| OWNER_CUSTOMER_KEY |
+| ORDER_TIME_KEY |
+- ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| ORDER_LINE_PRODUCT_KEY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PAYMENT |
+- ← [[CCM.CCM_CUSTOMER]]
+| Column Name |
+|---|
+| KURT_ID |
+| HOUSEHOLD_ID |
+- ← [[GALAXY.ORDER_TIME_DIM_V]]
+| Column Name |
+|---|
+| ORDER_TIME_KEY |
+| ORDER_TIME |
+- ← [[galaxy.BINDING_TYPE_BENEFIT_DIM]]
+| Column Name |
+|---|
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_BENEFIT_DESC |
+
+## Target Tables (Outputs)
+- → [[CLM_CCM.GOV_DQ_MARTS]]
+| Column Name |
+|---|
+| RUNTIME |
+| FREQ |
+| SYSTEM_NM |
+| PROCESS_NM |
+| STATUS_NM |
+| REASON |
+| PRIORITY |
+| START_TIME |
+| END_TIME |
+| PREV_OK_DTTM |
+| PREV_OK_RESSULT |
+| LAST_RESSULT |
+- → [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| ORDER_MATCH_KEY |
+| ORDER_RANK |
+| ORDER_ID |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_FROM_PRODUCT_KEY |
+| ORDER_TO_PRODUCT_KEY |
+| ORDER_BINDING_PRODUCT_KEY |
+| ORDER_DEALER_KEY |
+| ORDER_DT_KEY |
+| ORDER_SOURCE_SYSTEM_KEY |
+| BINDING_BENEFIT_DESC |
+| ORDER_HANDSET_KEY |
+| CONTACT_KEY |
+| SOURCE_SYSTEM_KEY |
+| MEASURE_TYPE |
+

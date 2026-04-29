@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates and consolidates postal code information by administrative region (county and municipality). For each unique combination of county code, county name, municipality code, and municipality name, it selects the numerically smallest postal code and its corresponding latitude, longitude, and postal place. This effectively provides a representative or primary postal code for each administrative region.
+Aggregates postal code dimension data from a base table. For each unique combination of 'Fylke' (county) and 'Kommune' (municipality) codes and names, it selects the postal code, latitude, longitude, and poststed (postal place) that corresponds to the lowest postal code within that group.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.DIMPOSTNUMMER_T]]
+| Column Name |
+|---|
+| POSTNUMMER |
+| LATITUDE |
+| LONGITUDE |
+| POSTSTED |
+| FYLKEKODE |
+| FYLKE |
+| KOMMUNEKODE |
+| KOMMUNE |
 

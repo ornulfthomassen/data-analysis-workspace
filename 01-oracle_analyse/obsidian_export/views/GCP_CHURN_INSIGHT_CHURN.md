@@ -3,8 +3,77 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to provide comprehensive customer and subscription-level data for churn analysis and insights. It consolidates various metrics including customer demographics (age, gender, segment), subscription details (product family, name, sales channel), financial indicators (net revenue, monthly fee), usage statistics (MB usage, days since subscription start), and critical churn-related KPIs (churn flags, porting outbound, termination flags). The data is prepared with specific rounding and casting for analytical purposes related to churn prediction and understanding.
+This view, `GCP_CHURN_INSIGHT_CHURN`, serves to reformat and standardize churn insight data from the `CLM_ADM.CHURN_INSIGHT_CHURN` table. It applies data type conversions (e.g., casting to number) and numerical rounding to various columns, presenting a processed version of the original churn data for potentially specific downstream consumption or reporting, as suggested by its `GCP_` prefix.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.CHURN_INSIGHT_CHURN]]
+| Column Name |
+|---|
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| SUBSCRIPTION_KEY |
+| MPP_MAIN_ID_SK |
+| MPP_DEALER_CHAIN |
+| MPP_DEALER_NAME |
+| MPP_DEVICE_PRODUCERNAME |
+| MPP_DEVICE_MODELNAME |
+| MPP_CHANGETYPE |
+| MPP_IN_PORT_SP_NAME |
+| MPP_MB_LAST1 |
+| MPP_NET_REVENUE_ADJ |
+| MPP_NO_DAYS_MNO_START |
+| MPP_NO_DAYS_SUBS_START |
+| MPP_NO_MB_PCT_LAST1 |
+| MPP_NO_PORTING |
+| MPP_PROFIT_CAT |
+| MPP_PROD_ATTR_INCL_MB |
+| MPP_PROD_ATTR_MTH_FEE |
+| MPP_PRODUCT_FAMILY |
+| MPP_PRODUCT_NAME |
+| MPP_SALES_CH |
+| MPP_SUBS_START_REASON |
+| MPP_NEXT_FAMILIE_RABATT_STATUS |
+| MPP_SWAP_STATUS |
+| REVENUE_FEE_RATIO |
+| OWNER_AGE |
+| OWNER_GENDER |
+| OWNER_CLM_LIVSFASE_SEGMENT |
+| OWNER_NET_REVENUE |
+| OWNER_NO_FBR |
+| OWNER_NO_MBB |
+| OWNER_NO_MPP |
+| OWNER_NO_MPR |
+| OWNER_NO_PROD_CAT |
+| USER_AGE |
+| USER_GENDER |
+| USER_CLM_LIVSFASE_SEGMENT |
+| OWNER_USER_ROLES |
+| MPP_USER_BECAME_OWNER_FLG |
+| MPP_USER_BECAME_OWNER_DATE |
+| MONTHS_SINCE_OWNER_CHG |
+| U_13_RABATT |
+| U_30_RABATT |
+| FAMILIERABATT |
+| GRATIS_SIM |
+| DATA_BOOST |
+| AKTIVERT_NETTVERN_PLUSS |
+| EVENT_DATE |
+| EVENT_DTTM |
+| EVENT_STATUS_DATE |
+| EVENT_STATUS_DTTM |
+| KPI_CHURN |
+| KPI_CHURN_FC |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_OUTBOUND_FB |
+| KPI_PORTING_OUTBOUND_FB_FC |
+| KPI_PORTING_OUTBOUND_FC |
+| KPI_TERMINATION |
+| KPI_TERMINATION_FC |
+| SERV_PROVIDER_TO |
+| DAYS_BTW_OWNER_CHG_AND_CHURN |
+| CHURN_MONTH_DATE |
+| PERIOD_CATEGORY |
+| ACTIVATED_SAFE_FLAG |
 

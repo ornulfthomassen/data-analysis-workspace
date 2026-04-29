@@ -3,9 +3,22 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates prepaid mobile charging method statistics. It calculates the total gross amount charged (including VAT), the number of distinct accounts involved, and the total number of charging events (lading/loads) for specific traffic types categorized as 'EDR' and 'Ladinger'. The results are grouped by period and traffic type for an overview of charging activities.
+Aggregates prepaid charging method data by period and traffic type, filtering for specific traffic categories ('EDR', 'Ladinger'). It calculates the sum of gross amounts, and counts of accounts and charging events for each aggregated group.
 
 ## Data Sources (Inputs)
 - ← [[CCDW_USAGE.MOBILE_SUBSCR_CHARGE_MONTH]]
+| Column Name |
+|---|
+| PERIOD_ID |
+| TRAFFIC_TYPE_ID |
+| GROSS_AMOUNT |
+| ACCOUNT_ID |
+| NUMBER_OF_EVENTS |
 - ← [[GALAXY.TRAFFIC_TYPE_DIM_V]]
+| Column Name |
+|---|
+| TRAFFIC_TYPE_NAME_3 |
+| TRAFFIC_TYPE_KEY |
+| TRAFFIC_TYPE_NAME_1 |
+| TRAFFIC_TYPE_NAME_2 |
 

@@ -3,18 +3,78 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_EXT_CHURN_AGRMT_REWARD` extracts and processes churn-related agreement reward data. It first stages detailed reward information from a source view into a temporary table, then filters and deduplicates this data, separating distinct records from any duplicates. It enriches the distinct records by joining with an aggregated bonus view. Finally, it calculates various churn activation/deactivation and qualification/dequalification flags for agreements based on the historical trend of reward units using analytic functions, storing all intermediate and final results in temporary tables.
+Processes family bonus agreement details, filtering for active subscriptions with rewards. It identifies unique and duplicate records, aggregates reward unit information, and then computes temporal flags indicating agreement activation, deactivation, qualification, and dequalification states, storing all intermediate and final results in temporary tables.
 
 ## Data Sources (Inputs)
-- ← [[DUAL]]
-- ← [[ALL_OBJECTS]]
-- ← [[CLM_ADM.CHURN_ADM_AGRMT_FAMILIEBONUS_DET_V]]
-- ← [[CLM_ADM.CHURN_ADM_AGRMT_FAMILIEBONUS_AGG_V]]
+- ← [[CHURN_ADM_AGRMT_FAMILIEBONUS_DET_V]]
+- ← [[TMP_CHURN_ADM_AGRMT_FAMILIEBONUS_DET]]
+| Column Name |
+|---|
+| unit_sk |
+| agreement_id |
+| period_month |
+| product_key |
+| unit_customer_role |
+| unit_type |
+| reward |
+- ← [[TMP_CHURN_CP_FB_DETAIL]]
+| Column Name |
+|---|
+| subscription_key |
+| AGREEMENT_ID |
+| PERIOD_MONTH_KEY |
+- ← [[CHURN_ADM_AGRMT_FAMILIEBONUS_AGG_V]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| PERIOD_MONTH |
+| no_members |
+| sum_reward_units |
+- ← [[TMP_CHURN_CP_FB_DETAIL_WITH_AGGR]]
+| Column Name |
+|---|
+| subscription_key |
+| agreement_id |
+| PERIOD_MONTH_KEY |
+| no_members |
+| sum_reward_units |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.TMP_CHURN_ADM_AGRMT_FAMILIEBONUS_DET]]
-- → [[CLM_ADM.TMP_CHURN_CP_FB_DETAIL]]
-- → [[CLM_ADM.TMP_CHURN_CP_FB_DETAIL_DUP]]
-- → [[CLM_ADM.TMP_CHURN_CP_FB_DETAIL_WITH_AGGR]]
-- → [[CLM_ADM.TMP_CHURN_AGRMT_REWARD]]
+- → [[TMP_CHURN_ADM_AGRMT_FAMILIEBONUS_DET]]
+- → [[TMP_CHURN_CP_FB_DETAIL]]
+| Column Name |
+|---|
+| subscription_key |
+| agreement_id |
+| PERIOD_MONTH_KEY |
+| product_key |
+| unit_customer_role |
+- → [[TMP_CHURN_CP_FB_DETAIL_DUP]]
+| Column Name |
+|---|
+| subscription_key |
+| agreement_id |
+| PERIOD_MONTH_KEY |
+| product_key |
+| unit_customer_role |
+- → [[TMP_CHURN_CP_FB_DETAIL_WITH_AGGR]]
+| Column Name |
+|---|
+| subscription_key |
+| AGREEMENT_ID |
+| PERIOD_MONTH_KEY |
+| no_members |
+| sum_reward_units |
+- → [[TMP_CHURN_AGRMT_REWARD]]
+| Column Name |
+|---|
+| subscription_key |
+| agreement_id |
+| PERIOD_MONTH_KEY |
+| no_members |
+| sum_reward_units |
+| reward_agrmt_activated_flg |
+| reward_agrmt_deactivated_flg |
+| reward_agrmt_qualified_flg |
+| reward_agrmt_dequalified_flg |
 

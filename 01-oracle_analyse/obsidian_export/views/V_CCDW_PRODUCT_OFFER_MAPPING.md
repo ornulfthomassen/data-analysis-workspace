@@ -3,8 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct pass-through or alias for the 'PRODUCT_OFFER_MAPPING' table (or view) located in the 'CCDW' schema. It selects all columns from the underlying source without any filtering, aggregations, joins, or transformations, effectively providing access to the 'PRODUCT_OFFER_MAPPING' data within the 'CRM_ANALYSE' schema. Its purpose is likely for schema abstraction, simplification of access, or security control.
+Creates a view that mirrors all columns from the CCDW.PRODUCT_OFFER_MAPPING table, potentially for access control or schema abstraction.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.PRODUCT_OFFER_MAPPING]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| SOURCE_SYSTEM_ID |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_KEY_2 |
+| SOURCE_SYSTEM_KEY_3 |
+| SOURCE_SYSTEM_KEY_4 |
+| INFO_REG_DATE |
+| RUN_ID |
+| SEQ_ID |
 

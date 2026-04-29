@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, V_USER_SERVICES_SERVICE, serves as a direct alias or a simplified interface to the data stored in the 'USER_SERVICES_SERVICE' table or view within the 'comoyo' schema. It selects all specified columns directly from the source without any aggregations, transformations, or filtering, effectively providing a one-to-one mapping.
+Creates a view that directly exposes all columns from the `USER_SERVICES_SERVICE` table in the `COMOYO` schema.
 
 ## Data Sources (Inputs)
-- ← [[comoyo.USER_SERVICES_SERVICE]]
+- ← [[COMOYO.USER_SERVICES_SERVICE]]
+| Column Name |
+|---|
+| SERVICE_NAME |
+| FIRST_ACCESS_TM |
+| LAST_ACESS_TM |
+| USER_ID |
+| RUN_ID |
+| SEQ_ID |
+| LOAD_DATE |
+| FILE_DATE |
 

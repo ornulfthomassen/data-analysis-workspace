@@ -3,20 +3,108 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADR_ODS_FAR_GROUP` is designed to refresh a main target table (`ODS_FAR_GROUP`) with new data extracted from a source, using a 'hot swap' mechanism. It involves creating a temporary staging table (`ODS_FAR_GROUP_N`), populating it with processed data, and then renaming it to become the new main table. Concurrently, the old main table is renamed to a backup table (`ODS_FAR_GROUP_O`). The procedure performs checks for table existence, gathers statistics, manages indexes (creating them on the new staging table and renaming them during the swap), and verifies data volume changes against a configurable threshold (`V_RANGE_SWAP`) to prevent unintended swaps. All significant actions, warnings, and errors are logged to history tables.
+Refreshes the ODS_FAR_GROUP table with aggregated address data from CLM_CCM.ODS_FAR using a controlled table-swap mechanism. It first populates a new temporary table, then conditionally renames the existing ODS_FAR_GROUP to a backup table (ODS_FAR_GROUP_O) and the temporary table to ODS_FAR_GROUP. This process ensures data consistency, provides a rollback mechanism, and logs execution status and potential issues.
 
 ## Data Sources (Inputs)
-- ← [[ALL_TABLES]]
-- ← [[ALL_INDEXES]]
-- ← [[USER_INDEXES]]
-- ← [[DUAL]]
 - ← [[CLM_CCM.ODS_FAR]]
+| Column Name |
+|---|
+| FARID |
+| ADDRESS_STATUS |
+| ADDRESS_TYPE |
+| FLATNUMBER |
+| GAB_NUMBER |
+| STREETPOSTALCODE |
+| STREETNAME |
+- ← [[ALL_TABLES]]
+| Column Name |
+|---|
+| owner |
+| table_name |
+| num_rows |
+- ← [[ALL_INDEXES]]
+| Column Name |
+|---|
+| owner |
+| table_name |
+| index_name |
+- ← [[USER_INDEXES]]
+| Column Name |
+|---|
+| index_name |
+| table_name |
+| table_owner |
+| generated |
+- ← [[DUAL]]
 
 ## Target Tables (Outputs)
-- → [[ODS_FAR_GROUP]]
 - → [[ODS_FAR_GROUP_N]]
+| Column Name |
+|---|
+| FARID |
+| FLATNUMBER |
+| GAB_NUMBER |
+| GAB_FLAT |
+| BOLIG_FAR_1 |
+| BOLIG_FAR_2 |
+| ADDRESS_TYPE |
+| ADDRESS_STATUS |
+| STREETPOSTALCODE |
+| LOADED_DTTM |
+- → [[ODS_FAR_GROUP]]
+| Column Name |
+|---|
+| FARID |
+| FLATNUMBER |
+| GAB_NUMBER |
+| GAB_FLAT |
+| BOLIG_FAR_1 |
+| BOLIG_FAR_2 |
+| ADDRESS_TYPE |
+| ADDRESS_STATUS |
+| STREETPOSTALCODE |
+| LOADED_DTTM |
 - → [[ODS_FAR_GROUP_O]]
+| Column Name |
+|---|
+| FARID |
+| FLATNUMBER |
+| GAB_NUMBER |
+| GAB_FLAT |
+| BOLIG_FAR_1 |
+| BOLIG_FAR_2 |
+| ADDRESS_TYPE |
+| ADDRESS_STATUS |
+| STREETPOSTALCODE |
+| LOADED_DTTM |
 - → [[ODS_FAR_GROUP_O_TEMP]]
+| Column Name |
+|---|
+| FARID |
+| FLATNUMBER |
+| GAB_NUMBER |
+| GAB_FLAT |
+| BOLIG_FAR_1 |
+| BOLIG_FAR_2 |
+| ADDRESS_TYPE |
+| ADDRESS_STATUS |
+| STREETPOSTALCODE |
+| LOADED_DTTM |
 - → [[CLM_CCM.ODS_PROCEDURE_SWAP_STATUS]]
+| Column Name |
+|---|
+| PROC_NAME |
+| DTTM |
+| MESSAGE |
+| OLD_ROW_COUNT |
+| NEW_ROW_COUNT |
 - → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| START_DTTM |
+| STATUS |
+| MESSAGE |
+| POWERCENTER_WF_NAME |
+| POWERCENTER_S_NAME |
 

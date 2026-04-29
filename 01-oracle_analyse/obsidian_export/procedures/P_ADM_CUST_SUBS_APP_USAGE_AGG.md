@@ -3,16 +3,78 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_CUST_SUBS_APP_USAGE_AGG`, aggregates customer subscription and application usage data for a specified month (`P_YYYYMM`). It begins by validating the availability and quantity of source data. If the data checks pass, it ensures that a partition for the given month exists in the permanent target table (`ADM_CUST_SUBS_APP_USAGE_AGG`), creating it if necessary. Subsequently, it populates a temporary table (`TMP_CUST_SUBS_APP_USAGE_AGG`) with detailed aggregated usage metrics derived from various customer event and dimension tables. Finally, it efficiently loads this aggregated data into the corresponding partition of the permanent target table using an `ALTER TABLE ... EXCHANGE PARTITION` operation, followed by gathering statistics. The procedure includes robust error handling and logging.
+Aggregates customer subscription application usage data for a specified month (P_YYYYMM), performs data quality and completeness checks on source tables, creates a temporary staging table with the aggregated data, and then uses partition exchange to load this data into the corresponding partition of a permanent, partitioned target table 'ADM_CUST_SUBS_APP_USAGE_AGG'. It also handles the creation of new partitions if they don't exist and gathers table statistics.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
-- ← [[CCDW_CUSTOMER_EVENT.CUSTOMER_EVENT_DETAIL]]
-- ← [[CCDW_CUSTOMER_EVENT.EVENT_MEDIUM]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE_KEY |
+| FIRST_DATE_KEY |
+- ← [[CCDW_CUSTOMER_EVENT.CUSTOMER_EVENT_DETAIL]]
+| Column Name |
+|---|
+| EVENT_DATE_ID |
+| SOURCE_SYSTEM_ID |
+| EVENT_MEDIUM_ID |
+| NUMBER_OF_EVENTS |
+| KURT_ID_EVENT |
+| SUBSCRIPTION_ID |
+| EVENT_TYPE_ID |
+- ← [[CCDW_CUSTOMER_EVENT.EVENT_MEDIUM]]
+| Column Name |
+|---|
+| EVENT_MEDIUM_ID |
+| SOURCE_SYSTEM_ID |
+| EVENT_MEDIUM_DESC |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
-- → [[ADM_CUST_SUBS_APP_USAGE_AGG]]
 - → [[TMP_CUST_SUBS_APP_USAGE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| EVENT_MEDIUM_ID |
+| SUBSCRIPTION_ID |
+| NUMBER_OF_EVENT_DATES |
+| NUMBER_OF_EVENT_TYPES |
+| NUMBER_OF_EVENTS |
+| FIRST_EVENT_DATE_KEY |
+| LAST_EVENT_DATE_KEY |
+| GET_INVOICE_EVENTS |
+| DEFERE_INVOICE_EVENTS |
+| EVENT_MEDIUM_DESC |
+- → [[ADM_CUST_SUBS_APP_USAGE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| EVENT_MEDIUM_ID |
+| SUBSCRIPTION_ID |
+| NUMBER_OF_EVENT_DATES |
+| NUMBER_OF_EVENT_TYPES |
+| NUMBER_OF_EVENTS |
+| FIRST_EVENT_DATE_KEY |
+| LAST_EVENT_DATE_KEY |
+| GET_INVOICE_EVENTS |
+| DEFERE_INVOICE_EVENTS |
+| EVENT_MEDIUM_DESC |
+- → [[CRM_ANALYSE.ADM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| PERIOD_MONTH |
+| STATUS |
+| MESSAGE |
 

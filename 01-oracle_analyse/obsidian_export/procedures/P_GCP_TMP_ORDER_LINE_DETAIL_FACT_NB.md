@@ -3,10 +3,11 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This procedure rebuilds or refreshes the `GCP_ORDER_LINE_MOB_FACT_NB` fact table in the `CLM_ADM` schema. It achieves this by first creating an intermediate, temporary staging table (`TMP_ORDER_LINE_MOB_FACT_NB`) populated with all data from the `CCM.VYA_ORDER_LINE_DETAIL_FACT_NB` view. Before replacing the existing permanent table, it performs a critical row count validation: if the newly staged data has fewer rows than the currently active `GCP_ORDER_LINE_MOB_FACT_NB` table, an error is raised. If the validation passes, the old `GCP_ORDER_LINE_MOB_FACT_NB` table is dropped, and the temporary table is renamed to become the new permanent `GCP_ORDER_LINE_MOB_FACT_NB`. Finally, a unique index is created on the new table, and table statistics are gathered.
+Rebuilds or refreshes the CLM_ADM.GCP_ORDER_LINE_MOB_FACT_NB table. The process involves creating a temporary table (CLM_ADM.TMP_ORDER_LINE_MOB_FACT_NB) by copying all data from CCM.VYA_ORDER_LINE_DETAIL_FACT_NB. It then performs a row count validation, ensuring the new data isn't significantly smaller than the existing permanent table. If validation passes and the permanent table exists, it drops the old CLM_ADM.GCP_ORDER_LINE_MOB_FACT_NB table. Finally, it renames the temporary table to CLM_ADM.GCP_ORDER_LINE_MOB_FACT_NB, creates a unique index on the ORDER_LINE_KEY column, and gathers statistics on the newly rebuilt table.
 
 ## Data Sources (Inputs)
 - ← [[CCM.VYA_ORDER_LINE_DETAIL_FACT_NB]]
+- ← [[CLM_ADM.TMP_ORDER_LINE_MOB_FACT_NB]]
 - ← [[CLM_ADM.GCP_ORDER_LINE_MOB_FACT_NB]]
 
 ## Target Tables (Outputs)

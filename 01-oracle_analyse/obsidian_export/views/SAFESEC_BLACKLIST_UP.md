@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view loads or provides a historical record of customers that are on a blacklist, casting the 'period_month' and 'customer_sk' columns to specific data types.
+This view is used to upload or expose a historical table of blacklisted customers, transforming the data types for period and customer identifiers.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.mk_2160_res]]
+| Column Name |
+|---|
+| period_month |
+| customer_sk |
 

@@ -3,31 +3,222 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADM_DEVICE_AGREEMENT_KURT` is designed to create or refresh a monthly snapshot or aggregated view of device agreement data. It first performs a pre-check to validate the status of source data for the previous month (determined by `V_YYYYMM`). If the source data is deemed 'OK', the procedure manages previous versions of the target table (`ADM_DEVICE_AGREEMENT_KURT`) by renaming the existing one to a backup table (`ADM_DEVICE_AGREEMENT_KURT_OLD`). If an older backup exists or an overwrite is explicitly requested, it may drop the old backup. The core functionality involves creating a new `ADM_DEVICE_AGREEMENT_KURT` table by executing a `CREATE TABLE AS SELECT` statement. This statement joins numerous tables across various schemas to compile comprehensive information related to device agreements, subscriptions, products, and IMEI usage for the specified month. Finally, it gathers statistics on the newly created table and logs the process status.
+Creates or refreshes the `ADM_DEVICE_AGREEMENT_KURT` table by aggregating and transforming device agreement and subscription historical data for the previous month. It includes source data validation, backup handling for existing data (renaming old table to `ADM_DEVICE_AGREEMENT_KURT_OLD`), and statistical analysis on the new table.
 
 ## Data Sources (Inputs)
-- ← [[GALAXY.DATE_DIM_MV]]
-- ← [[GALAXY.AGREEMENT_DIM]]
-- ← [[CRM_ANALYSE.TDM_MOBIL_SUBSCR_HIST]]
-- ← [[ADM_SUBSCRIPTION_HIST_KURT]]
+- ← [[ADM_DEVICE_AGREEMENT_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
+| FIRST_DATE_KEY |
+| LAST_DATE_KEY |
+| FIRST_DATE |
+- ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
+- ← [[GALAXY.AGREEMENT_DIM]]
+| Column Name |
+|---|
+| AGREEMENT_START_DT_KEY |
+| AGREEMENT_OFFER_NAME |
+| AGREEMENT_KEY |
+| SOURCE_SYSTEM_AGREEMENT_ID_1 |
+| AGREEMENT_OWNER_KEY |
+| DEALER_KEY |
+| SOURCE_DEALER_ID |
+| SOURCE_AGREEMENT_STATUS |
+| AGREEMENT_END_DT_KEY |
 - ← [[CM.AGREEMENT_OFFER]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| PRODUCT_OFFER_ID |
+| INFO_REG_DATE |
+| INFO_IS_DELETED |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| AGREEMENT_OFFER_ID_PARENT |
+| AGREEMENT_OFFER_ID |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_CATEGORY_ID |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| PRODUCT_DESC |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| MONTHLY_PRICE |
 - ← [[ADM_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
 - ← [[CM.AGREEMENT_OFFER_CONFIGURATION]]
+| Column Name |
+|---|
+| AGREEMENT_OFFER_ID |
+| PARAMETER_ID |
+| INFO_REG_DATE |
+| INFO_IS_DELETED |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| PARAMETER_VALUE |
 - ← [[ONL_REP.SERVICE_ORDER_PRODUCT]]
+| Column Name |
+|---|
+| ORDER_ID |
+| ORDER_LINE_ID |
+| PRODUCT_STATUS_ID |
+| PRODUCT_STATUS_REASON_ID |
+| DEALER_ID |
+| ORDER_PHONE_NUM |
+| SUBSCR_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER_OFFER]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| AGREEMENT_ORDER_OFFER_ID |
+| AGREEMENT_OFFER_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER_COMPONENT]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| AGREEMENT_ORDER_OFFER_ID |
+| COMPONENT_ID |
+| AGREEMENT_ORDER_COMPONENT_ID |
+| INFO_REG_DATE |
+| VALID_FROM_DATE |
 - ← [[ONL_REP.AGREEMENT_ORDER_COMP_PARAM]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_COMPONENT_ID |
+| PARAMETER_ID |
+| PARAMETER_VALUE |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[CRM_ANALYSE.ADM_MOBIL_SUBSCR_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_KEY |
+| END_DATE |
+| ORIGINAL_START_DATE |
+| CHANGETYPE_START |
+| PORT_IN_DEALER_ID |
+| PORT_OUT_DEALER_ID |
+| SUBSCRIPTION_ID_PREV |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID_NUM |
+| MAIN_NUMBER |
+| LAST_USER |
+| MARKET_AREA_ID |
 - ← [[ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
 - ← [[LIVE.EUREKA_IMEI]]
+| Column Name |
+|---|
+| IMEI |
+| TERMINAL_USE_LAST_DATE |
+| TERMINAL_USE_FIRST_DATE |
+| SUBSCR_ID |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| S212_PRODUCT_ID |
 - ← [[CM.PROD_SERV_MAPPING]]
+| Column Name |
+|---|
+| PRODUCT_UNIT_ID |
+| PRODUCT_DESCR |
+- ← [[CRM_ANALYSE.TDM_MOBIL_SUBSCR_HIST]]
+| Column Name |
+|---|
+| START_DATE |
+| MARKET_AREA_ID |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_HIST_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 
 ## Target Tables (Outputs)
-- → [[ADM_DEVICE_AGREEMENT_KURT]]
 - → [[ADM_DEVICE_AGREEMENT_KURT_OLD]]
+- → [[ADM_DEVICE_AGREEMENT_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_SUBSCRIPTION_KEY |
+| ORDER_MAIN_NUMBER |
+| ORDER_KURT_KEY_OWNER |
+| ORDER_SUBSCRIPTION_KEY_STATUS |
+| ORDER_SUBSCRIPTION_START_DT |
+| ORDER_SUBS_CHANGETYPE_START |
+| ORDER_SUBS_PORT_IN_DEALER_ID |
+| ORDER_SUBSCRIPTION_END_DT |
+| ORDER_SUBS_PORT_OUT_DEALER_ID |
+| USE_SUBSCRIPTION_KEY |
+| USE_MAIN_NUMBER |
+| USE_KURT_KEY_USER |
+| USE_MARKET_AREA_KEY |
+| USE_BRAND |
+| ROOT_AGREEMENT_KEY |
+| ROOT_AGREEMENT_DEALER_KEY |
+| ROOT_AGREEMENT_ID |
+| ROOT_AGREEMENT_DEALER_ID |
+| ROOT_AGREEMENT_STATUS |
+| ROOT_AGREEMENT_START_DATE |
+| ROOT_AGREEMENT_END_DATE |
+| PRODUCT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_STATUS |
+| PRODUCT_AGREEMENT_STATUS_INFO |
+| PRODUCT_AGREEMENT_REG_DATE |
+| PRODUCT_AGREEMENT_START_DATE |
+| PRODUCT_AGREEMENT_END_DATE |
+| PRODUCT_AGREEMENT_ORDER_ID |
+| PRODUCT_AGREE_ORDER_STATUS |
+| PRODUCT_AGREE_ORDER_STATUS_RSN |
+| PRODUCT_AGREEMENT_DEALER_ID |
+| PRODUCT_AGREE_DEALER_CHANNEL |
+| PRODUCT_AGREE_DRM_COM_PROD_GRP |
+| PRODUCT_AGREE_DRM_COM_MRK_PROD |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| PRODUCT_AGREEMENT_PRODUCT_NM |
+| PRODUCT_AGREE_MONTHLY_PRICE |
+| PRODUCT_AGREE_TERMINATION_FEE |
+| DEVICE_AGREEMENT_ID |
+| DEVICE_AGREEMENT_STATUS |
+| DEVICE_AGREEMENT_STATUS_INFO |
+| DEVICE_AGREE_STATUS_REG_DATE |
+| DEVICE_AGREE_STATUS_START_DATE |
+| DEVICE_AGREE_STATUS_END_DATE |
+| DEVICE_AGREEMENT_REG_DATE |
+| DEVICE_AGREEMENT_START_DATE |
+| DEVICE_AGREEMENT_END_DATE |
+| HANDSET_KEY |
+| IMEI |
+| IMEI_REG_DATE |
+| IMEI_START_DATE |
+| IMEI_END_DATE |
+| IMEI_STATUS |
+| IMEI_USE_FIRST_DATE |
+| IMEI_USE_LAST_DATE |
+| RANGERING |
 

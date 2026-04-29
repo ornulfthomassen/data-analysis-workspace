@@ -3,8 +3,79 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Consolidates various customer, subscription, product, and financial attributes along with churn and porting KPIs for analytical insights. It provides a comprehensive dataset to analyze customer churn, termination, and porting activities, including details about owners, users, devices, sales channels, and revenue metrics over different periods.
+This view provides a comprehensive dataset for analyzing customer churn, porting, and termination events. It selects numerous attributes related to customer demographics, subscription details, product attributes, revenue, and key performance indicators (KPIs) for churn and porting, making the data accessible for insight generation or reporting. It acts as a direct projection of an underlying churn insight table.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.CHURN_INSIGHT_CHURN]]
+| Column Name |
+|---|
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| CU_CUSTOMER_SK_OWNER |
+| MPP_CUSTOMER_SK_USER |
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| SUBSCRIPTION_KEY |
+| MPP_MAIN_ID_SK |
+| MPP_DEALER_CHAIN |
+| MPP_DEALER_NAME |
+| MPP_DEVICE_PRODUCERNAME |
+| MPP_DEVICE_MODELNAME |
+| MPP_CHANGETYPE |
+| MPP_IN_PORT_SP_NAME |
+| MPP_MB_LAST1 |
+| MPP_NET_REVENUE_ADJ |
+| MPP_NO_DAYS_MNO_START |
+| MPP_NO_DAYS_SUBS_START |
+| MPP_NO_MB_PCT_LAST1 |
+| MPP_NO_PORTING |
+| MPP_PROFIT_CAT |
+| MPP_PROD_ATTR_INCL_MB |
+| MPP_PROD_ATTR_MTH_FEE |
+| MPP_PRODUCT_FAMILY |
+| MPP_PRODUCT_NAME |
+| MPP_SALES_CH |
+| MPP_SUBS_START_REASON |
+| MPP_NEXT_FAMILIE_RABATT_STATUS |
+| MPP_SWAP_STATUS |
+| REVENUE_FEE_RATIO |
+| OWNER_AGE |
+| OWNER_GENDER |
+| OWNER_CLM_LIVSFASE_SEGMENT |
+| OWNER_NET_REVENUE |
+| OWNER_NO_FBR |
+| OWNER_NO_MBB |
+| OWNER_NO_MPP |
+| OWNER_NO_MPR |
+| OWNER_NO_PROD_CAT |
+| USER_AGE |
+| USER_GENDER |
+| USER_CLM_LIVSFASE_SEGMENT |
+| OWNER_USER_ROLES |
+| MPP_USER_BECAME_OWNER_FLG |
+| MPP_USER_BECAME_OWNER_DATE |
+| MONTHS_SINCE_OWNER_CHG |
+| U_13_RABATT |
+| U_30_RABATT |
+| FAMILIERABATT |
+| GRATIS_SIM |
+| DATA_BOOST |
+| AKTIVERT_NETTVERN_PLUSS |
+| EVENT_DATE |
+| EVENT_DTTM |
+| EVENT_STATUS_DATE |
+| EVENT_STATUS_DTTM |
+| KPI_CHURN |
+| KPI_CHURN_FC |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_OUTBOUND_FB |
+| KPI_PORTING_OUTBOUND_FB_FC |
+| KPI_PORTING_OUTBOUND_FC |
+| KPI_TERMINATION |
+| KPI_TERMINATION_FC |
+| SERV_PROVIDER_TO |
+| DAYS_BTW_OWNER_CHG_AND_CHURN |
+| CHURN_MONTH_DATE |
+| PERIOD_CATEGORY |
+| ACTIVATED_SAFE_FLAG |
 

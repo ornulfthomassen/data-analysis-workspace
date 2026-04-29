@@ -3,9 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides historical details for subscriptions linked to a specific product offer (PRODUCT_OFFER_ID = 7096079). It retrieves the subscription ID, product offer ID, product offer name, and the start and end dates of the subscription for this particular product.
+Creates a view that combines subscription details with product offer names for a specific product offer (ID 7096079), providing subscription keys, product keys, product offer names, and start/end dates.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| START_DATE |
+| END_DATE |
 - ← [[CCDW.PRODUCT_OFFER]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| PRODUCT_OFFER_NAME |
 

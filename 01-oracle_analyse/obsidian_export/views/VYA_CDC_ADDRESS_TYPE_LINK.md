@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is a direct passthrough, selecting all columns from the 'ADDRESS_TYPE_LINK' table within the 'CDC' schema. It essentially provides an alias or a wrapper around the base table without applying any filters, aggregations, or complex transformations. The name suggests it might be related to Change Data Capture, but the view itself simply exposes the data as-is.
+Creates a view that exposes all columns and rows from the 'CDC.ADDRESS_TYPE_LINK' table, effectively acting as a direct projection of the source table.
 
 ## Data Sources (Inputs)
 - ← [[CDC.ADDRESS_TYPE_LINK]]
+| Column Name |
+|---|
+| ADDRESS_TYPE_LINK_ID |
+| ADDRESS_TYPE_ID |
+| ADDRESS_TYPE_NAME |
+| ADDRESS_SOURCE_ID |
+| INFO_REG_USER_NAME |
+| INFO_REG_APPL_NAME |
+| INFO_REG_DATE |
+| INFO_CHG_USER_NAME |
+| INFO_CHG_APPL_NAME |
+| INFO_CHG_DATE |
+| INFO_IS_DELETED |
 

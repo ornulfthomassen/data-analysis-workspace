@@ -3,8 +3,24 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct projection or alias for the `ADM_SUBSCR_HANDSET_HIST` data from the `CLM_ADM` schema. It exposes the exact same columns and data without any filtering, aggregation, or transformation. Its primary purpose is likely to provide cross-schema access (e.g., from the `CCM` schema), enforce a specific naming convention (`GCP_` prefix), or act as a foundational layer for further data modeling or reporting within the `CCM` schema, without altering the underlying data structure.
+Creates a view named GCP_ADM_SUBSCR_HANDSET_HIST that provides a direct projection of all columns from the CLM_ADM.ADM_SUBSCR_HANDSET_HIST table or view.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
 

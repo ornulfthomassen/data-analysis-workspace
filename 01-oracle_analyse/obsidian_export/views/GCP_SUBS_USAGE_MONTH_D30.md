@@ -3,8 +3,109 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides detailed aggregated mobile subscription usage and revenue metrics for a specific period, specifically filtering for 'PERIOD_MONTH_KEY = 30'. It includes comprehensive breakdowns for MMS, SMS, Voice (TALE), and Data (MB_DATA) services, categorized by domestic, international (EU/ROW), and roaming (EU/ROW) usage, along with various data package and shared bucket types. The purpose is to expose a focused snapshot of these key performance indicators for a particular month/period.
+This view provides a filtered projection of aggregated mobile subscription usage data for a specific period, identified by `PERIOD_MONTH_KEY = 30`. It includes detailed metrics for MMS, SMS, voice calls (TALE), and data (MB_DATA) usage, categorized by domestic, international, roaming, and various package types, along with associated net revenues.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBS_USAGE_MOB_MONTH_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| NET_REVENUE |
+| ANT_MMS |
+| ANT_MMS_DOM |
+| ANT_MMS_INTL_EU |
+| ANT_MMS_INTL_ROW |
+| ANT_MMS_ROAM_EU |
+| ANT_MMS_ROAM_ROW |
+| NET_REVENUE_MMS |
+| NET_REVENUE_MMS_DOM |
+| NET_REVENUE_MMS_INTL_EU |
+| NET_REVENUE_MMS_INTL_ROW |
+| NET_REVENUE_MMS_ROAM_EU |
+| NET_REVENUE_MMS_ROAM_ROW |
+| ANT_SMS |
+| ANT_SMS_DOM |
+| ANT_SMS_INTL_EU |
+| ANT_SMS_INTL_ROW |
+| ANT_SMS_ROAM_EU |
+| ANT_SMS_ROAM_ROW |
+| NET_REVENUE_SMS |
+| NET_REVENUE_SMS_DOM |
+| NET_REVENUE_SMS_INTL_EU |
+| NET_REVENUE_SMS_INTL_ROW |
+| NET_REVENUE_SMS_ROAM_EU |
+| NET_REVENUE_SMS_ROAM_ROW |
+| ANT_TALE |
+| ANT_TALE_DOM |
+| ANT_TALE_INTL_EU |
+| ANT_TALE_INTL_ROW |
+| ANT_TALE_ROAM_EU |
+| ANT_TALE_ROAM_ROW |
+| MIN_TALE |
+| MIN_TALE_DOM |
+| MIN_TALE_INTL_EU |
+| MIN_TALE_INTL_ROW |
+| MIN_TALE_ROAM_EU |
+| MIN_TALE_ROAM_ROW |
+| NET_REVENUE_TALE |
+| NET_REVENUE_TALE_DOM |
+| NET_REVENUE_TALE_INTL_EU |
+| NET_REVENUE_TALE_INTL_ROW |
+| NET_REVENUE_TALE_ROAM_EU |
+| NET_REVENUE_TALE_ROAM_ROW |
+| MB_DATA |
+| MB_DATA_DOM |
+| MB_DATA_DOM_MUSIC_FREEDM |
+| MB_DATA_DOM_ZERO_RATED |
+| MB_DATA_DOM_INCLUDED |
+| MB_DATA_DOM_INVOICED |
+| MB_DATA_DOM_REDUCED_SPEED |
+| MB_DATA_DOM_PACKAGE_CAMP |
+| MB_DATA_DOM_PACKAGE_PAID |
+| MB_DATA_DOM_SHARED_BUCKET |
+| MB_DATA_ROAM_EU |
+| MB_DATA_ROAM_EU_MUSIC_FREEDM |
+| MB_DATA_ROAM_EU_ZERO_RATED |
+| MB_DATA_ROAM_EU_INCLUDED |
+| MB_DATA_ROAM_EU_INVOICED |
+| MB_DATA_ROAM_EU_REDUCED_SPEED |
+| MB_DATA_ROAM_EU_PACKAGE_CAMP |
+| MB_DATA_ROAM_EU_PACKAGE_PAID |
+| MB_DATA_ROAM_EU_SHARED_BUCKET |
+| MB_DATA_ROAM_ROW |
+| MB_DATA_ROAM_ROW_MUSIC_FREEDM |
+| MB_DATA_ROAM_ROW_PACKAGE_CAMP |
+| MB_DATA_ROAM_ROW_PACKAGE_PAID |
+| MB_DATA_ROAM_ROW_OTHER |
+| MB_DATA_ROAM_OTHR |
+| MB_DATA_ROAM_OTHR_MUSIC_FR |
+| MB_DATA_ROAM_OTHR_PACKAGE_CAMP |
+| MB_DATA_ROAM_OTHR_PACKAGE_PAID |
+| MB_DATA_ROAM_OTHR_OTHER |
+| MB_DATA_PACKAGE_FBB_GARANTI |
+| MB_DATA_PACKAGE |
+| MB_DATA_PACKAGE_CAMP_OTHR |
+| MB_DATA_PACKAGE_COLA |
+| MB_DATA_PACKAGE_COLC |
+| MB_DATA_PACKAGE_CRLA |
+| MB_DATA_PACKAGE_CRLC |
+| MB_DATA_PACKAGE_CRUA |
+| MB_DATA_PACKAGE_TRLA |
+| MB_DATA_PACKAGE_PRCH_OTHR |
+| MB_DATA_PACKAGE_POLA |
+| MB_DATA_PACKAGE_POLC |
+| MB_DATA_PACKAGE_PRUC |
+| MB_DATA_PACKAGE_PXLC |
+| MB_DATA_PACKAGE_GOODIES |
+| MB_DATA_SHARED_BUCKET |
+| MB_DATA_SB_FAM_BONUS |
+| MB_DATA_SB_INCLUDED |
+| MB_DATA_SB_EXTRA |
+| NET_REVENUE_DATA |
+| NET_REVENUE_DATA_DOM |
+| NET_REVENUE_DATA_ROAM |
+| NO_PRIM_PRODUCT_KEY |
+| MB_DATA_PACKAGE_PRUA |
 

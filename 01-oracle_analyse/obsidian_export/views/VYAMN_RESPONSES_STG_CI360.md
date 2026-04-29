@@ -3,13 +3,46 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `VYAMN_RESPONSES_STG_CI360`, serves as a staging or consolidated source for customer responses originating from a SAS Customer Intelligence 360 (CI360) system. It collects distinct response events, enriches them with detailed response attributes (like channel, reason, group, rank), and links them to customer and subscription master data. The view provides various temporal keys (date, month, week) and customer identifiers (customer owner, subscription, main number) to enable comprehensive analysis of customer interactions and campaign effectiveness.
+Consolidates and transforms customer response and event data, primarily sourced from SAS Customer Intelligence 360, by enriching it with customer mapping and subscription details to create a unified staging view.
 
 ## Data Sources (Inputs)
 - ← [[SAS360_COMMON.SAS360_RESPONSES]]
+| Column Name |
+|---|
+| RESPONSE_ID |
+| RESPONSE_DTTM |
+| RESPONSE_CHANNEL_CD |
+| EXTERNAL_RESPONSE_INFO_ID1 |
+| EXTERNAL_RESPONSE_INFO_ID2 |
+| RESPONSE_CD |
+| SUBJECT_KEY |
+| RESPONSE_TRACKING_CD |
 - ← [[SAS360_COMMON.SAS360_CI_RESPONSE]]
+| Column Name |
+|---|
+| RESPONSE_CD |
+| RESPONSE_NM |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
 - ← [[SAS360_COMMON.SAS360_CCM_RESPONSE_REASON]]
+| Column Name |
+|---|
+| RESPONSE_REASON_ID |
+| RESPONSE_REASON_DESC |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| KURT_KEY |
+| CUSTOMER_SK |
 - ← [[SAS360_COMMON.SAS360_SUPPL_SUBJECTS]]
+| Column Name |
+|---|
+| SUBJECT_KEY |
+| SUBJECT_TYPE |
+| SUPPL_SUBJECT_KEY |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
 

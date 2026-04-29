@@ -3,9 +3,24 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a historical monthly dimension of product pricing information. It joins monthly periods with historical product attributes to show the monthly fee (price) for products that were active during each month. The data is filtered for 'Telenor' brand, 'Abonnement' (Subscription) product category, and 'Consumerprodukt' (Consumer product) reporting, including data up to the end of the current year.
+Creates a historical product price dimension view by joining monthly date information with historical product attributes. It filters products based on specific characteristics (brand 'Telenor', category 'Abonnement', reporting type 'Consumerprodukt') and aligns product prices with relevant months, presenting key product and pricing details.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_DATE |
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME |
+| MONTHLY_FEE |
+| START_DATE |
+| END_DATE |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_REPORTING |
 

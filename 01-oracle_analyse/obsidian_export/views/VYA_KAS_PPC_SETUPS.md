@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a direct projection of setup configuration details, including IDs and names for setups, main services, and content products. It essentially makes the data from the 'KAS.PPC_SETUPS' table available through a view without any active filtering or complex transformations.
+Creates a view that directly exposes selected setup-related columns from the KAS.PPC_SETUPS table.
 
 ## Data Sources (Inputs)
 - ← [[KAS.PPC_SETUPS]]
+| Column Name |
+|---|
+| SETUP_ID |
+| SETUP_NAME |
+| MAIN_SERVICE_ID |
+| MAIN_SERVICE_NAME |
+| CONTENT_PRODUCT_ID |
+| CONTENT_PRODUCT_NAME |
 

@@ -3,8 +3,76 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view, "VA_AGREEMENT_DEVICE_MPX", serves as a direct projection or alias for the "ADM_AGREEMENT_DEVICE_MPX" table. Its primary purpose is to expose all columns from the underlying table, likely to make agreement device-related data available under a different schema (CLM_ADM) or name for reporting, analysis, or integration purposes, without any transformations, aggregations, or filtering applied.
+Creates a direct projection of all columns from the `CRM_ANALYSE.ADM_AGREEMENT_DEVICE_MPX` object into a new view `CLM_ADM.VA_AGREEMENT_DEVICE_MPX`, providing an alternative access point or schema segregation for the underlying data.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_AGREEMENT_DEVICE_MPX]]
+| Column Name |
+|---|
+| IMEI |
+| TELENOR_PRIS_ADJ |
+| TRANSAKSJONS_ID |
+| TRANSAKSJONSTYPE |
+| BUTIKK_ID |
+| BUTIKK_NAVN |
+| ANSATT_NAVN |
+| KRAV_ID |
+| RMA_NUMMER |
+| EGENANDEL_FAKTURERES_KUNDE |
+| DATO_GRADERT_BUTIKK |
+| DATO_GRADERT_BRIGHTSTAR |
+| IMEI_GRADERT_BUTIKK |
+| IMEI_GRADERT_BRIGHTSTAR |
+| MODELL_GRADERT_BUTIKK |
+| MODELL_GRADERT_BRIGHTSTAR |
+| TELENOR_PRIS |
+| MAKSIMAL_VERDI |
+| BUTIKK_GRAD_ETTER_FRATREKK |
+| BUTIKK_GITT_UT_TIL_KUNDE |
+| BRIGHTSTAR_GRAD_ETTER_FRATREKK |
+| BUTIKK_FORTJENESTE |
+| POWER1 |
+| DISPLAY1 |
+| CASE1 |
+| KEYS1 |
+| LOCK1 |
+| POWER1_DEFECT |
+| DISPLAY1_DEFECT |
+| CASE1_DEFECT |
+| KEYS1_DEFECT |
+| LOCK1_DEFECT |
+| POWER2 |
+| DISPLAY2 |
+| CASE2 |
+| KEYS2 |
+| LOCK2 |
+| POWER2_DEFECT |
+| DISPLAY2_DEFECT |
+| CASE2_DEFECT |
+| KEYS2_DEFECT |
+| LOCK2_DEFECT |
+| AARSAK_TIL_DESTRUERING |
+| OPERATOR_LAAS |
+| CHECKSUM |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME_INSERT |
+| FILE_NAME_UPDATE |
+| SYS_DATE_INSERT |
+| SYS_DATE_UPDATE |
+| DEALER_NAME |
+| DEALER_CHAIN_NAME |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| AGRM_KEY |
+| AGRM_ID |
+| AGRM_MONTHLY_PRICE |
+| AGRM_VALID_FROM_DATE |
+| AGRM_VALID_TO_DATE |
+| DEVICE_MARKETING_NAME |
+| DEVICE_MANUFACTURER |
+| AGRM_STATUS |
+| AGRM_STATUS_INFO |
+| AGRM_STATUS_INFO_DESC |
+| VARIGHET |
 

@@ -1,287 +1,2232 @@
 [
     {
-        "procedure_name":"P_ADM_SUBSCRIPTION_HISTORY",
-        "functionality":"This Oracle SQL procedure, P_ADM_SUBSCRIPTION_HISTORY, is designed to process and update historical subscription data for a given month (P_YYYYMM). It first performs a series of checks on the availability of source data. If sources are 'OK', it then prepares the target partitioned table ADM_SUBSCRIPTION_HISTORY by ensuring a partition for the specified month exists, creating it if necessary. It populates a temporary table (TMP_SUBSCRIPTION_HISTORY) with aggregated and transformed subscription data by joining various CLM_ADM source tables. Finally, it uses an `ALTER TABLE ... EXCHANGE PARTITION` statement to efficiently replace or insert the data from the temporary table into the corresponding partition of the ADM_SUBSCRIPTION_HISTORY table, effectively making the processed data part of the permanent historical record. The temporary table itself ceases to exist as an independent object after the exchange. The procedure also handles various error conditions like missing source data, non-existent target tables, or attempts to overwrite existing data.",
-        "data_sources":[
-            "CLM_ADM.ADM_MONTH_DIM",
-            "CLM_ADM.ADM_SUBSCRIPTION_HIST_KURT",
-            "CRM_ANALYSE.ADM_SUBSCRIPTION_MASTER_HIST",
-            "CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST",
-            "CLM_ADM.ADM_CUSTOMER_MAPPING"
-        ],
-        "target_tables":[
+        "procedure_name": "BASE64TOHEX",
+        "functionality": "Converts an input Base64 encoded string into its hexadecimal representation. It performs this by looking up the 6-bit binary equivalent for each Base64 character from the 'ccm.base64' table, concatenating these binary strings, and then converting 8-bit segments of the resulting binary string into 2-character hexadecimal values using the 'ccm.ascii' table.",
+        "data_sources": [
             {
-                "table_name":"TMP_SUBSCRIPTION_HISTORY",
-                "is_temporary":true
+                "table_name": "ccm.base64",
+                "columns": [
+                    "binary",
+                    "CHARACTER"
+                ]
+            },
+            {
+                "table_name": "ccm.ascii",
+                "columns": [
+                    "BIN",
+                    "HEX"
+                ]
             }
         ],
-        "error":null
+        "target_tables": []
     },
     {
-        "procedure_name":"P_ADM_SUBSCRIPTION_HIST_KURT",
-        "functionality":"This Oracle SQL procedure generates a monthly historical snapshot of subscription data. It processes detailed information about subscriptions and associated products for a specified month (`P_YYYYMM`). The procedure identifies the latest active product details, calculates various duration metrics (e.g., days active, days since last change, binding days), and stores these aggregated results in a main historical table. It also manages previous month's data by renaming the main historical table as a backup and uses temporary tables for intermediate data processing and aggregation.",
-        "data_sources":[
-            "GALAXY.DATE_DIM_MV",
-            "CCDW.SUBSCRIPTION",
-            "CCDW.SUBSCRIBED_PRODUCT",
-            "GALAXY.PRODUCT_DIM",
-            "CRM_ANALYSE.ADM_PRIM_PROD_ATTR_HIST",
-            "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG"
-        ],
-        "target_tables":[
+        "procedure_name": "BASE64TOTEXT",
+        "functionality": "Decodes a Base64 encoded string to a plain text string. It processes the input Base64 string character by character, looking up its 6-bit binary representation from the `CCM.BASE64` table. These 6-bit segments are concatenated and then grouped into 24-bit blocks. Each 24-bit block is further split into three 8-bit segments (bytes). Each 8-bit segment is then looked up in the `CCM.ASCII` table to find its corresponding ASCII character. These decoded characters are concatenated to form the final plain text string, which is returned.",
+        "data_sources": [
             {
-                "table_name":"TMP1_SUBSCRIPTION_HIST_KURT",
-                "is_temporary":true
+                "table_name": "CCM.BASE64",
+                "columns": [
+                    "CHARACTER",
+                    "BINARY"
+                ]
             },
             {
-                "table_name":"TMP2_SUBSCRIPTION_HIST_KURT",
-                "is_temporary":true
-            },
-            {
-                "table_name":"ADM_SUBSCRIPTION_HIST_KURT",
-                "is_temporary":false
-            },
-            {
-                "table_name":"ADM_SUBSCRIPTION_HIST_KURT_OLD",
-                "is_temporary":false
+                "table_name": "CCM.ASCII",
+                "columns": [
+                    "SYMBOL",
+                    "BIN"
+                ]
             }
         ],
-        "error":null
+        "target_tables": []
     },
     {
-        "procedure_name":"P_ADM_SUBS_USAGE_MOB_D11_AGG",
-        "functionality":"The procedure P_ADM_SUBS_USAGE_MOB_D11_AGG calculates and aggregates mobile subscription usage data. It performs a multi-stage aggregation process: First, it creates a detailed temporary table, 'TMP_SUBS_USAGE_D11_DET_KPI', by joining various dimension tables with raw usage data and augmenting it with derived key performance indicators (KPIs) such as roaming zone classification, destination zone, traffic type (e.g., MMS, SMS, Voice, Data), and detailed data package categories. Second, it aggregates this detailed data from the first temporary table into a second temporary table, 'TMP_SUBS_USAGE_MOB_D11_AGG'. This final aggregation summarizes usage metrics like MMS\/SMS event counts, voice call durations\/event counts, data volume (categorized by various data package and shared bucket types), and net revenue, broken down by roaming, destination, and traffic types. Both intermediate temporary tables are explicitly created, used, and then dropped within the procedure's execution.",
-        "data_sources":[
-            "CCM.VYA_USAGE_DAY_RAW_FULL",
-            "GALAXY.CALL_TYPE_DIM",
-            "GALAXY.ROAMING_COUNTRY_DIM_V",
-            "GALAXY.DESTINATION_COUNTRY_DIM_V",
-            "GALAXY.PRODUCT_DIM",
-            "GALAXY.TRAFFIC_TYPE_DIM_V",
-            "CLM_ADM.ADM_SUBS_USAGE_MONTH_DET"
-        ],
-        "target_tables":[
+        "procedure_name": "F_DOES_PARTITION_EXIST",
+        "functionality": "Checks for the existence of a specific table partition within the current schema, returning 1 if it exists and 0 otherwise.",
+        "data_sources": [
             {
-                "table_name":"TMP_SUBS_USAGE_D11_DET_KPI",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_SUBS_USAGE_MOB_D11_AGG",
-                "is_temporary":true
+                "table_name": "SYS.ALL_OBJECTS",
+                "columns": [
+                    "OBJECT_TYPE",
+                    "OBJECT_NAME",
+                    "SUBOBJECT_NAME",
+                    "OWNER"
+                ]
             }
         ],
-        "error":null
+        "target_tables": []
     },
     {
-        "procedure_name":"P_CCM_TALKMORE_KURTMAPPING",
-        "functionality":"The Oracle SQL procedure `P_CCM_TALKMORE_KURTMAPPING` is designed to map and enrich 'Talkmore' user and owner data with corresponding customer information from various data sources within a data warehouse environment. It performs a multi-stage, hierarchical matching process (identified by `MATCH_ID` 1 through 95) with progressively less strict criteria. \n\n1.  **Data Preparation**: It first aggregates Talkmore user and owner product usage data into a temporary customer table (`TMP_TALKMORE_CUSTOMER`) and extracts historical customer addresses into another temporary table (`TMP_CUSTOMER_HISTORIC_ADDRESS`).\n2.  **Initial Population**: It initializes a main `TALKMORE_MATCH` table with the prepared Talkmore user data.\n3.  **Cascading Matching**: It then iteratively updates the `TALKMORE_MATCH` table using 10 different matching algorithms. Each algorithm attempts to link unmatched Talkmore records (where `MATCH_ID IS NULL`) to customer records in the `GALAXY.CUSTOMER_DIM` table or other external sources, based on criteria such as:\n    *   Exact matches on full name, birth date, and current address (`MATCH_ID=1`).\n    *   Matches on full name, birth date, and historical address (`MATCH_ID=2`).\n    *   Matches on first name, last name, birth date, and address (`MATCH_ID=3`).\n    *   Partial name matches (e.g., first part of first name) combined with last name, birth date, and address (`MATCH_ID=4`, `MATCH_ID=5`).\n    *   Matches on first name, birth date, and address (no last name match) (`MATCH_ID=6`).\n    *   Matches on full name and address, but not birth date (`MATCH_ID=7`).\n    *   Matches on full name, birth date, and postcode, but not street address (`MATCH_ID=8`).\n    *   Matches against external consumer data (Evry\/Dun & Bradstreet) via phone number (`MATCH_ID=90`).\n    *   Address-only matches using `GALAXY.LOCATION_DIM` for records that couldn't be matched by customer demographics, creating dummy customer keys (`MATCH_ID=95`).\n4.  **Enrichment**: For each successful match, the `TALKMORE_MATCH` table is updated with the matched `CUSTOMER_KEY`, `MASTER_ID`, customer names, address details, and other demographic information from the customer dimensions, along with the `MATCH_ID` and a description of the matching criterion. Records matched by a stricter criterion are excluded from subsequent, less strict matching attempts.",
-        "data_sources":[
-            "TALKMORE_USER",
-            "TALKMORE_OWNER",
-            "CRM_ANALYSE.TALKMORE_DETAILS_TMP",
-            "CRM_ANALYSE.PRODUCT_DIM_V",
-            "CDC.MASTER_CUSTOMER",
-            "CDC.ADDRESS_LINK",
-            "CDC.ADDRESS",
-            "GALAXY.CUSTOMER_DIM",
-            "GALAXY.CUST_MAIN_LOC_DIM_V",
-            "GALAXY.CUST_POST_LOC_DIM_V",
-            "REFERENCE.CONSUMER_CUST_INFO",
-            "GALAXY.LOCATION_DIM",
-            "TALKMORE_MATCH",
-            "TMP_TALKMORE_CUSTOMER",
-            "TMP_CUSTOMER_HISTORIC_ADDRESS",
-            "TMP_TALKMORE_MATCH1",
-            "TMP_TALKMORE_MATCH2",
-            "TMP_TALKMORE_MATCH3",
-            "TMP_TALKMORE_MATCH4",
-            "TMP_TALKMORE_MATCH5",
-            "TMP_TALKMORE_MATCH6",
-            "TMP_TALKMORE_MATCH7",
-            "TMP_TALKMORE_MATCH8",
-            "TMP_TALKMORE_MATCH90",
-            "TMP_TALKMORE_MATCH95"
-        ],
-        "target_tables":[
+        "procedure_name": "F_DOES_TABLE_EXIST",
+        "functionality": "Checks if a table with a specified name exists within the current schema, returning 1 if it exists and 0 otherwise.",
+        "data_sources": [
             {
-                "table_name":"TALKMORE_MATCH",
-                "is_temporary":false
-            },
-            {
-                "table_name":"TMP_TALKMORE_CUSTOMER",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_CUSTOMER_HISTORIC_ADDRESS",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH1",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH2",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH3",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH4",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH5",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH6",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH7",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH8",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH90",
-                "is_temporary":true
-            },
-            {
-                "table_name":"TMP_TALKMORE_MATCH95",
-                "is_temporary":true
+                "table_name": "SYS.ALL_OBJECTS",
+                "columns": [
+                    "OBJECT_TYPE",
+                    "OBJECT_NAME",
+                    "OWNER"
+                ]
             }
         ],
-        "error":null
+        "target_tables": []
     },
     {
-        "procedure_name":"P_GOV_DQ_MARTS_INS_CHURN_CHECK",
-        "functionality":"This Oracle PL\/SQL procedure performs data quality checks on weekly mobile segment churn data. It calculates and compares various churn and subscriber metrics (total, by brand - Telenor\/djuice, and by profit category - 'Topp 35'\/'Bunn 65') between the current week and the previous week. It identifies significant percentage-point or absolute changes in these metrics and also verifies the existence of data partitions for the processed weeks. The results of these data quality checks, including an 'OK' status or specific error reasons for detected anomalies or missing data, are recorded into a data quality monitoring table.",
-        "data_sources":[
-            "CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_W_AGG",
-            "GALAXY.DATE_DIM_MV",
-            "SYS.ALL_OBJECTS",
-            "DUAL"
-        ],
-        "target_tables":[
-            {
-                "table_name":"CCM.GOV_DQ_MARTS",
-                "is_temporary":false
-            }
-        ],
-        "error":null
+        "procedure_name": "F_KURT",
+        "functionality": "This function maps specific string names (e.g., 'ARILD', 'CHRISTINE') to corresponding hardcoded numeric identifiers. It returns -2 if the input is NULL, a specific number for recognized names, and -1 for any other unrecognized names. It essentially acts as a hardcoded lookup or identifier assignment mechanism.",
+        "data_sources": [],
+        "target_tables": []
     },
     {
-        "procedure_name":"P_RELOAD_FTV_LOCATION_EVENTS_GCP",
-        "functionality":"The procedure `P_RELOAD_FTV_LOCATION_EVENTS_GCP` performs a two-stage data reload process. It first clears the `CCM.FTV_LOCATION_EVENTS_GCP_TMP` table (which acts as a staging area) and populates it with data extracted from the `CCM.FTV_LOCATION_EVENTS_V` view. Following this, it clears the main `CCM.FTV_LOCATION_EVENTS_GCP` table and populates it with the data from the `CCM.FTV_LOCATION_EVENTS_GCP_TMP` staging table. Essentially, it refreshes the `CCM.FTV_LOCATION_EVENTS_GCP` table using `CCM.FTV_LOCATION_EVENTS_V` as the source, via an intermediate staging table.",
-        "data_sources":[
-            "CCM.FTV_LOCATION_EVENTS_V",
-            "CCM.FTV_LOCATION_EVENTS_GCP_TMP"
-        ],
-        "target_tables":[
+        "procedure_name": "F_TEST",
+        "functionality": "This procedure first implements a waiting mechanism, repeatedly checking a data readiness flag (`DATA_IS_FRESH`) from the `V_WAIT_FOR_DATA` view until the data is deemed ready or a 30-second timeout occurs. If the data becomes ready within the timeout, it then manages a temporary table named `TABLE_FROM_PROC_IN_WITH`. It dynamically drops this temporary table if it already exists, and subsequently recreates it by selecting a small sample (first 5 rows) of device keys and cast source device IDs from the `GALAXY.DEVICE_DIM` table.",
+        "data_sources": [
             {
-                "table_name":"CCM.FTV_LOCATION_EVENTS_GCP",
-                "is_temporary":false
+                "table_name": "V_WAIT_FOR_DATA",
+                "columns": [
+                    "DATA_IS_FRESH"
+                ]
             },
             {
-                "table_name":"CCM.FTV_LOCATION_EVENTS_GCP_TMP",
-                "is_temporary":false
+                "table_name": "GALAXY.DEVICE_DIM",
+                "columns": [
+                    "DEVICE_KEY",
+                    "SOURCE_DEVICE_ID"
+                ]
             }
         ],
-        "error":null
-    },
-    {
-        "procedure_name":"P_RELOAD_FTV_STOCK",
-        "functionality":"This procedure, `P_RELOAD_FTV_STOCK`, acts as an orchestrator for refreshing or reloading various aspects of stock-related data, likely for a Fact Table View (FTV) system. It sequentially calls several sub-procedures within the `CCM` schema: `P_RELOAD_FTV_STOCK_BASE_V2`, `P_RELOAD_FTV_LOCATION_EVENTS_GCP`, `P_RELOAD_FTV_STOCK_EVENTS_GCP`, and `P_RELOAD_FTV_STOCK_BASE`. These sub-procedures are presumably responsible for handling specific data reloading tasks, potentially involving base stock data and events related to stock movement or location, possibly with integration or sourcing from Google Cloud Platform (GCP). The procedure also logs timestamps at different stages using `dbms_output.put_line` for monitoring execution progress.",
-        "data_sources":[
-
-        ],
-        "target_tables":[
-
-        ],
-        "error":null
-    },
-    {
-        "procedure_name":"P_RELOAD_FTV_STOCK_BASE",
-        "functionality":"The Oracle SQL procedure `P_RELOAD_FTV_STOCK_BASE` is designed to completely reload the `CCM.FTV_STOCK_BASE` table. It achieves this by first clearing and repopulating a temporary\/staging table, `CCM.FTV_STOCK_BASE_TMP`, with data sourced from `CCM.FTV_STOCK_BASE_V`. Subsequently, it clears and repopulates the final `CCM.FTV_STOCK_BASE` table using the data from the `CCM.FTV_STOCK_BASE_TMP` table.",
-        "data_sources":[
-            "CCM.FTV_STOCK_BASE_V",
-            "CCM.FTV_STOCK_BASE_TMP"
-        ],
-        "target_tables":[
+        "target_tables": [
             {
-                "table_name":"CCM.FTV_STOCK_BASE_TMP",
-                "is_temporary":true
+                "table_name": "TABLE_FROM_PROC_IN_WITH",
+                "is_temporary": true,
+                "columns": [
+                    "DEVICE_KEY",
+                    "IMEI_USE"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "F_TEST2",
+        "functionality": "This function waits for a data freshness condition based on a flag from 'V_WAIT_FOR_DATA'. If the condition is met within a timeout, it dynamically creates a permanent table named 'TABLE_FROM_PROC_IN_WITH'. Before creation, it checks if this table already exists and drops it. The new table is populated with `DEVICE_KEY` and a casted `SOURCE_DEVICE_ID` from `GALAXY.DEVICE_DIM`, limited to the first 5 rows.",
+        "data_sources": [
+            {
+                "table_name": "V_WAIT_FOR_DATA",
+                "columns": [
+                    "DATA_IS_FRESH"
+                ]
             },
             {
-                "table_name":"CCM.FTV_STOCK_BASE",
-                "is_temporary":false
+                "table_name": "GALAXY.DEVICE_DIM",
+                "columns": [
+                    "DEVICE_KEY",
+                    "SOURCE_DEVICE_ID"
+                ]
             }
         ],
-        "error":null
+        "target_tables": [
+            {
+                "table_name": "TABLE_FROM_PROC_IN_WITH",
+                "is_temporary": false,
+                "columns": [
+                    "DEVICE_KEY",
+                    "IMEI_USE"
+                ]
+            }
+        ]
     },
     {
-        "procedure_name":"P_RELOAD_FTV_STOCK_BASE_V2",
-        "functionality":"This procedure performs a two-step data refresh for stock base information. It first truncates and reloads a temporary\/staging table (CCM.FTV_STOCK_BASE_V2_TMP) using data from a source view (CCM.FTV_STOCK_BASE_V2_V). Subsequently, it truncates and reloads the main stock base table (CCM.FTV_STOCK_BASE_V2) using the data from the previously populated temporary staging table.",
-        "data_sources":[
-            "CCM.FTV_STOCK_BASE_V2_V",
-            "CCM.FTV_STOCK_BASE_V2_TMP"
-        ],
-        "target_tables":[
+        "procedure_name": "F_WAIT_FOR_DATA",
+        "functionality": "Waits for a 'DATA_IS_FRESH' flag to become true in a specified view or table. It reads the 'DATA_IS_FRESH' value, and if it's 0, the function pauses for a defined interval and re-checks (though the current implementation only fetches once from the cursor). This process repeats until the flag is non-zero or a total timeout is reached. It returns 1 if data became fresh within the timeout, otherwise 0.",
+        "data_sources": [
             {
-                "table_name":"CCM.FTV_STOCK_BASE_V2_TMP",
-                "is_temporary":true
+                "table_name": "P_TMP_VIEW",
+                "columns": [
+                    "DATA_IS_FRESH"
+                ]
+            }
+        ],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "HEXTOBASE64",
+        "functionality": "This function, named HEXTOBASE64, attempts to convert a hexadecimal string to its Base64 equivalent. However, it contains several critical issues: the input parameter `V_HEX` is immediately shadowed and overwritten by a hardcoded hexadecimal value; only the first part of the conversion (looking up binary representations from `CCM.ASCII` based on hex characters) is active; and the main Base64 encoding logic, as well as the final `RETURN` statement, are commented out. As a result, the function will not return a value and will fail at runtime.",
+        "data_sources": [
+            {
+                "table_name": "CCM.ASCII",
+                "columns": [
+                    "BIN",
+                    "HEX"
+                ]
+            }
+        ],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "IMEI_CONTROL_DIGIT2_CCDW",
+        "functionality": "Calculates the Luhn algorithm check digit for a given number, typically used for IMEI validation. It processes the input number digit by digit from right to left, applying specific arithmetic operations (doubling even-positioned digits and summing digits if the doubled value exceeds 9, adding odd-positioned digits as is) to derive a final check digit.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "LUHN_CONTROL_DIGIT",
+        "functionality": "Calculates the Luhn control digit for a given input string. The function first removes all non-digit characters from the input and reverses the resulting string. It then iterates through the reversed digits, doubling every second digit (starting from the first digit on the left, which corresponds to the rightmost digit of the original number). If a doubled digit's value is 10 or greater (e.g., 7 doubled is 14), its individual digits are summed (e.g., 1+4=5). Finally, it sums all the processed digits and calculates the check digit required to make this total sum a multiple of 10.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "MAKE_DATE",
+        "functionality": "Converts an input string (STR) into a timestamp. It attempts to parse the string first using the 'YYYYMMDDHH24MISS' format. If that fails, it tries to parse the first 8 characters of the string using the 'YYYYMMDD' format. If both attempts fail, it returns NULL. This is a PL/SQL function, not a procedure interacting with database tables.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "MAKE_IMEI_FULL",
+        "functionality": "Calculates the 15th check digit for a given partial IMEI (International Mobile Equipment Identity) number using a variant of the Luhn algorithm, and returns the complete 15-digit IMEI.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "MAKE_NUMBER",
+        "functionality": "Converts a string to a number, attempting to handle different formats such as leading/trailing spaces and comma as a decimal separator. It returns NULL if the conversion fails after multiple attempts.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "P_ADM_SUBSCRIPTION_HISTORY",
+        "functionality": "Populates or refreshes a monthly partition of the `CLM_ADM.ADM_SUBSCRIPTION_HISTORY` table with aggregated subscription history data for a specified month. It first validates the availability of source data from several historical tables. If sources are valid, it creates a temporary table (`CLM_ADM.TMP_SUBSCRIPTION_HISTORY`) by joining subscription history details with master subscription data and customer mapping information for the specified month. Finally, the data from this temporary table is exchanged into a new or existing partition of the `CLM_ADM.ADM_SUBSCRIPTION_HISTORY` table for the corresponding month.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_MONTH_DIM",
+                "columns": [
+                    "LAST_DATE_KEY",
+                    "LAST_DATE",
+                    "PERIOD_MONTH_KEY",
+                    "NEXT_PERIOD_MONTH_KEY"
+                ]
             },
             {
-                "table_name":"CCM.FTV_STOCK_BASE_V2",
-                "is_temporary":false
-            }
-        ],
-        "error":null
-    },
-    {
-        "procedure_name":"P_RELOAD_FTV_STOCK_EVENTS_GCP",
-        "functionality":"This procedure reloads stock event data by performing a two-step synchronization. First, it clears all data from the staging table `CCM.FTV_STOCK_EVENTS_GCP_TMP` and populates it with fresh data from the source view `CCM.FTV_STOCK_EVENTS_V`. Second, it clears all data from the main target table `CCM.FTV_STOCK_EVENTS_GCP` and then populates it with the data from the newly reloaded staging table `CCM.FTV_STOCK_EVENTS_GCP_TMP`.",
-        "data_sources":[
-            "CCM.FTV_STOCK_EVENTS_V",
-            "CCM.FTV_STOCK_EVENTS_GCP_TMP"
-        ],
-        "target_tables":[
-            {
-                "table_name":"CCM.FTV_STOCK_EVENTS_GCP_TMP",
-                "is_temporary":true
+                "table_name": "CLM_ADM.ADM_SUBSCRIPTION_HIST_KURT",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SUBS_NO_DAYS_ACTIVE",
+                    "PROD_NO_DAYS_ACTIVE",
+                    "NO_DAYS_LAST_START",
+                    "NO_DAYS_LAST_CHANGE",
+                    "NO_DAYS_BIND_START",
+                    "NO_DAYS_BIND_END",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
             },
             {
-                "table_name":"CCM.FTV_STOCK_EVENTS_GCP",
-                "is_temporary":false
+                "table_name": "CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "MAIN_NUMBER_SK"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_CUSTOMER_MAPPING_HIST",
+                "columns": [
+                    "PERIOD_MONTH_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_CUSTOMER_MAPPING_{YYYYMM}",
+                "columns": [
+                    "KURT_ID",
+                    "CUSTOMER_SK"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_SUBSCRIPTION_MASTER_HIST",
+                "columns": [
+                    "ORIGINAL_START_DATE"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_SUBSCRIPTION_HISTORY",
+                "columns": []
             }
         ],
-        "error":null
+        "target_tables": [
+            {
+                "table_name": "CLM_ADM.TMP_SUBSCRIPTION_HISTORY",
+                "is_temporary": true,
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_ID",
+                    "MAIN_NUMBER_SK",
+                    "CUSTOMER_SK_OWNER",
+                    "CUSTOMER_SK_USER",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SUBS_NO_DAYS_ACTIVE",
+                    "PROD_NO_DAYS_ACTIVE",
+                    "NO_DAYS_LAST_START",
+                    "NO_DAYS_LAST_CHANGE",
+                    "NO_DAYS_BIND_START",
+                    "NO_DAYS_BIND_END",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_SUBSCRIPTION_HISTORY",
+                "is_temporary": false,
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_ID",
+                    "MAIN_NUMBER_SK",
+                    "CUSTOMER_SK_OWNER",
+                    "CUSTOMER_SK_USER",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SUBS_NO_DAYS_ACTIVE",
+                    "PROD_NO_DAYS_ACTIVE",
+                    "NO_DAYS_LAST_START",
+                    "NO_DAYS_LAST_CHANGE",
+                    "NO_DAYS_BIND_START",
+                    "NO_DAYS_BIND_END",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            }
+        ]
     },
     {
-        "procedure_name":"RESET_SEQUENCE",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
+        "procedure_name": "P_ADM_SUBSCRIPTION_HIST_KURT",
+        "functionality": "This procedure creates a historical snapshot of subscription and product data for a specific month (defined by `V_YYYYMM`). It performs data quality checks on source data, generates two intermediate temporary tables with ranked subscription information and last product changes, and finally compiles this data into a permanent historical table named `ADM_SUBSCRIPTION_HIST_KURT`. The process includes renaming/dropping older versions of the target table and its backups, and calculating various duration-related metrics for subscriptions and products.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "DAY",
+                    "YEAR_MONTH_NUMBER"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRIMARY_PRODUCT_FLAG",
+                    "PRODUCT_KEY",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_DESC"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "START_DATE",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "SUBSCRIPTION_ID",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "MAIN_NUMBER",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MARKET_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "ORIGINAL_START_DATE",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "START_DATE",
+                    "END_DATE",
+                    "BUSINESS_AREA_ID",
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID",
+                    "SUBSCRIPTION_SEQ",
+                    "INFO_CHG_DATE",
+                    "PRODUCT_CATEGORY_ID",
+                    "SOURCE_SYSTEM_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_PRIM_PROD_ATTR_HIST",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "START_DATE",
+                    "END_DATE",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "ID",
+                    "PARENT"
+                ]
+            },
+            {
+                "table_name": "TMP1_SUBSCRIPTION_HIST_KURT",
+                "columns": [
+                    "DAY",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "ORIGINAL_START_DATE",
+                    "S_START_DATE",
+                    "SP_START_DATE",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            },
+            {
+                "table_name": "TMP2_SUBSCRIPTION_HIST_KURT",
+                "columns": [
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SP2_START_DATE"
+                ]
+            }
         ],
-        "target_tables":[
-
-        ],
-        "error":"Expecting value: line 1 column 1 (char 0)"
+        "target_tables": [
+            {
+                "table_name": "TMP1_SUBSCRIPTION_HIST_KURT",
+                "is_temporary": true,
+                "columns": [
+                    "DAY",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "ORIGINAL_START_DATE",
+                    "S_START_DATE",
+                    "SP_START_DATE",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            },
+            {
+                "table_name": "TMP2_SUBSCRIPTION_HIST_KURT",
+                "is_temporary": true,
+                "columns": [
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SP2_START_DATE"
+                ]
+            },
+            {
+                "table_name": "ADM_SUBSCRIPTION_HIST_KURT",
+                "is_temporary": false,
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_NAME",
+                    "LAST_PRODUCT_OFFER_ID",
+                    "LAST_PRODUCT_CATEGORY_ID",
+                    "SUBS_NO_DAYS_ACTIVE",
+                    "PROD_NO_DAYS_ACTIVE",
+                    "NO_DAYS_LAST_START",
+                    "NO_DAYS_LAST_CHANGE",
+                    "NO_DAYS_BIND_START",
+                    "NO_DAYS_BIND_END",
+                    "PRODUCT_ATTRIBUTE_KEY"
+                ]
+            },
+            {
+                "table_name": "ADM_SUBSCRIPTION_HIST_KURT_OLD",
+                "is_temporary": true,
+                "columns": []
+            }
+        ]
     },
     {
-        "procedure_name":"TEST_PROCEDURE",
-        "functionality":"Outputs a simple 'Hello World!' message to the console.",
-        "data_sources":[
-
+        "procedure_name": "P_ADM_SUBS_USAGE_MOB_D11_AGG",
+        "functionality": "Enriches raw mobile usage data with KPI categorizations and then aggregates it into detailed mobile usage metrics by subscription, event date, and period. The procedure first creates a temporary table to store the enriched data (TMP_SUBS_USAGE_D11_DET_KPI) and then uses this enriched data to create a second temporary table (TMP_SUBS_USAGE_MOB_D11_AGG) containing various summed usage metrics like MMS count/revenue, SMS count/revenue, voice call count/minutes/revenue, and data volume, categorized by roaming zone, traffic type, and data package type.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_SUBS_USAGE_MONTH_DET",
+                "columns": [
+                    "PERIOD_MONTH_KEY"
+                ]
+            },
+            {
+                "table_name": "CCM.VYA_USAGE_DAY_RAW_FULL",
+                "columns": []
+            },
+            {
+                "table_name": "GALAXY.CALL_TYPE_DIM",
+                "columns": [
+                    "CALL_TYPE_KEY",
+                    "EVENT_TYPE_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ROAMING_COUNTRY_DIM_V",
+                "columns": [
+                    "ROAMING_COUNTRY_KEY",
+                    "DRM_CURRENT_COUNTRY_GROUPING"
+                ]
+            },
+            {
+                "table_name": "GALAXY.DESTINATION_COUNTRY_DIM_V",
+                "columns": [
+                    "DESTINATION_COUNTRY_KEY",
+                    "DRM_CURRENT_COUNTRY_GROUPING"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_PAYTYPE",
+                    "SOURCE_SYSTEM_NAME",
+                    "DRM_COMMON_PRODUCT_CATEGORY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.TRAFFIC_TYPE_DIM_V",
+                "columns": [
+                    "TRAFFIC_TYPE_KEY",
+                    "REPORT_GROUP_3",
+                    "SOURCE_SYSTEM_KEY_3",
+                    "TRAFFIC_TYPE_NAME_1",
+                    "TRAFFIC_TYPE_NAME_2",
+                    "TRAFFIC_TYPE_NAME_3"
+                ]
+            },
+            {
+                "table_name": "TMP_SUBS_USAGE_D11_DET_KPI",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "EVENT_DATE_KEY",
+                    "SUBSCRIPTION_KEY",
+                    "SUB_NUMBER",
+                    "USAGE_NET_AMOUNT",
+                    "USAGE_NUMBER_OF_EVENTS",
+                    "USAGE_DURATION",
+                    "USAGE_VOLUME_TOTAL",
+                    "KPI_TRAFFIC_TYPE_L1",
+                    "KPI_ROAMING_SONE",
+                    "KPI_DESTINATION_SONE",
+                    "KPI_TRAFFIC_TYPE_L2",
+                    "KPI_DATAPAKKE",
+                    "KPI_SHARED_BUCKET",
+                    "PRIM_PRODUCT_KEY"
+                ]
+            }
         ],
-        "target_tables":[
-
+        "target_tables": [
+            {
+                "table_name": "TMP_SUBS_USAGE_D11_DET_KPI",
+                "is_temporary": true,
+                "columns": []
+            },
+            {
+                "table_name": "TMP_SUBS_USAGE_MOB_D11_AGG",
+                "is_temporary": true,
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "EVENT_DATE_KEY",
+                    "SUBSCRIPTION_KEY",
+                    "SUB_NUMBER",
+                    "NET_REVENUE",
+                    "ANT_MMS",
+                    "ANT_MMS_DOM",
+                    "ANT_MMS_INTL_EU",
+                    "ANT_MMS_INTL_ROW",
+                    "ANT_MMS_ROAM_EU",
+                    "ANT_MMS_ROAM_ROW",
+                    "USAGE_NET_AMOUNT_MMS",
+                    "USAGE_NET_AMOUNT_MMS_DOM",
+                    "USAGE_NET_AMOUNT_MMS_INTL_EU",
+                    "USAGE_NET_AMOUNT_MMS_INTL_ROW",
+                    "USAGE_NET_AMOUNT_MMS_ROAM_EU",
+                    "USAGE_NET_AMOUNT_MMS_ROAM_ROW",
+                    "ANT_SMS",
+                    "ANT_SMS_DOM",
+                    "ANT_SMS_INTL_EU",
+                    "ANT_SMS_INTL_ROW",
+                    "ANT_SMS_ROAM_EU",
+                    "ANT_SMS_ROAM_ROW",
+                    "USAGE_NET_AMOUNT_SMS",
+                    "USAGE_NET_AMOUNT_SMS_DOM",
+                    "USAGE_NET_AMOUNT_SMS_INTL_EU",
+                    "USAGE_NET_AMOUNT_SMS_INTL_ROW",
+                    "USAGE_NET_AMOUNT_SMS_ROAM_EU",
+                    "USAGE_NET_AMOUNT_SMS_ROAM_ROW",
+                    "ANT_TALE",
+                    "ANT_TALE_DOM",
+                    "ANT_TALE_INTL_EU",
+                    "ANT_TALE_INTL_ROW",
+                    "ANT_TALE_ROAM_EU",
+                    "ANT_TALE_ROAM_ROW",
+                    "MIN_TALE",
+                    "MIN_TALE_DOM",
+                    "MIN_TALE_INTL_EU",
+                    "MIN_TALE_INTL_ROW",
+                    "MIN_TALE_ROAM_EU",
+                    "MIN_TALE_ROAM_ROW",
+                    "USAGE_NET_AMOUNT_TALE",
+                    "USAGE_NET_AMOUNT_TALE_DOM",
+                    "USAGE_NET_AMOUNT_TALE_INTL_EU",
+                    "USAGE_NET_AMOUNT_TALE_INTL_ROW",
+                    "USAGE_NET_AMOUNT_TALE_ROAM_EU",
+                    "USAGE_NET_AMOUNT_TALE_ROAM_ROW",
+                    "MB_DATA",
+                    "MB_DATA_DOM",
+                    "MB_DATA_DOM_MUSIC_FREEDM",
+                    "MB_DATA_DOM_ZERO_RATED",
+                    "MB_DATA_DOM_INCLUDED",
+                    "MB_DATA_DOM_INVOICED",
+                    "MB_DATA_DOM_REDUCED_SPEED",
+                    "MB_DATA_DOM_PACKAGE_CAMP",
+                    "MB_DATA_DOM_PACKAGE_PAID",
+                    "MB_DATA_DOM_SHARED_BUCKET",
+                    "MB_DATA_ROAM_EU",
+                    "MB_DATA_ROAM_EU_MUSIC_FREEDM",
+                    "MB_DATA_ROAM_EU_ZERO_RATED",
+                    "MB_DATA_ROAM_EU_INCLUDED",
+                    "MB_DATA_ROAM_EU_INVOICED",
+                    "MB_DATA_ROAM_EU_REDUCED_SPEED",
+                    "MB_DATA_ROAM_EU_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_EU_PACKAGE_PAID",
+                    "MB_DATA_ROAM_EU_SHARED_BUCKET",
+                    "MB_DATA_ROAM_ROW",
+                    "MB_DATA_ROAM_ROW_MUSIC_FREEDM",
+                    "MB_DATA_ROAM_ROW_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_ROW_PACKAGE_PAID",
+                    "MB_DATA_ROAM_ROW_OTHER",
+                    "MB_DATA_ROAM_OTHR",
+                    "MB_DATA_ROAM_OTHR_MUSIC_FREEDM",
+                    "MB_DATA_ROAM_OTHR_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_OTHR_PACKAGE_PAID",
+                    "MB_DATA_ROAM_OTHR_OTHER",
+                    "MB_DATA_FBB_GARANTI",
+                    "MB_DATA_PACKAGE",
+                    "MB_DATA_PACKAGE_CAMP_OTHR",
+                    "MB_DATA_PACKAGE_COLA",
+                    "MB_DATA_PACKAGE_COLC",
+                    "MB_DATA_PACKAGE_CRLA",
+                    "MB_DATA_PACKAGE_CRLC",
+                    "MB_DATA_PACKAGE_CRUA",
+                    "MB_DATA_PACKAGE_TRLA",
+                    "MB_DATA_PACKAGE_PRCH_OTHR",
+                    "MB_DATA_PACKAGE_POLA",
+                    "MB_DATA_PACKAGE_POLC",
+                    "MB_DATA_PACKAGE_PRUC",
+                    "MB_DATA_PACKAGE_PXLC",
+                    "MB_DATA_PACKAGE_GOODIES",
+                    "MB_DATA_SHARED_BUCKET",
+                    "MB_DATA_SB_FAM_BONUS",
+                    "MB_DATA_SB_INCLUDED",
+                    "MB_DATA_SB_EXTRA",
+                    "USAGE_NET_AMOUNT_DATA",
+                    "USAGE_NET_AMOUNT_DATA_DOM",
+                    "USAGE_NET_AMOUNT_DATA_ROAM",
+                    "NO_PRIM_PRODUCT_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_CCM_TALKMORE_KURTMAPPING",
+        "functionality": "This procedure performs a multi-stage matching process to link 'Talkmore' user data with existing customer records from various 'Galaxy' and 'CDC' data sources, and external 'REFERENCE.CONSUMER_CUST_INFO' data. It starts by extracting and aggregating Talkmore user and owner details into a temporary table. Then, it sequentially attempts to match these Talkmore records with customer dimension data and historical addresses using increasingly less strict criteria (exact name/address/birthdate, historical address, partial name matches, postcode only, and finally external contact info). It populates a primary 'TALKMORE_MATCH' table with the best available match, recording the type of match found. Multiple temporary tables are used as intermediate steps during this process.",
+        "data_sources": [
+            {
+                "table_name": "CRM_ANALYSE.TALKMORE_DETAILS_TMP",
+                "columns": [
+                    "USER_ID",
+                    "USER_FIRST_NAME",
+                    "USER_LAST_NAME",
+                    "USER_ADDRESS",
+                    "USER_ZIP",
+                    "USER_CITY",
+                    "USER_BIRTHDAY",
+                    "PRODUCT_REPORT_LEVEL4",
+                    "OWNER_FIRST_NAME",
+                    "OWNER_LAST_NAME",
+                    "OWNER_ADDRESS",
+                    "OWNER_ZIP",
+                    "OWNER_CITY",
+                    "OWNER_BIRTHDAY",
+                    "RATE_PLAN_NAME",
+                    "OWNER_COMPANY_ORGNR",
+                    "PHONE_NUMBER"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.PRODUCT_DIM_V",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_BRAND"
+                ]
+            },
+            {
+                "table_name": "CDC.MASTER_CUSTOMER",
+                "columns": [
+                    "KURT_ID",
+                    "MASTER_ID",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CDC.ADDRESS_LINK",
+                "columns": [
+                    "MASTER_ID",
+                    "ADDRESS_LOCATION_ID",
+                    "INFO_IS_DELETED",
+                    "ADDRESS_TYPE_LINK_ID",
+                    "INFO_REG_DATE",
+                    "INFO_CHG_DATE"
+                ]
+            },
+            {
+                "table_name": "CDC.ADDRESS",
+                "columns": [
+                    "ADDRESS_TYPE_LINK_ID",
+                    "FAR_ID",
+                    "INFO_IS_DELETED",
+                    "STREET_NAME",
+                    "HOUSE_NUMBER",
+                    "HOUSE_CHARACTER",
+                    "POSTCODE_ID",
+                    "POSTCODE_NAME"
+                ]
+            },
+            {
+                "table_name": "CCM.TMP_TALKMORE_CUSTOMER",
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER"
+                ]
+            },
+            {
+                "table_name": "GALAXY.CUSTOMER_DIM",
+                "columns": [
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "POSTAL_ADDRESS_LOCATION_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.CUST_MAIN_LOC_DIM_V",
+                "columns": [
+                    "MAIN_LOC_KEY",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "GALAXY.CUST_POST_LOC_DIM_V",
+                "columns": [
+                    "POST_LOC_KEY",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "CCM.TALKMORE_MATCH",
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH1",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_CUSTOMER_HISTORIC_ADDRESS",
+                "columns": [
+                    "KURT_ID",
+                    "STREET_NAME",
+                    "HOUSE_NUMBER",
+                    "HOUSE_CHARACTER",
+                    "POSTCODE_ID"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH2",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH3",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH4",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH5",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH6",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH7",
+                "columns": [
+                    "USER_ID",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH8",
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "REFERENCE.CONSUMER_CUST_INFO",
+                "columns": [
+                    "CONTACTPHONENUMBER1",
+                    "TEXT2",
+                    "NUMBER2",
+                    "NUMBER1",
+                    "TEXT3"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH90",
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "GALAXY.LOCATION_DIM",
+                "columns": [
+                    "LOCATION_KEY",
+                    "STREET_NAME",
+                    "HOUSE_NUMBER",
+                    "HOUSE_CHARACTER",
+                    "POSTCODE_ID",
+                    "POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH95",
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            }
         ],
-        "error":null
+        "target_tables": [
+            {
+                "table_name": "TMP_TALKMORE_CUSTOMER",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER"
+                ]
+            },
+            {
+                "table_name": "TMP_CUSTOMER_HISTORIC_ADDRESS",
+                "is_temporary": true,
+                "columns": [
+                    "KURT_ID",
+                    "MASTER_ID",
+                    "MIN_FAR_ID",
+                    "MAX_FAR_ID",
+                    "STREET_NAME",
+                    "HOUSE_NUMBER",
+                    "HOUSE_CHARACTER",
+                    "POSTCODE_ID",
+                    "POSTCODE_NAME",
+                    "INFO_REG_DATE",
+                    "INFO_CHG_DATE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH1",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TALKMORE_MATCH",
+                "is_temporary": false,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH2",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH3",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH4",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH5",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH6",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH7",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_USER",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH8",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH90",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "STATUS_CHANGE_DATE",
+                    "TAG_DIPPER",
+                    "TAG_TALKMORE",
+                    "HOUSEHOLD_KEY",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_APPARTMENT_NR",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE",
+                    "POSTAL_ADDRESS_LOCATION_ID",
+                    "POST_STREET_NAME",
+                    "POST_HOUSE_NUMBER",
+                    "POST_HOUSE_CHARACTER",
+                    "POST_APPARTMENT_NR",
+                    "POST_POSTCODE_ID",
+                    "POST_POST_OFFICE"
+                ]
+            },
+            {
+                "table_name": "TMP_TALKMORE_MATCH95",
+                "is_temporary": true,
+                "columns": [
+                    "USER_ID",
+                    "FIRST_NAME",
+                    "LAST_NAME",
+                    "ADDRESS",
+                    "ZIP",
+                    "CITY",
+                    "BIRTHDAY",
+                    "DATE_OF_BIRTH",
+                    "NO_TKM_MPP_USER",
+                    "NO_TKM_MPR_USER",
+                    "NO_TKM_MBB_USER",
+                    "NO_TKM_MPP_BUS_USER",
+                    "NO_TKM_OTHER_USER",
+                    "NO_TKM_OWNER",
+                    "NO_TKM_MPP_OWNER",
+                    "NO_TKM_MPR_OWNER",
+                    "NO_TKM_MBB_OWNER",
+                    "NO_TKM_MPP_BUS_OWNER",
+                    "NO_TKM_OTHER_OWNER",
+                    "MATCH_ID",
+                    "MATCH_DESC",
+                    "CUSTOMER_KEY",
+                    "MASTER_ID",
+                    "CUSTOMER_FIRST_NAME",
+                    "CUSTOMER_MIDDLE_NAME",
+                    "CUSTOMER_SURNAME",
+                    "CUSTOMER_DATE_OF_BIRTH",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_CATEGORY",
+                    "CUSTOMER_STATUS_ID",
+                    "MAIN_ADDRESS_LOCATION_ID",
+                    "MAIN_STREET_NAME",
+                    "MAIN_HOUSE_NUMBER",
+                    "MAIN_HOUSE_CHARACTER",
+                    "MAIN_POSTCODE_ID",
+                    "MAIN_POST_OFFICE"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_GOV_DQ_MARTS_INS_CHURN_CHECK",
+        "functionality": "Performs a weekly data quality check on aggregated mobile segment churn data, comparing current week's metrics against the previous week's. It identifies significant deviations in churn percentages, churn counts, and subscriber counts across different brands (Telenor, djuice) and segments (Top 35, Bottom 65). The results of this check, including a status ('OK' or 'ERROR') and a reason, are logged into a data quality monitoring table. It also verifies the existence of required data partitions for the processed weeks.",
+        "data_sources": [
+            {
+                "table_name": "SYS.ALL_OBJECTS",
+                "columns": [
+                    "OBJECT_TYPE",
+                    "OWNER",
+                    "OBJECT_NAME",
+                    "SUBOBJECT_NAME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "DAY",
+                    "YEAR_WEEK_NUMBER"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_W_AGG",
+                "columns": [
+                    "period_week_key",
+                    "balance",
+                    "out_port",
+                    "drm_common_brand",
+                    "profit_cat_name2"
+                ]
+            },
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.GOV_DQ_MARTS",
+                "is_temporary": false,
+                "columns": [
+                    "RUNTIME",
+                    "FREQ",
+                    "SYSTEM_NM",
+                    "PROCESS_NM",
+                    "STATUS_NM",
+                    "REASON",
+                    "PRIORITY",
+                    "START_TIME",
+                    "END_TIME",
+                    "PREV_OK_DTTM",
+                    "PREV_OK_RESSULT",
+                    "LAST_RESSULT"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_RELOAD_FTV_LOCATION_EVENTS_GCP",
+        "functionality": "Performs a full reload of the `CCM.FTV_LOCATION_EVENTS_GCP` table by first populating an intermediate temporary table `CCM.FTV_LOCATION_EVENTS_GCP_TMP` from the `CCM.FTV_LOCATION_EVENTS_V` view, and then transferring the data from the temporary table to the final target table.",
+        "data_sources": [
+            {
+                "table_name": "CCM.FTV_LOCATION_EVENTS_V",
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_LOCATION_EVENTS_GCP_TMP",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.FTV_LOCATION_EVENTS_GCP_TMP",
+                "is_temporary": true,
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_LOCATION_EVENTS_GCP",
+                "is_temporary": false,
+                "columns": []
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_RELOAD_FTV_STOCK",
+        "functionality": "Orchestrates the sequential execution of several sub-procedures (P_RELOAD_FTV_LOCATION_EVENTS_GCP, P_RELOAD_FTV_STOCK_EVENTS_GCP, P_RELOAD_FTV_STOCK_BASE, P_RELOAD_FTV_STOCK_BASE_V2) which are likely responsible for reloading or refreshing various stock-related data components.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "P_RELOAD_FTV_STOCK_BASE",
+        "functionality": "Reloads the FTV_STOCK_BASE table by first populating an intermediate temporary table (FTV_STOCK_BASE_TMP) from a view (FTV_STOCK_BASE_V), and then transferring the data from the temporary table to the main FTV_STOCK_BASE table.",
+        "data_sources": [
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_V",
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_TMP",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_TMP",
+                "is_temporary": true,
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_BASE",
+                "is_temporary": false,
+                "columns": []
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_RELOAD_FTV_STOCK_BASE_V2",
+        "functionality": "Refreshes the 'FTV_STOCK_BASE_V2' table. It first clears and reloads a temporary table 'FTV_STOCK_BASE_V2_TMP' with data from the 'FTV_STOCK_BASE_V2_V' view, and then uses this temporary table to clear and reload the main 'FTV_STOCK_BASE_V2' table.",
+        "data_sources": [
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_V2_V",
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_V2_TMP",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_V2_TMP",
+                "is_temporary": true,
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_BASE_V2",
+                "is_temporary": false,
+                "columns": []
+            }
+        ]
+    },
+    {
+        "procedure_name": "P_RELOAD_FTV_STOCK_EVENTS_GCP",
+        "functionality": "This procedure reloads the `FTV_STOCK_EVENTS_GCP` table by first populating a temporary staging table `FTV_STOCK_EVENTS_GCP_TMP` from the `FTV_STOCK_EVENTS_V` view, and then transferring the data from the staging table to the final `FTV_STOCK_EVENTS_GCP` table. Both target tables are fully refreshed with `DELETE` and `INSERT` operations.",
+        "data_sources": [
+            {
+                "table_name": "CCM.FTV_STOCK_EVENTS_V",
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_EVENTS_GCP_TMP",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.FTV_STOCK_EVENTS_GCP_TMP",
+                "is_temporary": true,
+                "columns": []
+            },
+            {
+                "table_name": "CCM.FTV_STOCK_EVENTS_GCP",
+                "is_temporary": false,
+                "columns": []
+            }
+        ]
+    },
+    {
+        "procedure_name": "RAWTOREADABLE",
+        "functionality": "Converts a RAW data type value provided as an input parameter into a VARCHAR2 data type value.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "RESET_SEQUENCE",
+        "functionality": "Attempts to reset the specified Oracle sequence so that the next call to its NEXTVAL pseudo-column will return 1. It achieves this by setting MINVALUE to 0, temporarily adjusting its INCREMENT BY value (based on the current sequence value to make the next value 0), and then restoring the INCREMENT BY to 1. This procedure contains a potential flaw: if the sequence's CURRVAL is 0 at the time of execution, it attempts to set INCREMENT BY to 0, which would result in an ORA-04005 error as Oracle sequences cannot have an INCREMENT BY value of zero.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "SQUIRREL_GET_ERROR_OFFSET",
+        "functionality": "Parses a given SQL query string using DBMS_SQL and returns the character offset of the parsing error if one occurs. This helps in identifying the exact location of syntax errors within a SQL statement without executing it.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "TCX_CONFIG_TIMESTAMP_TRG",
+        "functionality": "Automatically sets or updates the 'CONFIG_TIMESTAMP' column to the current system date and time for new or modified rows in the 'CCM.TCX_CONFIG' table.",
+        "data_sources": [],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_CONFIG",
+                "is_temporary": false,
+                "columns": [
+                    "CONFIG_TIMESTAMP"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TCX_CONFIG_TRG",
+        "functionality": "Automatically assigns a unique identifier from the `CCM.TCX_CONFIG_SEQ` sequence to the `CONFIG_ID` column of a new record in the `CCM.TCX_CONFIG` table before insertion.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_CONFIG",
+                "is_temporary": false,
+                "columns": [
+                    "CONFIG_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TCX_OBJECT_HISTORY_TRG",
+        "functionality": "Automatically populates the TRANSACTION_ID column for new rows being inserted into the CCM.TCX_OBJECT_HISTORY table, using the next value from the CCM.TCX_OBJECT_HISTORY_SEQ sequence.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_OBJECT_HISTORY",
+                "is_temporary": false,
+                "columns": [
+                    "TRANSACTION_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TCX_TEAM_PROJECTS_TRG",
+        "functionality": "Automatically assigns a unique project ID to new rows being inserted into the `TCX_TEAM_PROJECTS` table by fetching the next value from the `TCX_TEAM_PROJECTS_SEQ` sequence.",
+        "data_sources": [],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_TEAM_PROJECTS",
+                "is_temporary": false,
+                "columns": [
+                    "PROJECT_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TCX_UPD_OBJ_TIMESTAMP",
+        "functionality": "Updates the 'OBJECT_TIMESTAMP' column in the 'CCM.TCX_CONFIG' table to the current system date. This update is triggered automatically after any INSERT, DELETE, or UPDATE operation on a row in the 'CCM.TCX_OBJECTS' table, affecting the corresponding configuration record identified by the 'CONFIG_ID' from the affected 'CCM.TCX_OBJECTS' row.",
+        "data_sources": [
+            {
+                "table_name": "CCM.TCX_OBJECTS",
+                "columns": [
+                    "CONFIG_ID"
+                ]
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_CONFIG",
+                "is_temporary": false,
+                "columns": [
+                    "OBJECT_TIMESTAMP"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TCX_UPD_PROJ_TIMESTAMP",
+        "functionality": "This trigger updates the 'OBJECT_TIMESTAMP' column in the 'CCM.TCX_CONFIG' table to the current system date and time. This update occurs whenever an INSERT, UPDATE, or DELETE operation is performed on the 'CCM.TCX_TEAM_PROJECTS' table. The specific row updated in 'CCM.TCX_CONFIG' is determined by matching its 'CONFIG_ID' with the 'CONFIG_ID' from the row being modified in 'CCM.TCX_TEAM_PROJECTS'.",
+        "data_sources": [
+            {
+                "table_name": "CCM.TCX_TEAM_PROJECTS",
+                "columns": [
+                    "CONFIG_ID"
+                ]
+            }
+        ],
+        "target_tables": [
+            {
+                "table_name": "CCM.TCX_CONFIG",
+                "is_temporary": false,
+                "columns": [
+                    "OBJECT_TIMESTAMP"
+                ]
+            }
+        ]
+    },
+    {
+        "procedure_name": "TEST_PROCEDURE",
+        "functionality": "The procedure `TEST_PROCEDURE` is a simple program that prints the string 'Hello World!' to the DBMS output buffer. It does not perform any database operations such as reading from or writing to tables.",
+        "data_sources": [],
+        "target_tables": []
+    },
+    {
+        "procedure_name": "TEXTTOBASE64",
+        "functionality": "Converts an input VARCHAR string into its Base64 encoded representation. It achieves this by first looking up the binary representation of each input character from the 'CCM.ASCII' table, concatenating these binary strings. Then, it processes the combined binary string in 6-bit segments, looking up the corresponding Base64 character from the 'CCM.BASE64' table, and concatenating them to form the final Base64 output. It also handles padding for incomplete 24-bit blocks at the end of the input.",
+        "data_sources": [
+            {
+                "table_name": "CCM.ASCII",
+                "columns": [
+                    "BIN",
+                    "SYMBOL"
+                ]
+            },
+            {
+                "table_name": "CCM.BASE64",
+                "columns": [
+                    "CHARACTER",
+                    "BINARY"
+                ]
+            }
+        ],
+        "target_tables": []
     }
 ]

@@ -3,13 +3,110 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-The procedure `ADM19_2_MOB_KURT_REVENUE` is responsible for aggregating monthly mobile subscription revenue data. It creates two permanent partitioned tables, `CRM_ANALYSE.ADM_MOB_KURT_OWNER_REVENUE_3MO` and `CRM_ANALYSE.ADM_MOB_KURT_USER_REVENUE_3MO`, if they do not exist. For a specified range of months (defaulting to the previous month if not provided), it iterates through each month. For each month, it checks if corresponding data already exists in the target tables. If not, it dynamically adds a new partition for that month to the respective table and inserts aggregated revenue data. The aggregation is done from `CRM_ANALYSE.ADM_MOB_SUBS_REVENUE_3MO`, grouping by 'owner' for one table and 'user' for the other. It also manages table statistics and logs operational history.
+The procedure manages and populates two aggregated monthly revenue tables, ADM_MOB_KURT_OWNER_REVENUE_3MO and ADM_MOB_KURT_USER_REVENUE_3MO, partitioned by month. It first checks for the existence of these tables and creates them if they don't exist, including initial partitions and indexes. Then, for a specified range of months, it checks if monthly partitions exist in the target tables and creates them if needed. Finally, it aggregates detailed revenue data from CRM_ANALYSE.ADM_MOB_SUBS_REVENUE_3MO, grouping by 'owner' or 'user' ID respectively, and inserts these aggregated results into the corresponding target tables. It also logs the execution status and relevant information.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DATE_KEY |
+| DAY |
 - ← [[CRM_ANALYSE.ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
+- ← [[DUAL]]
+- ← [[CRM_ANALYSE.ADM_MOB_KURT_OWNER_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+- ← [[CRM_ANALYSE.ADM_MOB_KURT_USER_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 
 ## Target Tables (Outputs)
 - → [[CRM_ANALYSE.ADM_MOB_KURT_OWNER_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID_OWNER |
+| NO_SUBSCR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 - → [[CRM_ANALYSE.ADM_MOB_KURT_USER_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID_USER |
+| NO_SUBSCR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 

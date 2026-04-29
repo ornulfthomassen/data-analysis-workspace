@@ -13,6 +13,74 @@ def extract_schema_from_filename(file_path):
                 return schema.upper()
     return "UNKNOWN"
 
+def create_markdown_content(item, schema):
+    """Builds the Markdown content for a single procedure or view."""
+    is_procedure = 'procedure_name' in item
+    obj_type = "Procedure" if is_procedure else "View"
+    name = item.get('procedure_name') or item.get('view_name')
+
+    content = f"""# {name}
+
+**Schema:** `{schema}` | **Type:** `{obj_type}`
+
+"""
+
+    functionality = item.get('functionality') or item.get('description')
+    if functionality:
+        content += f"""## Description
+{functionality}
+
+"""
+
+    # Helper to generate column tables
+    def generate_column_table(columns):
+        if not columns:
+            return ""
+
+        table_content = ""
+        # Check if columns are dicts (detailed) or strings (simple)
+        if isinstance(columns[0], dict):
+            table_content += "| Column Name | Data Type | Nullable |\n"
+            table_content += "|---|---|---|\n"
+            for col in columns:
+                col_name = col.get('name', 'N/A')
+                data_type = col.get('data_type', 'N/A')
+                nullable = col.get('nullable', 'N/A')
+                table_content += f"| {col_name} | {data_type} | {nullable} |\n"
+        else: # Simple list of strings
+            table_content += "| Column Name |\n"
+            table_content += "|---|\n"
+            for col_name in columns:
+                table_content += f"| {col_name} |\n"
+        return table_content
+
+    data_sources = item.get('data_sources', [])
+    if data_sources:
+        content += "## Data Sources (Inputs)\n"
+        for source in data_sources:
+            if isinstance(source, str):
+                content += f"- ← [[{source}]]\n"
+            elif isinstance(source, dict):
+                source_name = source.get('table_name', '')
+                columns = source.get('columns', [])
+                content += f"- ← [[{source_name}]]\n"
+                if columns:
+                    content += generate_column_table(columns)
+        content += "\n"
+
+    target_tables = item.get('target_tables', [])
+    if target_tables:
+        content += "## Target Tables (Outputs)\n"
+        for target in target_tables:
+            table_name = target.get('table_name')
+            if table_name:
+                columns = target.get('columns', [])
+                content += f"- → [[{table_name}]]\n"
+                if columns:
+                    content += generate_column_table(columns)
+        content += "\n"
+
+    return content
 
 def create_markdown_files():
     """
@@ -20,18 +88,15 @@ def create_markdown_files():
     creates a Markdown file in a structured 'obsidian_export' directory.
     The Markdown files are formatted for Obsidian, with links for dependencies.
     """
-    # Define the main output directory
     output_dir = 'obsidian_export'
     procedures_dir = os.path.join(output_dir, 'procedures')
     views_dir = os.path.join(output_dir, 'views')
 
-    # Create directories if they don't exist
     os.makedirs(procedures_dir, exist_ok=True)
     os.makedirs(views_dir, exist_ok=True)
 
     print(f"Output will be saved in '{output_dir}/'")
 
-    # Process all JSON analysis files in the current directory
     json_files = glob.glob('*_analysis.json')
     if not json_files:
         print("No '_analysis.json' files found in the current directory.")
@@ -50,62 +115,19 @@ def create_markdown_files():
                 continue
 
             for item in data:
-                is_procedure = 'procedure_name' in item
-                is_view = 'view_name' in item
-                
-                if not (is_procedure or is_view):
+                if 'procedure_name' not in item and 'view_name' not in item:
                     continue
 
                 name = item.get('procedure_name') or item.get('view_name')
                 if not name:
                     continue
+                
+                content = create_markdown_content(item, schema)
 
-                # Clean name to be a valid filename
                 filename = f"{name}.md"
-                folder = procedures_dir if is_procedure else views_dir
+                folder = procedures_dir if 'procedure_name' in item else views_dir
                 filepath = os.path.join(folder, filename)
 
-                # Start building Markdown content
-                obj_type = "Procedure" if is_procedure else "View"
-                content = f"""# {name}
-
-**Schema:** `{schema}` | **Type:** `{obj_type}`
-
-"""
-
-                # Add functionality/description
-                functionality = item.get('functionality') or item.get('description')
-                if functionality:
-                    content += f"""## Description
-{functionality}
-
-"""
-
-                # Add data sources as links
-                data_sources = item.get('data_sources', [])
-                if data_sources:
-                    content += """## Data Sources (Inputs)
-"""
-                    for source in data_sources:
-                        content += f"""- ← [[{source}]]
-"""
-                    content += """
-"""
-
-                # Add target tables as links
-                target_tables = item.get('target_tables', [])
-                if target_tables:
-                    content += """## Target Tables (Outputs)
-"""
-                    for target in target_tables:
-                        table_name = target.get('table_name')
-                        if table_name:
-                            content += f"""- → [[{table_name}]]
-"""
-                    content += """
-"""
-                
-                # Write the content to a .md file
                 with open(filepath, 'w') as md_file:
                     md_file.write(content)
 

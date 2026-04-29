@@ -3,8 +3,13 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a direct view into the channel master data, exposing channel code, name, and description.
+Provides a direct projection of channel-related attributes (code, name, description) from the 'cicdm.ci_CHANNEL' table.
 
 ## Data Sources (Inputs)
 - ← [[cicdm.ci_CHANNEL]]
+| Column Name |
+|---|
+| CHANNEL_CD |
+| CHANNEL_NM |
+| CHANNEL_DESC |
 

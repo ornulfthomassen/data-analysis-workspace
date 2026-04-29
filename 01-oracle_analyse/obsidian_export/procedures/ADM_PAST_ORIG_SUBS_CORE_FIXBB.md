@@ -3,8 +3,14 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Recursively traces subscription lineage within the 'ADM_SUBSCRIPTION_CORE_FIXBB' table to find and return a specific related subscription ID (original, past, or previous) based on complex hierarchical rules derived from 'PAST_SUBSCRIPTION_ID', 'ORIG_SUBSCRIPTION_ID', and 'PREV_SUBSCRIPTION_ID' fields, starting from a given input subscription ID (P_SUBS_ID).
+Recursively resolves the original or core subscription ID by tracing historical links (original, previous, and past subscription IDs) within the `ADM_SUBSCRIPTION_CORE_FIXBB` table, returning the final resolved ID or NULL if not found. The function traverses the subscription lineage until a stable 'original' or 'past' subscription is identified based on complex conditional logic.
 
 ## Data Sources (Inputs)
 - ← [[ADM_SUBSCRIPTION_CORE_FIXBB]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| ORIG_SUBSCRIPTION_ID |
+| PREV_SUBSCRIPTION_ID |
+| PAST_SUBSCRIPTION_ID |
 

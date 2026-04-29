@@ -3,10 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Identifies and counts 'SWAP' device product offers from subscribed products that are present in `galaxy.product_dim` but are NOT found in the `ptc` table. It essentially checks for subscribed 'SWAP' devices that are missing from the `ptc` reference.
+Counts the occurrences of product offer IDs from 'ccdw.subscribed_product' that correspond to 'SWAP DEVICE' products found in 'galaxy.product_dim' but are not registered in the 'ptc' table.
 
 ## Data Sources (Inputs)
 - ← [[ccdw.subscribed_product]]
+| Column Name |
+|---|
+| product_offer_id |
 - ← [[galaxy.product_dim]]
+| Column Name |
+|---|
+| product_key |
+| drm_common_product_group |
+| drm_common_market_product |
 - ← [[ptc]]
+| Column Name |
+|---|
+| id |
 

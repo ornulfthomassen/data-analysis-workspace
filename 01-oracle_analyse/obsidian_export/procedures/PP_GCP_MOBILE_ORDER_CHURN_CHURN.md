@@ -3,15 +3,166 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure calculates and populates mobile order churn data into a partitioned target table, `GCP_MOBILE_ORDER_CHURN_CHURN`, for a specified range of months. It processes three types of churn ('DEVICE AGREEMENT', 'PERSONAL AGREEMENT', and 'SUBSCRIPTION') by creating temporary staging tables for each type. Data is extracted from a source table (`CLM_ADM.GCP_MOBILE_ORDER_LINE`), filtered based on specific criteria for each churn type and month, loaded into these temporary tables, and then exchanged with corresponding subpartitions of the main target table. The procedure also handles the creation of partitions in the target table if they do not already exist for the processing month.
+This procedure processes mobile order line data to identify and categorize churn events. It iterates through a specified month range, extracts churn-related details for 'Device Agreement', 'Personal Agreement', and 'Subscription' types from the 'CLM_ADM.GCP_MOBILE_ORDER_LINE' table, and then loads this categorized data into corresponding subpartitions of the 'CLM_ADM.GCP_MOBILE_ORDER_CHURN_CHURN' target table. It also manages the creation of partitions in the target table and gathers statistics for performance.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.GCP_MOBILE_ORDER_LINE]]
+- ← [[DUAL]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+- ← [[CLM_ADM.GCP_MOBILE_ORDER_LINE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_SOURCE |
+| OL_ORDER_KEY |
+| OL_ORDER_LINE_KEY |
+| OL_SOURCE_ORDER_ID |
+| OC_ORDER_CATEGORY_NAME |
+| OTD_ORDERLINE_TYPE_DESC |
+| P_PRODUCT_POID |
+| P_PRODUCT_NAME |
+| HP_PRODUCT_POID |
+| HP_PRODUCT_NAME |
+| OL_ORDER_DTTM |
+| OD_DATE |
+| OS_DATE |
+| OL_SUBSCRIPTION_SK |
+| OL_CUSTOMER_SK_OWNER |
+| OL_TO_SERVICE_PROVIDER_SK |
+| TS_SERVICE_PROVIDER_NAME |
+| TS_SERVICE_PROVIDER_GROUP |
+| OL_AGREEMENT_SK |
+| OL_SRC_AGREEMENT_OFFER_SK |
+| OL_IMEI |
+| OL_MAIN_NUMBER_SK |
+| DL_SALES_CHANNEL_NAME3 |
+| DL_SOURCE_DEALER_ID |
+| STA_STATUS_CD |
+| P_PRODUCT_AREA |
+| P_PRODUCT_GROUP |
+| P_PRODUCT_MARKET_NAME |
+| OL_KPI_TERMINATION |
+| OL_SOURCE_SYSTEM_KEY |
+| P_PRODUCT_REPORTING |
+| P_PRODUCT_CATEGORY |
 
 ## Target Tables (Outputs)
-- → [[GCP_MOBILE_ORDER_CHURN_CHURN]]
-- → [[TMP_ORDER_LINE_MOB_CHURN_AGRM_DEVICE]]
-- → [[TMP_ORDER_LINE_MOB_CHURN_AGRM_PERSONAL]]
-- → [[TMP_ORDER_LINE_MOB_CHURN_SUBSCRIPTION]]
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_CHURN_AGRM_DEVICE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_CHURN_TYPE |
+| ORDER_SOURCE |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| CHURN_SOURCE_ORDER_ID |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_ORDERLINE_TYPE_DESC |
+| CHURN_PRODUCT_POID |
+| CHURN_PRODUCT_NAME |
+| CHURN_MAIN_PRODUCT_POID |
+| CHURN_MAIN_PRODUCT_NAME |
+| CHURN_DTTM |
+| CHURN_DATE |
+| CHURN_STATUS_DATE |
+| SUBSCRIPTION_SK |
+| OWNER_SK |
+| CHURN_SERV_PROVIDER_SK |
+| CHURN_SERV_PROVIDER_NAME |
+| CHURN_SERV_PROVIDER_GROUP |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| CHURN_IMEI |
+| MAIN_NUMBER_SK |
+| CHURN_CHANNEL_NAME3 |
+| SOURCE_DEALER_ID |
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_CHURN_AGRM_PERSONAL]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_CHURN_TYPE |
+| ORDER_SOURCE |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| CHURN_SOURCE_ORDER_ID |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_ORDERLINE_TYPE_DESC |
+| CHURN_PRODUCT_POID |
+| CHURN_PRODUCT_NAME |
+| CHURN_MAIN_PRODUCT_POID |
+| CHURN_MAIN_PRODUCT_NAME |
+| CHURN_DTTM |
+| CHURN_DATE |
+| CHURN_STATUS_DATE |
+| SUBSCRIPTION_SK |
+| OWNER_SK |
+| CHURN_SERV_PROVIDER_SK |
+| CHURN_SERV_PROVIDER_NAME |
+| CHURN_SERV_PROVIDER_GROUP |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| CHURN_IMEI |
+| MAIN_NUMBER_SK |
+| CHURN_CHANNEL_NAME3 |
+| SOURCE_DEALER_ID |
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_CHURN_SUBSCRIPTION]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_CHURN_TYPE |
+| ORDER_SOURCE |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| CHURN_SOURCE_ORDER_ID |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_ORDERLINE_TYPE_DESC |
+| CHURN_PRODUCT_POID |
+| CHURN_PRODUCT_NAME |
+| CHURN_MAIN_PRODUCT_POID |
+| CHURN_MAIN_PRODUCT_NAME |
+| CHURN_DTTM |
+| CHURN_DATE |
+| CHURN_STATUS_DATE |
+| SUBSCRIPTION_SK |
+| OWNER_SK |
+| CHURN_SERV_PROVIDER_SK |
+| CHURN_SERV_PROVIDER_NAME |
+| CHURN_SERV_PROVIDER_GROUP |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| CHURN_IMEI |
+| MAIN_NUMBER_SK |
+| CHURN_CHANNEL_NAME3 |
+| SOURCE_DEALER_ID |
+- → [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_CHURN]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_CHURN_TYPE |
+| ORDER_SOURCE |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| CHURN_SOURCE_ORDER_ID |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_ORDERLINE_TYPE_DESC |
+| CHURN_PRODUCT_POID |
+| CHURN_PRODUCT_NAME |
+| CHURN_MAIN_PRODUCT_POID |
+| CHURN_MAIN_PRODUCT_NAME |
+| CHURN_DTTM |
+| CHURN_DATE |
+| CHURN_STATUS_DATE |
+| SUBSCRIPTION_SK |
+| OWNER_SK |
+| CHURN_SERV_PROVIDER_SK |
+| CHURN_SERV_PROVIDER_NAME |
+| CHURN_SERV_PROVIDER_GROUP |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| CHURN_IMEI |
+| MAIN_NUMBER_SK |
+| CHURN_CHANNEL_NAME3 |
+| SOURCE_DEALER_ID |
 

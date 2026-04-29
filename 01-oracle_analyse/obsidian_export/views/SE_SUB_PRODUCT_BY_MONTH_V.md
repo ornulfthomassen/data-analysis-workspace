@@ -3,8 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a direct pass-through access to subscription product data, likely pre-aggregated or categorized by month, from an underlying source. It exposes existing data under a different schema (`CRM_ANALYSE`) and view name (`SE_SUB_PRODUCT_BY_MONTH_V`) without performing any additional transformations, aggregations, or filtering itself.
+Creates a view named SE_SUB_PRODUCT_BY_MONTH_V in the CRM_ANALYSE schema, which acts as a direct projection of the adhoc_bs.se_sub_product_by_month table or view, exposing all its columns.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.se_sub_product_by_month]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| SUBSCRIPTION_ID |
+| SUB_PRODUCT_START_DTTM |
+| DRM_COMMON_MARKET_PRODUCT |
+| SUB_PRODUCT_NAME |
+| SUB_PRODUCT_DESC |
+| SOURCE_PRODUCT_ID_1 |
 

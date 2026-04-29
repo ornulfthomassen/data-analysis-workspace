@@ -3,9 +3,22 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates prepaid mobile subscription charging data for reporting purposes, specifically for SAS Viya. It calculates the total gross amount (SUM_INKLUDERT_MVA), the number of distinct accounts (ANTALL_KONTO), and the total number of charges/events (ANTALL_LADINGER) for prepaid charging methods. The data is grouped by period, traffic type ID, and traffic type name, and filtered for 'EDR' and 'Ladinger' traffic types.
+Provides aggregated report data on prepaid charging methods/recharges for specific traffic types, intended for SAS Viya reporting. It summarizes included VAT amount, counts of accounts, and counts of recharges by period and traffic type.
 
 ## Data Sources (Inputs)
 - ← [[CCDW_USAGE.MOBILE_SUBSCR_CHARGE_MONTH]]
+| Column Name |
+|---|
+| PERIOD_ID |
+| TRAFFIC_TYPE_ID |
+| GROSS_AMOUNT |
+| ACCOUNT_ID |
+| NUMBER_OF_EVENTS |
 - ← [[GALAXY.TRAFFIC_TYPE_DIM_V]]
+| Column Name |
+|---|
+| TRAFFIC_TYPE_KEY |
+| TRAFFIC_TYPE_NAME_3 |
+| TRAFFIC_TYPE_NAME_1 |
+| TRAFFIC_TYPE_NAME_2 |
 

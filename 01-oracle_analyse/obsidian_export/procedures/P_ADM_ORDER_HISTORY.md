@@ -3,23 +3,220 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADM_ORDER_HISTORY` processes detailed order line facts for a specified month (`P_YYYYMM`). It performs an initial aggregation of order details, product information, and customer mappings to populate a partitioned `ADM_ORDER_HISTORY` table. Subsequently, it uses the newly generated `ADM_ORDER_HISTORY` data, along with product dimensions, to calculate and store aggregated data package usage metrics into three additional monthly partitioned history tables: `ADM_DATAPAKKE_HISTORY_OWNER` (aggregated by customer owner), `ADM_DATAPAKKE_HISTORY_USER` (aggregated by customer user), and `ADM_DATAPAKKE_HISTORY_SUBS` (aggregated by subscription ID). The process involves creating temporary tables, populating them with the aggregated data, and then exchanging these temporary tables with partitions of the permanent target tables.
+This procedure calculates and stores historical order details and aggregated data package usage metrics into four partitioned analytical tables (`ADM_ORDER_HISTORY`, `ADM_DATAPAKKE_HISTORY_OWNER`, `ADM_DATAPAKKE_HISTORY_USER`, `ADM_DATAPAKKE_HISTORY_SUBS`) for a specified month. It handles partition creation, uses temporary tables, and employs a partition exchange mechanism for efficient data loading, performing checks for source data availability and existing partitions.
 
 ## Data Sources (Inputs)
-- ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
-- ← [[CLM_ADM.ADM_MONTH_DIM_V]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
+| DATE_KEY |
+- ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_STATUS_DT_KEY |
+| BUSINESS_AREA_KEY |
+| KPI_NEWSALE |
+| KPI_GROSS_SALE |
+| ORDERLINE_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| MARKET_AREA_KEY |
+| ORDER_STATUS_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| KPI_PRODUCT_CHANGE |
+- ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FIRST_DATE_KEY |
+| LAST_DATE_KEY |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| TK_INCOME_SERVICE |
+| PRODUCT_PAYTYPE |
+| TK_PRODUCT_RANK |
+| PRODUCT_BRAND |
+| PRODUCT_NAME |
+| DRM_COMMON_MARKET_PRODUCT |
+| PRODUCT_CATEGORY |
+| PRODUCT_REPORT_LEVEL4 |
+| ESTABLISHMENT_PRICE |
+| MONTHLY_PRICE |
+| INCLUDED_DATA |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PORTFOLIO |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 - ← [[ADM_ORDER_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| NO_ORDERS |
+| PRODUCT_OFFER_ID |
+| CUSTOMER_SK_USER |
+| SUBSCRIPTION_ID |
 
 ## Target Tables (Outputs)
-- → [[ADM_ORDER_HISTORY]]
 - → [[TMP_ORDER_HISTORY]]
-- → [[ADM_DATAPAKKE_HISTORY_OWNER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MARKET_AREA_ID |
+| ORDER_STATUS_KEY |
+| PRODUCT_OFFER_ID |
+| PROD_DESCRIPTION_L1 |
+| PROD_DESCRIPTION_L2 |
+| PROD_DESCRIPTION_L3 |
+| SALES_MATRIX |
+| NO_ORDERS |
+- → [[ADM_ORDER_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MARKET_AREA_ID |
+| ORDER_STATUS_KEY |
+| PRODUCT_OFFER_ID |
+| PROD_DESCRIPTION_L1 |
+| PROD_DESCRIPTION_L2 |
+| PROD_DESCRIPTION_L3 |
+| SALES_MATRIX |
+| NO_ORDERS |
 - → [[TMP_DATAPAKKE_HISTORY_OWNER]]
-- → [[ADM_DATAPAKKE_HISTORY_USER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
+- → [[ADM_DATAPAKKE_HISTORY_OWNER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
 - → [[TMP_DATAPAKKE_HISTORY_USER]]
-- → [[ADM_DATAPAKKE_HISTORY_SUBS]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
+- → [[ADM_DATAPAKKE_HISTORY_USER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
 - → [[TMP_DATAPAKKE_HISTORY_SUBS]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
+- → [[ADM_DATAPAKKE_HISTORY_SUBS]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| DP_AMOUNT_NOK_TOT |
+| DP_PURCHASE_MB_TOT |
+| DP_NO_ORDERS_TOT |
+| DP_AMOUNT_NOK_CONS_TOT |
+| DP_PURCHASE_MB_CONS_TOT |
+| DP_NO_ORDERS_CONS_TOT |
+| DP_AMOUNT_NOK_CONS_OT |
+| DP_PURCHASE_MB_CONS_OT |
+| DP_NO_ORDERS_CONS_OT |
+| DP_AMOUNT_NOK_CONS_RC |
+| DP_PURCHASE_MB_CONS_RC |
+| DP_NO_ORDERS_CONS_RC |
+| DP_AMOUNT_NOK_BUSS |
+| DP_PURCHASE_MB_BUSS |
+| DP_NO_ORDERS_BUSS |
+- → [[CRM_ANALYSE.ADM_LOAD_HISTORY]]
 

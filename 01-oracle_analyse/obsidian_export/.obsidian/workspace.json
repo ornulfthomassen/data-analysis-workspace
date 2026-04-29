@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "HH_CHILD_PROBABILITY",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -179,13 +179,32 @@
   },
   "active": "08b4c24472a5369e",
   "lastOpenFiles": [
-    "views/VYA_ORDER_LINE_REPLACEMENT.md",
-    "procedures/ORIG_SUBS.md",
-    "external/CLM_CCM.HH_CHILD_PROBABILITY.md",
-    "external/CRM_ANALYSE.PD.md",
-    "procedures/P_BROADBAND_COMPETITION.md",
     "procedures/STOCK_MOBILE_HIST.md",
-    "external/galaxy.product_dim.md",
-    "procedures/BALANCE01_MOBILE_SEGMENT_HIST.md"
+    "procedures/STOCK_MOBILE_HISTORY.md",
+    "Untitled.base",
+    "procedures/P_ADM_DEVICE_AGREEMENT_INACT.md",
+    "procedures/STOCK_FTV_HISTORY.md",
+    "procedures/WMP_PAST_ORIG_SUBS_MASTER.md",
+    "procedures/TEST_FUNK.md",
+    "procedures/SUBS_TAB_CRM_ANALYSE_2_CLM_ADM.md",
+    "procedures/SUBS_TAB_CLM_ADM_2_CLM_ADM.md",
+    "procedures/SUBS_TABLE_TO_TABLE_MONTH.md",
+    "procedures/SUBS_TABLE_TO_TABLE_DAY.md",
+    "procedures/SUBS_PORT_TABLE_TO_TABLE_MONTH.md",
+    "procedures/SUBS_MNR_TABLE_TO_TABLE_MONTH.md",
+    "procedures/STOCK_MOBILE_HIST_WEEK2.md",
+    "procedures/STOCK_MOBILE_HIST_WEEK.md",
+    "procedures/STOCK_MOBILE_HIST_MONTH.md",
+    "procedures/STOCK_MOBILE_HIST_DAY.md",
+    "procedures/STOCK_MOBILE_HISTORY_WEEK.md",
+    "procedures/UPSALE_KS_INTERACTION_P.md",
+    "procedures/UPSALE_INVOICE_KS_MV_P2.md",
+    "procedures/UPSALE_INVOICE_KS_MV_P.md",
+    "procedures/UPD_STAT_KIM_RESPONSE.md",
+    "procedures/UPD_STAT_KIM_NO_TREATMENT.md",
+    "procedures/UPD_STAT_KIM_FACT.md",
+    "procedures/TMP_P_ADM_LOAD_HISTORY.md",
+    "procedures/TEST_PROC.md",
+    "procedures/TAB_INDEX_UNUSABLE.md"
   ]
 }

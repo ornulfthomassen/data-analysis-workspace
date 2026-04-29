@@ -3,8 +3,23 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates historical handset usage data for each unique subscription and model ID. It identifies the first and last recorded period of use, the overall first and last terminal usage dates, and captures the initial and final states of various handset attributes (such as producer, model name, OS type, category, touch screen, device type, HD voice, and LTE capabilities) based on the monthly period key. It excludes a specific model ID from the aggregation.
+This view aggregates historical handset usage data per subscription and model ID. For each unique combination of subscription and model, it identifies the earliest and latest period months, the overall first and last terminal usage dates, and captures specific handset attributes (such as producer name, model name, OS type, category, touch screen, type, HD voice, and LTE capability) corresponding to both the earliest and latest recorded periods. It filters out a specific model ID.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| MODELID |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
 

@@ -3,24 +3,168 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure performs a full data refresh for the `ODS_FAR` table. It populates a temporary table (`ODS_FAR_N`) with data extracted from multiple source systems, then uses a 'table swap' mechanism to replace the current `ODS_FAR` table with the newly loaded data. The existing `ODS_FAR` table is renamed to `ODS_FAR_O` to serve as a backup for the previous state. This swap process is conditional, incorporating checks for table existence, data volume deviation (controlled by `V_RANGE_SWAP`), and index consistency to ensure a safe and controlled refresh. It also handles initial setup (creating `ODS_FAR` if it doesn't exist) and robust error logging via `CLM_CCM.ODS_PROCEDURE_SWAP_STATUS` and `CLM_CCM.P_CCM_LOAD_HISTORY` for monitoring.
+The procedure implements a hot-swap mechanism to refresh the ODS_FAR table. It loads new data from various source systems into a temporary table (ODS_FAR_N), creates indexes on it, and then conditionally renames the temporary table to ODS_FAR while moving the old ODS_FAR data to a backup table (ODS_FAR_O). It performs checks on row counts and index consistency before swapping. Operation status and errors are logged to CLM_CCM.ODS_PROCEDURE_SWAP_STATUS and CLM_CCM.CCM_LOAD_HISTORY.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.LOCATION_DIM]]
+| Column Name |
+|---|
+| LOCATION_KEY |
+| STREET_NAME |
+| FLOOR_NUMBER |
+| APPARTMENT_NUMBER |
+| POSTCODE_ID |
+| POST_OFFICE |
+| HOUSE_NUMBER |
+| HOUSE_CHARACTER |
+| MUNICIPAL_ID |
+| MUNICIPAL |
+| COUNTY_ID |
+| COUNTY |
+| COORDINATE_X |
+| COORDINATE_Y |
+| LATITUDE |
+| LONGITUDE |
+| COUNTRY_NAME_2 |
 - ← [[CCDW.GEOGRAPHY_ATTRIBUTES_FAR]]
+| Column Name |
+|---|
+| GEOGRAPHY_ID |
+| PROPERTY_PART_NUMBER |
+| PROPERTY_ID |
+| GRNKRETS_NUMBER |
+| GRNKRETS_NAVN |
+| GABADR_ADRNR |
 - ← [[CCDW.COUNTRY]]
+| Column Name |
+|---|
+| COUNTRY_NAME_2 |
+| COUNTRY_ID |
 - ← [[CCDW.ADDRESS_TYPE]]
+| Column Name |
+|---|
+| ADDRESS_TYPE_DESC |
+| ADDRESS_TYPE_ID |
 - ← [[CCDW.ADDRESS_STATUS]]
+| Column Name |
+|---|
+| ADDRESS_STATUS_DESC |
+| ADDRESS_STATUS_ID |
 - ← [[CCDW_CTI.CTI_CONS_HOUSEHOLD]]
+| Column Name |
+|---|
+| FAR_ID |
+| PLANNED_DECOM_DATE |
 - ← [[KAS.BOLIG]]
+| Column Name |
+|---|
+| FIBER_VIDERESOLGT_DATO |
+| FIBER_VIDERESOLGT |
+| ADRESSE_NR |
 - ← [[KAS.ADRESSER]]
+| Column Name |
+|---|
+| ADRESSE_NR |
+| MATRIKKEL_ID |
 - ← [[VULA.LOAD_VULA_WEB]]
+| Column Name |
+|---|
+| created |
+| state |
+| type |
+| FAR_ID |
+- ← [[ODS_FAR]]
 
 ## Target Tables (Outputs)
 - → [[ODS_FAR]]
+| Column Name |
+|---|
+| FARID |
+| ADDRESS_TYPE |
+| STREETNAME |
+| FLOORNUMBER |
+| FLATNUMBER |
+| STREETPOSTALCODE |
+| STREETPOSTALADDRESS |
+| HOUSENUMBER |
+| HOUSECHARACTER |
+| TITLENUMBER |
+| LANDNUMBER |
+| MUNICIPALITY_CODE |
+| MUNICIPALITY_NAME |
+| COUNTY_CODE |
+| COUNTY_NAME |
+| CO_OPERATIVE_HOUSING_ID |
+| BASIC_STATISTICAL_UNIT_ID |
+| BASIC_STATISTICAL_UNIT_NAME |
+| GAB_NUMBER |
+| ADDRESS_STATUS |
+| FLG_ADR_OK_BN |
+| SUNRISE_SALE_END_DATE |
+| SUNRISE_FIX_END_DATE |
+| SUNRISE_TERMINATION_DATE |
+| COORDINATE_X |
+| COORDINATE_Y |
+| LATITUDE |
+| LONGITUDE |
+| LUM_VULA_CHURN_DATE |
+| LUM_VULA_CHURN_FLG |
+| CDK_VULA_CHURN_DATE |
+| CDK_VULA_CHURN_FLG |
+| LOAD_DTTM |
 - → [[ODS_FAR_N]]
+| Column Name |
+|---|
+| FARID |
+| ADDRESS_TYPE |
+| STREETNAME |
+| FLOORNUMBER |
+| FLATNUMBER |
+| STREETPOSTALCODE |
+| STREETPOSTALADDRESS |
+| HOUSENUMBER |
+| HOUSECHARACTER |
+| TITLENUMBER |
+| LANDNUMBER |
+| MUNICIPALITY_CODE |
+| MUNICIPALITY_NAME |
+| COUNTY_CODE |
+| COUNTY_NAME |
+| CO_OPERATIVE_HOUSING_ID |
+| BASIC_STATISTICAL_UNIT_ID |
+| BASIC_STATISTICAL_UNIT_NAME |
+| GAB_NUMBER |
+| ADDRESS_STATUS |
+| FLG_ADR_OK_BN |
+| SUNRISE_SALE_END_DATE |
+| SUNRISE_FIX_END_DATE |
+| SUNRISE_TERMINATION_DATE |
+| COORDINATE_X |
+| COORDINATE_Y |
+| LATITUDE |
+| LONGITUDE |
+| LUM_VULA_CHURN_DATE |
+| LUM_VULA_CHURN_FLG |
+| CDK_VULA_CHURN_DATE |
+| CDK_VULA_CHURN_FLG |
+| LOAD_DTTM |
 - → [[ODS_FAR_O]]
 - → [[ODS_FAR_O_TEMP]]
 - → [[CLM_CCM.ODS_PROCEDURE_SWAP_STATUS]]
+| Column Name |
+|---|
+| PROC_NAME |
+| START_DTTM |
+| STATUS_MESSAGE |
+| OLD_ROW_COUNT |
+| NEW_ROW_COUNT |
 - → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| OBJECT_NAME |
+| START_DTTM |
+| STATUS |
+| MESSAGE |
+| WF_NAME |
+| S_NAME |
 

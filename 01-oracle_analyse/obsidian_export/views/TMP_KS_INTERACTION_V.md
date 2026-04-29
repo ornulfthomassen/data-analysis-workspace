@@ -3,8 +3,82 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves comprehensive interaction data, including various duration metrics, queue details, employee information, and interaction outcomes, filtered for interactions occurring on or after April 1, 2024. It serves as a detailed report or staging view for customer interaction analytics.
+Creates a filtered view of interaction records, trimming owner and user IDs, and including only interactions from April 1st, 2024, onwards. This view serves as a direct projection of the source interaction table with minor data cleaning and date-based filtering.
 
 ## Data Sources (Inputs)
 - ← [[RSSHUGIN.RM_KS_INTERACTION_NY]]
+| Column Name |
+|---|
+| kurt_id_owner |
+| KURT_ID_USER |
+| CAL_DATE |
+| YEAR_WEEK |
+| YEAR_MONTH |
+| STD_ENTERPRISE_START_TIME |
+| STD_ENTERPRISE_END_TIME |
+| STD_ENTERPRISE_START_TIME_NEXT |
+| INTERVAL_START_15 |
+| INTERVAL_START_30 |
+| INTERVAL_START_60 |
+| INTERVAL_END_15 |
+| INTERVAL_END_30 |
+| INTERVAL_END_60 |
+| INTERACTION_ID |
+| INTERACTION_SEGMENT_ID |
+| CONNID |
+| MEDIA_SERVER_IXN_GUID |
+| CALLED_SERVICE |
+| ORDINAL |
+| LAST_SEGMENT |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| TRANSFER_INBOUND_GROUP |
+| RINGT_SIST |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| INTERACTION_TYPE_CODE |
+| INTERACTION_TYPE_KEY |
+| EMPLOYEE_ID |
+| COMPANYNAME |
+| SITENAME |
+| UNITNUMBER |
+| TEAMNUMBER |
+| QUEUE_CLIENT |
+| QUEUE_PROGRAM |
+| QUEUE_TYPE |
+| QUEUE_SEGMENT |
+| VIRTUALQUEUE |
+| QUEUE_PROGRAM_TO |
+| QUEUE_TYPE_TO |
+| VIRTUALQUEUE_TO |
+| TOTAL_DURATION |
+| TOTAL_COUNT |
+| TOTAL_LOST_COUNT |
+| CUSTOMER_HANDLE_COUNT |
+| WAIT_TIME_LOST |
+| WAIT_TIME_ANSWERED |
+| CUSTOMER_WAIT_DURATION |
+| CUSTOMER_WAIT_DURATION_NOCB |
+| CUSTOMER_ACW_DURATION |
+| CUSTOMER_TALK_DURATION |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_DIAL_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_RING_DURATION |
+| TOTAL_IVR_CALLBACK_COUNT |
+| TOTAL_MAN_CALLBACK_COUNT |
+| ANSWERED_WITHIN10 |
+| ANSWERED_WITHIN20 |
+| ANSWERED_WITHIN30 |
+| ANSWERED_WITHIN60_NOCB |
+| ANSWERED_WITHIN60 |
+| LOST_WITHIN10 |
+| LOST_WITHIN20 |
+| LOST_WITHIN30 |
+| LOST_WITHIN60 |
+| TRANSFER_OUT_COUNT |
+| TRANSFERRED_IN_COUNT |
+| BOOSTDIALOGID |
 

@@ -3,22 +3,84 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADM_ROLLOVER` is designed to load and manage monthly 'rollover' data into a specific partition of the `CLM_ADM.ADM_ROLLOVER` table. It performs several steps:
-1.  It checks for the existence of the target partitioned table `CLM_ADM.ADM_ROLLOVER` and the specific partition (`ADM_ROLLOVER_YYYYMM`) for the given month (`P_YYYYMM`).
-2.  If the partition doesn't exist, it creates it using `ALTER TABLE ... ADD PARTITION`.
-3.  It creates a temporary staging table, `CLM_ADM.TMP_ROLLOVER`, by selecting and transforming data from various source tables. The primary 'rollover' source table dynamically changes based on the month being processed (`P_FROM_TABLE` for newer data or `CLM_CCM.ROLLOVER` for older data).
-4.  It then efficiently loads the data from the temporary table into the target partition using `ALTER TABLE ... EXCHANGE PARTITION ... WITH TABLE ...`.
-5.  Finally, it computes statistics for the newly loaded partition to optimize query performance.
-This procedure effectively provides a robust mechanism for monthly data ingestion into a large partitioned table, ensuring data integrity and allowing for controlled overwrites.
+Manages historical data rollover for the `ADM_ROLLOVER` table. It processes data for a specific month (`P_YYYYMM`), dynamically creating a new partition or verifying an existing one within `CLM_ADM.ADM_ROLLOVER`. It populates a temporary table (`CLM_ADM.TMP_ROLLOVER`) with aggregated and joined data from various source tables. Finally, it uses an `EXCHANGE PARTITION` operation to load the data from the temporary table into the `CLM_ADM.ADM_ROLLOVER` table's corresponding monthly partition.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
+- ← [[CLM_ADM.ADM_ROLLOVER]]
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
 - ← [[CM.SUBSCRIPTION_OFFER_INCENTIVE]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| SUBSCR_ID |
+| SUBSCRIBED_COMPONENT_ID |
+| INFO_IS_DELETED |
+| INC_VALID_FROM_DATE |
+| INC_VALID_TO_DATE |
 - ← [[P_FROM_TABLE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| TP_SUB_KEY |
+| SUB_IDENTITY |
+| INIT_BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
 - ← [[CLM_CCM.ROLLOVER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.ADM_ROLLOVER]]
 - → [[CLM_ADM.TMP_ROLLOVER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
+- → [[CLM_ADM.ADM_ROLLOVER]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| INIT_BALANCE_MB |
+| INIT_BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
 

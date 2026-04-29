@@ -3,25 +3,225 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This Oracle SQL view, `KIM_ANALYTICAL_VIEW`, serves as a comprehensive analytical data mart for CRM (Customer Relationship Management) campaigns, sales, and customer interactions. It denormalizes data from a central `KIM_CAMPAIGN_DETAIL_FACT` table with numerous dimension tables to provide a wide array of attributes related to customer demographics, campaign details, product information (from, to, binding, contact, and treatment products), sales channels, dealer information, response details, and geographical data. The view calculates various Key Performance Indicators (KPIs) such as sales volume (`KPI_SALES`), terminal sales (`KPI_TERMINAL`), overall success (`KPI_SUCCESS`), presented offers (`KPI_PRESENTED`), accepted offers (`KPI_ACCEPTED`), selected offers (`KPI_SELECTED`), new sales for mobile postpaid products (`KPI_NEWSALE_MPP`), and anti-churn activities (`KPI_ANTICHURN`). It also derives hierarchical groupings for sales matrices, and generates unique monthly keys for customer, household, subscription, and main number. The primary purpose is to enable detailed reporting and analysis of campaign effectiveness, sales performance, customer churn prevention, and product uptake across different dimensions.
+This view, "KIM_ANALYTICAL_VIEW", provides a comprehensive analytical dataset by combining detailed campaign, customer, product, and sales information from various CRM and data warehouse dimensions with a central campaign detail fact table. It calculates key performance indicators (KPIs) related to sales, churn, and campaign success, enriching the data with demographic and geographical attributes for in-depth analysis of customer interactions and campaign performance.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| VOLUME |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| TREATMENT_PRIORITY |
+| TREATMENT_HASH_VAL |
+| SUBS_TRAFFIC_GROUP_KEY |
+| SUBS_DATA_GROUP_KEY |
+| SUBS_FLAG_TREATMENT_KEY |
+| SUBSCRIPTION_SEGMENT_KEY |
+| SUBSCRIPTION_KEY |
+| SALES_MATRIX |
+| RESPONSE_REASON_KEY |
+| RESPONSE_DATE_KEY |
+| RESPONSE_CHANNEL_KEY |
+| PROFIT_ID |
+| PRESENTED_KEY |
+| PRESENTED_DURATION_KEY |
+| PRESENTED_DATE_KEY |
+| ORDER_STATUS_KEY |
+| ORDER_SOURCE_SYSTEM_KEY |
+| ORDER_SERVICE_PROVIDER_KEY |
+| ORDER_RANK |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_ID |
+| ORDER_DT_KEY |
+| ORDER_DAYS |
+| CONTACT_MONTH_KEY |
+| KURT_ID_OWNER |
+| MEASURE_TYPE |
+| MAIN_NUMBER |
+| KURT_ID_USER |
+| KURT_ID_PAYER |
+| SOURCE_SYSTEM_KEY |
+| ORDER_RANK_GROUP_KEY |
+| BINDING_BENEFIT_DESC |
+| ORDER_MATCH_KEY |
+| ORDER_FROM_PRODUCT_KEY |
+| CHURN_GROUP_KEY |
+| IS_SUBS_CAMP |
+| GENDER |
+| CUST_STRATEGIC_SEGMENT_KEY |
+| CUST_SEGMENT_KEY |
+| CUST_HOUSEHOLD_ID |
+| CUST_FLAG_TREATMENT_KEY |
+| CUST_FAR_ID |
+| CUST_AGE_GROUP_KEY |
+| CUST_AGE |
+| CONTACT_TIME_KEY |
+| CONTACT_TEAM |
+| CONTACT_SECONDS |
+| CONTACT_LOCATION |
+| CONTACT_KEY |
+| CONTACT_DTTM |
+| CONTACT_DATE_KEY |
+| CONTACTED_BIND_START_DATE_KEY |
+| CONTACTED_BIND_END_DATE_KEY |
+| CONN_ID |
+| CELL_PACKAGE_SK |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_KEY |
+| CHANNEL_KEY |
+| COMMUNICATION_KEY |
+| CONTACT_PRODUCT_KEY |
+| ORDER_BINDING_PRODUCT_KEY |
+| ORDER_DEALER_KEY |
+| ORDER_HANDSET_KEY |
+| ORDER_TO_PRODUCT_KEY |
+| RESPONSE_KEY |
+| TREATMENT_KEY |
 - ← [[CRM_ANALYSE.DATE_DIM_VA]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY_OF_WEEK |
+| YEAR_WEEK_NUMBER |
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_DIM_V]]
+| Column Name |
+|---|
+| CAMPAIGN_KEY |
+| CAMPAIGN_NM |
+| CAMPAIGN_CD |
+| ACTIVITY_AREA |
+| CAMPAIGN_GROUP_SK |
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_GROUP_DIM_V]]
+| Column Name |
+|---|
+| CAMPAIGN_GROUP_SK |
+| CAMPAIGN_GROUP_NM |
 - ← [[CRM_ANALYSE.KIM_CHANNEL_DIM_V]]
+| Column Name |
+|---|
+| CHANNEL_KEY |
+| CHANNEL_NM |
+| CHANNEL |
 - ← [[CRM_ANALYSE.KIM_CHURN_GROUP_DIM]]
+| Column Name |
+|---|
+| CHURN_GROUP_KEY |
+| CHURN_GROUP_DESCRIPTION |
+| CHURN_GROUP_NAME |
 - ← [[CRM_ANALYSE.KIM_COMMUNICATION_DIM_V]]
+| Column Name |
+|---|
+| COMMUNICATION_KEY |
+| RESPONSE_CHANNEL |
+| FOKUS_AREA |
+| ACTION_CATEGORY |
+| ORDER_CAPTURE_DAYS |
+| COMMUNICATION_NM |
+| OFFER_CATEGORY |
+| COMMUNICATION_CD |
+| CONTACT_DELAY_DAYS |
+| COMMUNICATION_DESC |
 - ← [[CRM_ANALYSE.PRODUCT_DIM_VA]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| MONTHLY_PRICE |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_DESC |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_PRODUCT_AREA |
 - ← [[CLM_CCM.CCM_HOUSEHOLD_INFO]]
+| Column Name |
+|---|
+| HOUSEHOLD_ID |
+| GRUNNKRETS_NR |
+| ANTALL_I_HUSSTAND |
+| POSTNR |
+| POSTSTED |
+| BOLIGTYPE |
+| KOMMUNENR |
+| ADRESSE |
+| GRUNNKRETS |
 - ← [[CRM_ANALYSE.DIMPOSTNUMMER_V]]
+| Column Name |
+|---|
+| KOMMUNEKODE |
+| LONGITUDE |
+| LATITUDE |
+| FYLKEKODE |
+| FYLKE |
 - ← [[CRM_ANALYSE.DEALER_DIM_VA]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| DRM_SALES_CHANNEL_GEN02_DESC |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DEALER_CHAIN_NAME |
+| POSTCODE_ID_MAIN |
+| SOURCE_DEALER_ID |
+| DEALER_NAME |
+| DRM_SALES_CHANNEL_GEN05_DESC |
+| DRM_SALES_CHANNEL_GEN03_DESC |
 - ← [[CRM_ANALYSE.DIMPOSTNUMMER_T]]
+| Column Name |
+|---|
+| POSTNUMMER |
+| KOMMUNE |
+| POSTSTED |
+| LATITUDE |
+| FYLKE |
+| LONGITUDE |
 - ← [[CRM_ANALYSE.HANDSET_DIM_VA]]
+| Column Name |
+|---|
+| HANDSET_KEY |
+| HANDSET_TYPE |
+| MANUFACTURER |
+| MARKETING_NAME |
 - ← [[CRM_ANALYSE.KIM_ORDER_MATCH_DIM_V]]
+| Column Name |
+|---|
+| ORDER_MATCH_KEY |
+| ORDER_MATCH_RANK |
+| ORDER_MATCH_GROUP |
+| ORDER_MATCH_SUB_GROUP |
+| ORDER_MATCH_NAME |
+| ORDER_MATCH_DESC |
 - ← [[CRM_ANALYSE.KIM_ORDER_RANK_GROUP_DIM_V]]
+| Column Name |
+|---|
+| ORDER_RANK_GROUP_KEY |
 - ← [[CRM_ANALYSE.KIM_RESPONSE_DIM_V]]
+| Column Name |
+|---|
+| RESPONSE_KEY |
+| RESPONSE_GROUP |
+| RESPONSE_NM |
+| RESPONSE_CD |
 - ← [[CRM_ANALYSE.SOURCE_SYSTEM_DIM_VA]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_NAME |
 - ← [[CRM_ANALYSE.KIM_TREATMENT_DIM_V]]
+| Column Name |
+|---|
+| TREATMENT_KEY |
+| ACTION_CATEGORY |
+| ACTION_CATEGORY_TYPE |
+| KPI_TYPE |
+| OFFER_CATEGORY |
+| TREATMENT_CD |
+| TREATMENT_DESC |
+| TREATMENT_NM |
+| TREATMENT_SK |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| HANDSET_KEY |
 

@@ -3,8 +3,11 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-The view provides a list of product numbers ('PRODUKT_NR') by directly selecting this column from the 'KAS.T_WE_PRODUKT_INKLUDERT' table. It serves as a simplified interface to access only the product identifiers from the underlying table, potentially for specific reporting, integration, or security purposes.
+Creates a view named 'VYA_KAS_T_WE_PRODUKT_INKLUDERT' that exposes only the 'PRODUKT_NR' column from the 'KAS.T_WE_PRODUKT_INKLUDERT' table, with no active filtering.
 
 ## Data Sources (Inputs)
 - ← [[KAS.T_WE_PRODUKT_INKLUDERT]]
+| Column Name |
+|---|
+| PRODUKT_NR |
 

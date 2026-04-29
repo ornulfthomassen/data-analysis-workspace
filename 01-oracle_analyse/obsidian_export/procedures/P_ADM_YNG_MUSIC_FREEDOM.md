@@ -3,15 +3,42 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle PL/SQL procedure is designed to load aggregated mobile traffic data, specifically for 'Music Freedom' (identified by APN '199'), for a given month (P_YYYYMM parameter) into a partitioned analytics table named ADM_YNG_MUSIC_FREEDOM. The process involves several steps: checking the availability and integrity of source data, managing partitions in the target table (adding a new partition if it doesn't exist), creating a temporary staging table (TMP_YNG_MUSIC_FREEDOM) to calculate and hold the aggregated data, and finally, using a partition exchange operation to efficiently load the data from the temporary table into the corresponding partition of the permanent ADM_YNG_MUSIC_FREEDOM table. The procedure also includes error handling and logging mechanisms.
+Calculates aggregated mobile traffic data ('MB_MUSIC_FREEDOM') for a specified month and APN, linking it to subscription details. This aggregated data is then loaded into a monthly partitioned table `ADM_YNG_MUSIC_FREEDOM` via a temporary table and partition exchange, after performing checks for source data availability and existing partitions.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_ADM.ADM_MOBILE_TRAFFIC_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCR_ID |
+| SUM_MB |
+| APN |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
-- ← [[ADM_YNG_MUSIC_FREEDOM]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_ID |
+| INFO_REG_DATE |
+| SOURCE_SYSTEM_KEY |
+| SUBSCRIPTION_ID |
 
 ## Target Tables (Outputs)
-- → [[ADM_YNG_MUSIC_FREEDOM]]
 - → [[TMP_YNG_MUSIC_FREEDOM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MB_MUSIC_FREEDOM |
+- → [[ADM_YNG_MUSIC_FREEDOM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MB_MUSIC_FREEDOM |
 

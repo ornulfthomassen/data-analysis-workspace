@@ -3,8 +3,61 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates Telemarketing (TM) reporting data, specifically grouping by 'ACCOUNT_NUMBER' and retrieving the maximum (latest or highest) value for various customer, campaign, communication, task, attempt, and response-related attributes. Its primary purpose, as stated in the comments, is to provide TM report data for SAS Viya, focusing on distinct account-level information.
+Provides aggregated TM (Telemarketing) report data, primarily used by SAS Viya for reporting purposes. It groups records by 'ACCOUNT_NUMBER' and retrieves the maximum value for various indicators and attributes related to customer interactions, campaigns, and task occurrences.
 
 ## Data Sources (Inputs)
 - ← [[CCM.VYA_TM_REPORTING]]
+| Column Name |
+|---|
+| ACCOUNT_NUMBER |
+| CUSTOMER_SK |
+| CAMPAIGN_CD |
+| COMMUNICATION_CD |
+| OCCURENCE_ID |
+| CELL_PACKAGE_SK |
+| RESP_TRACKING_CD |
+| SEGMENT_MAP_CODE |
+| TASK_CODE |
+| TASK_OCCURRENCE_NUMBER |
+| RESPONSE_TRACKING_CD |
+| BUSINESS_AREA |
+| TEAM |
+| STRATEGY_NAME |
+| SEGMENT_FILTER |
+| CALLINGLIST_NAME |
+| INSERT_DTTM |
+| INSERT_DATE |
+| INSERT_DAY |
+| INSERT_MONTH |
+| INSERT_WEEKDAY |
+| INSERT_WEEK |
+| INSERT_YEAR |
+| ORIGINAL_EXPIRY_DTTM |
+| UPDATED_EXPIRY_DTTM |
+| EXPIRED_RECORD_INDICATOR |
+| EXPIRED_NOT_ATTEMPTED_INDICATOR |
+| ATTEMPT_INDICATOR |
+| VOICE_ATTEMPT_INDICATOR |
+| CALL_INDICATOR |
+| SHORT_CALL_INDICATOR |
+| SMS_ATTEMPTED_INDICATOR |
+| SMS_DELIVERED_INDICATOR |
+| SMS_NOT_DELIVERED_INDICATOR |
+| AGENT_CALLBACK_INDICATOR |
+| TEAM_CALLBACK_INDICATOR |
+| INBOUND_CALL_INDICATOR |
+| DERIVED_MANUAL_CALL_INDICATOR |
+| NW_CALLBACK_PHONE_NR_INDICATOR |
+| CALLBACK_DTTM |
+| TIME_OF_CONTACT |
+| RESPONSE_STATUS |
+| DISPOSITION_NAME |
+| EXCLUDED_RECORD_INDICATOR |
+| EXCLUDED_NUMBER_INDICATOR |
+| ATTEMPT_DATE |
+| ATTEMPT_DAY |
+| ATTEMPT_MONTH |
+| ATTEMPT_WEEKDAY |
+| ATTEMPT_WEEK |
+| ATTEMPT_YEAR |
 

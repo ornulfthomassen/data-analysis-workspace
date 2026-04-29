@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Identifies PowerCenter workflow or task instances that have failed (indicated by RUN_ERR_CODE > 0) within the last day for specific subject areas ('Consumer_Analytics', 'Consumer_ODS') and have not been subsequently followed by a successful run (RUN_ERR_CODE = 0). Essentially, it's used to check the status of recent PowerCenter job failures that haven't been resolved or succeeded by a later successful execution.
+Identifies PowerCenter task instances that have reported an error (RUN_ERR_CODE > 0) within the last 24 hours, specifically for 'Consumer_Analytics' or 'Consumer_ODS' subject areas, and for which no subsequent successful run (RUN_ERR_CODE = 0) has been recorded, thereby highlighting unresolved or persisting task failures.
 
 ## Data Sources (Inputs)
 - ← [[PCT_REPOSITORY.REP_TASK_INST_RUN]]
+| Column Name |
+|---|
+| TASK_TYPE_NAME |
+| SUBJECT_AREA |
+| WORKFLOW_NAME |
+| INSTANCE_NAME |
+| START_TIME |
+| END_TIME |
+| RUN_ERR_CODE |
+| RUN_ERR_MSG |
+| RUN_STATUS_CODE |
+| WORKFLOW_ID |
+| INSTANCE_ID |
 

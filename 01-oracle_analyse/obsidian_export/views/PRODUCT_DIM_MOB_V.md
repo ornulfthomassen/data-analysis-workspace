@@ -3,8 +3,23 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named PRODUCT_DIM_MOB_V, extracts various product dimension attributes (such as product area, technology, category, group, brand, reporting, portfolio, service, payment, rank, and income service) from the 'galaxy.product_dim' table. Its primary function is to standardize these attributes by explicitly casting them to fixed-length CHAR data types, likely for specific reporting purposes, external system integration, or consumption by applications (e.g., mobile applications, indicated by 'MOB' in the view name) that require consistent data types.
+Creates a product dimension view for CRM analysis, specifically preparing product data from 'galaxy.product_dim' by casting various attributes to CHAR types with specified lengths. This view likely serves a specific reporting or application requirement, potentially mobile-related, given the '_MOB_V' suffix.
 
 ## Data Sources (Inputs)
 - ← [[galaxy.product_dim]]
+| Column Name |
+|---|
+| product_key |
+| drm_common_product_area |
+| drm_common_technology |
+| drm_common_product_category |
+| drm_common_product_group |
+| drm_common_market_product |
+| drm_Common_brand |
+| drm_common_reporting |
+| drm_common_portfolio |
+| drm_common_service |
+| drm_common_payment |
+| tk_product_rank |
+| tk_income_service |
 

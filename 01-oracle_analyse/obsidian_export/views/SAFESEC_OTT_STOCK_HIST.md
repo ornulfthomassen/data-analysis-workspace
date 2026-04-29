@@ -3,8 +3,25 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a historical development of stock/inventory data, adapted for the SAFESEC_OTT_HIST report. It aggregates stock performance indicators (KPI_STOCK) over time and categorizes them by service, product, device characteristics, and demographic information.
+Provides historical stock development data, likely aggregated, adapted for the SAFESEC_OTT_HIST report.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.fk_2139_safesec_stock_agg]]
+| Column Name |
+|---|
+| SERVICE_NAME |
+| YEAR_WEEK_NUMBER |
+| LAST_WEEK |
+| DAYS_SINCE_USED |
+| AGE_GROUP |
+| LIFE_STAGE |
+| POSTAL_OFFICE |
+| COUNTY |
+| PRODUCT_KEY |
+| PRODUCTFAMILY_NAME |
+| PRODUCT_NAME |
+| DEVICE_RANGE |
+| DEVICE_MANUFACTURER_SHORT |
+| DEVICE_MARKETING_NAME |
+| KPI_STOCK |
 

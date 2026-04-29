@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Exposes historical Talkmore rate plan data by selecting all columns from the `TALKMORE.INVENTORY_RATE_PLAN_HIST` table. It renames the `ID` and `RATE_PLAN_ID` columns and applies a TRIM function to them, likely for data cleansing and consistency.
+Creates a view of historical Talkmore rate plan data by selecting and slightly transforming (trimming) specific columns from the 'INVENTORY_RATE_PLAN_HIST' table.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_RATE_PLAN_HIST]]
+| Column Name |
+|---|
+| ID |
+| RATE_PLAN_ID |
+| RATE_PLAN_NAME |
+| PRICE |
+| MB |
+| START_DATE |
+| END_DATE |
+| EXPORT_CREATED_DATE |
 

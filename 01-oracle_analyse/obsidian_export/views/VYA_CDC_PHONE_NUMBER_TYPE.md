@@ -3,8 +3,20 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a direct, one-to-one representation or alias of the `PHONE_NUMBER_TYPE` table from the `CDC` schema. It exposes all columns from the source table, including identifiers, names, descriptions, and audit metadata (registration and change user, application, and date, along with a deletion flag). The view does not perform any data transformations, filtering, or aggregations.
+Creates a view that provides a direct, one-to-one projection of all columns from the `CDC.PHONE_NUMBER_TYPE` table, likely serving as an alias or a simplified access point for phone number type information.
 
 ## Data Sources (Inputs)
 - ← [[CDC.PHONE_NUMBER_TYPE]]
+| Column Name |
+|---|
+| PHONE_NUMBER_TYPE_ID |
+| PHONE_NUMBER_TYPE_NAME |
+| PHONE_NUMBER_TYPE_DESCRIPTION |
+| INFO_REG_USER_NAME |
+| INFO_REG_APPL_NAME |
+| INFO_REG_DATE |
+| INFO_CHG_USER_NAME |
+| INFO_CHG_APPL_NAME |
+| INFO_CHG_DATE |
+| INFO_IS_DELETED |
 

@@ -3,7 +3,7 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-This procedure performs a two-step data refresh for stock base information. It first truncates and reloads a temporary/staging table (CCM.FTV_STOCK_BASE_V2_TMP) using data from a source view (CCM.FTV_STOCK_BASE_V2_V). Subsequently, it truncates and reloads the main stock base table (CCM.FTV_STOCK_BASE_V2) using the data from the previously populated temporary staging table.
+Refreshes the 'FTV_STOCK_BASE_V2' table. It first clears and reloads a temporary table 'FTV_STOCK_BASE_V2_TMP' with data from the 'FTV_STOCK_BASE_V2_V' view, and then uses this temporary table to clear and reload the main 'FTV_STOCK_BASE_V2' table.
 
 ## Data Sources (Inputs)
 - ← [[CCM.FTV_STOCK_BASE_V2_V]]

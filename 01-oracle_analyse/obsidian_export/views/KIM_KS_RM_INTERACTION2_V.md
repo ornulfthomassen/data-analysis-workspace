@@ -3,10 +3,94 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a comprehensive dataset for customer interactions, consolidating detailed interaction segments, temporal information, call center performance metrics, customer identifiers, and customer satisfaction (CSAT) survey results. It includes various duration and count metrics related to customer handling, waiting, talking, and IVR/manual callbacks, along with service level agreement (SLA) indicators. Employee IDs are hashed for privacy. It acts as a central source for analyzing and reporting on customer interaction data.
+This view consolidates detailed customer interaction segment data from the 'RM_KS_INTERACTION' table, enriching it with customer identifiers for both the interaction's owner and user from 'ADM_CUSTOMER_MAPPING', and incorporates customer satisfaction (CSAT) survey responses from 'SURVEY_RESPONSE_FACT'. It provides a comprehensive dataset for analyzing customer interactions, including timings, durations, queue details, interaction types, and associated feedback.
 
 ## Data Sources (Inputs)
 - ← [[RSSHUGIN.RM_KS_INTERACTION]]
+| Column Name |
+|---|
+| CAL_DATE |
+| STD_ENTERPRISE_START_TIME |
+| STD_ENTERPRISE_END_TIME |
+| STD_ENTERPRISE_START_TIME_NEXT |
+| YEAR_WEEK |
+| YEAR_MONTH |
+| INTERVAL_START_15 |
+| INTERVAL_START_30 |
+| INTERVAL_START_60 |
+| INTERVAL_END_15 |
+| INTERVAL_END_30 |
+| INTERVAL_END_60 |
+| INTERACTION_ID |
+| INTERACTION_SEGMENT_ID |
+| CONNID |
+| MEDIA_SERVER_IXN_GUID |
+| CALLED_SERVICE |
+| ORDINAL |
+| LAST_SEGMENT |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| TRANSFER_INBOUND_GROUP |
+| RINGT_SIST |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| INTERACTION_TYPE_CODE |
+| INTERACTION_TYPE_KEY |
+| EMPLOYEE_ID |
+| COMPANYNAME |
+| SITENAME |
+| UNITNUMBER |
+| TEAMNUMBER |
+| QUEUE_CLIENT |
+| QUEUE_PROGRAM |
+| QUEUE_TYPE |
+| QUEUE_SEGMENT |
+| VIRTUALQUEUE |
+| QUEUE_PROGRAM_TO |
+| QUEUE_TYPE_TO |
+| VIRTUALQUEUE_TO |
+| TOTAL_DURATION |
+| TOTAL_COUNT |
+| TOTAL_LOST_COUNT |
+| CUSTOMER_HANDLE_COUNT |
+| WAIT_TIME_LOST |
+| WAIT_TIME_ANSWERED |
+| CUSTOMER_WAIT_DURATION |
+| CUSTOMER_WAIT_DURATION_NOCB |
+| CUSTOMER_ACW_DURATION |
+| CUSTOMER_TALK_DURATION |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_DIAL_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_RING_DURATION |
+| TOTAL_IVR_CALLBACK_COUNT |
+| TOTAL_MAN_CALLBACK_COUNT |
+| ANSWERED_WITHIN10 |
+| ANSWERED_WITHIN20 |
+| ANSWERED_WITHIN30 |
+| ANSWERED_WITHIN60_NOCB |
+| ANSWERED_WITHIN60 |
+| LOST_WITHIN10 |
+| LOST_WITHIN20 |
+| LOST_WITHIN30 |
+| LOST_WITHIN60 |
+| TRANSFER_OUT_COUNT |
+| TRANSFERRED_IN_COUNT |
+| BOOSTDIALOGID |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 - ← [[CCDW_CUSTOMER_EVENT.SURVEY_RESPONSE_FACT]]
+| Column Name |
+|---|
+| ANSWER_ID |
+| FINISHED |
+| transaction_id |
+| QUESTION_NAME |
 

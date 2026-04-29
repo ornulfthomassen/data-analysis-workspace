@@ -3,9 +3,50 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'ADM_PRODUCT_ATTRIBUTE_V2', serves as a standardized and enriched product attribute dimension for CRM analysis. It consolidates product information from the core product dimension table, enriching it with hierarchical product type data. A key function is the extensive data cleansing and transformation of various product metrics (such as startup fees, monthly fees, included minutes/SMS/MMS/data, data prices, baud rates, and baud reduction quotas) from string formats into standardized numerical values (e.g., all data volumes to MB, all baud rates to MBPS). It applies complex business logic, including case statements for handling different units (KB, MB, GB, KBPS, MBPS), replacing text like 'FRI BRUK' or 'Ubegrenset' with numerical equivalents, and assigning default values based on product family, rank, or primary product flags when raw data is missing or ambiguous. The view also filters out products from a specific source system ('Marius').
+This view processes raw product dimension data to create a comprehensive and cleaned view of product attributes. It standardizes various string-based price, usage, and bandwidth attributes into numerical formats, often performing data cleaning, unit conversions (e.g., KB to MB), and conditional logic. Additionally, it enriches the product information with hierarchical product type details by joining with product configuration tables. The view filters out products from the 'Marius' source system.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRIMARY_PRODUCT_FLAG |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| SOURCE_SYSTEM_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_PRODUCT_ID_2 |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+| PRODUCT_FAMILY_NAME |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| ESTABLISHMENT_PRICE |
+| MONTHLY_PRICE |
+| PRICE_VAT_DESC |
+| INCLUDED_MINUTES |
+| INCLUDED_SMS |
+| PRICE_SMS_AFTER_INCLUDED |
+| INCLUDED_MMS |
+| PRICE_MMS |
+| INCLUDED_DATA |
+| PRICE_DATA_AFTER_INCLUDED |
+| MAX_MONTHLY_DATA_CHARGE |
+| BAUD_UPLOAD |
+| BAUD_DOWNLOAD |
+| BAUD_REDUCTION_QUOTA |
+| TK_PRODUCT_RANK |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| ID |
+| PARENT |
+| DESCRIPTION |
 

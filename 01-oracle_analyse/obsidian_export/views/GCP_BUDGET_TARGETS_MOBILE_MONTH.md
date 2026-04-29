@@ -3,8 +3,40 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view extracts monthly mobile budget targets. It filters the base data to include only records where the 'BUDGET_TYPE' is 'Stock' and the 'BUDGET_INDICATOR' is 'Budget'. It provides a comprehensive set of target metrics such as new sales, gross sales, product changes, swap, stock newsale, porting out, termination, and various net and insurance-related targets for mobile products. The 'GCP' prefix in the view name suggests it might be used for data provisioning to a Google Cloud Platform environment.
+Filters monthly mobile budget targets from the 'BUDGET_TARGETS_MOBILE_MONTH' table to include only records where the budget type is 'Stock' and the budget indicator is 'Budget'.
 
 ## Data Sources (Inputs)
 - ← [[CCM.BUDGET_TARGETS_MOBILE_MONTH]]
+| Column Name |
+|---|
+| KPI_FLAG |
+| BUSINESS_UNIT |
+| BUDGET_TYPE |
+| BUDGET_INDICATOR |
+| EVENT_YEAR |
+| EVENT_MONTH |
+| PRODUCT_BRAND |
+| PRODUCT_PAYMENT |
+| PRODUCT_AREA |
+| PRODUCT_CATEGORY |
+| EVENT_CHANNEL_2 |
+| EVENT_CHANNEL_3 |
+| EVENT_CHANNEL_4 |
+| TARGET_NEW_SALE |
+| TARGET_GROSS_SALE |
+| TARGET_PRODUCT_CHANGE |
+| TARGET_SWAP |
+| TARGET_STOCK_NEWSALE |
+| TARGET_PORTING_OUT |
+| TARGET_TERMINATION |
+| TARGET_NET_PRE2POST |
+| TARGET_NET_B2M |
+| TARGET_UNEXPLAINED |
+| TARGET_SAFE |
+| TARGET_SVINDELFORSIKRING_IND |
+| TARGET_SVINDELFORSIKRING_HUS |
+| TARGET_SVINDELFORSIKRING |
+| TARGET_NEWSALE_DEVICE_INSURANCE |
+| TARGET_NEWSALE_DEVICE |
+| TARGET_BUDGET |
 

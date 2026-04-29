@@ -3,15 +3,156 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure aggregates mobile subscription usage data for a 30-day period. It processes raw usage facts, resolves subscription hierarchies (including parent and twin subscriptions), and calculates various aggregated metrics like usage amount, volume, and duration. The aggregated data is then loaded into a specific partition of a permanent administrative table, `ADM_SUBS_USAGE_MONTH_DET2`, using a temporary staging table, `TMP_SUBS_USAGE_D30_DET`, for intermediate calculations and partition exchange.
+This procedure calculates and aggregates mobile subscription usage details over a recent 30-day period. It stages the aggregated data into a temporary table, then uses a partition exchange mechanism to load this data into a specific partition (identified by '30') of the permanent 'ADM_SUBS_USAGE_MONTH_DET2' table. It also drops the temporary staging table after the exchange.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| LAST_12_WEEKS |
 - ← [[GALAXY.SUBSCR_USAGE_MOBILE_DAY_FACT_V]]
+| Column Name |
+|---|
+| PARENT_SUBSCRIPTION_KEY |
+| SUBSCRIPTION_KEY |
+| MAIN_NUMBER |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| EVENT_DATE_KEY |
+| LOAD_DATE_KEY |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
 - ← [[CM.REL_SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID_OWNER |
+| SUBSCR_ID_MEMBER |
 
 ## Target Tables (Outputs)
 - → [[TMP_SUBS_USAGE_D30_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| NET_REVENUE |
+| MAX_EVENT_DATE_KEY |
 - → [[ADM_SUBS_USAGE_MONTH_DET2]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| NET_REVENUE |
+| MAX_EVENT_DATE_KEY |
 

@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a historical record of connection IDs and their associated subscription details, including a transformation for the customer surrogate key (CUSTOMER_SK) where a value of -1 is replaced with NULL to indicate an unknown or unassigned customer.
+Creates a view providing historical connection ID data, transforming customer surrogate keys with a value of -1 to NULL.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CONNECT_ID_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| CONNECT_ID |
+| SUBSCR_OFFER_CONFIG_PROD_ID |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
 

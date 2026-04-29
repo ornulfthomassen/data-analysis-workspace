@@ -3,8 +3,22 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view retrieves and standardizes broadband subscription inventory data. It selects all relevant columns from the source table, trims leading/trailing spaces from several string fields, and renames columns with more descriptive names (e.g., prefixed with 'TALKMORE_'). Essentially, it provides a cleansed and aliased projection of the raw broadband subscription inventory.
+Creates a standardized view of broadband subscription inventory data by selecting and trimming specific columns from the source table.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_SUBSCR_BROADBAND]]
+| Column Name |
+|---|
+| ID |
+| SERVICE_ID |
+| BROADBAND_NUMBER |
+| USER_ID |
+| OWNER_ID |
+| ACCOUNT_ID |
+| PAYER_ID |
+| RATE_PLAN_ID |
+| SUB_PRODUCT_ID |
+| SUBSCRIPTION_STATUS |
+| SERVICE_STATUS |
+| EXPORT_CREATED_DATE |
 

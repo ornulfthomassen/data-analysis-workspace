@@ -3,15 +3,188 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_HOUSEHOLD_INFO_HIST`, is designed to load or refresh monthly historical household information into a partitioned table `ADM_HOUSEHOLD_INFO_HIST`. It first performs checks to ensure the availability of source data for the specified month (`P_YYYYMM`). It then manages partitions in the `ADM_HOUSEHOLD_INFO_HIST` table, adding a new partition if it doesn't exist. The core functionality involves creating a temporary table (`TMP_HOUSEHOLD_INFO_HIST`), populating it with processed data derived from other household information tables, and finally exchanging this temporary table with the corresponding partition in the permanent `ADM_HOUSEHOLD_INFO_HIST` table. It also gathers statistics on the newly loaded partition and includes robust error handling and logging.
+This procedure populates a historical, partitioned household information table (`ADM_HOUSEHOLD_INFO_HIST`) for a given month (`P_YYYYMM`). It performs source data validation, creates a temporary table by joining and transforming data from `ADM_HOUSEHOLD_INFO_KURT` and `ADM_HOUSEHOLD_MAPPING_HIST`, and then efficiently loads this data into a new partition of the target table using an `EXCHANGE PARTITION` operation.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| LAST_DATE_KEY |
+| LAST_DATE |
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_HOUSEHOLD_INFO_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ID |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| FARID |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_FIBER |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
 - ← [[CLM_ADM.ADM_HOUSEHOLD_MAPPING_HIST]]
-- ← [[ADM_HOUSEHOLD_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ID |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
 
 ## Target Tables (Outputs)
-- → [[ADM_HOUSEHOLD_INFO_HIST]]
 - → [[TMP_HOUSEHOLD_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+- → [[ADM_HOUSEHOLD_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
 

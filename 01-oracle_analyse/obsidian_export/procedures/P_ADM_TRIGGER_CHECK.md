@@ -3,8 +3,13 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Monitors the status of an external process by repeatedly querying a specified view or table (passed as a parameter). It polls for a successful completion status (indicated by RUN_ERR_CODE = 0) within a given timeout period (P_WAIT_MINUTES). If the success condition is not met before the timeout, an application error is raised. It uses a sleep mechanism for polling intervals.
+The procedure P_ADM_TRIGGER_CHECK monitors a specified view (P_TRIGGER_VIEW) for a successful status within a given time frame (P_WAIT_MINUTES). It repeatedly queries the view for the latest 'END_TIME', 'RUN_ERR_CODE', and 'RUN_ERR_MSG'. If 'RUN_ERR_CODE' remains non-zero (indicating an error or ongoing process) after the specified waiting period, it raises an application error, otherwise, it completes successfully. It uses a sleep mechanism between checks.
 
 ## Data Sources (Inputs)
 - ← [[P_TRIGGER_VIEW]]
+| Column Name |
+|---|
+| END_TIME |
+| RUN_ERR_CODE |
+| RUN_ERR_MSG |
 

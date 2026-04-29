@@ -3,16 +3,153 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'V_ANALYTICAL_MASTER_TABLE_MBB', is designed to create a comprehensive analytical master table for Mobile Broadband (MBB) subscriptions. It aggregates historical data on subscriptions, customer information, product details, device usage, and traffic data (data, MMS, SMS, voice calls) from various sources for specific monthly periods. It also includes revenue metrics. The view links different historical snapshots to provide a holistic view of each subscription and its associated entities over time, facilitating detailed analysis of MBB customer behavior, product adoption, device characteristics, and revenue performance.
+This view, `V_ANALYTICAL_MASTER_TABLE_MBB`, serves as a comprehensive analytical master table for Mobile Broadband (MBB) subscriptions. It aggregates and processes historical data from various sources including subscription details, customer information, device data, and aggregated usage/revenue metrics. The view specifically filters for 'Internett, Mobilt Bredbånd' subscriptions and calculates numerous derived attributes, key performance indicators, and lagged historical trends (e.g., _LAST1, _LAST2, _LAST3) across multiple time periods, excluding test customers, to provide a rich dataset for in-depth analysis of MBB services.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_KEY_CHAR |
+| LAST_DATE |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| PRODUCT_BRAND |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID_PREV |
+| SUBSCRIPTION_ID_ORIG |
+| SUBSCRIPTION_ID_PAST |
+| MAIN_NUMBER_SK |
+| PORT_IN_SERV_PROV_ID |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| PERIOD_MONTH_KEY |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
 - ← [[CLM_ADM.ADM_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| SUBS_TYPE |
+| BINDING_ACTIVE |
+| PRODUCT_ID |
+| FRIFAM_NO_DAYS_ACTIVE |
+| FORSIKRING_NO_DAYS_ACTIVE |
+| MIN_SKY_NO_DAYS_ACTIVE |
+| BANKID_USED_LAST1 |
+| BANKID_USED_LAST2 |
+| BANKID_USED_LAST3 |
 - ← [[CLM_ADM.ADM_MBB_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| ANT_PROD_CHANGE_MONTH |
+| ANT_PROD_CHANGE_SUBSCR |
+| PROD_NO_DAYS_ACTIVE |
+| BINDING_END_DATE |
+| PRODUCT_OFFER_ID |
+| PRODUCT_OFFER_NAME |
+| DRM_PRODUCT_GROUP |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_SERVICE |
+| SOURCE_PRODUCT_ID_1 |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+| KR_MB_TOT_PREV1 |
+| KR_MB_TOT_PREV2 |
+| KR_MB_TOT_PREV3 |
+| NUMBER_OF_MMS_NORGE_PREV1 |
+| NUMBER_OF_MMS_NORGE_PREV2 |
+| NUMBER_OF_MMS_NORGE_PREV3 |
+| KR_MMS_NORGE_PREV1 |
+| KR_MMS_NORGE_PREV2 |
+| KR_MMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_NORGE_PREV1 |
+| NUMBER_OF_SMS_NORGE_PREV2 |
+| NUMBER_OF_SMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_UTLAND_PREV1 |
+| NUMBER_OF_SMS_UTLAND_PREV2 |
+| NUMBER_OF_SMS_UTLAND_PREV3 |
+| KR_SMS_NORGE_PREV1 |
+| KR_SMS_NORGE_PREV2 |
+| KR_SMS_NORGE_PREV3 |
+| KR_SMS_UTLAND_PREV1 |
+| KR_SMS_UTLAND_PREV2 |
+| KR_SMS_UTLAND_PREV3 |
+| NUMBER_SPEECH_NORGE_PREV1 |
+| NUMBER_SPEECH_NORGE_PREV2 |
+| NUMBER_SPEECH_NORGE_PREV3 |
+| NUMBER_SPEECH_UTLAND_PREV1 |
+| NUMBER_SPEECH_UTLAND_PREV2 |
+| NUMBER_SPEECH_UTLAND_PREV3 |
+| DURAT_SPEECH_NORGE_PREV1 |
+| DURAT_SPEECH_NORGE_PREV2 |
+| DURAT_SPEECH_NORGE_PREV3 |
+| DURAT_SPEECH_UTLAND_PREV1 |
+| DURAT_SPEECH_UTLAND_PREV2 |
+| DURAT_SPEECH_UTLAND_PREV3 |
+| KR_SPEECH_NORGE_PREV1 |
+| KR_SPEECH_NORGE_PREV2 |
+| KR_SPEECH_NORGE_PREV3 |
+| KR_SPEECH_UTLAND_PREV1 |
+| KR_SPEECH_UTLAND_PREV2 |
+| KR_SPEECH_UTLAND_PREV3 |
+| GROSS_PERIODIC_FEE_FULL |
+| NET_FEE |
+| NET_USE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_PERIODIC_FEE |
+| NET_INITIATION_FEE |
+| NET_TERMINATION_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| MODELID |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| PRODUCERNAME |
+| DEVICE_CATEGORY |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_LTE |
+| TAC |
 - ← [[CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| TAC |
+| MARKETING_NAME_L1 |
+| MARKETING_NAME_L2 |
 

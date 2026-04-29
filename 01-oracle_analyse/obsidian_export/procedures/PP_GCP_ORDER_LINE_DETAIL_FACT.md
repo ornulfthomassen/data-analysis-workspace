@@ -3,11 +3,19 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure orchestrates the monthly loading and maintenance of subpartitions within the `GCP_ORDER_LINE_DETAIL_FACT` table. It iterates through a specified date range (YYYYMM), ensuring that a partition exists for each month in the target table, with several predefined subpartitions (AO, FT, HW, NB, SO). For each enabled subpartition, it calls an external procedure (`CLM_ADM.PP_GCP_TMP_ORDER_LINE_DETAIL_FACT`) to populate a temporary staging table (`TMP_ORDER_LINE_DETAIL_FACT`) with relevant data. Finally, it performs a 'partition exchange' operation, swapping the loaded data from the temporary table into the corresponding subpartition of the `GCP_ORDER_LINE_DETAIL_FACT` table. This method is employed for efficient and incremental data loading and updates in a partitioned data warehouse fact table.
+Manages and loads data into monthly partitions and subpartitions (AO, SO, FT, HW, NB) of the 'GCP_ORDER_LINE_DETAIL_FACT' table. It uses a staging table ('TMP_ORDER_LINE_DETAIL_FACT') and a partition exchange mechanism to efficiently update subpartitions with data primarily sourced from various 'CCM.VYA_ORDER_LINE_DETAIL_FACT' tables, for a specified range of months.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+- ← [[DUAL]]
 - ← [[CCM.VYA_ORDER_LINE_DETAIL_FACT]]
+- ← [[CCM.VYA_ORDER_LINE_DETAIL_FACT_FT]]
+- ← [[CCM.VYA_ORDER_LINE_DETAIL_FACT_HW]]
+- ← [[CCM.VYA_ORDER_LINE_DETAIL_FACT_NB]]
+- ← [[TMP_ORDER_LINE_DETAIL_FACT]]
 
 ## Target Tables (Outputs)
 - → [[GCP_ORDER_LINE_DETAIL_FACT]]

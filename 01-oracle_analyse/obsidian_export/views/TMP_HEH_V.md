@@ -3,8 +3,24 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-Filters and projects specific 'right usage' events from the COMOYO_SUB_GRANT_EVENTS table. It selects event details such as load date, event ID, time, user ID, grantor, SKU information, subscription ID, and right ID. The view specifically includes events where the 'EVENT' type is 'com.comoyo.events.right.RightUsed' and excludes records where the SKU starts with 'CMO-STO-'. It also provides a truncated 100-character string representation of the SKUS column.
+Provides a filtered view of 'COMOYO_SUB_GRANT_EVENTS' data, specifically focusing on 'RightUsed' events. It excludes entries where the SKUS column starts with 'CMO-STO-' and includes a truncated string representation of the SKUS column.
 
 ## Data Sources (Inputs)
-- ← [[COMOYO.COMOYO_SUB_GRANT_EVENTS]]
+- ← [[COMOYO_SUB_GRANT_EVENTS]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| EVENT_ID |
+| EVENT |
+| EVENT_TIME |
+| USER_ID |
+| GRANTOR |
+| GRANTOR_CONTEXT |
+| SKUS |
+| SUBSCRIPTION_ID |
+| RIGHT_ID |
+| RIGHT_CREATOR |
+| CREATOR_TYPE |
+| SEQ_ID |
+| RUN_ID |
 

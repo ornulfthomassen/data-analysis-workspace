@@ -3,9 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-The view `EXAMPLE_VIEW_WITH_FUNC` provides `DEVICE_KEY` and `IMEI_USE` (derived from `SOURCE_DEVICE_ID`) for the first 5 records. Its unique design involves a pre-execution phase triggered by a function `f_test` in its `WHERE` clause. This function first waits for data freshness, indicated by the `DATA_IS_FRESH` column in `V_WAIT_FOR_DATA`, for a maximum of 30 seconds. Upon successful data freshness, it dynamically creates (or drops and recreates) a temporary table named `CCM.TABLE_FROM_PROC_IN_WITH` by selecting `DEVICE_KEY` and casting `SOURCE_DEVICE_ID` from `GALAXY.DEVICE_DIM`. Finally, the view selects all columns from this dynamically generated `CCM.TABLE_FROM_PROC_IN_WITH` table.
+This view dynamically creates and populates a temporary table (`CCM.TABLE_FROM_PROC_IN_WITH`) from `GALAXY.DEVICE_DIM` after an initial wait period dependent on the freshness status from `V_WAIT_FOR_DATA`. It then exposes `DEVICE_KEY` and `IMEI_USE` from this dynamically generated table, effectively providing a processed subset of device information.
 
 ## Data Sources (Inputs)
 - ← [[V_WAIT_FOR_DATA]]
+| Column Name |
+|---|
+| DATA_IS_FRESH |
 - ← [[GALAXY.DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| SOURCE_DEVICE_ID |
+- ← [[CCM.TABLE_FROM_PROC_IN_WITH]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| IMEI_USE |
 

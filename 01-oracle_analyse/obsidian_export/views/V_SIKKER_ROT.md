@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies unique agreement IDs that are associated with two specific product types simultaneously. It selects agreements for the 'Sikker ID' product that have an end date within a specific period (from March 23, 2020, up to the current date) AND also have an association with the 'SAFE' product, where the 'SAFE' product's start date is on or after March 23, 2020. The purpose, as indicated by the comment, is to provide foundational data for a 'SAFE dashboard' used by a 'safe and secure squad'.
+Identifies unique agreement IDs that are associated with 'Sikker ID' products (with an end date within a specific period) and also associated with 'SAFE' products (with a start date from a specific point), serving as a foundational data source for a SAFE dashboard.
 
 ## Data Sources (Inputs)
 - ← [[clm_ccm.v_ods_agrmt_offer_mob_safety]]
+| Column Name |
+|---|
+| agreement_id |
+| agreement_product_name |
+| product_end_date |
+| product_start_date |
 

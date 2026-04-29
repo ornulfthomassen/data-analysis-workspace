@@ -3,8 +3,33 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, "ESP_TRIGGER_HISTORY_V", provides a direct projection of all columns from the "ESP_TRIGGER_HISTORY" table located in the "CLM_RTDM" schema. It essentially creates an alias or a schema bridge, making the historical trigger data from the `CLM_RTDM` schema accessible within the `CRM_ANALYSE` schema without any data transformation, filtering, or aggregation.
+Creates a view `ESP_TRIGGER_HISTORY_V` in the `CRM_ANALYSE` schema, directly exposing all specified columns from the `CLM_RTDM.ESP_TRIGGER_HISTORY` table without any transformations or filtering. This essentially provides an alias or specific projection of the underlying table.
 
 ## Data Sources (Inputs)
 - ← [[CLM_RTDM.ESP_TRIGGER_HISTORY]]
+| Column Name |
+|---|
+| INPUTS_ESPKURTID |
+| INPUTS_ESPSUBSCRIPTIONID |
+| CLIENTTIMEZONE |
+| SENT_TO_RTDM |
+| SOURCESYSTEM |
+| SOURCESUBSCRIPTIONID |
+| SOURCECUSTOMERID |
+| INPUTS_SUBSCRIPTIONROLE |
+| INPUTS_ESPMAINNUMBER |
+| INPUTS_TRIGGERID |
+| INPUTS_REQUESTTYPE |
+| INPUTS_CONTACTTYPE |
+| DATADICTIONARY |
+| INPUTS_CHARDATA1 |
+| INPUTS_CHARDATA2 |
+| INPUTS_CHARDATA3 |
+| INPUTS_NUMDATA1 |
+| INPUTS_NUMDATA2 |
+| INPUTS_NUMDATA3 |
+| INPUTS_DATEDATA1 |
+| INPUTS_DATEDATA2 |
+| INPUTS_DATEDATA3 |
+| PROCCESED_DTTM |
 

@@ -3,8 +3,28 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides event data used for customer interactions, specifically for transferring CLM (Customer Lifecycle Management) activities from RTDM to SAS360. It defines a subject level customer for an infomap and is tentatively used by HighTouch. It filters out certain trigger IDs and only includes events processed within the last 14 days. The view transforms and casts various input fields from a source history table into a standardized format for actionable events, including customer identifiers, unit details, resource information, timestamps, and several event-specific value/date fields with dynamic descriptions based on trigger IDs.
+This view provides event data for customer interactions, primarily for CLM (Customer Lifecycle Management) activities, transferring data from RTDM to SAS360. It is also used to define subject-level customers in an infomap. It filters events based on `PROCCESED_DTTM` and `INPUTS_TRIGGERID`, and transforms various input fields into a standardized event format.
 
 ## Data Sources (Inputs)
 - ← [[CLM_RTDM.ESP_TRIGGER_HISTORY]]
+| Column Name |
+|---|
+| INPUTS_TRIGGERID |
+| SOURCESYSTEM |
+| INPUTS_ESPKURTID |
+| INPUTS_ESPSUBSCRIPTIONID |
+| INPUTS_NUMDATA2 |
+| INPUTS_SUBSCRIPTIONROLE |
+| INPUTS_ESPMAINNUMBER |
+| PROCCESED_DTTM |
+| INPUTS_DATEDATA1 |
+| INPUTS_NUMDATA1 |
+| INPUTS_CHARDATA1 |
+| INPUTS_NUMDATA4 |
+| INPUTS_NUMDATA3 |
+| INPUTS_CHARDATA2 |
+| INPUTS_CHARDATA4 |
+| INPUTS_CHARDATA5 |
+| INPUTS_CHARDATA6 |
+| INPUTS_DATEDATA2 |
 

@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Categorizes and assigns a numerical rank to order statuses based on their type code. It groups 'finished/archived' statuses as rank 1, 'in-progress/pending' statuses as rank 2, and all other statuses as rank 3.
+Categorizes order statuses into a numerical rank based on their type code. Assigns rank 1 to 'FERDIG' and 'ARKIVERT' statuses, rank 2 to several in-progress or pending statuses, and rank 3 to all other statuses.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_STATUS_DIM_MV]]
+| Column Name |
+|---|
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_TYPE_CODE |
 

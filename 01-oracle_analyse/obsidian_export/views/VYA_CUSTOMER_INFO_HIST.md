@@ -3,8 +3,63 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a historical snapshot of customer information, including demographic details (age, gender, birth month), household attributes (e.g., household address, unit, size), contact preferences (email, SMS indicators), address details (postal code, municipality, geographical area), and various service subscriptions (fixed telephony, TV, internet - DSL, WiMAX, Fiber, Dialup; mobile internet, mobile telephony). Its primary purpose is to cast most of these historical customer attributes into fixed-length character strings, likely for data standardization, reporting, or integration with external systems that require specific string formats.
+Creates a historical customer information view by selecting and casting various customer-related attributes from the 'CLM_ADM.ADM_CUSTOMER_INFO_HIST' table into fixed-length character strings, along with some direct selections and one derived column (GRUNNKRETS_NR concatenation). This prepares the data for consistent storage or reporting.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MONTH_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| POSTNR |
+| POSTSTED |
+| CU_HH_SAME_ADDR_FLAG |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| LEILIGHET_NR |
+| ADRESSETYPE |
+| ADRESSESTATUS |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
 

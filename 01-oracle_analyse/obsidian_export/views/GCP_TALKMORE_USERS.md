@@ -3,8 +3,32 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a standardized and slightly cleaned dataset of Talkmore user information. It consolidates various personal and account details such as user IDs, account IDs, company information, names, addresses, contact numbers, email, birthdate, and account type. Data transformations include trimming whitespace from IDs, padding ZIP codes with leading zeros to ensure a minimum length of 4, and casting phone numbers and personal IDs to specific VARCHAR2 types. The purpose is to prepare this user data for consumption within the CCM schema, potentially for GCP-related processes or reporting.
+Creates a unified and formatted view of user inventory data from the TALKMORE schema, applying data cleaning and type casting for various user-related attributes.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_USERS]]
+| Column Name |
+|---|
+| ID |
+| ACCOUNT_ID |
+| COMPANY_NAME |
+| COMPANY_ORGNR |
+| FIRST_NAME |
+| LAST_NAME |
+| ADDRESS1 |
+| ADDRESS2 |
+| CITY |
+| ZIP |
+| COUNTRY |
+| PHONE1 |
+| PHONE2 |
+| PHONE3 |
+| EMAIL |
+| BIRTHDAY |
+| LAST_CHANGED_DATE |
+| STREET |
+| STREET_NUMBER |
+| PERSONAL_ID |
+| EXPORT_CREATED_DATE |
+| ACCOUNT_TYPE |
 

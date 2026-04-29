@@ -3,9 +3,24 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view consolidates subscription details with agreement reward information. It joins subscription data with reward agreement data based on `PERIOD_MONTH_KEY` and `SUBSCRIPTION_KEY` to provide a unified perspective on subscription statuses, reward agreement activation/deactivation/qualification flags, the number of members, and the total reward units for each subscription per month. It likely serves to analyze the relationship between subscriptions and their associated reward programs, potentially for churn analysis or reward program effectiveness tracking.
+Combines subscription details with agreement reward information by joining the `CHURN_SUBSCRIPTION_V` view and the `CHURN_AGRMT_REWARD` table on `PERIOD_MONTH_KEY` and `SUBSCRIPTION_KEY`.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.CHURN_SUBSCRIPTION_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_KEY |
 - ← [[CLM_ADM.CHURN_AGRMT_REWARD]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| NO_MEMBERS |
+| SUM_REWARD_UNITS |
+| REWARD_AGRMT_ACTIVATED_FLG |
+| REWARD_AGRMT_DEACTIVATED_FLG |
+| REWARD_AGRMT_QUALIFIED_FLG |
+| REWARD_AGRMT_DEQUALIFIED_FLG |
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_KEY |
 

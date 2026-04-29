@@ -3,8 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a categorized lookup or dimension table for subscriber traffic groups. It retrieves base traffic group definitions (ID, Name, Description, Value_from, Value_to) from the ANALYTICAL_GROUP_DIM table, specifically for `type_ID = 10`. It then enriches these groups by deriving human-readable descriptions (GROUP_DESC: e.g., LOW, MED, HIGH) and explicit traffic volume ranges (GROUP_RANGES: e.g., ' 05 - 49,99 MB') based on the group's name. Additionally, it includes two placeholder rows with negative keys (-1, -2) and 'missing' values, likely to handle cases of unknown or unassigned traffic groups in reporting or analysis.
+This view defines and categorizes 'traffic groups' based on an analytical dimension. It combines specific entries from 'ANALYTICAL_GROUP_DIM' (where type_ID is 10) with two additional hardcoded 'missing' entries, providing descriptive labels (GROUP_DESC) and traffic ranges (GROUP_RANGES) derived from the 'Name' column.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ANALYTICAL_GROUP_DIM]]
+| Column Name |
+|---|
+| ID |
+| Name |
+| Description |
+| Value_from |
+| value_to |
+| type_ID |
+- ← [[DUAL]]
 

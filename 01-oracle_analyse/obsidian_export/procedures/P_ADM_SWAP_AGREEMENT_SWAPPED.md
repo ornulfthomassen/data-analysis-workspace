@@ -3,15 +3,71 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure initializes and subsequently updates the ADM_SWAP_AGREEMENT_SWAPPED table. It first inserts new 'swap' agreement records, identified by specific status and ranking, into this table. Following this, it iteratively applies a series of 17 different matching rules (defined by cursors C1-C17). For each rule, it identifies previously unmatched swap agreements within the ADM_SWAP_AGREEMENT_SWAPPED table and updates their records with match details, including the matched product agreement ID, the specific matching criteria used (e.g., 'Same root agreement, 2 SWAP agreements, O.END_DATE = N.REG_DATE'), the matching date, and the number of days between the agreements. The overall purpose is to identify and link related 'swap' agreements based on a complex set of business rules.
+The procedure populates and updates the `ADM_SWAP_AGREEMENT_SWAPPED` table. It first inserts new 'swap agreement' records from `ADM_STOCK_AGREEMENT_DEVICE_ALL` (filtered by status and ranking) into `ADM_SWAP_AGREEMENT_SWAPPED`, enriching them with aggregated swap counts from `ADM_AGREEMENT_DEVICE_AGG_V`. Subsequently, it iterates through a series of cursors (C1 to C17), each defining different criteria to identify matches between existing 'old' swap agreements (`SWAP_O` in `ADM_SWAP_AGREEMENT_SWAPPED`) and 'new' swap agreements (`SWAP_N` in `ADM_STOCK_AGREEMENT_DEVICE_ALL`). For each identified match, it updates the `MATCED_DATE`, `MATCH_CRITERIA`, `MATCHED_PRODUKT_AGREEMENT_ID`, and `DAYS_BETWEEN_AGREEMENTS` columns of the 'old' swap agreement in `ADM_SWAP_AGREEMENT_SWAPPED`.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_STOCK_AGREEMENT_DEVICE_ALL]]
 - ← [[CLM_ADM.ADM_SWAP_AGREEMENT_SWAPPED]]
+| Column Name |
+|---|
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_END_DATE |
+| NO_AGR_SWAP |
+| MATCHED_PRODUKT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_START_DATE |
+| ORDER_MAIN_NUMBER_SK |
+| HANDSET_KEY |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| ORDER_CUSTOMER_SK_OWNER |
+- ← [[CLM_ADM.ADM_STOCK_AGREEMENT_DEVICE_ALL]]
+| Column Name |
+|---|
+| PRODUCT_AGREEMENT_STATUS_INFO |
+| RANGERING |
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_REG_DATE |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| ORDER_MAIN_NUMBER_SK |
+| HANDSET_KEY |
+| ORDER_CUSTOMER_SK_OWNER |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_MARKET_PRODUCT |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_AGG_V]]
+| Column Name |
+|---|
+| DEV_AGREEMENT_KEY |
+| NO_AGR_SWAP |
+| NO_AGR_SWAP_ACTIVE |
+| ANTALL_SWAP_UTEN_MATCH |
 - ← [[CLM_ADM.ADM_DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| DEVICE_MANUFACTURER |
 
 ## Target Tables (Outputs)
 - → [[ADM_SWAP_AGREEMENT_SWAPPED]]
+| Column Name |
+|---|
+| MATCED_DATE |
+| MATCH_CRITERIA |
+| MATCHED_PRODUKT_AGREEMENT_ID |
+| DAYS_BETWEEN_AGREEMENTS |
+| NO_AGR_SWAP |
+| NO_AGR_SWAP_ACTIVE |
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_END_DATE |
+| PRODUCT_AGREEMENT_START_DATE |
+| PRODUCT_AGREEMENT_REG_DATE |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| ORDER_MAIN_NUMBER_SK |
+| HANDSET_KEY |
+| ORDER_CUSTOMER_SK_OWNER |
+| PRODUCT_AGREEMENT_STATUS_INFO |
+| RANGERING |
 

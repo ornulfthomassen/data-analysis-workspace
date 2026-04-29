@@ -3,9 +3,62 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a filtered list of dealer dimension data. It includes all details for dealers (from the GALAXY.DEALER_DIM table) only if they have associated order line details in the GALAXY.ORDER_LINE_DETAIL_MOB_FACT_V view. Essentially, it identifies and presents dealers who have made orders.
+This view selects all columns from the DEALER_DIM table, but only for dealers that have at least one corresponding entry in the ORDER_LINE_DETAIL_MOB_FACT_V view, effectively providing a list of dealers with associated order details.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| DEALER_NAME |
+| DEALER_TYPE_DESC |
+| DEALER_CHAIN_NAME |
+| DEALER_CHAIN_TYPE |
+| ADDRESS_LINE_MAIN |
+| POSTCODE_ID_MAIN |
+| SI_CLASSIFICATION |
+| DEALER_UNIT_NUMBER |
+| DEALER_ID_PARENT |
+| CUSTOMER_ID |
+| RUN_ID |
+| SEQ_ID |
+| SOURCE_DEALER_ID |
+| CURRENT_STATUS |
+| START_DT_KEY |
+| END_DT_KEY |
+| DEALER_ROLE_KEY |
+| KAM_EMPLOYEE_KEY |
+| DAM_EMPLOYEE_KEY |
+| KAM_EMPLOYEE_NAME |
+| KAM_EMPLOYEE_DEPARTMENT |
+| DAM_EMPLOYEE_NAME |
+| DRM_SALES_CHANNEL_GEN01 |
+| DRM_SALES_CHANNEL_GEN01_DESC |
+| DRM_SALES_CHANNEL_GEN02 |
+| DRM_SALES_CHANNEL_GEN02_DESC |
+| DRM_SALES_CHANNEL_GEN03 |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN04 |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DRM_SALES_CHANNEL_GEN05 |
+| DRM_SALES_CHANNEL_GEN05_DESC |
+| DRM_SALES_CHANNEL_GEN06 |
+| DRM_SALES_CHANNEL_GEN06_DESC |
+| DRM_SALES_CHANNEL_GEN07 |
+| DRM_SALES_CHANNEL_GEN07_DESC |
+| DRM_SALES_CHANNEL_GEN08 |
+| DRM_SALES_CHANNEL_GEN08_DESC |
+| DRM_SALES_CHANNEL_GEN09 |
+| DRM_SALES_CHANNEL_GEN09_DESC |
+| DRM_SALES_CHANNEL_GEN10 |
+| DRM_SALES_CHANNEL_GEN10_DESC |
+| DRM_SALES_CHANNEL_TYPE |
+| DRM_CITY_PROVINCE |
+| DRM_GROUP_MEMBERSHIP |
+| DAM_EMPLOYEE_DEPARTMENT |
+| DRM_RETAIL_GROUP |
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_V]]
+| Column Name |
+|---|
+| DEALER_KEY |
 

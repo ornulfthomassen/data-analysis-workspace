@@ -3,14 +3,46 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_SCD2_USER_SERVICES` implements a Slowly Changing Dimension (SCD) Type 2 strategy for user service data. It processes daily snapshots of user services, identified by `FILE_DATE`, from the `COMOYO.USER_SERVICES` table. The goal is to maintain a historical and current view of user services in the `SCD2_USER_SERVICES` table, which is partitioned. For each processing date, it generates two temporary tables: `TMP_SCD2_USER_SERVICES_C_REC` contains the updated set of 'current active' records (new active users and existing active users with updated `LAST_DATE`), and `TMP_SCD2_USER_SERVICES_P_REC` contains the updated set of 'past/historical' records (existing historical records and records that have transitioned from an active-inactive state to a historical state). These temporary tables are then used to replace the corresponding partitions (`CURRENT_REC` and `PAST_REC`) within the `SCD2_USER_SERVICES` table, ensuring historical tracking of user service states.
+This procedure implements a Slowly Changing Dimension (SCD) Type 2 strategy for user services data. It processes new daily snapshots of user services from 'COMOYO.USER_SERVICES', identifies changes, and updates the 'SCD2_USER_SERVICES' table by maintaining a full history of changes. It does this by creating temporary tables for current and past records based on the latest data, and then exchanging these temporary tables with the corresponding partitions ('CURRENT_REC' and 'PAST_REC') of the main 'SCD2_USER_SERVICES' table.
 
 ## Data Sources (Inputs)
-- ← [[SCD2_USER_SERVICES]]
 - ← [[COMOYO.USER_SERVICES]]
+| Column Name |
+|---|
+| FILE_DATE |
+| USER_ID |
+- ← [[SCD2_USER_SERVICES]]
+| Column Name |
+|---|
+| LAST_DATE |
+| USER_ID |
+| FIRST_DATE |
+| CURRENT_RECORD |
+| CURRENT_STATE |
 
 ## Target Tables (Outputs)
-- → [[SCD2_USER_SERVICES]]
 - → [[TMP_SCD2_USER_SERVICES_C_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_STATE |
+| CURRENT_RECORD |
 - → [[TMP_SCD2_USER_SERVICES_P_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_STATE |
+| CURRENT_RECORD |
+- → [[SCD2_USER_SERVICES]]
+| Column Name |
+|---|
+| USER_ID |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_STATE |
+| CURRENT_RECORD |
 

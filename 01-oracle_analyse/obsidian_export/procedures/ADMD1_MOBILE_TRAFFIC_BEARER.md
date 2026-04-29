@@ -3,14 +3,55 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure processes mobile traffic bearer data for a specified date range. For each day in the range, it extracts raw call detail record (CDR) data from the `CDR.CDR_GENEVA` table, stores it into a temporary table named `TMP_MOBILE_TRAFFIC_BEARER_HIST`. It then joins this temporary data with subscription mapping information from `CCDW.SUBSCRIPTION_MAPPING` and inserts the unique records into a permanent, partitioned history table, `ADM_MOBILE_TRAFFIC_BEARER_HIST`. The procedure also manages indexes on the main history table (optionally dropping and recreating them for performance) and collects statistics on the newly loaded partitions. It includes dynamic date range determination and error handling for missing target tables or data.
+This procedure processes daily mobile traffic bearer data. For a given date range, it extracts raw traffic records from `CDR.CDR_GENEVA`, aggregates them into a temporary table, then joins with `CCDW.SUBSCRIPTION_MAPPING` to enrich the data, and finally inserts the unique aggregated results into the partitioned historical table `ADM_MOBILE_TRAFFIC_BEARER_HIST`. It includes logic for managing table partitions, dropping/creating indexes, and handling missing data scenarios.
 
 ## Data Sources (Inputs)
-- ← [[CDR.CDR_GENEVA]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+- ← [[CDR.CDR_GENEVA]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| BEARER |
+| EVENT_START_DATE_TIME |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+- ← [[ADM_MOBILE_TRAFFIC_BEARER_HIST]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| SUBSCRIPTION_ID |
+| BEARER |
+- ← [[TMP_MOBILE_TRAFFIC_BEARER_HIST]]
+| Column Name |
+|---|
+| EVENT_DATE |
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| BEARER |
 
 ## Target Tables (Outputs)
-- → [[ADM_MOBILE_TRAFFIC_BEARER_HIST]]
 - → [[TMP_MOBILE_TRAFFIC_BEARER_HIST]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| GENEVA_CALL_TYPE |
+| BEARER |
+| EVENT_DATE |
+- → [[ADM_MOBILE_TRAFFIC_BEARER_HIST]]
+| Column Name |
+|---|
+| PERIOD_DATE_KEY |
+| SUBSCRIPTION_ID |
+| EVENT_DATE |
+| GENEVA_CALL_TYPE |
+| BEARER |
 

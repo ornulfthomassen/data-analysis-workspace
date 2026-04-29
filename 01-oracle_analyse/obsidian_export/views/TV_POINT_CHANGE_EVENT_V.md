@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct wrapper or alias for the `CCM.TV_POINT_CHANGE_EVENT` table, exposing all its columns without any transformations, aggregations, or filtering. Its primary purpose is likely to provide a standardized or abstracted access point to the underlying table.
+Creates a direct projection of all columns from the underlying CCM.TV_POINT_CHANGE_EVENT table or view, effectively acting as a simple wrapper or alias.
 
 ## Data Sources (Inputs)
 - ← [[CCM.TV_POINT_CHANGE_EVENT]]
+| Column Name |
+|---|
+| ABONNENT_NR |
+| ACTION_TYPE |
+| SUBSCRIPTION_EVENT |
+| EVENT_DATE |
+| SUBSCR_CATEGORY_NAME |
+| PRODUCT_KEY |
+| KAS_PRODUKT_NR |
+| PRODUCT_NAME |
+| POINT_VALUE |
+| POINT_TYPE |
+| QUANTITY |
 

@@ -3,17 +3,166 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure (`P_CU_ODS_CUSTOMER`) is designed to perform a full refresh (full load) of the `ODS_CUSTOMER` table. It collects core customer attributes from various source systems, filters them to identify 'persons of interest for marketing purposes' (e.g., active customers not on a communication freeze list), and then loads this processed data into a new, temporary staging table (`ODS_CUSTOMER_N`). After building indexes on this staging table, it performs a table swap operation: the existing `ODS_CUSTOMER` table is renamed to `ODS_CUSTOMER_O` (as a backup), and then `ODS_CUSTOMER_N` is renamed to `ODS_CUSTOMER`, making the newly loaded data active. The procedure includes a threshold check to ensure the number of rows in the new dataset is within an acceptable range compared to the old one before performing the swap, and it manages index renaming and grants. The overall purpose is to provide an up-to-date dataset of customer attributes for marketing and personalization.
+Performs a full load refresh of customer attributes for marketing purposes. It creates a new version of the ODS_CUSTOMER table by aggregating and filtering data from various source systems, then swaps this new table into production, retaining the old version as a backup. It also logs the load status and performs DDL operations for index management and granting permissions.
 
 ## Data Sources (Inputs)
+- ← [[CLM_CCM.ODS_CUSTOMER]]
 - ← [[ODS.CUSTOMER_ODS]]
+| Column Name |
+|---|
+| CUSTOMER_ID |
+| HOUSEHOLD_ID |
+| CUSTOMER_STATUS_ID |
+| CUSTOMER_TYPE_ID |
+| DATE_OF_BIRTH |
+| CUSTOMER_AGE |
+| CUSTOMER_FIRST_NAME |
+| CUSTOMER_MIDDLE_NAME |
+| CUSTOMER_SURNAME |
+| ORGANISATION_NUMBER |
 - ← [[ODS.CUSTOMER_RES_AND_APP]]
+| Column Name |
+|---|
+| CUSTOMER_ID |
+| DM_IND_BR |
+| BR_DM_MAX_RES_APP_DTTM |
+| TM_IND_BR |
+| BR_TM_MAX_RES_APP_DTTM |
+| DM_IND_INTERNAL |
+| DM_MAX_RES_APP_DTTM |
+| TM_IND_INTERNAL |
+| TM_MAX_RES_APP_DTTM |
+| EMAIL_RES_AND_APP_ID |
+| EMAIL_ADDRESS_LINK_ID |
+| EMAIL_IND |
+| EMAIL_RA_MAX_DTTM |
+| EMAIL_ADDRESS |
+| EMAIL_ADDRESS_DQ |
+| SMS_RES_AND_APP_ID |
+| SMS_ADDRESS_LINK_ID |
+| SMS_IND |
+| SMS_RA_MAX_DTTM |
+| SMS_NUMBER |
 - ← [[CLM_CCM.ODS_CUSTOMER_COMM_FREEZE]]
+| Column Name |
+|---|
+| KURT_ID |
 - ← [[CCDW.CUSTOMER]]
-- ← [[ALL_INDEXES]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_UNIT_TYPE_ID |
 
 ## Target Tables (Outputs)
-- → [[ODS_CUSTOMER]]
-- → [[ODS_CUSTOMER_N]]
-- → [[ODS_CUSTOMER_O]]
+- → [[CLM_CCM.ODS_CUSTOMER_N]]
+| Column Name |
+|---|
+| KURT_ID |
+| HOUSEHOLD_ID |
+| CUSTOMER_STATUS_ID |
+| CUSTOMER_TYPE_ID |
+| DATE_OF_BIRTH |
+| CUSTOMER_AGE |
+| CUSTOMER_FIRST_NAME |
+| CUSTOMER_MIDDLE_NAME |
+| CUSTOMER_SURNAME |
+| RES_BRSUND_DM |
+| RES_BRSUND_DM_MAX_DTTM |
+| RES_BRSUND_TM |
+| RES_BRSUND_TM_MAX_DTTM |
+| RES_TELENOR_DM |
+| RES_TELENOR_DM_MAX_DTTM |
+| RES_TELENOR_TM |
+| RES_TELENOR_TM_MAX_DTTM |
+| EMAIL_RES_AND_APP_ID |
+| EMAIL_ADDRESS_LINK_ID |
+| EMAIL_IND |
+| EMAIL_RA_MAX_DTTM |
+| EMAIL_ADDRESS |
+| EMAIL_ADDRESS_DQ |
+| SMS_RES_AND_APP_ID |
+| SMS_ADDRESS_LINK_ID |
+| SMS_IND |
+| SMS_RA_MAX_DTTM |
+| SMS_NUMBER |
+| COMPANY_TYPE |
+| ORGANISATION_NUMBER |
+| LOAD_DTTM |
+- → [[CLM_CCM.ODS_CUSTOMER_O]]
+| Column Name |
+|---|
+| KURT_ID |
+| HOUSEHOLD_ID |
+| CUSTOMER_STATUS_ID |
+| CUSTOMER_TYPE_ID |
+| DATE_OF_BIRTH |
+| CUSTOMER_AGE |
+| CUSTOMER_FIRST_NAME |
+| CUSTOMER_MIDDLE_NAME |
+| CUSTOMER_SURNAME |
+| RES_BRSUND_DM |
+| RES_BRSUND_DM_MAX_DTTM |
+| RES_BRSUND_TM |
+| RES_BRSUND_TM_MAX_DTTM |
+| RES_TELENOR_DM |
+| RES_TELENOR_DM_MAX_DTTM |
+| RES_TELENOR_TM |
+| RES_TELENOR_TM_MAX_DTTM |
+| EMAIL_RES_AND_APP_ID |
+| EMAIL_ADDRESS_LINK_ID |
+| EMAIL_IND |
+| EMAIL_RA_MAX_DTTM |
+| EMAIL_ADDRESS |
+| EMAIL_ADDRESS_DQ |
+| SMS_RES_AND_APP_ID |
+| SMS_ADDRESS_LINK_ID |
+| SMS_IND |
+| SMS_RA_MAX_DTTM |
+| SMS_NUMBER |
+| COMPANY_TYPE |
+| ORGANISATION_NUMBER |
+| LOAD_DTTM |
+- → [[CLM_CCM.ODS_CUSTOMER]]
+| Column Name |
+|---|
+| KURT_ID |
+| HOUSEHOLD_ID |
+| CUSTOMER_STATUS_ID |
+| CUSTOMER_TYPE_ID |
+| DATE_OF_BIRTH |
+| CUSTOMER_AGE |
+| CUSTOMER_FIRST_NAME |
+| CUSTOMER_MIDDLE_NAME |
+| CUSTOMER_SURNAME |
+| RES_BRSUND_DM |
+| RES_BRSUND_DM_MAX_DTTM |
+| RES_BRSUND_TM |
+| RES_BRSUND_TM_MAX_DTTM |
+| RES_TELENOR_DM |
+| RES_TELENOR_DM_MAX_DTTM |
+| RES_TELENOR_TM |
+| RES_TELENOR_TM_MAX_DTTM |
+| EMAIL_RES_AND_APP_ID |
+| EMAIL_ADDRESS_LINK_ID |
+| EMAIL_IND |
+| EMAIL_RA_MAX_DTTM |
+| EMAIL_ADDRESS |
+| EMAIL_ADDRESS_DQ |
+| SMS_RES_AND_APP_ID |
+| SMS_ADDRESS_LINK_ID |
+| SMS_IND |
+| SMS_RA_MAX_DTTM |
+| SMS_NUMBER |
+| COMPANY_TYPE |
+| ORGANISATION_NUMBER |
+| LOAD_DTTM |
+- → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| START_DTTM |
+| STATUS |
+| STATUS_MESSAGE |
+| POWERCENTER_WF_NAME |
+| POWERCENTER_S_NAME |
 

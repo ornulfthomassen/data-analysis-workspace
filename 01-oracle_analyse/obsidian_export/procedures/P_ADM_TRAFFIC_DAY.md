@@ -3,16 +3,143 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_TRAFFIC_DAY`, aggregates daily telecommunications traffic data (MMS, SMS, Voice calls, and Data usage/revenue) for a specified month (`P_YYYYMM`). It calculates various metrics such as net revenue, number of events, call minutes, and data volume (in MB), broken down by service type (MMS, SMS, Voice, Data), data package types, and roaming status. The aggregated data is first stored in a temporary staging table (`TMP_TRAFFIC_DAY`). Subsequently, this temporary table's content is used to update or create a specific monthly partition in a permanent master traffic table (`ADM_TRAFFIC_DAY`) using a partition exchange operation. The procedure also manages the creation of new partitions if they don't exist and drops the temporary table after use.
+Calculates and aggregates daily traffic statistics (MMS, SMS, Voice, and Data volumes/revenues) for a specified month. It creates a temporary table with these aggregates and then uses an exchange partition operation to load the data into a partition of the permanent 'ADM_TRAFFIC_DAY' table, creating the partition if it doesn't already exist.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FIRST_DATE_KEY |
+| LAST_DATE_KEY |
 - ← [[GALAXY.TRAFFIC_DAY_FACT_V]]
+| Column Name |
+|---|
+| EVENT_DATE_KEY |
+| LOAD_DATE_KEY |
+| MARKET_AREA_KEY |
+| SUBSCRIPTION_KEY |
+| TRAFFIC_NET_AMOUNT |
+| TRAFFIC_NET_DISCOUNT_AMOUNT |
+| TRAFFIC_NUMBER_EVENTS |
+| TRAFFIC_DURATION |
+| TRAFFIC_VOLUME_TOTAL |
+| PRIM_PRODUCT_KEY |
+| TRAFFIC_TYPE_KEY |
+| ROAMING_COUNTRY_KEY |
+| APN_KEY |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
 - ← [[GALAXY.TRAFFIC_TYPE_DIM_V]]
+| Column Name |
+|---|
+| TRAFFIC_TYPE_KEY |
+| REPORT_GROUP_3 |
+| REPORT_GROUP_2 |
+| SOURCE_SYSTEM_KEY_3 |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| ID |
+| PARENT |
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
 
 ## Target Tables (Outputs)
-- → [[TMP_TRAFFIC_DAY]]
-- → [[ADM_TRAFFIC_DAY]]
+- → [[CLM_ADM.TMP_TRAFFIC_DAY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| EVENT_DATE_KEY |
+| DAY_OF_MONTH |
+| SUBSCRIPTION_ID |
+| NET_REVENUE |
+| ANT_MMS |
+| NET_REVENUE_MMS |
+| ANT_SMS |
+| NET_REVENUE_SMS |
+| ANT_TALE |
+| MIN_TALE |
+| NET_REVENUE_TALE |
+| MB_DATA |
+| MB_DATA_NULL |
+| MB_DATA_INCLUDED |
+| MB_DATA_PACKAGE |
+| MB_DATA_PACKAGE_CP |
+| MB_DATA_PACKAGE_TP |
+| MB_DATA_PACKAGE_POLA |
+| MB_DATA_PACKAGE_POLC |
+| MB_DATA_PACKAGE_PRUC |
+| MB_DATA_PACKAGE_PXLC |
+| MB_DATA_PACKAGE_COLA |
+| MB_DATA_PACKAGE_COLC |
+| MB_DATA_PACKAGE_CRLA |
+| MB_DATA_PACKAGE_CRLC |
+| MB_DATA_PACKAGE_CRUA |
+| MB_DATA_PACKAGE_ROLA |
+| MB_DATA_PACKAGE_TRLA |
+| MB_DATA_MUSIC_STREAM |
+| MB_DATA_SHARED_BUCKET |
+| MB_DATA_SB_FAM_BONUS |
+| MB_DATA_SB_INCLUDED |
+| MB_DATA_SB_EXTRA |
+| NET_REVENUE_DATA |
+| NET_REVENUE_DATA_DOM |
+| NET_REVENUE_DATA_ROAM |
+| NET_REVENUE_DATA_SURCHARGE |
+| NO_PRIM_PRODUCT_KEY |
+| PRODUCT_KEY |
+- → [[CLM_ADM.ADM_TRAFFIC_DAY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| EVENT_DATE_KEY |
+| DAY_OF_MONTH |
+| SUBSCRIPTION_ID |
+| NET_REVENUE |
+| ANT_MMS |
+| NET_REVENUE_MMS |
+| ANT_SMS |
+| NET_REVENUE_SMS |
+| ANT_TALE |
+| MIN_TALE |
+| NET_REVENUE_TALE |
+| MB_DATA |
+| MB_DATA_NULL |
+| MB_DATA_INCLUDED |
+| MB_DATA_PACKAGE |
+| MB_DATA_PACKAGE_CP |
+| MB_DATA_PACKAGE_TP |
+| MB_DATA_PACKAGE_POLA |
+| MB_DATA_PACKAGE_POLC |
+| MB_DATA_PACKAGE_PRUC |
+| MB_DATA_PACKAGE_PXLC |
+| MB_DATA_PACKAGE_COLA |
+| MB_DATA_PACKAGE_COLC |
+| MB_DATA_PACKAGE_CRLA |
+| MB_DATA_PACKAGE_CRLC |
+| MB_DATA_PACKAGE_CRUA |
+| MB_DATA_PACKAGE_ROLA |
+| MB_DATA_PACKAGE_TRLA |
+| MB_DATA_MUSIC_STREAM |
+| MB_DATA_SHARED_BUCKET |
+| MB_DATA_SB_FAM_BONUS |
+| MB_DATA_SB_INCLUDED |
+| MB_DATA_SB_EXTRA |
+| NET_REVENUE_DATA |
+| NET_REVENUE_DATA_DOM |
+| NET_REVENUE_DATA_ROAM |
+| NET_REVENUE_DATA_SURCHARGE |
+| NO_PRIM_PRODUCT_KEY |
+| PRODUCT_KEY |
 

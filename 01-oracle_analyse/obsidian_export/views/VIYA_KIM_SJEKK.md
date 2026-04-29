@@ -3,12 +3,54 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and enriches campaign detail fact data with extended activity information, response details, channel information, and product details. It calculates Key Performance Indicators (KPIs) such as 'Presented' volume (volume for presented responses) and 'All Sales' volume (volume for the primary order, rank 1). The view combines contact and order information, campaign specifics, and product attributes for detailed analysis.
+Provides a comprehensive view of campaign performance, customer interactions, and related product information, including calculated KPIs such as presented volume and initial sales volume.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| VOLUME |
+| CONTACT_DTTM |
+| CONTACT_MONTH_KEY |
+| MAIN_NUMBER |
+| SUBSCRIPTION_KEY |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| ORDER_MATCH_KEY |
+| ORDER_RANK |
+| ORDER_RANK_GROUP_KEY |
+| CONTACT_KEY |
+| ORDER_ID |
+| ORDER_DT_KEY |
+| RESPONSE_KEY |
+| CHANNEL_KEY |
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| ACTIVITY_ID |
+| PROGRAM |
+| CAMPAIGN |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_ACT1 |
+| PRODUCT_ACT2 |
+| INTERACTION_CD |
+| CONTACT_KEY |
 - ← [[CRM_ANALYSE.KIM_RESPONSE_DIM]]
+| Column Name |
+|---|
+| RESPONSE_NM |
+| RESPONSE_GROUP |
+| RESPONSE_KEY |
 - ← [[CRM_ANALYSE.KIM_CHANNEL_DIM]]
+| Column Name |
+|---|
+| CHANNEL_COMMON_NM |
+| CHANNEL_KEY |
 - ← [[CRM_ANALYSE.product_dim_v]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_KEY |
 

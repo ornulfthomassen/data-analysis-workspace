@@ -3,9 +3,27 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, VYA_ADM_CURRENT_USAGE_MONTH, is designed to retrieve and present data for the 'current' or most recent relevant month, along with information for the three preceding months. It identifies the 'current' month by finding the maximum PERIOD_MONTH_KEY from the CLM_ADM.ADM_SUBS_USAGE_MOB_MONTH_AGG table (excluding keys >= 999912). The view then selects period details like month character, key, date, and number of days (ANTALL_DAGER) for this identified current month and its three previous months. Its purpose, as stated in the comments, is for 'Loading Current_Usage Month to Mjøsa', suggesting it's used for populating a data warehouse or reporting system with up-to-date and historical monthly usage period information.
+This view identifies the most recent 'current usage month' (defined by a maximum period key less than 999912 from a mobile usage aggregation table) and retrieves its detailed period information along with data for the three preceding months from the ADM_MONTH_DIM table. It is intended for loading current usage month data into Mjøsa.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_CHAR |
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| ANTALL_DAGER |
+| PREV1_PERIOD_MONTH_CHAR |
+| PREV1_PERIOD_MONTH_DATE |
+| PREV1_ANTALL_DAGER |
+| PREV2_PERIOD_MONTH_CHAR |
+| PREV2_PERIOD_MONTH_DATE |
+| PREV2_ANTALL_DAGER |
+| PREV3_PERIOD_MONTH_CHAR |
+| PREV3_PERIOD_MONTH_DATE |
+| PREV3_ANTALL_DAGER |
 - ← [[CLM_ADM.ADM_SUBS_USAGE_MOB_MONTH_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 

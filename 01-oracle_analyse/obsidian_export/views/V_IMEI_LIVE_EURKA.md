@@ -3,11 +3,38 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves the most recent active usage details for specific mobile telephony subscription-based IMEI devices. For each qualifying IMEI, it extracts its identifier, a derived device key (likely the Type Allocation Code - TAC), the first and last dates of use, the associated customer key, product description, and product start/end dates. The selection is filtered for recent activity (terminal usage within the last 185 days), usage duration (more than 1 day), active subscriptions (prim_prod_end_dt_key = 99991231), and specific product classifications ('Tale', 'Abonnement', 'Mobil Telefoni'). If multiple usage records exist for an IMEI, the view selects the one with the latest terminal use dates.
+This view provides a consolidated and filtered list of the most recent active product and customer details for each unique IMEI. It combines information from IMEI usage, subscription details, primary product dimensions, and customer mappings. The filtering ensures only specific subscription types, market areas, and product categories are included, and it prioritizes records with the latest terminal usage dates.
 
 ## Data Sources (Inputs)
 - ← [[live.eureka_imei]]
+| Column Name |
+|---|
+| imei |
+| terminal_use_first_date |
+| terminal_use_last_date |
+| directory_number_id |
 - ← [[galaxy.subscr_detail_fact]]
+| Column Name |
+|---|
+| main_number |
+| subscr_type_status_key |
+| market_area_key |
+| prim_prod_end_dt_key |
+| prim_product_key |
+| user_customer_key |
+| prim_prod_start_dt_key |
 - ← [[galaxy.primary_product_dim_v]]
+| Column Name |
+|---|
+| prim_product_key |
+| primary_product_flag |
+| drm_common_product_group |
+| drm_common_product_category |
+| drm_common_product_area |
+| prim_product_desc |
 - ← [[clm_adm.adm_customer_mapping]]
+| Column Name |
+|---|
+| kurt_id |
+| customer_sk |
 

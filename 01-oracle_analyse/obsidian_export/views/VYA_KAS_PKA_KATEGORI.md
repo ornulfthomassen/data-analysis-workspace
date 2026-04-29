@@ -3,8 +3,13 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Exposes specific category information (code, record number, description) directly from the KAS.PKA_KATEGORI table without any additional filtering or transformations.
+Creates a view that directly projects specific columns (PKA_CODE, PKA_RECNO, PKA_DESC) from the KAS.PKA_KATEGORI table without any filtering.
 
 ## Data Sources (Inputs)
 - ← [[KAS.PKA_KATEGORI]]
+| Column Name |
+|---|
+| PKA_CODE |
+| PKA_RECNO |
+| PKA_DESC |
 

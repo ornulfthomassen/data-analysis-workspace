@@ -3,8 +3,61 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a summarized, distinct view of Telemarketing (TM) reporting data, aggregating various interaction and status indicators (like attempts, calls, SMS, callbacks, expiry, and dates) by account number, for use in Google Cloud Platform (GCP) reporting tools such as Looker.
+This view provides a distinct, aggregated record of Telemarketing (TM) reporting data per account number, designed for consumption by Google Cloud Platform (GCP) and Looker. It consolidates multiple TM records for each account by selecting the maximum value for most attributes, effectively presenting a 'latest' or 'most significant' state for reporting purposes.
 
 ## Data Sources (Inputs)
 - ← [[CCM.VYA_TM_REPORTING]]
+| Column Name |
+|---|
+| ACCOUNT_NUMBER |
+| CUSTOMER_SK |
+| CAMPAIGN_CD |
+| COMMUNICATION_CD |
+| OCCURENCE_ID |
+| CELL_PACKAGE_SK |
+| RESP_TRACKING_CD |
+| SEGMENT_MAP_CODE |
+| TASK_CODE |
+| TASK_OCCURRENCE_NUMBER |
+| RESPONSE_TRACKING_CD |
+| BUSINESS_AREA |
+| TEAM |
+| STRATEGY_NAME |
+| SEGMENT_FILTER |
+| CALLINGLIST_NAME |
+| INSERT_DTTM |
+| INSERT_DATE |
+| INSERT_DAY |
+| INSERT_MONTH |
+| INSERT_WEEKDAY |
+| INSERT_WEEK |
+| INSERT_YEAR |
+| ORIGINAL_EXPIRY_DTTM |
+| UPDATED_EXPIRY_DTTM |
+| EXPIRED_RECORD_INDICATOR |
+| EXPIRED_NOT_ATTEMPTED_INDICATOR |
+| ATTEMPT_INDICATOR |
+| VOICE_ATTEMPT_INDICATOR |
+| CALL_INDICATOR |
+| SHORT_CALL_INDICATOR |
+| SMS_ATTEMPTED_INDICATOR |
+| SMS_DELIVERED_INDICATOR |
+| SMS_NOT_DELIVERED_INDICATOR |
+| AGENT_CALLBACK_INDICATOR |
+| TEAM_CALLBACK_INDICATOR |
+| INBOUND_CALL_INDICATOR |
+| DERIVED_MANUAL_CALL_INDICATOR |
+| NW_CALLBACK_PHONE_NR_INDICATOR |
+| CALLBACK_DTTM |
+| TIME_OF_CONTACT |
+| RESPONSE_STATUS |
+| DISPOSITION_NAME |
+| EXCLUDED_RECORD_INDICATOR |
+| EXCLUDED_NUMBER_INDICATOR |
+| ATTEMPT_DATE |
+| ATTEMPT_DAY |
+| ATTEMPT_MONTH |
+| ATTEMPT_WEEKDAY |
+| ATTEMPT_WEEK |
+| ATTEMPT_YEAR |
 

@@ -1,0 +1,126 @@
+[
+  {
+    "name": "customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_role_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "account_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "subscription_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "main_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "secret_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "subscr_product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_category_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "market_area_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "business_area_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "prod_offer_id_price_override",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "monthly_price_actual",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "far_id_install",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_subscription_id_1",
+    "type": "STRING"
+  },
+  {
+    "name": "src_subscription_id_2",
+    "type": "STRING"
+  },
+  {
+    "name": "src_account_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_category_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_subscr_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_subscription_status",
+    "type": "STRING"
+  },
+  {
+    "name": "subscr_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "subscr_end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "product_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "product_end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "start_date_price_override",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "record_change_date",
+    "type": "TIMESTAMP"
+  }
+]

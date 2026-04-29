@@ -3,8 +3,81 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a comprehensive, time-filtered view of customer interaction details and associated performance metrics from the last year. It includes granular data such as interaction IDs, start/end times, queue information, media types, technical results, and various duration and count metrics related to customer handling (e.g., talk duration, wait duration, hold duration, transfer counts). The view focuses on recent interaction data, specifically from the last 365 days.
+This view provides a filtered projection of recent interaction key statistics data from the 'RM_KS_INTERACTION_NY' table, limited to interactions occurring within the last year from the current date. It serves as a base for reporting or further analysis of interaction-related metrics and attributes.
 
 ## Data Sources (Inputs)
 - ← [[RSSHUGIN.RM_KS_INTERACTION_NY]]
+| Column Name |
+|---|
+| CAL_DATE |
+| STD_ENTERPRISE_START_TIME |
+| STD_ENTERPRISE_END_TIME |
+| STD_ENTERPRISE_START_TIME_NEXT |
+| YEAR_WEEK |
+| YEAR_MONTH |
+| INTERVAL_START_15 |
+| INTERVAL_START_30 |
+| INTERVAL_START_60 |
+| INTERVAL_END_15 |
+| INTERVAL_END_30 |
+| INTERVAL_END_60 |
+| INTERACTION_ID |
+| INTERACTION_SEGMENT_ID |
+| CONNID |
+| MEDIA_SERVER_IXN_GUID |
+| CALLED_SERVICE |
+| ORDINAL |
+| LAST_SEGMENT |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| TRANSFER_INBOUND_GROUP |
+| RINGT_SIST |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| INTERACTION_TYPE_CODE |
+| INTERACTION_TYPE_KEY |
+| COMPANYNAME |
+| SITENAME |
+| UNITNUMBER |
+| TEAMNUMBER |
+| QUEUE_CLIENT |
+| QUEUE_PROGRAM |
+| QUEUE_TYPE |
+| QUEUE_SEGMENT |
+| VIRTUALQUEUE |
+| QUEUE_PROGRAM_TO |
+| QUEUE_TYPE_TO |
+| VIRTUALQUEUE_TO |
+| TOTAL_DURATION |
+| TOTAL_COUNT |
+| TOTAL_LOST_COUNT |
+| CUSTOMER_HANDLE_COUNT |
+| WAIT_TIME_LOST |
+| WAIT_TIME_ANSWERED |
+| CUSTOMER_WAIT_DURATION |
+| CUSTOMER_WAIT_DURATION_NOCB |
+| CUSTOMER_ACW_DURATION |
+| CUSTOMER_TALK_DURATION |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_DIAL_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_RING_DURATION |
+| TOTAL_IVR_CALLBACK_COUNT |
+| TOTAL_MAN_CALLBACK_COUNT |
+| ANSWERED_WITHIN10 |
+| ANSWERED_WITHIN20 |
+| ANSWERED_WITHIN30 |
+| ANSWERED_WITHIN60_NOCB |
+| ANSWERED_WITHIN60 |
+| LOST_WITHIN10 |
+| LOST_WITHIN20 |
+| LOST_WITHIN30 |
+| LOST_WITHIN60 |
+| TRANSFER_OUT_COUNT |
+| TRANSFERRED_IN_COUNT |
+| BOOSTDIALOGID |
 

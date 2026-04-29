@@ -3,13 +3,48 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_DEVICE_DIM is responsible for creating and maintaining a device dimension table named ADM_DEVICE_DIM within the CLM_ADM schema. It extracts raw device data from GALAXY.HANDSET_DIM_V and enriches it with marketing information from CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM. The core logic involves extensive categorization and transformation to derive various device attributes such as manufacturer (shortened), marketing name, type, category, class, OS information, and local sales start date. The procedure employs a 'drop and rename' strategy: it first creates a staging table (TMP_DEVICE_DIM) with the transformed data, performs a row count validation against the existing ADM_DEVICE_DIM, and then drops the old ADM_DEVICE_DIM table (if it exists and validation passes) before renaming TMP_DEVICE_DIM to ADM_DEVICE_DIM. Finally, it creates a unique index, adds a primary key constraint, computes statistics, and grants SELECT privileges on the newly created dimension table.
+Reconstructs the CLM_ADM.ADM_DEVICE_DIM dimension table daily. It extracts and transforms handset data from GALAXY.HANDSET_DIM_V and CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM, enriching it with various device attributes and classifications. The process involves creating a temporary table, populating it, and then atomically replacing the existing ADM_DEVICE_DIM table via a rename operation. Finally, it creates a unique index and primary key constraint on the newly replaced table and updates load history.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.HANDSET_DIM_V]]
+| Column Name |
+|---|
+| HANDSET_KEY |
+| MANUFACTURER |
+| MARKETING_NAME |
+| CAMERA_INFO |
+| HANDSET_TYPE |
+| IS_5G |
+| VOLTE_ACTIVATED |
+| VOLTE_FLAG |
+| LTE |
+| UMTS |
+| HSDPA |
+| GPRS |
+| EDGE |
+| OS_INFO |
+| LOCAL_SALES_START_DATE |
 - ← [[CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| MARKETING_NAME_L1 |
+| TAC |
+- ← [[CLM_ADM.TMP_DEVICE_DIM]]
+- ← [[CLM_ADM.ADM_DEVICE_DIM]]
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.TMP_DEVICE_DIM]]
 - → [[CLM_ADM.ADM_DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| LOAD_DATE_KEY |
+| DEVICE_MANUFACTURER_SHORT |
+| DEVICE_MARKETING_NAME |
+| DEVICE_CAMERA_INFO |
+| DEVICE_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_CLASS |
+| DEVICE_OS_INFO |
+| DEVICE_MANUFACTURER |
+| LOCAL_SALES_START_DTTM |
 

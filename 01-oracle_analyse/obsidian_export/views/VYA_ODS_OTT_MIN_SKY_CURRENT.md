@@ -3,10 +3,31 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and presents current usage statistics for the 'Min Sky' OTT service. It calculates various metrics at a customer level, including creation and last activity dates, sums of foreground and connection events over the last 7, 30, and 180 days, total and used storage quota, media file count, and opt-out status for product improvement analytics. The purpose is to provide a summary of application usage linked to customer identifiers, likely for reporting or data warehousing (as indicated by 'Loading APP-usage to Mjøsa').
+Provides a consolidated view of 'Min Sky' OTT service usage and quota metrics, aggregated by customer. It calculates various usage statistics (like first/last activity dates, foreground/connection sums over different periods, quota, and media file counts) per user and then maps these to a customer key.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.SCD2_MIN_SKY_MAIN]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_CONNECTION_DTTM |
+| CURRENT_RECORD |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
 - ← [[ODS.CONNECT_ID_LINK]]
+| Column Name |
+|---|
+| USER_ID |
+| RANK_CONNECTION |
+| ACTIVE_FLAG |
+| CUSTOMER_ID |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 

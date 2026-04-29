@@ -3,9 +3,25 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, VYA_CCM_SUBSCRIPTION, is designed to consolidate and present key subscription information, linking subscriptions to different customer roles (owner, user, and payer). It extracts core subscription details such as unique subscription and product identifiers, various start and end dates related to the subscription and its main product, and calculates the total days a subscription has been active. It maps the 'KURT_ID' from the subscription table to 'CUSTOMER_SK' for the owner, user, and payer roles, handling cases where a payer might not have a direct mapping.
+This view consolidates subscription details by joining the 'CCM_SUBSCRIPTION_V' table with 'ADM_CUSTOMER_MAPPING' to link subscriptions with their respective owner, user, and payer customer keys. It computes derived columns such as 'SUBSCRIPTION_KEY', 'CUSTOMER_SK_OWNER', 'CUSTOMER_SK_USER', 'CUSTOMER_SK_PAYER', and 'SUBS_DAYS_ACTIVE', providing a comprehensive, flattened view of subscription data.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.CCM_SUBSCRIPTION_V]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| OWNER_KURT_ID |
+| USER_KURT_ID |
+| PAYER_KURT_ID |
+| MAIN_PRODUCT_ID |
+| ORIGINAL_START_DATE |
+| START_DATE |
+| END_DATE |
+| MAIN_PRODUCT_START_DATE |
+| MAIN_PRODUCT_END_DATE |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 

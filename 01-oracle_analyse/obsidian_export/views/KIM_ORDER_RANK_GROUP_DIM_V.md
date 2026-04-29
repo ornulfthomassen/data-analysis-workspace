@@ -3,8 +3,15 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Creates a dimension view for order rank groups, standardizing 'ORDER_RANK_GROUP' and 'ORDER_RANK_GROUP_DESC' columns by replacing NULLs with '-1' and ensuring specific VARCHAR2 data types for these descriptive attributes. It provides a consistent interface to the underlying order rank group dimension table.
+Provides a standardized view of order rank group dimension data, converting null values to -1 and casting specific columns to VARCHAR2.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_ORDER_RANK_GROUP_DIM]]
+| Column Name |
+|---|
+| ORDER_RANK_GROUP_KEY |
+| ORDER_RANK_GROUP |
+| ORDER_RANK_GROUP_DESC |
+| AST_ORDER |
+| OUTBOUND_ORDER |
 

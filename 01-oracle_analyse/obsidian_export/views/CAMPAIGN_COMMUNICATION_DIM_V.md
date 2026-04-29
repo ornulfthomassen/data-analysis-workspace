@@ -3,9 +3,28 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a combined dimension for analytical purposes, linking campaign attributes with communication details. It provides a distinct set of comprehensive details for campaigns and their associated communications, including action category, activity area, campaign codes, names, platforms, communication codes, descriptions, offer brands, and categories, based on shared campaign and source system keys.
+Creates a dimension view by joining campaign and communication data, providing distinct campaign and communication-related attributes such as action categories, activity areas, campaign codes, communication platforms, and offer details.
 
 ## Data Sources (Inputs)
 - ← [[KIM_CAMPAIGN_DIM]]
+| Column Name |
+|---|
+| ACTIVITY_AREA |
+| CAMPAIGN_CD |
+| CAMPAIGN_GROUP_SK |
+| CAMPAIGN_NM |
+| COMM_PLATFORM |
+| CAMPAIGN_SK |
+| SOURCE_SYSTEM_KEY |
 - ← [[KIM_COMMUNICATION_DIM]]
+| Column Name |
+|---|
+| ACTION_CATEGORY |
+| COMMUNICATION_CD |
+| COMMUNICATION_DESC |
+| COMMUNICATION_NM |
+| OFFER_BRAND |
+| OFFER_CATEGORY |
+| SOURCE_SYSTEM_KEY |
+| CAMPAIGN_SK |
 

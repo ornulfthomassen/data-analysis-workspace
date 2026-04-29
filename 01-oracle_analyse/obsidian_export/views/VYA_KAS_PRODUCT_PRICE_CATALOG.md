@@ -3,8 +3,51 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a comprehensive catalog of product pricing information, including details about price plans, customer segments, market products, billing characteristics, validity periods, and various price components (e.g., base price, shipment costs, contribution points, usage points).
+Creates a view exposing the complete product price catalog, acting as a direct projection of the KAS.PRODUCT_PRICE_CATALOG table.
 
 ## Data Sources (Inputs)
 - ← [[KAS.PRODUCT_PRICE_CATALOG]]
+| Column Name |
+|---|
+| ID |
+| PRICE_PLAN_ID |
+| EXT_PRICE_PLAN_ID |
+| PRICE_PLAN_TYPE |
+| PRICE_PLAN_NAME |
+| CUSTOMER_SEGMENT |
+| MARKET_PRODUCT_ID |
+| MARKET_PRODUCT_CHAR_ID |
+| EXT_MARKET_PRODUCT_ID |
+| LEGACY_PRODUCT_ID |
+| MARKET_PRODUCT_NAME |
+| MARKET_PRODUCT_TYPE |
+| MARKET_PRODUCT_SUB_TYPE |
+| MVA_CODE |
+| MVA_EXEMPTED |
+| MVA_OBLIGATED |
+| BASIS_FOR_CALCULATIONS |
+| BILLABLE |
+| BILLING_PERIOD_UNIT |
+| BILLING_PERIOD |
+| PRORATE |
+| REVENUE_CODE |
+| REFUNDABLE |
+| ADVANCE_BILLING |
+| LOCKED_PERIOD_UNIT |
+| LOCKED_PERIOD |
+| TECHNOLOGY |
+| ASS_STREAMING_PRODUCT_ID |
+| ASS_STREAMING_PRODUCT_NAME |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| PRICE_VALUE |
+| PRICE_MOD_TYPE |
+| SHIPMENT_COST_VALUE |
+| SHIPMENT_COST_MOD_TYPE |
+| CONTRIBUTION_POINT_VALUE |
+| CONTRIBUTION_POINT_MOD_TYPE |
+| USAGE_POINT_VALUE |
+| USAGE_POINT_MOD_TYPE |
+| VERSION |
+| INFO_REG_DATE |
 

@@ -3,8 +3,82 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-The view `CI_CUST_RESPONSE_HISTORY_ALT2` serves as a direct projection of the `CI_CUST_RESPONSE_HISTORY_H2` data, making available a comprehensive history of customer responses, campaign activities, and related details. Its primary purpose is to present this data with specific data type conversions applied to several identifier columns (e.g., CUSTOMER_SK, REGARDING_MSISDN, SUBSCRIPTION_ID, CELL_PACKAGE_SK, TREATMENT_SK) to ensure consistency or compatibility for downstream applications, without adding complex filtering or aggregation logic. The 'ALT2' in its name suggests it might be an alternative or a specific version of a standard customer response history view.
+Creates a view named CI_CUST_RESPONSE_HISTORY_ALT2 by selecting all columns from the `clm_kim.CI_CUST_RESPONSE_HISTORY_H2` object, applying explicit type casting for specific columns (CUSTOMER_SK, REGARDING_MSISDN, SOURCE_SUBSCRIPTION_ID, MAIN_NUMBER_SK, SUBSCRIPTION_ID, OB_SUBSCRIPTION_ID, CELL_PACKAGE_SK, TREATMENT_SK) to ensure specific data types and lengths.
 
 ## Data Sources (Inputs)
 - ← [[clm_kim.CI_CUST_RESPONSE_HISTORY_H2]]
+| Column Name |
+|---|
+| RESPONSE_WEEK |
+| RESPONSE_DTTM |
+| RESPONSE_KEY |
+| CUSTOMER_SK |
+| AB_TEST_TYPE |
+| ACTIVITY_DESCRIPTION |
+| ACTIVITY_ID |
+| ACTIVITY_MAIN_OBJECTIVE |
+| ACTIVITY_OBJECTIVE |
+| ACTIVITY_PRODUCT_TYPE |
+| ACTIVITY_TYPE |
+| CAMPAIGN_CATEGORY |
+| CAMPAIGN_DESCRIPTION |
+| CAMPAIGN_ID |
+| CHANNEL |
+| CLM_CAMPAIGN |
+| CLM_PLAN |
+| CLM_PROGRAM |
+| CUSTOMER_FLAG |
+| DIALOG_ID |
+| DIALOGID |
+| DIALOGUE_ID |
+| DYNAMIC_LANDING_PAGE |
+| EXISTING_PRODUCT_ID |
+| FAR_ID |
+| OCS_CAMPAIGN_CD |
+| PREVIOUS_ACTIVITY_ID |
+| PRODUCT_ACTION_1 |
+| PRODUCT_ACTION_2 |
+| PRODUCT_ACTION_3 |
+| PRODUCT_ACTION_4 |
+| PRODUCT_ID_1 |
+| PRODUCT_ID_2 |
+| PRODUCT_ID_3 |
+| PRODUCT_ID_4 |
+| PRODUCT_TYPE_1 |
+| PRODUCT_TYPE_2 |
+| PRODUCT_TYPE_3 |
+| PRODUCT_TYPE_4 |
+| REGARDING_MSISDN |
+| SOURCE_SUBSCRIPTION_ID |
+| STAGED_ACTIVITY |
+| TARGET_PRODUCT_LIST |
+| TRIGGER_ID |
+| USER_FIRST_NAME |
+| ARBITRATION_VALUE |
+| HASBEENSHOWNTOCUSTOMER |
+| MAIN_NUMBER_SK |
+| STEP |
+| SUBSCRIPTION_ID |
+| VALID_REPLY |
+| VALIDATEPRODUCTS |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| CHANNEL_CD |
+| CHANNEL_NM |
+| CHANNEL_DESC |
+| COMMUNICATION_CD |
+| COMMUNICATION_NM |
+| CAMPAIGN_TYPE_CD |
+| CAMPAIGN_TYPE_DESC |
+| OB_SUBSCRIPTION_ID |
+| INSERT_DTTM |
+| RESPONSE_NM |
+| RESPONSE_CHANNEL_RESPONSE_CD |
+| RESPONSE_COMMON_NM |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
+| CELL_PACKAGE_SK |
+| TREATMENT_HASH_VAL |
+| TREATMENT_SK |
+| CAMPAIGN_SK |
 

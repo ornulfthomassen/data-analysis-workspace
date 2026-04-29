@@ -3,8 +3,22 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a direct selection of all columns from the 'MODEL' table within the 'CCDW_SEGMENT' schema. Its primary purpose is to expose segment model definition data, potentially for analytical or reporting purposes, or to provide a specific schema/naming convention ('CRM_ANALYSE.V_SEGMENT_MODEL') for the underlying data without any transformations or filters applied.
+Creates a view named V_SEGMENT_MODEL in the CRM_ANALYSE schema, directly exposing all specified columns from the CCDW_SEGMENT.MODEL table.
 
 ## Data Sources (Inputs)
 - ← [[CCDW_SEGMENT.MODEL]]
+| Column Name |
+|---|
+| MODEL_ID |
+| MODEL_TYPE_ID |
+| MODEL_NAME |
+| MODEL_DESC |
+| BUSINESS_AREA_ID |
+| RESPONSIBLE_USER_ID |
+| START_DATE |
+| END_DATE |
+| MINIMUM_SCORE_MEASURE |
+| MAXIMUM_SCORE_MEASURE |
+| RUN_ID |
+| SEQ_ID |
 

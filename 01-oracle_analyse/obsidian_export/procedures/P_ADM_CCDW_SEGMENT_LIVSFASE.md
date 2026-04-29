@@ -3,14 +3,42 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `P_ADM_CCDW_SEGMENT_LIVSFASE`, calculates and populates customer life-phase segmentation data into the `CCDW_SEGMENT.SEGM_CUST_DATA` table. It aggregates customer life-phase segments from `CRM_ANALYSE.V_CLM_LIVSFASE_SEGMENT` and joins this with model and segment definitions from `CCDW_SEGMENT.MODEL` and `CCDW_SEGMENT.SEGMENT` for a specific `MODEL_ID` (40). A crucial check is performed: the data insertion into `CCDW_SEGMENT.SEGM_CUST_DATA` only proceeds if there are no existing records with `MODEL_NAME = 'Livsfase CLM'` in that table, acting as a guard condition to prevent duplicate or uncontrolled loading. The procedure assigns a segment start date of `SYSDATE` and an end date of `SYSDATE + 730` (approximately two years later) for the new segmentation entries.
+This procedure conditionally inserts customer segment data into the 'CCDW_SEGMENT.SEGM_CUST_DATA' table. It aggregates customer life-phase segment information from a view, enriches it with model and segment metadata, and only proceeds with the insertion if no existing 'Livsfase CLM' data is found in the target table.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.V_CLM_LIVSFASE_SEGMENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| PERIOD_MONTH_KEY |
+| CLM_LIVSFASE_SEGMENT |
 - ← [[CCDW_SEGMENT.MODEL]]
+| Column Name |
+|---|
+| MODEL_ID |
+| MODEL_NAME |
+| BUSINESS_AREA_ID |
 - ← [[CCDW_SEGMENT.SEGMENT]]
+| Column Name |
+|---|
+| MODEL_ID |
+| SEGMENT_ID |
+| SEGMENT_NAME |
 - ← [[CCDW_SEGMENT.SEGM_CUST_DATA]]
+| Column Name |
+|---|
+| MODEL_NAME |
 
 ## Target Tables (Outputs)
 - → [[CCDW_SEGMENT.SEGM_CUST_DATA]]
+| Column Name |
+|---|
+| MODEL_NAME |
+| SEGMENT_NAME |
+| CUSTOMER_KURT_ID |
+| SEGMENT_START_DATE |
+| SEGMENT_END_DATE |
+| SCORE_MEASSURE |
+| SCORE_DATE |
+| LOAD_DATE |
 

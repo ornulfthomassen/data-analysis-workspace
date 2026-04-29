@@ -3,8 +3,30 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct exposure or mirror of the `ADM_SUBSCRIPTION_HISTORY` data from the `CLM_ADM` schema into the `CCM` schema. It selects all columns from the source table/view without any transformations, aggregations, or filters. Its primary purpose is likely to provide access to subscription history data in a different schema, potentially for security, organizational, or simplified access reasons.
+Creates a view named GCP_ADM_SUBSCRIPTION_HISTORY in the CCM schema, exposing all specified columns directly from the CLM_ADM.ADM_SUBSCRIPTION_HISTORY table without any transformations or filtering.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MARKET_AREA_ID |
+| BUSINESS_AREA_ID |
+| PRODUCT_OFFER_ID |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_BRAND |
+| PRODUCT_NAME |
+| LAST_PRODUCT_OFFER_ID |
+| LAST_PRODUCT_CATEGORY_ID |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
+| PRODUCT_ATTRIBUTE_KEY |
 

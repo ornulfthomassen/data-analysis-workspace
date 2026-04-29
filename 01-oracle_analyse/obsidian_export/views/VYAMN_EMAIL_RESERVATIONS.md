@@ -3,9 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Extracts email reservation data, including email address, reservation timestamp, and associated customer key (defaulting to 'Unknown' if not found), for loading into SAS. It filters for specific email indicators (email_ind = 2) and reservations from 2023 onwards.
+Provides email reservation data, filtered and mapped to customer keys, primarily for loading into SAS. It retrieves email reservation details, applies a filter for specific email indicators and recent dates, and attempts to link these reservations to customer keys.
 
 ## Data Sources (Inputs)
 - ← [[ODS.ANA_CUSTOMER_RES_AND_APP]]
+| Column Name |
+|---|
+| EMAIL_RA_MAX_DTTM |
+| EMAIL_ADDRESS |
+| CUSTOMER_ID |
+| EMAIL_IND |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| KURT_ID |
 

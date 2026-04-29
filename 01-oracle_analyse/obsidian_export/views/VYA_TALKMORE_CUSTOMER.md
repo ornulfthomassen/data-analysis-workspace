@@ -3,9 +3,25 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named VYA_TALKMORE_CUSTOMER, is designed to provide a consolidated and standardized customer profile for 'Talkmore' customers. It extracts and transforms various customer attributes including demographics (age, gender, birth year/month), customer type and status, owner/user profiles, and counts of different Talkmore mobile and fixed-line products/subscriptions. It also includes placeholders for financial metrics and contact preferences, some of which are hardcoded. The primary purpose, as indicated in the comments, is to load this customer data into a data warehousing or analytical system referred to as 'Mjøsa'. It generates synthetic customer and household keys.
+Creates a customer data view for the 'Mjøsa' system, transforming and aggregating customer-related metrics from the TALKMORE_MATCH table and enriching it with age group data. Many fields are initialized with default or hardcoded values.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.TALKMORE_MATCH]]
+| Column Name |
+|---|
+| BIRTHDAY |
+| NO_TKM_MPP_USER |
+| NO_TKM_MPR_USER |
+| NO_TKM_MBB_USER |
+| NO_TKM_MPP_BUS_USER |
+| NO_TKM_OTHER_USER |
+| NO_TKM_MPP_OWNER |
+| NO_TKM_MPR_OWNER |
+| NO_TKM_MBB_OWNER |
+| CUSTOMER_KEY |
 - ← [[CRM_ANALYSE.ADM_AGE_GROUP_DIM]]
+| Column Name |
+|---|
+| AGE_GROUP_NAME_8C |
+| AGE_GROUP_KEY |
 

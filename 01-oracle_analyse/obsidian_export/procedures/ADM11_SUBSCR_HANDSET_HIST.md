@@ -3,16 +3,63 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-The Oracle SQL procedure `ADM11_SUBSCR_HANDSET_HIST` is designed to manage and populate a historical table named `ADM_SUBSCR_HANDSET_HIST` with subscription and handset usage data. It first checks for the existence of this table. If the table does not exist, it creates it with defined columns and partitioning by `PERIOD_MONTH_KEY`, along with several indexes. Subsequently, for a specified range of months (`V_YYYYMM_FRA` to `V_YYYYMM_TIL`), it iterates through each month. For every month, it checks if the corresponding table partition exists; if not, it creates it. Finally, it populates the `ADM_SUBSCR_HANDSET_HIST` table for that specific month by extracting, transforming (cleaning, uppercasing, trimming), and joining data from multiple source tables, selecting the most recent handset information for each subscription.
+Populates or updates a monthly partitioned history table (`CRM_ANALYSE.ADM_SUBSCR_HANDSET_HIST`) with aggregated and transformed subscription handset data. It checks for table and partition existence, creates them if missing, temporarily drops indexes during data insertion, and then recreates them. Data is derived by joining date dimensions, terminal details, subscription history, and subscription handset usage records for specific monthly periods.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
-- ← [[CRM_ANALYSE.ADM_SUBSCRIPTION_HISTORY]]
-- ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_CCM.CCM_TERMINAL_TAC]]
+| Column Name |
+|---|
+| MODELID |
+| TACFACID |
 - ← [[CLM_CCM.CCM_TERMINAL_DETAIL]]
-- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| MODELID |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
+- ← [[CRM_ANALYSE.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+- ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| TERMINAL_USE_FIRST_DATE |
+| SUBSCRIPTION_ID |
+| TAC_ID |
+| IMEI |
+| TERMINAL_USE_LAST_DATE |
 
 ## Target Tables (Outputs)
-- → [[ADM_SUBSCR_HANDSET_HIST]]
+- → [[CRM_ANALYSE.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
 

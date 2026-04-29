@@ -3,5 +3,5 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle PL/SQL function, `MAKE_MB_INCLUDED`, is intended to parse a string that represents a data size (e.g., '1.5GB', '512KB', '10MB') and convert it into a numeric value expressed in Megabytes (MB). It identifies units 'GB', 'KB', and 'MB'. 'GB' values are multiplied by 1024 to convert to MB, 'KB' values are divided by 1024, and 'MB' values are taken directly. The function also handles European-style decimal separators (commas) by replacing them with periods before conversion. If the input string does not contain a recognizable unit, or if a conversion error occurs, the function is designed to return NULL.
+This is an Oracle SQL function named MAKE_MB_INCLUDED. It takes a string representing a data size (e.g., '1024 KB', '1.5 MB', '2 GB') as input. The function parses the string, converts any comma decimal separators to periods, removes the unit suffix (KB, MB, GB), and then converts the numeric value into its equivalent in Megabytes (MB). If the unit is Kilobytes (KB), it divides by 1024; if Megabytes (MB), it keeps the value as is; if Gigabytes (GB), it multiplies by 1024. If no recognized unit is found, or an error occurs during conversion, it returns NULL.
 

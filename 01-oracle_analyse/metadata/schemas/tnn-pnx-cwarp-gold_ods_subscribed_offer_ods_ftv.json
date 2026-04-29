@@ -1,0 +1,90 @@
+[
+  {
+    "name": "subscription_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "subscription_seq",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "account_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "main_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "sub_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_category_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "original_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_reg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "src_subscription_id_1",
+    "type": "STRING"
+  },
+  {
+    "name": "src_subscription_id_2",
+    "type": "STRING"
+  },
+  {
+    "name": "src_account_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_id_market",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_category_id",
+    "type": "STRING"
+  },
+  {
+    "name": "far_id_install",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "record_change_date",
+    "type": "TIMESTAMP"
+  }
+]

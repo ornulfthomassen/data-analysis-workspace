@@ -3,15 +3,112 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure calculates and aggregates mobile customer subscription and revenue metrics for a specific month (defaulting to the previous month). It first populates an intermediate temporary table (`TMP_MOB_CUST_U_TALE_REV_3MO`) with the aggregated data. Then, it exchanges this temporary table with a specific partition in a permanent, partitioned historical table (`ADM_MOB_CUST_U_TALE_REV_3MO`). The procedure includes checks for the existence and status of source data, ensures the target permanent table exists, and manages the creation or overwrite prevention of partitions within the permanent table. It also gathers statistics and grants select privileges.
+The procedure `P_ADM_MOB_CUST_U_TALE_REV_3MO` generates monthly aggregated revenue and subscription data for mobile customers. It first validates the existence of source data for a given month (`P_PERIOD` or previous month). Then, it creates a temporary table (`TMP_MOB_CUST_U_TALE_REV_3MO`) by joining and aggregating mobile subscription and revenue details from `CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO`, `CLM_ADM.ADM_MOB_SUBSCRIPTION_CORE`, and `CLM_ADM.ADM_CUSTOMER_MAPPING`. Finally, it uses an `ALTER TABLE ... EXCHANGE PARTITION` statement to integrate this temporary data as a new or updated partition into the permanent target table `ADM_MOB_CUST_U_TALE_REV_3MO`, effectively updating it with the latest monthly aggregates. The process includes error handling and logging.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DAY |
 - ← [[CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| NET_REVENUE_ADJUSTED |
+| NET_PERIODIC_FEE |
+| PRODUCT_TYPE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
 - ← [[CLM_ADM.ADM_MOB_SUBSCRIPTION_CORE]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| LAST_USER |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
 - → [[TMP_MOB_CUST_U_TALE_REV_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| MAIN_SUBSCRIPTION_REV |
+| MAIN_SUBSCRIPTION_TYPE |
+| NO_SUBSCR |
+| NO_MPP |
+| NO_MPR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 - → [[ADM_MOB_CUST_U_TALE_REV_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| MAIN_SUBSCRIPTION_REV |
+| MAIN_SUBSCRIPTION_TYPE |
+| NO_SUBSCR |
+| NO_MPP |
+| NO_MPR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
+- → [[CRM_ANALYSE.P_ADM_LOAD_HISTORY]]
 

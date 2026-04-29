@@ -3,10 +3,32 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view enriches customer response transaction data with descriptive information about response types and communication channels. Its primary function is to rank customer responses for each contact, prioritizing them based on a predefined response importance (lower `RESPONSE_RANK` indicating higher priority) and then by recency (`RESPONSE_DTTM` descending). This allows for easy identification of the most relevant or important recent responses for a given customer.
+Combines customer response data with descriptive details from response and channel dimensions, and ranks customer responses for analysis.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_CUSTOMER_RESPONSE]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| SOURCE_SYSTEM_KEY |
+| CUST_RESPONSE_KEY |
+| RESPONSE_DATE_KEY |
+| RESPONSE_CHANNEL_CD |
+| RESPONSE_DTTM |
+| RESPONSE_CD |
 - ← [[CRM_ANALYSE.KIM_RESPONSE_DIM]]
+| Column Name |
+|---|
+| RESPONSE_NM |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
+| RESPONSE_CD |
+| SOURCE_SYSTEM_KEY |
 - ← [[CRM_ANALYSE.KIM_CHANNEL_DIM]]
+| Column Name |
+|---|
+| CHANNEL_NM |
+| CHANNEL_COMMON_NM |
+| CHANNEL_CD |
+| SOURCE_SYSTEM_KEY |
 

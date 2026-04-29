@@ -3,15 +3,41 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, P_ADM_SUBS_GLOBAL_USER_HIST, is designed to process and load historical user subscription data into a specific monthly partition of the 'ADM_SUBS_GLOBAL_USER_HIST' table. It first validates the existence and integrity of source data for a given period (P_YYYYMM) from 'ADM_MONTH_DIM_V' and 'ADM_GLOBAL_USER_SUBS_HIST'. If validation passes, it performs cleanup by dropping any pre-existing temporary table ('TMP_SUBS_GLOBAL_USER_HIST'). It then creates a new temporary table ('TMP_SUBS_GLOBAL_USER_HIST') by aggregating and joining data from 'ADM_GLOBAL_USER_SUBS_HIST' and 'ADM_CONNECT_ID_HIST' for the specified month. Finally, it uses an 'ALTER TABLE EXCHANGE PARTITION' command to swap this temporary table with a partition (which is either added if not present or prepared for overwrite) in the main 'ADM_SUBS_GLOBAL_USER_HIST' table, effectively loading the processed data. Statistics are then computed for the newly loaded partition.
+Aggregates and deduplicates historical user subscription data for a specified month (`P_YYYYMM`). It performs validation on source data availability, then creates or refreshes a monthly partition in the `CLM_ADM.ADM_SUBS_GLOBAL_USER_HIST` table by processing data into a temporary table and performing a partition exchange.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_GLOBAL_USER_SUBS_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| COMOYO_USER_ID |
+| SUBSCRIPTION_ID |
+| MIN_SKY_NO_DAYS_FIRST_USE |
 - ← [[CLM_ADM.ADM_CONNECT_ID_HIST]]
-- ← [[ADM_SUBS_GLOBAL_USER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CONNECT_ID |
+| SUBSCRIPTION_ID |
+- ← [[CLM_ADM.ADM_SUBS_GLOBAL_USER_HIST]]
 
 ## Target Tables (Outputs)
-- → [[ADM_SUBS_GLOBAL_USER_HIST]]
-- → [[TMP_SUBS_GLOBAL_USER_HIST]]
+- → [[CLM_ADM.ADM_SUBS_GLOBAL_USER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| COMOYO_USER_ID |
+| MIN_SKY_NO_DAYS_FIRST_USE |
+- → [[CLM_ADM.TMP_SUBS_GLOBAL_USER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| COMOYO_USER_ID |
+| MIN_SKY_NO_DAYS_FIRST_USE |
 

@@ -3,9 +3,20 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies partitioned tables owned by 'CLM_ADM' that are partitioned using the 'PERIOD_MONTH_KEY' column. For each identified table, it extracts the maximum (latest) 6-character suffix from its subobject (partition) names, assuming this suffix represents a date in 'YYYYMM' format, and filters these to include only those greater than '202511'. Its purpose is to monitor or verify the existence and details of future or recent partitions for specific tables.
+Identifies the latest partition key (formatted as YYYYMM) for specific partitioned tables owned by 'CLM_ADM'. It filters for tables that use 'PERIOD_MONTH_KEY' as a partition column and have partition keys greater than '202511'.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_NAME |
+| SUBOBJECT_NAME |
+| OWNER |
+| OBJECT_TYPE |
 - ← [[SYS.ALL_PART_KEY_COLUMNS]]
+| Column Name |
+|---|
+| NAME |
+| OWNER |
+| COLUMN_NAME |
 

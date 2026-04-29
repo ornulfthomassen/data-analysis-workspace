@@ -3,9 +3,20 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and summarizes specific activity details for a particular campaign ('C18') from January 1, 2017, onwards. It joins campaign detail fact tables, filters by campaign ID and contact date, and then groups the results by 'main_number' to extract the maximum (latest or highest) activity ID, contact date, and activity description for each unique main number within the specified criteria.
+This view aggregates and summarizes campaign detail information, specifically for campaign 'C18' and contact dates from 2017 onwards. It joins two campaign detail fact tables, filters by campaign and date, and then groups the results by 'main_number' to find the maximum activity ID, contact date key, and activity description for each main number.
 
 ## Data Sources (Inputs)
-- ← [[crm_analyse.kim_campaign_detail_fact]]
-- ← [[crm_analyse.kim_campaign_detail_fact_ext]]
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| main_number |
+| activity_id |
+| contact_date_key |
+| contact_key |
+| campaign_id |
+| ACTIVITY_DESC |
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| contact_key |
 

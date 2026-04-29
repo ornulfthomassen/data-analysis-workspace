@@ -3,8 +3,13 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Checks for the existence of a table (prefixed with 'TMP_') within the current schema. If the table exists, it is dropped to prevent errors from subsequent operations or to clean up previously created temporary structures.
+Checks for the existence of a table (prefixed with 'TMP_') in the current schema based on an input parameter, and if found, dynamically drops that table.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
 

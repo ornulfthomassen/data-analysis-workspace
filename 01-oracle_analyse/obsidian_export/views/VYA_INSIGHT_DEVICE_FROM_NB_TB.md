@@ -3,8 +3,23 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a curated and deduplicated list of sold handset records, specifically for devices originating from the 'NB' file source. For each unique IMEI, it selects the most recent record based on the handset delivered date, effectively filtering out older or potentially superseded entries. The view includes detailed information about the handset, invoice, and dealer, along with various derived date components and different representations of the IMEI.
+This view extracts the latest (most recent delivery date) sold handset information for each unique IMEI, specifically from records with a 'NB' file source tag. It performs various data type conversions, formatting, and extracts derived date components (year, month) from original date fields, as well as transforming IMEI into different formats (full, useable prefix) and creating a numerical handset key.
 
 ## Data Sources (Inputs)
 - ← [[THIRD_PARTY_SERVICES.SOLD_HANDSETS]]
+| Column Name |
+|---|
+| FILE_DATE |
+| FILE_SOURCE_TAG |
+| ARTICLE_NUMBER |
+| ARTICLE_TEXT |
+| INVOICE_CREATE_DATE |
+| HANDSET_DELIVERED_DATE |
+| INVOICE_NUMBER |
+| IMEI |
+| SALES_DOCUMENT |
+| TELENOR_REFERENCE |
+| DEALER_ID |
+| DEALER_NAME |
+| GTIN |
 

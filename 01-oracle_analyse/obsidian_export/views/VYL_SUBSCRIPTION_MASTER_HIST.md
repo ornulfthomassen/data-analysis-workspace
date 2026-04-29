@@ -3,8 +3,58 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, VYL_SUBSCRIPTION_MASTER_HIST, provides a standardized and comprehensive historical record of subscription master data. It includes current and various historical states (original, previous, past, past original) for numerous subscription attributes such as IDs, market areas, start/end dates, product keys, and porting information. The view specifically filters for subscriptions that are currently active (END_DATE IS NULL) or have ended relatively recently (from the beginning of the previous month). The extensive use of CAST operations indicates data type standardization for output.
+This view extracts historical subscription master data, applying character type casting to many columns and filtering for current or recently ended subscriptions (those with an END_DATE of NULL or within approximately the last two months relative to the current date). It appears to prepare this data for reporting or integration, potentially standardizing data types and lengths.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER_SK |
+| MAIN_NUMBER_RANK |
+| SUBSCRIPTION_ID |
+| FIRST_PARENT_SUBSCRIPTION_ID |
+| LAST_PARENT_SUBSCRIPTION_ID |
+| SUBSCR_TYPE |
+| SUBSCRIPTION_ID_PREV |
+| SUBSCRIPTION_ID_ORIG |
+| SUBSCRIPTION_ID_PAST |
+| DAYS_BETWEEN_SUBSCRIPTIONS |
+| SUBSCRIPTION_ID_PAST_ORIG |
+| MARKET_AREA_ID |
+| MARKET_AREA_ID_PREV |
+| MARKET_AREA_ID_ORIG |
+| MARKET_AREA_ID_PAST |
+| MARKET_AREA_ID_PAST_ORIG |
+| SUBSCR_START_REASON |
+| MARKET_AREA_START |
+| NEW_USER_IND |
+| ORIGINAL_START_DATE |
+| ORIGINAL_START_DATE_PREV |
+| ORIGINAL_START_DATE_ORIG |
+| ORIGINAL_START_DATE_PAST |
+| ORIGINAL_START_DATE_PAST_ORIG |
+| END_DATE |
+| END_DATE_PREV |
+| END_DATE_ORIG |
+| END_DATE_PAST |
+| END_DATE_PAST_ORIG |
+| CURRENT_STATUS |
+| FIRST_PRODUCT_KEY |
+| NO_PRODUCT_COUNT |
+| FIRST_PRODUCT_KEY_PREV |
+| LAST_PRODUCT_KEY_PREV |
+| NO_PRODUCT_COUNT_PREV |
+| FIRST_PRODUCT_KEY_ORIG |
+| LAST_PRODUCT_KEY_ORIG |
+| NO_PRODUCT_COUNT_ORIG |
+| FIRST_PRODUCT_KEY_PAST |
+| LAST_PRODUCT_KEY_PAST |
+| NO_PRODUCT_COUNT_PAST |
+| FIRST_PRODUCT_KEY_PAST_ORIG |
+| LAST_PRODUCT_KEY_PAST_ORIG |
+| NO_PRODUCT_COUNT_PAST_ORIG |
+| PORT_IN_DEALER_ID |
+| PORT_IN_SERV_PROV_ID |
+| PORT_OUT_DEALER_ID |
+| PORT_OUT_SERV_PROV_ID |
 

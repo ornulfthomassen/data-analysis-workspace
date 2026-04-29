@@ -3,16 +3,149 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named 'V_SCORING_TABLE_MBB' (Mobile Broadband), serves to consolidate a comprehensive set of historical and current data points for Mobile Broadband subscriptions. Its primary purpose appears to be providing a detailed analytical snapshot for a specific past month (the last full month relative to SYSDATE-5). It gathers subscription lifecycle details, product information, associated device specifications, customer data, usage statistics (data, MMS, SMS, voice traffic over the last 3 months), and various revenue/fee components. The extensive array of metrics suggests it's designed for customer scoring, segmentation, or in-depth performance analysis of Mobile Broadband subscribers, enabling insights into customer behavior, product uptake, and financial contributions.
+This view, V_SCORING_TABLE_MBB, aggregates and calculates various Mobile Broadband (MBB) subscription, product, device, traffic, and revenue metrics on a monthly basis for customer scoring and analysis. It joins historical subscription details, customer information, handset data, and aggregated usage/revenue data to provide a comprehensive profile for each MBB subscription.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_KEY_CHAR |
+| LAST_DATE |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| PRODUCT_BRAND |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
+| CUSTOMER_SK_OWNER |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PORT_IN_SERV_PROV_ID |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| PERIOD_MONTH_KEY |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
 - ← [[CLM_ADM.ADM_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| SUBS_TYPE |
+| BINDING_ACTIVE |
+| BANKID_USED_LAST1 |
+| BANKID_USED_LAST2 |
+| BANKID_USED_LAST3 |
+| PRODUCT_ID |
+| FRIFAM_NO_DAYS_ACTIVE |
+| FORSIKRING_NO_DAYS_ACTIVE |
+| MIN_SKY_NO_DAYS_ACTIVE |
 - ← [[CLM_ADM.ADM_MBB_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| ANT_PROD_CHANGE_MONTH |
+| ANT_PROD_CHANGE_SUBSCR |
+| PROD_NO_DAYS_ACTIVE |
+| BINDING_END_DATE |
+| PRODUCT_OFFER_ID |
+| PRODUCT_OFFER_NAME |
+| DRM_PRODUCT_GROUP |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_SERVICE |
+| SOURCE_PRODUCT_ID_1 |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+| KR_MB_TOT_PREV1 |
+| KR_MB_TOT_PREV2 |
+| KR_MB_TOT_PREV3 |
+| NUMBER_OF_MMS_NORGE_PREV1 |
+| NUMBER_OF_MMS_NORGE_PREV2 |
+| NUMBER_OF_MMS_NORGE_PREV3 |
+| KR_MMS_NORGE_PREV1 |
+| KR_MMS_NORGE_PREV2 |
+| KR_MMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_NORGE_PREV1 |
+| NUMBER_OF_SMS_NORGE_PREV2 |
+| NUMBER_OF_SMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_UTLAND_PREV1 |
+| NUMBER_OF_SMS_UTLAND_PREV2 |
+| NUMBER_OF_SMS_UTLAND_PREV3 |
+| KR_SMS_NORGE_PREV1 |
+| KR_SMS_NORGE_PREV2 |
+| KR_SMS_NORGE_PREV3 |
+| KR_SMS_UTLAND_PREV1 |
+| KR_SMS_UTLAND_PREV2 |
+| KR_SMS_UTLAND_PREV3 |
+| NUMBER_SPEECH_NORGE_PREV1 |
+| NUMBER_SPEECH_NORGE_PREV2 |
+| NUMBER_SPEECH_NORGE_PREV3 |
+| NUMBER_SPEECH_UTLAND_PREV1 |
+| NUMBER_SPEECH_UTLAND_PREV2 |
+| NUMBER_SPEECH_UTLAND_PREV3 |
+| DURAT_SPEECH_NORGE_PREV1 |
+| DURAT_SPEECH_NORGE_PREV2 |
+| DURAT_SPEECH_NORGE_PREV3 |
+| DURAT_SPEECH_UTLAND_PREV1 |
+| DURAT_SPEECH_UTLAND_PREV2 |
+| DURAT_SPEECH_UTLAND_PREV3 |
+| KR_SPEECH_NORGE_PREV1 |
+| KR_SPEECH_NORGE_PREV2 |
+| KR_SPEECH_NORGE_PREV3 |
+| KR_SPEECH_UTLAND_PREV1 |
+| KR_SPEECH_UTLAND_PREV2 |
+| KR_SPEECH_UTLAND_PREV3 |
+| GROSS_PERIODIC_FEE_FULL |
+| NET_FEE |
+| NET_USE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_PERIODIC_FEE |
+| NET_INITIATION_FEE |
+| NET_TERMINATION_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| MODELID |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| PRODUCERNAME |
+| DEVICE_CATEGORY |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_LTE |
+| TAC |
 - ← [[CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| TAC |
+| MARKETING_NAME_L1 |
+| MARKETING_NAME_L2 |
 

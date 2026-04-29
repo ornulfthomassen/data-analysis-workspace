@@ -3,22 +3,210 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `VYAMN_ORDER_LINE_DETAIL_FACT`, serves as a comprehensive fact table for mobile order line details, designed for analytical reporting (likely for a data warehouse named 'MJØSA'). It enriches raw order line data with extensive dimensional attributes and Key Performance Indicators (KPIs). The view joins multiple dimension tables to provide detailed information about orders, products, subscriptions, customers (owner and user), geographical locations, dates, and various sales-related metrics. Key functionalities include: data type casting, derivation of descriptive fields (e.g., order category, termination reason), calculation of customer ages, population of device information (IMEI, handset SK), and computation of numerous KPIs related to sales, churn, product changes, and specific service types (e.g., speech, MBB, FWA). It consolidates order-related data for in-depth analysis of mobile service transactions.
+This view constructs a comprehensive order line detail fact table, enriching core order line data with attributes from various dimension tables (e.g., customer, product, device, location, date, order categories, termination reasons). It calculates numerous key performance indicators (KPIs) related to sales, porting, termination, and product changes, as well as derived age, date, and time attributes. The view is designed to provide a consolidated and enriched dataset for analytical reporting or further data loading into systems like Mjøsa.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| ADD_ON_ORDER_CATEGORY_KEY |
+| ORDER_CATEGORY_KEY |
+| TERMINATION_REASON_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDER_SUBSCR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_PRIM_PROD_KEY |
+| MONTHLY_PRICE_OVERRIDE |
+| PRICE_OVERRIDE_TYPE_ID |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| SUBSCR_USER_LOC_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| SOURCE_AGREEMENT_OFFER_ID |
+| HANDSET_KEY |
+| DEVICE_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| SALES_MATRIX_KEY |
+| SOURCE_ORDERING_ID |
+| IMEI |
+| SOURCE_ORDER_ID |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_SUBSCRIPTION_TERMINATION |
+| KPI_GROSS_SALE |
+| KPI_INTERNAL_CHURN |
+| KPI_NEWSALE_SPEECH |
+| KPI_PORTING_OUTBOUND_SPEECH |
+| KPI_PORTING_OUTBOUND_MBB |
+| KPI_TERMINATION_SPEECH |
+| KPI_GROSS_SALE_SPEECH |
+| KPI_DEVICE_SWAPPING |
+| KPI_UPSALE |
+| KPI_DOWNSALE |
+| KPI_GROSS_SALE_CE |
+| KPI_NEWSALE_FWA |
+| KPI_NEWSALE_MPP |
+| KPI_NEWSALE_MPR |
+| KPI_NEWSALE_MBB |
+| KPI_NEWSALE_PRIMARY |
+| KPI_NEWSALE_DEVICE |
+| KPI_NEWSALE_DEVICE_MPP |
+| KPI_NEWSALE_SWAP_W_MPP |
+| SWAP_NEWSALE_FLAG |
+| KPI_CHG_OWNER_MPP_C |
+| KPI_PORTING_INBOUND_MPP |
+| KPI_PORTING_OUTBOUND_MPP |
+| KPI_PORTING_OUTBOUND_TELENOR |
+| KPI_PRODUCT_CHANGE_MPP |
+| KPI_PRODUCT_CHANGE_POST2PRE |
+| KPI_PRODUCT_CHANGE_PRE2POST |
+| KPI_SWAPSALE_NEW_AGR |
+| SWAP_AGREE_VALID_FROM_DT_KEY |
+| SWAP_AGREE_VALID_TO_DT_KEY |
+| REGRET_ORDER_KEY |
+| REGRET_ORDER_LINE_KEY |
+| REGRET_ORDER_DT_KEY |
+| REGRET_ORDER_STATUS_DT_KEY |
+| REGRET_ORDER_PRODUCT_KEY |
+| REGRET_ORDER_DAYS |
+| REGRET_ORDER_STATUS_DAYS |
+| REGRET_ORDER_CATEGORY_KEY |
+| REGRET_ORDER_DEALER_KEY |
+| REGRET_ORDER_SP_FROM_KEY |
+| REGRET_SALES_MATRIX_KEY |
+| DEVICE_AGREEMENT_KEY |
+| SWAP_AGREE_PRODUCT_KEY |
+| SWAP_FROM_AGREE_PRODUCT_KEY |
+| SWAP_FROM_VALID_FROM_DT_KEY |
+| SWAP_FROM_VALID_TO_DT_KEY |
+| SWAP_TO_AGREE_PRODUCT_KEY |
+| SWAP_TO_VALID_FROM_DT_KEY |
+| SWAP_TO_VALID_TO_DT_KEY |
+| FB_AGREEMENT_KEY |
+| FB_DATABONUS_SIZE |
+| FB_NUMBER_OF_PRODUCTS |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| ORDER_STATUS_TIME_KEY |
+| ORDER_TIME_KEY |
+| COMMISSION_GROUP_TYPE_KEY |
+| LOAD_DATE_KEY |
+| SEQ_ID |
+| MULTI_NODE_COL |
 - ← [[GALAXY.ORDER_TIME_DIM_V]]
+| Column Name |
+|---|
+| ORDER_TIME_KEY |
+| ORDER_TIME |
 - ← [[GALAXY.ORDER_CATEGORY_DIM]]
+| Column Name |
+|---|
+| ORDER_CATEGORY_KEY |
+| ORDER_CATEGORY_NAME |
 - ← [[GALAXY.ADD_ON_MOB_ORDER_CATEGORY_DIM]]
+| Column Name |
+|---|
+| ADD_ON_ORDER_CATEGORY_KEY |
+| ADD_ON_ORDER_CATEGORY_NAME |
 - ← [[GALAXY.TERMINATION_REASON_DIM_V]]
+| Column Name |
+|---|
+| TERMINATION_REASON_KEY |
+| TERMINATION_REASON_DESC |
 - ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| START_DATE |
+| END_DATE |
+| MONTHLY_FEE |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| WEEK_NUMBER |
+| RELATIVE_WEEK |
+| MONTH_NUMBER |
+| RELATIVE_MONTH |
+| YEAR |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR_QUARTER_NUMBER |
 - ← [[GALAXY.SUBSCR_USER_LOC_DIM_V]]
+| Column Name |
+|---|
+| SUBSCR_USER_LOC_KEY |
+| SUBSCR_USER_POSTCODE_ID |
+| SUBSCR_USER_MUNICIPAL_ID |
+| SUBSCR_USER_MUNICIPAL |
+| SUBSCR_USER_COUNTY_ID |
+| SUBSCR_USER_COUNTY |
 - ← [[GALAXY.CUSTOMER_DIM_MV]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| DATE_OF_BIRTH |
 - ← [[GALAXY.DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| TAC_ID |
 - ← [[CCM.MO]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 - ← [[CCM.MU]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 - ← [[CCM.ASM]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| ORIGINAL_START_DATE |
+| ORIGINAL_START_DATE_ORIG |
 - ← [[CRM_ANALYSE.ADM_AGE_GROUP_DIM]]
+| Column Name |
+|---|
+| AGE_GROUP_KEY |
+| AGE_GROUP_NAME_10C |
 - ← [[CCM.HWO_IMEI]]
+| Column Name |
+|---|
+| SERVICE_ORDER_ID |
+| IMEI |
+| HANDSET_KEY |
 

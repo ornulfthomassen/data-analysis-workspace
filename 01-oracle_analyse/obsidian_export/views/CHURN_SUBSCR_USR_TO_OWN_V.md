@@ -3,8 +3,17 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view identifies and flags instances within 'MPP' product group subscriptions where the primary user of the subscription becomes its owner, following a change in the assigned owner. For such events, it records the date of this ownership change and calculates the duration (in months) of the preceding period. The data is filtered to include only MPP subscriptions and is restricted to a rolling window of the last 25 months, likely for churn analysis related to ownership transfers.
+Identifies and tracks events where a user becomes the owner of an MPP product subscription, providing a flag for the event, the date it occurred, and the number of months since the owner change. The view filters data for the last 25 months.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.CHURN_ADM_SUBSCRIPTION]]
+| Column Name |
+|---|
+| PERIOD_MONTH |
+| SUBSCRIPTION_SK |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MAIN_NUMBER_SK |
+| PERIOD_MONTH_DATE |
+| PRODUCT_GROUP |
 

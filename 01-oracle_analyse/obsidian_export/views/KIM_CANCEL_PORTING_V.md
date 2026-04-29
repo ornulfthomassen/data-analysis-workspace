@@ -3,11 +3,134 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Analyzes porting-out orders (identified by PRODUCT_ACTION_TYPE_ID = 'PE') by linking them to customer campaign interactions. It captures details of orders, campaign activities, and communication events, specifically filtering for a particular campaign ('CAMP2773') and specific date ranges for orders and contacts. The view likely aims to understand the influence of marketing campaigns or communications on porting-out decisions or cancellations.
+This view identifies 'porting-out' service orders (indicated by `PRODUCT_ACTION_TYPE_ID = 'PE'`) and correlates them with marketing campaign contacts. It captures campaign interactions that occurred between the service order's arrival date and its processing date for a specific phone number. The view aggregates comprehensive details from service orders, campaign facts, campaign dimensions, and communication dimensions, primarily focusing on porting events that might be influenced by or related to marketing activities within specified date ranges.
 
 ## Data Sources (Inputs)
-- ← [[CLM_RTDM.V_ONL_SERVICE_ORDER_PRODUCT]]
-- ← [[crm_analyse.kim_campaign_detail_fact]]
-- ← [[crm_analyse.kim_campaign_dim]]
-- ← [[crm_analyse.kim_communication_dim]]
+- ← [[V_ONL_SERVICE_ORDER_PRODUCT]]
+| Column Name |
+|---|
+| AUTO_ORDER_QUEUE_ID |
+| COMMISSION_STATUS_ID |
+| CUST_TYPE_ID |
+| DEALER_ID |
+| EQ_UNIQUE_NUM |
+| ORDER_ARRIVAL_DATE |
+| ORDER_ID |
+| ORDER_LINE_ID |
+| ORDER_PHONE_NUM |
+| ORDER_PROCESSED_DATE |
+| ORDER_QUEUE_ID |
+| PARAM_COUNT |
+| PARENT_ORDER_LINE_ID |
+| PRICE_PLAN_TYPE_ID |
+| PRODUCT_ACTION_TYPE_ID |
+| PRODUCT_CODE_ID |
+| PRODUCT_ID |
+| PRODUCT_PRIORITY |
+| PRODUCT_PROCESSED_DATE |
+| PRODUCT_RESPONSE_TIME |
+| PRODUCT_STATUS_AUTOREG |
+| PRODUCT_STATUS_BACK_END |
+| PRODUCT_STATUS_ID |
+| PRODUCT_STATUS_REASON_ID |
+| SUBSCR_ID |
+| USER_ID |
+- ← [[kim_campaign_detail_fact]]
+| Column Name |
+|---|
+| VOLUME |
+| USER_HOUSEHOLD_ID |
+| TREATMENT_PRODUCT_KEY |
+| TREATMENT_PRIORITY |
+| TREATMENT_KEY |
+| TREATMENT_HASH_VAL |
+| SUBSCRIPTION_SEGMENT_KEY |
+| SUBSCRIPTION_KEY |
+| SUBS_TRAFFIC_GROUP_KEY |
+| SUBS_FLAG_TREATMENT_KEY |
+| SUBS_DATA_GROUP_KEY |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_CONTACT_ID |
+| SEQ_ID_UPD |
+| SEQ_ID |
+| SALES_MATRIX |
+| RUN_ID |
+| RESPONSE_REASON_KEY |
+| RESPONSE_KEY |
+| RESPONSE_DATE_KEY |
+| RESPONSE_CHANNEL_KEY |
+| PROFIT_ID |
+| PRESENTED_KEY |
+| PRESENTED_DURATION_KEY |
+| PRESENTED_DATE_KEY |
+| ORDER_TO_PRODUCT_KEY |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_SOURCE_SYSTEM_KEY |
+| ORDER_SERVICE_PROVIDER_KEY |
+| ORDER_RANK_GROUP_KEY |
+| ORDER_RANK |
+| ORDER_MATCH_KEY |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_ID |
+| ORDER_HANDSET_KEY |
+| ORDER_FROM_PRODUCT_KEY |
+| ORDER_DT_KEY |
+| ORDER_DEALER_KEY |
+| ORDER_DAYS |
+| ORDER_CAPTURE_DAYS |
+| ORDER_BINDING_PRODUCT_KEY |
+| MEASURE_TYPE |
+| MAIN_NUMBER |
+| KURT_ID_USER |
+| KURT_ID_PAYER |
+| KURT_ID_OWNER |
+| KPI_PRODUCT_CHANGE |
+| KPI_NEWSALE |
+| IS_SUBS_CAMP |
+| GENDER |
+| CUST_STRATEGIC_SEGMENT_KEY |
+| CUST_SEGMENT_KEY |
+| CUST_RESPONSE_KEY |
+| CUST_HOUSEHOLD_ID |
+| CUST_FLAG_TREATMENT_KEY |
+| CUST_FAR_ID |
+| CUST_AGE_GROUP_KEY |
+| CUST_AGE |
+| CONTACTED_BIND_START_DATE_KEY |
+| CONTACTED_BIND_END_DATE_KEY |
+| CONTACT_TIME_KEY |
+| CONTACT_TEAM |
+| CONTACT_SECONDS |
+| CONTACT_PRODUCT_KEY |
+| CONTACT_MONTH_KEY |
+| CONTACT_LOCATION |
+| CONTACT_KEY |
+| CONTACT_HANDSET_KEY |
+| CONTACT_DTTM |
+| CONTACT_DELAY_DAYS |
+| CONTACT_DATE_KEY |
+| CONN_ID |
+| COMMUNICATION_KEY |
+| CHURN_GROUP_KEY |
+| CHANNEL_KEY |
+| CELL_PACKAGE_SK |
+| CAMPAIGN_TYPE_DESC |
+| CAMPAIGN_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| BINDING_BENEFIT_DESC |
+- ← [[kim_campaign_dim]]
+| Column Name |
+|---|
+| CAMPAIGN_CD |
+| CAMPAIGN_KEY |
+- ← [[kim_communication_dim]]
+| Column Name |
+|---|
+| COMMUNICATION_CD |
+| COMMUNICATION_NM |
+| COMMUNICATION_DESC |
+| ACTION_CATEGORY |
+| OFFER_CATEGORY |
+| COMMUNICATION_KEY |
 

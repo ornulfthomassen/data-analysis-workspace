@@ -3,16 +3,93 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The Oracle SQL procedure `CUST_TAB_CRM_AN_MAP2_2_CLM_ADM` is designed to migrate and transform customer segmentation (MAP2_SEGMENT) data for a specified range of months. It takes source data from a table in the `CRM_ANALYSE` schema (identified by `P_TABLE_OLD`) and populates a partitioned target table in the `CLM_ADM` schema (identified by `P_TABLE_NEW`). For each month within the defined range, the procedure: checks for or creates a partition in the target table; creates a temporary staging table (`P_TMP_TABLE`); populates this temporary table by joining the source data with a customer mapping table (`ADM_CUSTOMER_MAPPING_YYYYMM`) and performing data transformations; and then exchanges the populated temporary table with the corresponding partition in the permanent target table. It also logs the migration process (start/end times, row counts, status) into the `ADM_MIGRATE_LOG` table, analyzes statistics for the new partition, and grants SELECT privileges on the target table. Error handling is included for missing source/target tables or other runtime exceptions.
+This procedure orchestrates a data migration process for specific time periods (YYYYMM range). It dynamically creates a target partitioned table if it doesn't exist, or adds partitions to it. For each period, it reads data from a source table (`P_TABLE_OLD`) in the `CRM_ANALYSE` schema, joins it with a customer mapping table (`ADM_CUSTOMER_MAPPING_YYYYMM`) in the `CLM_ADM` schema, and loads the combined data into a temporary staging table (`P_TMP_TABLE`). Finally, it performs a partition exchange, moving the data from the temporary table into the corresponding partition of the permanent target table (`P_TABLE_NEW`) in the `CLM_ADM` schema. The entire process, including start and end times and row counts, is logged in `ADM_MIGRATE_LOG`.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
-- ← [[CRM_ANALYSE.<P_TABLE_OLD>]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_<PERIOD_MONTH_KEY>]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| RELATIVE_MONTH |
 - ← [[ADM_MIGRATE_LOG]]
+| Column Name |
+|---|
+| AML_ID |
+- ← [[CRM_ANALYSE.<P_TABLE_OLD>]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CU_KURT_ID_OWNER |
+| EM_CLASSIFICATION |
+| MAP_SEGMENT |
+| RUN_DATE |
+| P_MAP_SEGMENT1 |
+| P_MAP_SEGMENT6 |
+| P_MAP_SEGMENT5 |
+| P_MAP_SEGMENT4 |
+| P_MAP_SEGMENT3 |
+| P_MAP_SEGMENT2 |
+| EM_PROBABILITY |
+| IND_MAP_SEGMENT6 |
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_<PERIOD_MONTH_KEY>]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 
 ## Target Tables (Outputs)
 - → [[CLM_ADM.<P_TABLE_NEW>]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| MAP2_SEGMENT_ID |
+| MAP2_SEGMENT_NAME |
+| RUN_DATE |
+| P_MAP_SEGMENT1 |
+| P_MAP_SEGMENT6 |
+| P_MAP_SEGMENT5 |
+| P_MAP_SEGMENT4 |
+| P_MAP_SEGMENT3 |
+| P_MAP_SEGMENT2 |
+| EM_PROBABILITY |
+| IND_MAP_SEGMENT6 |
+- → [[<P_TMP_TABLE>]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| MAP2_SEGMENT_ID |
+| MAP2_SEGMENT_NAME |
+| RUN_DATE |
+| P_MAP_SEGMENT1 |
+| P_MAP_SEGMENT6 |
+| P_MAP_SEGMENT5 |
+| P_MAP_SEGMENT4 |
+| P_MAP_SEGMENT3 |
+| P_MAP_SEGMENT2 |
+| EM_PROBABILITY |
+| IND_MAP_SEGMENT6 |
 - → [[ADM_MIGRATE_LOG]]
-- → [[CLM_ADM.<P_TMP_TABLE>]]
+| Column Name |
+|---|
+| AML_ID |
+| MIGRATE_DTTM_START |
+| MIGRATE_DTTM_END |
+| FROM_TABLE |
+| TO_TABLE |
+| FROM_NUM_COLUMNS |
+| TO_NUM_COLUMNS |
+| PERIOD_MONTH_KEY |
+| FROM_NUM_ROWS |
+| TO_NUM_ROWS |
+| STATUS |
+| ERROR_MESSAGE |
 

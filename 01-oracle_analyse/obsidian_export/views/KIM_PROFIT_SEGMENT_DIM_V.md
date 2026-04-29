@@ -3,9 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a dimension for customer profitability segments. It combines segment details with information about their associated models, specifically filtering for models named 'Kundelønnsomhet' (Customer profitability). It provides a consolidated view of segment ID, name, criteria, comment, and the ID, name, and description of the relevant profitability model.
+This view creates a dimension for customer profitability segments. It combines segment details with model information, specifically filtering for models named 'Kundelønnsomhet' (Customer Profitability).
 
 ## Data Sources (Inputs)
 - ← [[CCDW_SEGMENT.SEGMENT]]
+| Column Name |
+|---|
+| SEGMENT_ID |
+| SEGMENT_NAME |
+| SEGMENT_CRITERIA |
+| SEGMENT_COMMENT |
+| MODEL_ID |
 - ← [[CCDW_SEGMENT.MODEL]]
+| Column Name |
+|---|
+| MODEL_ID |
+| MODEL_NAME |
+| MODEL_DESC |
 

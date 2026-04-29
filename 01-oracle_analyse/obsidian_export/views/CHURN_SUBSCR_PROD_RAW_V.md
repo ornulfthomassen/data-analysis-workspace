@@ -3,8 +3,19 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view, 'CHURN_SUBSCR_PROD_RAW_V', extracts specific subscription product details including period month key, subscription key, product start/end dates, market product identifier, product name, description, and source product ID. Its primary purpose is to provide a filtered dataset of recent subscription product data, limited to the last 25 full months up to and including the current month (based on 'period_month'), likely for churn analysis or reporting.
+Provides raw subscription product data, filtered for a 25-month historical window up to the current month, likely for churn analysis. This view selects specific product and subscription-related attributes.
 
 ## Data Sources (Inputs)
 - ← [[ccm.vya_churn_wide_subscr_products]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_KEY |
+| SUB_PRODUCT_START_DATE |
+| SUB_PRODUCT_END_DATE |
+| DRM_COMMON_MARKET_PRODUCT |
+| SUB_PRODUCT_NAME |
+| SUB_PRODUCT_DESC |
+| SOURCE_PRODUCT_ID_1 |
+| period_month |
 

@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves distinct model IDs and their touch screen information from a feature resolution table. It aims to list unique terminal models along with whether they possess a touch screen.
+Provides a distinct list of terminal model identifiers and their touch screen capabilities from feature results data.
 
 ## Data Sources (Inputs)
 - ← [[ADHOC_BS.PF_FEAT_RES]]
+| Column Name |
+|---|
+| MODEL_ID |
+| TOUCH_SCREEN |
 

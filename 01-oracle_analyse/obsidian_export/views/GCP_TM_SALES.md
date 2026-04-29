@@ -3,15 +3,67 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides aggregated Telemarketing (TM) sales data for consumer products, calculating Key Performance Indicators (KPIs) like new sales and product changes. It combines detailed information about orders, products, order statuses, dealers, and sales representatives. The data is filtered for the 'Telemarketing' sales channel, 'Consumerprodukt' product types, and orders from 2023 onwards, intended for reporting in Google Cloud Platform (specifically GCP Looker).
+Provides Telemarketing (TM) data for reporting purposes in Google Cloud Platform, used by GCP Looker.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_MV]]
+| Column Name |
+|---|
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| ORDER_LINE_TYPE_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_DT_KEY |
+| DEALER_KEY |
+| SALES_MATRIX_KEY |
+| SOURCE_ORDER_ID |
 - ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| MONTHLY_PRICE |
+| PRIMARY_PRODUCT_FLAG |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| ORDER_LINE_PRODUCT_KEY |
+| DRM_COMMON_REPORTING |
 - ← [[GALAXY.FROM_ORDER_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| MONTHLY_PRICE |
+| FROM_ORDER_PRODUCT_KEY |
 - ← [[GALAXY.ORDER_STATUS_DIM_MV]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_STATUS_CODE |
+| ORDER_STATUS_DESC |
+| ORDER_STATUS_KEY |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| DATE_KEY |
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_NAME |
+| SOURCE_DEALER_ID |
+| DEALER_KEY |
+| DRM_SALES_CHANNEL_GEN03_DESC |
 - ← [[GALAXY.SALES_MATRIX_DIM]]
+| Column Name |
+|---|
+| SALES_MATRIX_NAME |
+| SALES_MATRIX_KEY |
 - ← [[ONL_REP.SERVICE_ORDER]]
+| Column Name |
+|---|
+| SALES_REP_NAME |
+| ORDER_ID |
 

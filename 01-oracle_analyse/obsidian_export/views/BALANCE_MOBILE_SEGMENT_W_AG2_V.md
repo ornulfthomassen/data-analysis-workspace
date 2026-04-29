@@ -3,8 +3,30 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and segments mobile customer balance data, adjusted for terminations and outports. It provides a detailed analytical dataset by combining balance information with various dimensions such as refresh date, period keys (week, month, year), product details (description, key, name), payment methods, brand, binding status, profit categories, and multiple customer segmentation attributes (variable segment, churn segment, lifecycle segment, MAP2 segment). The data is filtered to exclude certain product descriptions (e.g., 'BEDRIFT', 'DEMO', 'TVILLING', 'FASTNETT', 'SPONS', 'PRIVAT') and is restricted to records from a specific period (PERIOD_WEEK_KEY >= 201729). Missing descriptive values are replaced with 'Ukjent' or -1 for consistency.
+Processes aggregated mobile segment balance data, calculating a refined 'BALANCE' by subtracting 'OUT_PORT' values. It enriches various attributes with default values if null, derives period keys (week, month, year), and categorizes segments using custom functions like `FORMAT_CLM_LIVSFASE` and `FORMAT_MAP2_6C`. The view filters the data to include records from 'PERIOD_WEEK_KEY' 201729 onwards and excludes specific product descriptions ('BEDRIFT', 'DEMO', 'TVILLING', 'SMS AKSESS', 'FASTNETT', 'HJEMME', 'SPONS', 'PRIVAT').
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_W_AGG]]
+| Column Name |
+|---|
+| BALANCE |
+| OUT_PORT |
+| REFRESH_DATE |
+| PERIOD_WEEK_KEY |
+| YEAR_MONTH |
+| PRIM_PRODUCT_DESC |
+| PRODUCT_KEY |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| BINDINGSSTATUS |
+| PROFIT_CAT_NAME2 |
+| PROFIT_CAT_NAME4 |
+| PROFIT_CAT_NAME7 |
+| PROFIT_CAT |
+| PROFIT_PERIOD |
+| VAR_SEGMENT_NAME |
+| CHURN_SEGMENT_NAME |
+| CHURN_SEGMENT_GROUP |
+| CLM_LIVSFASE_SEGMENT_ID |
+| MAP2_SEGMENT_ID |
 

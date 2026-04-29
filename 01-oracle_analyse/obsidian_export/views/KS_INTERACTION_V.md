@@ -3,9 +3,89 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a comprehensive, denormalized record of customer interactions and their segments. It consolidates various attributes such as interaction timings, durations, agent details, queue information, media type, and specific interaction results. It also enriches the interaction data by mapping 'owner' and 'user' identifiers (KURT_ID) from the base interaction table to a standardized customer master key (CUSTOMER_SK) using the customer mapping table.
+This view (`KS_INTERACTION_V`) combines detailed interaction data from `CRM_ANALYSE.KS_INTERACTION` with customer mapping information from `CLM_ADM.ADM_CUSTOMER_MAPPING`. It enriches the interaction records by associating them with both an 'owner' and a 'user' customer surrogate key, and performs various column renames and type casts for presentation.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KS_INTERACTION]]
+| Column Name |
+|---|
+| START_CAL_DATE |
+| END_CAL_DATE |
+| START_CAL_DATE_NEXT |
+| INTERACTION_ID |
+| INTERACTION_SEGMENT_ID |
+| ORDINAL |
+| LAST_SEGMENT |
+| EMPLOYEE_NUMBER |
+| EMPLOYEE_ID |
+| TEAM_NUMBER |
+| UNIT_NUMBER |
+| SITE_NAME |
+| COMPANY_NAME |
+| RESOURCE_TYPE |
+| QUEUE_CLIENT |
+| QUEUE_PROGRAM |
+| QUEUE_TYPE |
+| QUEUE_SHORTNAME |
+| VIRTUALQUEUE |
+| VQ_RESOURCE_KEY |
+| SKILL |
+| CALL_FROM |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| TOTAL_DURATION |
+| QUEUE_DURATION |
+| HANDLE_COUNT |
+| WRAP_COUNT |
+| WRAP_DURATION |
+| CUSTOMER_HANDLE_COUNT |
+| CUSTOMER_HANDLE_DURATION |
+| CUSTOMER_WAIT_DURATION |
+| TARGET_ADDRESS |
+| INN_OUT |
+| INTERACTION_TYPE_KEY |
+| FORHANDLERKODE |
+| CONSULT_DONE |
+| SP_TRANSFER |
+| CONSULT |
+| XPROD |
+| VPROD |
+| B_NUMBER |
+| BRUKTYP |
+| CONNID |
+| KSTATUS |
+| RINGT_SIST |
+| TRANSFERREASON |
+| TS1 |
+| GAD_INFO |
+| DEALERIDENTIFY |
+| AVTALE |
+| FULLFØRT_KONSULT |
+| ESKALERT_TIL |
+| CALLBACK |
+| CALLED_SERVICE |
+| FAILEDREASON |
+| BEDTYP |
+| ALDERKAT |
+| CBTYPE |
+| ORIGIN_SITE |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_DIAL_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_RING_DURATION |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| LOAD_DATE |
+| CALL_FROM_NUM |
+| END_CAL_DATE_NUM |
+| START_CAL_DT_NEXT_NUM |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 

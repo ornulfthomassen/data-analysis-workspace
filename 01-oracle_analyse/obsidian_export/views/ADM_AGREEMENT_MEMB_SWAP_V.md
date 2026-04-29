@@ -3,8 +3,17 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-Identifies and retrieves the details of the most recent 'SWAP' (product type) device agreement for each unique IMEI. It filters for agreements that are classified as 'SWAP' products within the 'DEVICE' product group and have a valid IMEI. For each IMEI, it selects the agreement with the latest device agreement end date and provides its IMEI, root agreement key, product agreement ID, and product name.
+Identifies the latest swap agreement details for each unique IMEI, filtering for device-related products, by selecting agreement key, product ID, and product name based on the most recent agreement end date.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_ALL]]
+| Column Name |
+|---|
+| IMEI |
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| DEVICE_AGREEMENT_END_DATE |
+| PRODUCT_AGREEMENT_PRODUCT_NM |
+| PRODUCT_AGREE_DRM_COM_MRK_PROD |
+| PRODUCT_AGREE_DRM_COM_PROD_GRP |
 

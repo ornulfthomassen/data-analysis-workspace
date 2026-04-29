@@ -1,0 +1,142 @@
+[
+  {
+    "name": "user_id",
+    "type": "STRING"
+  },
+  {
+    "name": "md5_checksum",
+    "type": "STRING"
+  },
+  {
+    "name": "acc_msisdn",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "tss",
+    "type": "STRING"
+  },
+  {
+    "name": "nss",
+    "type": "STRING"
+  },
+  {
+    "name": "fixed",
+    "type": "STRING"
+  },
+  {
+    "name": "rank_connection",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_customer",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_fim_user_phones",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_usp",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_no",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_email",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "rank_sc",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_active_fup",
+    "type": "STRING"
+  },
+  {
+    "name": "customer_active_usp",
+    "type": "STRING"
+  },
+  {
+    "name": "ph_verification_fup",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "usp_last_start_date",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "usp_last_end_date",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "source_hardlink",
+    "type": "STRING"
+  },
+  {
+    "name": "source_fim_user_phones",
+    "type": "STRING"
+  },
+  {
+    "name": "source_usp",
+    "type": "STRING"
+  },
+  {
+    "name": "source_ncu",
+    "type": "STRING"
+  },
+  {
+    "name": "source_email",
+    "type": "STRING"
+  },
+  {
+    "name": "source_sc",
+    "type": "STRING"
+  },
+  {
+    "name": "email_address",
+    "type": "STRING"
+  },
+  {
+    "name": "email_address_dq",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "email_ra_max_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "nbr_customers",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "info_reg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "active_flag",
+    "type": "STRING"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "cust_link_quality",
+    "type": "STRING"
+  }
+]

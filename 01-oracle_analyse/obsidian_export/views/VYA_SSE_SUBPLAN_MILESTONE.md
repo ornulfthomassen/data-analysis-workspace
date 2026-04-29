@@ -3,8 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view transforms detailed milestone data for specific 'SubPlan' objects from a row-based format into a column-based (pivoted) format. It extracts milestone name, actual, baseline, planned dates/values, state, and comments for a predefined set of milestone IDs (243, 244, 245, 254, 315, 332), presenting each milestone's attributes as separate columns for every unique SubPlan ID (SPID). This provides a wide, consolidated view of key milestone details for each SubPlan.
+This view pivots specific milestone data for 'SubPlan' objects from the KAPAKS.SSE_MILESTONE table. It transforms rows corresponding to predefined milestone IDs (243, 244, 245, 254, 315, 332) into a wider format, creating distinct columns for milestone name, actual, baseline, planned, state, and comments for each of these milestone IDs, grouped by object ID (SPID).
 
 ## Data Sources (Inputs)
 - ← [[KAPAKS.SSE_MILESTONE]]
+| Column Name |
+|---|
+| OBJECTID |
+| MID |
+| MILESTONE |
+| STATE |
+| BASELINE |
+| PLANNED |
+| ACTUAL |
+| COMMENTS |
+| OBJECTTYPE |
 

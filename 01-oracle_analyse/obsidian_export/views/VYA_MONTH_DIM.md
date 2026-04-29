@@ -3,9 +3,72 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view creates an enhanced month dimension, providing comprehensive information about each month. For each month, it includes its key attributes (e.g., first/last dates, total days, working days), and it also incorporates the same key attributes for the *next* month and the *previous six* months. It joins different instances of the `ADM_MONTH_DIM_V` view to enrich the data from `ADM_MONTH_DIM` with character-based month representations for the current, next, and previous months. This structure is particularly useful for reporting and analytical purposes that require quick access to historical and future monthly context within a single record.
+This view, VYA_MONTH_DIM, creates a comprehensive month dimension by combining detailed month attributes from ADM_MONTH_DIM with the character representations of month keys from ADM_MONTH_DIM_V. It denormalizes data by joining ADM_MONTH_DIM to ADM_MONTH_DIM_V multiple times to retrieve character representations for the current month, the next month, and the previous six months, providing a single view with related month information.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| RELATIVE_MONTH |
+| PERIOD_MONTH_KEY |
+| FIRST_DATE_KEY |
+| LAST_DATE_KEY |
+| FIRST_DATE |
+| LAST_DATE |
+| ANTALL_DAGER |
+| ANTALL_ARBEIDSDAGER |
+| NEXT_PERIOD_MONTH_KEY |
+| NEXT_FIRST_DATE_KEY |
+| NEXT_LAST_DATE_KEY |
+| NEXT_FIRST_DATE |
+| NEXT_LAST_DATE |
+| NEXT_ANTALL_DAGER |
+| NEXT_ANTALL_ARBEIDSDAGER |
+| PREV1_PERIOD_MONTH_KEY |
+| PREV1_FIRST_DATE_KEY |
+| PREV1_LAST_DATE_KEY |
+| PREV1_FIRST_DATE |
+| PREV1_LAST_DATE |
+| PREV1_ANTALL_DAGER |
+| PREV1_ANTALL_ARBEIDSDAGER |
+| PREV2_PERIOD_MONTH_KEY |
+| PREV2_FIRST_DATE_KEY |
+| PREV2_LAST_DATE_KEY |
+| PREV2_FIRST_DATE |
+| PREV2_LAST_DATE |
+| PREV2_ANTALL_DAGER |
+| PREV2_ANTALL_ARBEIDSDAGER |
+| PREV3_PERIOD_MONTH_KEY |
+| PREV3_FIRST_DATE_KEY |
+| PREV3_LAST_DATE_KEY |
+| PREV3_FIRST_DATE |
+| PREV3_LAST_DATE |
+| PREV3_ANTALL_DAGER |
+| PREV3_ANTALL_ARBEIDSDAGER |
+| PREV4_PERIOD_MONTH_KEY |
+| PREV4_FIRST_DATE_KEY |
+| PREV4_LAST_DATE_KEY |
+| PREV4_FIRST_DATE |
+| PREV4_LAST_DATE |
+| PREV4_ANTALL_DAGER |
+| PREV4_ANTALL_ARBEIDSDAGER |
+| PREV5_PERIOD_MONTH_KEY |
+| PREV5_FIRST_DATE_KEY |
+| PREV5_LAST_DATE_KEY |
+| PREV5_FIRST_DATE |
+| PREV5_LAST_DATE |
+| PREV5_ANTALL_DAGER |
+| PREV5_ANTALL_ARBEIDSDAGER |
+| PREV6_PERIOD_MONTH_KEY |
+| PREV6_FIRST_DATE_KEY |
+| PREV6_LAST_DATE_KEY |
+| PREV6_FIRST_DATE |
+| PREV6_LAST_DATE |
+| PREV6_ANTALL_DAGER |
+| PREV6_ANTALL_ARBEIDSDAGER |
 - ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_KEY_CHAR |
 

@@ -3,9 +3,43 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Consolidates and prepares TeleMarketing (TM) order-related report data, including customer, order, agent, product, and campaign details, for reporting purposes, specifically for SAS Viya. It maps raw customer IDs from order data to standardized customer keys.
+Provides Telemarketing (TM) report data for SAS Viya, focusing on order-related information and customer mapping.
 
 ## Data Sources (Inputs)
 - ← [[PAD_STAGE.PAD_ORDERS]]
+| Column Name |
+|---|
+| ORDERTYPE |
+| ORDERID |
+| CALLDATE |
+| CONSULT |
+| WHYREASON |
+| WRSTCD |
+| WHYREASONDESCRIPTION |
+| CELLPACKAGESK |
+| RESPTRACINGCODE |
+| COSORDERID |
+| COSTTRANSFERDATE |
+| TIMEOFCONTACT |
+| MAINPRODUCTID |
+| MAINPRODUCTDESC |
+| NOOFCALLBACKS |
+| CONCENTREQUESTED |
+| CONCENTRECEIVED |
+| BACKTOCALLLIST |
+| ANSWERINGMACHINE |
+| BUSINESSAREAID |
+| DEALERID |
+| DEALERIDDESC |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| HOUSEHOLD_ID |
+| LOAD_DTTM |
+| KURTID |
+| MAINORDERKURT |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| KURT_ID |
 

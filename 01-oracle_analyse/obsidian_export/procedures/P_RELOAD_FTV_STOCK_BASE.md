@@ -3,7 +3,7 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The Oracle SQL procedure `P_RELOAD_FTV_STOCK_BASE` is designed to completely reload the `CCM.FTV_STOCK_BASE` table. It achieves this by first clearing and repopulating a temporary/staging table, `CCM.FTV_STOCK_BASE_TMP`, with data sourced from `CCM.FTV_STOCK_BASE_V`. Subsequently, it clears and repopulates the final `CCM.FTV_STOCK_BASE` table using the data from the `CCM.FTV_STOCK_BASE_TMP` table.
+Reloads the FTV_STOCK_BASE table by first populating an intermediate temporary table (FTV_STOCK_BASE_TMP) from a view (FTV_STOCK_BASE_V), and then transferring the data from the temporary table to the main FTV_STOCK_BASE table.
 
 ## Data Sources (Inputs)
 - ← [[CCM.FTV_STOCK_BASE_V]]

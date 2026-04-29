@@ -3,10 +3,29 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides an administrative overview of 'Orden' subscription activations. It combines subscription offer details with 'Orden'-specific incentives and their latest activation history. The view calculates the number of days waited between the 'Orden' offer becoming available and the actual signup date, and includes flags and dates related to 'Orden' availability and first signup for each subscription.
+This view provides a consolidated dataset for 'Orden' product activation metrics associated with subscriptions. It links subscription offers and incentive data with historical activation records, calculating activation dates, flags, and the duration between activation availability and actual signup.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_ORDEN_ACTIVATION_HIST]]
+| Column Name |
+|---|
+| DATE_ID |
+| SIGNUP_DATE |
+| START_FROM_DATE |
+| SUBSCRIBED_COMPONENT_ID |
+| LAST_FOREGROUND_TIME |
 - ← [[ODS.SUBSCRIBED_OFFER_ODS_MOB]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SRC_SUBSCRIPTION_ID_1 |
+| PRODUCT_OFFER_ID |
 - ← [[CM.SUBSCRIPTION_OFFER_INCENTIVE]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| INC_VALID_TO_DATE |
+| PARAMETER_ID |
+| PRODUCT_OFFER_ID |
+| SUBSCRIBED_COMPONENT_ID |
 

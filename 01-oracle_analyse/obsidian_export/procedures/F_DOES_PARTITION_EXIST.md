@@ -3,8 +3,14 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL function `F_DOES_PARTITION_EXIST` checks for the existence of a specified table partition within the current database schema. It takes a table name and a partition name as input and returns a count (typically 1 if the partition exists, 0 otherwise).
+Checks for the existence of a specified table partition within the current schema. It returns 1 if the partition exists, and 0 otherwise.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| SUBOBJECT_NAME |
+| OWNER |
 

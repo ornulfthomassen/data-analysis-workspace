@@ -3,15 +3,112 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure calculates and aggregates mobile customer subscription and revenue data for a specific month (V_YYYYMM). It creates a temporary staging table to process detailed subscription and customer records, performing aggregations like total subscriptions, revenue components, and main subscription types. The aggregated data from this temporary table is then moved into a corresponding partition of a permanent, historized (partitioned) table, `ADM_MOB_CUST_O_TALE_REV_3MO`, using an `EXCHANGE PARTITION` operation. The procedure includes checks for source data availability, handles existing partitions, and logs execution history and errors.
+This Oracle SQL procedure calculates aggregated revenue and subscription statistics for mobile customers for a specified period (defaulting to the previous month). It first creates a temporary table containing these aggregated metrics. Then, it uses a partition exchange mechanism to load the data from this temporary table into a new or existing partition of a permanent target table, `ADM_MOB_CUST_O_TALE_REV_3MO`. The process includes data validation checks, logging via `CRM_ANALYSE.P_ADM_LOAD_HISTORY`, and statistical gathering for the permanent table.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO]]
-- ← [[CLM_ADM.ADM_MOB_SUBSCRIPTION_CORE]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
-- ← [[GALAXY.DATE_DIM_MV]]
+- ← [[DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DAY |
+- ← [[ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| PRODUCT_TYPE |
+| NET_REVENUE_ADJUSTED |
+| NET_PERIODIC_FEE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| MARKET_AREA_ID |
+- ← [[ADM_MOB_SUBSCRIPTION_CORE]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| LAST_OWNER |
+- ← [[ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 
 ## Target Tables (Outputs)
 - → [[TMP_MOB_CUST_O_TALE_REV_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| MAIN_SUBSCRIPTION_REV |
+| MAIN_SUBSCRIPTION_TYPE |
+| NO_SUBSCR |
+| NO_MPP |
+| NO_MPR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 - → [[ADM_MOB_CUST_O_TALE_REV_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| MAIN_SUBSCRIPTION_REV |
+| MAIN_SUBSCRIPTION_TYPE |
+| NO_SUBSCR |
+| NO_MPP |
+| NO_MPR |
+| MAX_SUBS_PERIOD_START_DATE |
+| MIN_SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR_AVG |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| MAX_BINDING_PRODUCT_KEY |
+| MIN_BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 

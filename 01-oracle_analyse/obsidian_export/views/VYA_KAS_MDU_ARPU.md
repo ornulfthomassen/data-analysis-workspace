@@ -3,8 +3,21 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a consolidated dataset of Multi-Dwelling Unit (MDU) related information, including subscriber details, MDU name, various unit counts (total, individual agreement units, upgrade units), and different calculations of Average Revenue Per User (ARPU), such as cooperative ARPU (with and without VAT), individual upsale ARPU, and a total ARPU sum. It appears to be an ARPU reporting view for MDUs.
+Provides a view of Multi-Dwelling Unit (MDU) Average Revenue Per User (ARPU) data, directly projecting columns from the KAS.MDU_ARPU table, with a calculated CUSTOMER_SK identifier.
 
 ## Data Sources (Inputs)
 - ← [[KAS.MDU_ARPU]]
+| Column Name |
+|---|
+| ABONNENT_NR |
+| KURT_ID |
+| MDU_NAME |
+| NUMBER_OF_UNIT |
+| NUMBER_OF_IND_AGREEMENT |
+| NUMBER_OF_UNIT_IND_AGREEMENT |
+| NUMBER_OF_UNIT_UPGRADE_BB |
+| ARPU_COOPERATIVE |
+| ARPU_COOPERATIVE_EX_VAT |
+| ARPU_INDIVID_UPSALE |
+| ARPU_SUM |
 

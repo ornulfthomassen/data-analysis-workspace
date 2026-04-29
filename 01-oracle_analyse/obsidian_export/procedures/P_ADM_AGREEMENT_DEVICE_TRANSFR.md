@@ -3,14 +3,53 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure identifies and tracks device transfer sequences (e.g., swaps) by populating and subsequently updating the `ADM_AGREEMENT_DEVICE_TRANSFER` table. It initially inserts new records into `ADM_AGREEMENT_DEVICE_TRANSFER` from `ADM_AGREEMENT_DEVICE_ALL`, filtering for active agreements with specific ranging and end date conditions, while excluding already processed transfers. It then iteratively updates these records within `ADM_AGREEMENT_DEVICE_TRANSFER` to establish detailed linkage information, such as matched dates, criteria, and the timing (days between) of successive agreements for the same device (IMEI), distinguishing between 'first' and 'next' agreements in a transfer chain. The procedure also includes logging of its operations and error handling.
+Populates and updates the `ADM_AGREEMENT_DEVICE_TRANSFER` table. It first inserts new device agreement transfer records from `ADM_AGREEMENT_DEVICE_ALL` that meet specific criteria, calculates an initial transfer rank, and then iteratively updates existing records in `ADM_AGREEMENT_DEVICE_TRANSFER` by linking sequential device agreements for the same IMEI. This linking process identifies 'first' and 'next' agreements, populating matching criteria and related agreement details.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_TRANSFER]]
+- ← [[ADM_AGREEMENT_DEVICE_TRANSFER]]
+| Column Name |
+|---|
+| PRODUCT_AGREEMENT_END_DATE |
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| IMEI |
+| TRANSFERE_RANK |
+| DEVICE_AGREEMENT_START_DATE |
+| DEVICE_AGREEMENT_END_DATE |
+| DEVICE_AGREEMENT_ID |
+| ORDER_CUSTOMER_SK_OWNER |
+| MATCH_IMEI |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_ALL]]
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_MARKET_PRODUCT |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_AGG_V]]
+| Column Name |
+|---|
+| DEV_AGREEMENT_KEY |
 
 ## Target Tables (Outputs)
 - → [[ADM_AGREEMENT_DEVICE_TRANSFER]]
+| Column Name |
+|---|
+| MATCHED_DATE |
+| MATCH_CRITERIA |
+| MATCH_IMEI |
+| FIRST_DAYS_BETWEEN_AGREEMENTS |
+| NEXT_DAYS_BETWEEN_AGREEMENTS |
+| FIRST_START_DATE |
+| NEXT_START_DATE |
+| FIRST_END_DATE |
+| NEXT_END_DATE |
+| FIRST_ROOT_AGREEMENT_KEY |
+| NEXT_ROOT_AGREEMENT_KEY |
+| FIRST_PRODUKT_AGREEMENT_ID |
+| NEXT_PRODUKT_AGREEMENT_ID |
+| FIRST_DEVICE_AGREEMENT_ID |
+| NEXT_DEVICE_AGREEMENT_ID |
+| FIRST_OWNER_SK |
+| NEXT_OWNER_SK |
+| TRANSFERE_RANK |
 

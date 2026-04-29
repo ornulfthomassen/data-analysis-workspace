@@ -3,15 +3,166 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `PP_GCP_MOBILE_ORDER_CHURN_SALES`, processes mobile order line sales data from a source table (`CLM_ADM.GCP_MOBILE_ORDER_LINE`) for a specified range of months. For each month, it first ensures that a corresponding partition exists in the main target table (`GCP_MOBILE_ORDER_CHURN_SALES`). It then categorizes the sales data into three types: 'Device Agreement' (DA), 'Personal Agreement' (PA), and 'Subscription' (S). For each sales type, it creates a dedicated temporary table, populates it with filtered and transformed data from the source table, gathers statistics on this temporary table, and finally exchanges the content of this temporary table with the respective subpartition within the `GCP_MOBILE_ORDER_CHURN_SALES` table. The procedure essentially loads and categorizes mobile sales order data into a partitioned target table.
+Populates the `CLM_ADM.GCP_MOBILE_ORDER_CHURN_SALES` table by processing mobile order line data from `CLM_ADM.GCP_MOBILE_ORDER_LINE`. It iteratively creates and populates temporary tables based on different agreement and subscription types (Device Agreement, Personal Agreement, Subscription) for a specified monthly range. Data from these temporary tables is then loaded into corresponding subpartitions of the main target table using partition exchange, followed by statistics gathering.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.GCP_MOBILE_ORDER_LINE]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+- ← [[DUAL]]
+- ← [[CLM_ADM.GCP_MOBILE_ORDER_LINE]]
+| Column Name |
+|---|
+| DL_SALES_CHANNEL_NAME3 |
+| DL_SOURCE_DEALER_ID |
+| HP_PRODUCT_NAME |
+| HP_PRODUCT_POID |
+| OC_ORDER_CATEGORY_NAME |
+| OD_DATE |
+| OL_AGREEMENT_SK |
+| OL_CUSTOMER_SK_OWNER |
+| OL_IMEI |
+| OL_KPI_NEWSALE |
+| OL_MAIN_NUMBER_SK |
+| OL_ORDER_DTTM |
+| OL_ORDER_KEY |
+| OL_ORDER_LINE_KEY |
+| OL_SOURCE_ORDER_ID |
+| OL_SOURCE_SYSTEM_KEY |
+| OL_SRC_AGREEMENT_OFFER_SK |
+| OL_SUBSCRIPTION_SK |
+| OL_TO_SERVICE_PROVIDER_SK |
+| ORDER_SOURCE |
+| OS_DATE |
+| OTD_ORDERLINE_TYPE_DESC |
+| P_PRODUCT_AREA |
+| P_PRODUCT_CATEGORY |
+| P_PRODUCT_GROUP |
+| P_PRODUCT_MARKET_NAME |
+| P_PRODUCT_NAME |
+| P_PRODUCT_POID |
+| P_PRODUCT_REPORTING |
+| PERIOD_MONTH_KEY |
+| STA_STATUS_CD |
+| TS_SERVICE_PROVIDER_GROUP |
+| TS_SERVICE_PROVIDER_NAME |
 
 ## Target Tables (Outputs)
-- → [[GCP_MOBILE_ORDER_CHURN_SALES]]
-- → [[TMP_ORDER_LINE_MOB_SALES_AGRM_DEVICE]]
-- → [[TMP_ORDER_LINE_MOB_SALES_AGRM_PERSONAL]]
-- → [[TMP_ORDER_LINE_MOB_SALES_SUBSCRIPTION]]
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_SALES_AGRM_DEVICE]]
+| Column Name |
+|---|
+| AGREEMENT_SK |
+| MAIN_NUMBER_SK |
+| ORDER_SALES_TYPE |
+| ORDER_SOURCE |
+| OWNER_SK |
+| PERIOD_MONTH_KEY |
+| SALES_CHANNEL_NAME3 |
+| SALES_DATE |
+| SALES_DTTM |
+| SALES_IMEI |
+| SALES_MAIN_PRODUCT_NAME |
+| SALES_MAIN_PRODUCT_POID |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDER_KEY |
+| SALES_ORDER_LINE_KEY |
+| SALES_ORDERLINE_TYPE_DESC |
+| SALES_PRODUCT_NAME |
+| SALES_PRODUCT_POID |
+| SALES_SERV_PROVIDER_GROUP |
+| SALES_SERV_PROVIDER_NAME |
+| SALES_SERV_PROVIDER_SK |
+| SALES_SOURCE_ORDER_ID |
+| SALES_STATUS_DATE |
+| SOURCE_DEALER_ID |
+| SRC_AGREEMENT_OFFER_SK |
+| SUBSCRIPTION_SK |
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_SALES_AGRM_PERSONAL]]
+| Column Name |
+|---|
+| AGREEMENT_SK |
+| MAIN_NUMBER_SK |
+| ORDER_SALES_TYPE |
+| ORDER_SOURCE |
+| OWNER_SK |
+| PERIOD_MONTH_KEY |
+| SALES_CHANNEL_NAME3 |
+| SALES_DATE |
+| SALES_DTTM |
+| SALES_IMEI |
+| SALES_MAIN_PRODUCT_NAME |
+| SALES_MAIN_PRODUCT_POID |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDER_KEY |
+| SALES_ORDER_LINE_KEY |
+| SALES_ORDERLINE_TYPE_DESC |
+| SALES_PRODUCT_NAME |
+| SALES_PRODUCT_POID |
+| SALES_SERV_PROVIDER_GROUP |
+| SALES_SERV_PROVIDER_NAME |
+| SALES_SERV_PROVIDER_SK |
+| SALES_SOURCE_ORDER_ID |
+| SALES_STATUS_DATE |
+| SOURCE_DEALER_ID |
+| SRC_AGREEMENT_OFFER_SK |
+| SUBSCRIPTION_SK |
+- → [[CLM_ADM.TMP_ORDER_LINE_MOB_SALES_SUBSCRIPTION]]
+| Column Name |
+|---|
+| AGREEMENT_SK |
+| MAIN_NUMBER_SK |
+| ORDER_SALES_TYPE |
+| ORDER_SOURCE |
+| OWNER_SK |
+| PERIOD_MONTH_KEY |
+| SALES_CHANNEL_NAME3 |
+| SALES_DATE |
+| SALES_DTTM |
+| SALES_IMEI |
+| SALES_MAIN_PRODUCT_NAME |
+| SALES_MAIN_PRODUCT_POID |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDER_KEY |
+| SALES_ORDER_LINE_KEY |
+| SALES_ORDERLINE_TYPE_DESC |
+| SALES_PRODUCT_NAME |
+| SALES_PRODUCT_POID |
+| SALES_SERV_PROVIDER_GROUP |
+| SALES_SERV_PROVIDER_NAME |
+| SALES_SERV_PROVIDER_SK |
+| SALES_SOURCE_ORDER_ID |
+| SALES_STATUS_DATE |
+| SOURCE_DEALER_ID |
+| SRC_AGREEMENT_OFFER_SK |
+| SUBSCRIPTION_SK |
+- → [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_SALES]]
+| Column Name |
+|---|
+| AGREEMENT_SK |
+| MAIN_NUMBER_SK |
+| ORDER_SALES_TYPE |
+| ORDER_SOURCE |
+| OWNER_SK |
+| PERIOD_MONTH_KEY |
+| SALES_CHANNEL_NAME3 |
+| SALES_DATE |
+| SALES_DTTM |
+| SALES_IMEI |
+| SALES_MAIN_PRODUCT_NAME |
+| SALES_MAIN_PRODUCT_POID |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDER_KEY |
+| SALES_ORDER_LINE_KEY |
+| SALES_ORDERLINE_TYPE_DESC |
+| SALES_PRODUCT_NAME |
+| SALES_PRODUCT_POID |
+| SALES_SERV_PROVIDER_GROUP |
+| SALES_SERV_PROVIDER_NAME |
+| SALES_SERV_PROVIDER_SK |
+| SALES_SOURCE_ORDER_ID |
+| SALES_STATUS_DATE |
+| SOURCE_DEALER_ID |
+| SRC_AGREEMENT_OFFER_SK |
+| SUBSCRIPTION_SK |
 

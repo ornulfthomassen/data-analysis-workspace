@@ -3,8 +3,15 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view denormalizes role-based user assignments for 'SubPlan' objects. It pivots rows containing user IDs and display names for specific roles ('CON-PL', 'CON-KAM', 'NP-FIBER', 'NR-SM') associated with a 'SubPlan' into distinct columns, providing a wide format where each SubPlan's roles and their corresponding user/display names are presented on a single row.
+Pivots user IDs and display names from the `KAPAKS.SSE_OBJECTROLE` table, specifically for roles associated with 'SubPlan' objects, transforming multiple role entries into distinct columns for each role (e.g., 'CON-PL', 'CON-KAM', 'NP-FIBER', 'NR-SM'). This provides a consolidated, wide view of subplan roles.
 
 ## Data Sources (Inputs)
 - ← [[KAPAKS.SSE_OBJECTROLE]]
+| Column Name |
+|---|
+| OBJECTID |
+| ROLENAME |
+| USERID |
+| DISPLAYNAME |
+| OBJECTTYPE |
 

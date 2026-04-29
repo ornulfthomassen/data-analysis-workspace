@@ -3,8 +3,86 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named DELORDER_LINE_DETAIL_FACT_VA_V, serves as a direct projection of the `order_line_Detail_fact_mv` materialized view. Its primary purpose is to expose detailed, factual information about individual order lines for analytical and reporting needs within the CRM_ANALYSE schema. It includes various keys for joining with dimension tables (e.g., ORDER_KEY, PRODUCT_CATEGORY_KEY, CUSTOMER_KEY, etc.) and specific measures (KPIs) related to sales activities (e.g., KPI_NEWSALE, KPI_TERMINATION, KPI_GROSS_SALE). Some character columns are explicitly cast to specific lengths.
+This view, DELORDER_LINE_DETAIL_FACT_VA_V, serves as a detailed fact view for order lines, directly exposing a comprehensive set of order-related attributes from the underlying 'order_line_Detail_fact_mv' materialized view. It primarily acts as a pass-through, with some columns undergoing explicit casting for data type consistency or display formatting.
 
 ## Data Sources (Inputs)
 - ← [[galaxy.order_line_Detail_fact_mv]]
+| Column Name |
+|---|
+| order_line_id |
+| order_key |
+| order_line_key |
+| SALES_ORDER_INDICATOR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_PRODUCT_KEY |
+| BINDED_PRODUCT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| ORDERING_DT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| ACCOUNT_KEY |
+| ORDER_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| USER2_CUSTOMER_KEY |
+| SUBSCR_OWNER_LOC_KEY |
+| SUBSCR_USER_LOC_KEY |
+| SUBSCR_USER2_LOC_KEY |
+| ORDER_PROCESS_TYPE_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| SALES_TYPE_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| HANDSET_KEY |
+| ORDER_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_STATUS_TIME_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| CAMPAIGN_REF_KEY |
+| CAMPAIGN_REF_TTC |
+| CAMPAIGN_COMMUNICATION_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_CHANNEL_KEY |
+| CAMPAIGN_REF_SOURCE_SYSTEM_ID |
+| SOURCE_ORDERING_ID |
+| RESOURCE_VALUE |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| SOURCE_ORDER_ID |
+| NUMBER_OF_ORDERS |
+| NUMBER_OF_ORDER_LINES |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_GROSS_SALE |
+| CAMPAIGN_DATE_KEY |
+| CAMPAIGN_TREATMENT_KEY |
+| CUSTOMER_EVENT_ID |
+| NO_B_CHANNEL |
 

@@ -3,9 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Calculates the total number of contracts, total swap events, and specific types of swap events (identified by 'D' and 'V' swap codes), along with the percentage of total swap events relative to total contracts. The metrics are aggregated and presented for each unique combination of cohort, channel, and business segment within specific accounting months and years.
+Calculates various swap event metrics, including total swaps, specific 'D' and 'V' type swaps, and the percentage of total contracts that are swapped. These metrics are grouped by cohort, channel, business segment, and accounting period.
 
 ## Data Sources (Inputs)
 - ← [[IFRS15.SWAP_REP_NUM_CONTRACTS_V]]
+| Column Name |
+|---|
+| COHORT |
+| CHANNEL |
+| BUSINESS_SEGMENT |
+| NUM_CONTRACTS |
+| ACCOUNTING_MONTH |
+| ACCOUNTING_YEAR |
 - ← [[IFRS15.SWAP_REP_NUM_SWAP_EVENTS_V]]
+| Column Name |
+|---|
+| NUMBER_OF_SWAPEVENTS |
+| CHANNEL |
+| COHORT |
+| BUSINESS_SEGMENT |
+| ACCOUNTING_MONTH |
+| ACCOUNTING_YEAR |
+| SWAP_CODE |
 

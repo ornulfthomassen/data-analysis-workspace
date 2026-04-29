@@ -3,16 +3,104 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named GCP_TM_REPORTING, is designed to provide comprehensive Telemarketing (TM) data for reporting purposes, particularly for Google Cloud Platform (GCP) Looker. It consolidates information from various call center and customer management systems to offer a detailed overview of customer interactions, campaign performance, agent activities, call outcomes (e.g., attempts, contacts, SMS status), and call durations. It tracks historical data up to 365 days prior and includes derived indicators for expired records, different types of attempts (voice, SMS), callbacks, and call types (inbound/manual).
+Provides Telemarketing (TM) data for reporting in Google Cloud Platform (GCP) Looker, combining account lists, contact event details, agent information, inbound call data, and various calculated metrics for comprehensive analysis of campaign performance and customer interactions.
 
 ## Data Sources (Inputs)
 - ← [[TM_DIALER_C.USERSDVAUDIT]]
+| Column Name |
+|---|
+| USER_ID |
+| EMAILADDRESS |
+| CREATEDT |
 - ← [[TM_DIALER_C.CQ_DISPOSITION]]
+| Column Name |
+|---|
+| STATUS_CODE |
+| NAME |
+| REPORT_AS_ATTEMPT |
+| REPORT_AS_CONTACT |
 - ← [[CLM_CCM.CCM_TM_ACNT_LIST_UPD_V]]
+| Column Name |
+|---|
+| ACCOUNTNR |
+| NEW_EXPIRY_DTTM |
+| UPDATED_DTTM |
+| NEW_ANI |
+| UPDATE_DESC |
 - ← [[TM_DIALER_C.ACDCALLDETAIL]]
+| Column Name |
+|---|
+| ANI |
+| CALLSTARTDT |
+| USER_ID |
+| SERVICE_ID |
 - ← [[TM_DIALER_C.SERVICEDVAUDIT]]
+| Column Name |
+|---|
+| SERVICE_ID |
+| SERVICE_C |
 - ← [[TM_DIALER_C.MANUALCALLDETAIL]]
+| Column Name |
+|---|
+| SEQNUM |
+| SERVICE_ID |
+| CALLSTARTDT |
 - ← [[TM_DIALER_C.A_VIA_CUST_ACCOUNT_LIST]]
+| Column Name |
+|---|
+| ACCOUNTNR |
+| CAMPAIGN_CD |
+| COMMUNICATION_CD |
+| OCCURENCE_ID |
+| CELL_PACKAGE_SK |
+| RESP_TRACKING_CD |
+| SEGMENT_MAP_CODE |
+| TASK_CODE |
+| TASK_OCCURRENCE_NUMBER |
+| RESPONSE_TRACKING_CD |
+| STRATEGY_NAME |
+| TEAM |
+| SEGMENT_FILTER |
+| INSERT_DTTM |
+| ORIGINAL_EXPIRY_DTTM |
+| KURT_ID |
 - ← [[TM_DIALER_C.CL_CONTACT_EVENT]]
+| Column Name |
+|---|
+| ACCOUNT_NUMBER |
+| RESPONSE_STATUS |
+| CONTACT_CHANNEL |
+| OV_TRUNK_RELEASED_TIME |
+| OV_CALL_CONNECTED_TIME |
+| RECORD_RELEASED_TIME |
+| OV_NUMBER_TO_CALLBACK |
+| OV_TIME_TO_CALLBACK |
+| TIME_OF_CONTACT |
+| OV_PHONE_NUMBER |
+| SEQNUM |
+| AGENT_EMAIL |
+| OV_DIAL_COMPLETE_TIME |
+| OV_DIAL_START_TIME |
+| WORKGROUP_NAME |
+| DIALER_TARGET_NAME |
+| LIST_TEMPLATE_NAME |
+| TARGET_TEMPLATE_NAME |
+| DIALER_DISPOSITION |
+| COUNTER_TEMPLATE_NAME |
+| CALL_TYPE |
+| SMS_MESSAGE_SENT |
+| CALLERID |
+| SERVICE_ID |
+| CALLID |
+| CALLSTARTDATE |
+| SWITCH_RESPONSE_STATUS |
+| NUMBER_OF_RINGS |
+| RINGS_DURATION |
+| UMID |
+| DIAL_MODE |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| KURT_ID |
 

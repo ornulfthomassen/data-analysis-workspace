@@ -3,16 +3,174 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This view provides an enriched and comprehensive dataset of mobile order line details, incorporating various dimensions and calculating key performance indicators (KPIs). It specifically focuses on mobile telecommunications by filtering on a specific business area (Mobile), market areas, and source systems, and only includes recent order activity from the beginning of the previous year. The view enriches order line data with product details (from and to products), sales matrix categorization, device swapping information, regret order details, customer segmentation (MAP2, CLMLS), and mobile agreement product details (e.g., for data bonuses). It calculates specific KPIs for newsales, porting, terminations, and gross sales, often differentiating between 'Speech' (Mobil Telefoni) and 'MBB' (Mobil Bredbånd/Datakort) product areas, serving as a consolidated analytical layer for mobile order line activities.
+This view enriches mobile order line details by integrating product, customer segmentation, device agreement, and other related dimensional data, while also calculating various key performance indicators (KPIs) and derived attributes for analysis of mobile sales, porting, and terminations. It filters for mobile-specific orders from particular source systems within a defined historical period.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| ORDER_CATEGORY_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_PRODUCT_KEY |
+| BINDED_PRODUCT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| ORDERING_DT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| TO_ORDER_PRODUCT_KEY |
+| PRODUCT_CHANGE_FLAG |
+| ACCOUNT_KEY |
+| ORDER_SUBSCR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_PRIM_PROD_KEY |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| SUBSCR_OWNER_LOC_KEY |
+| SUBSCR_USER_LOC_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| HANDSET_KEY |
+| ORDER_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_STATUS_TIME_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| CAMPAIGN_REF_KEY |
+| CAMPAIGN_REF_TTC |
+| CAMPAIGN_COMMUNICATION_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_CHANNEL_KEY |
+| CAMPAIGN_REF_SOURCE_SYSTEM_ID |
+| SOURCE_ORDERING_ID |
+| RESOURCE_VALUE |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| SOURCE_ORDER_ID |
+| NUMBER_OF_ORDERS |
+| NUMBER_OF_ORDER_LINES |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_SUBSCRIPTION_TERMINATION |
+| KPI_GROSS_SALE |
+| KPI_INTERNAL_CHURN |
+| CAMPAIGN_DATE_KEY |
+| CAMPAIGN_TREATMENT_KEY |
+| CUSTOMER_EVENT_ID |
+| SOURCE_CUST_ORDER_REF |
+| SOURCE_PROJECT_REF |
+| DEVICE_AGREEMENT_KEY |
+| NUMBER_OF_LICENSES |
+| NUMBER_OF_LICENSES_NET_CHANGE |
+| NRPORT_DEALER_ID |
+| SWAP_AGREE_PRODUCT_KEY |
+| SWAP_AGREE_VALID_FROM_DT_KEY |
+| SWAP_AGREE_VALID_TO_DT_KEY |
+| TERMINATION_REASON_KEY |
+| COMMISSION_GROUP_TYPE_KEY |
+| SD_AGREEMENT_KEY |
+| DATASTEP_GB |
+| DATASTEP_PRICE |
+| DEVICE_PRODUCT_AGREE_OFFER_ID |
 - ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| ORDER_LINE_PRODUCT_KEY |
+| TK_INCOME_SERVICE |
+| PRODUCT_PAYTYPE |
+| TK_PRODUCT_RANK |
+| PRODUCT_BRAND |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| PRIMARY_PRODUCT_FLAG |
 - ← [[GALAXY.FROM_ORDER_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| FROM_ORDER_PRODUCT_KEY |
+| PRODUCT_PAYTYPE |
+| TK_PRODUCT_RANK |
+| PRODUCT_BRAND |
 - ← [[GALAXY.ORDER_NEWSALE_SWAP_V]]
+| Column Name |
+|---|
+| ORDER_KEY |
+| SWAP_NEWSALE_FLAG |
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_REGRET_V]]
+| Column Name |
+|---|
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| REGRET_ORDER_KEY |
+| PREV_ORDER_DT_KEY |
+| PREV_ORDER_TIME_KEY |
+| PREV_ORDER_STATUS_DT_KEY |
+| PREV_ORDER_STATUS_TIME_KEY |
+| PREV_ORDER_PRODUCT_KEY |
+| PREV_ORDER_DAYS |
+| PREV_ORDER_STATUS_DAYS |
+| PREV_ORDER_CATEGORY_KEY |
+| PREV_ORDER_DEALER_KEY |
+| PREV_ORDER_SP_FROM_KEY |
 - ← [[CCDW_SEGMENT.CUSTOMER_SEGMENT_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| MODEL_ID |
+| START_DATE |
+| END_DATE |
+| SEGMENT_ID |
 - ← [[GALAXY.SEGMENT_DIM]]
+| Column Name |
+|---|
+| SEGMENT_ID |
+| SEGMENT_MODEL_ID |
+| SEGMENT_KEY |
 - ← [[CCDW.DEVICE_AGREE_SWAPPING_MV]]
+| Column Name |
+|---|
+| DEVICE_AGREEMENT_ID |
+| SWAP_AGREEMENT_OFFER_TO_ID |
+| SWAP_AGREE_PROD_OFFER_FROM_ID |
+| SWAP_FROM_VALID_FROM_DATE |
+| SWAP_FROM_VALID_TO_DATE |
+| SWAP_AGREE_PROD_OFFER_TO_ID |
+| SWAP_TO_VALID_FROM_DATE |
+| SWAP_TO_VALID_TO_DATE |
 - ← [[CCDW.AGREEMENT_PRODUCT_MOB_SD_MV]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| VALID_FROM_DATE |
+| VALID_TO_DATE_ODB |
+| SB_PRODUCT_BUCKET_SIZE |
 

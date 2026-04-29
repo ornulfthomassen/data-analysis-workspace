@@ -3,10 +3,46 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides an enriched and consolidated view of subscribed products. It combines core subscription details (like IDs, dates, fees, and resource values) from the `SUBSCRIBED_PRODUCT` table with product descriptive information (`GALAXY_PROD_NAME`) from `GALAXY.PRODUCT_DIM` and product type configuration details (`PRODUCT_NAME`, `DESCRIPTION`) from `CLM_CCM.CCM_PRODUCT_TYPE_CONFIG`. The view serves to present a comprehensive snapshot of subscriptions with expanded product context for analysis.
+Enriches subscribed product information by joining subscription details with product dimensions and product type configurations.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| SUBSCRIPTION_ID |
+| RESOURCE_VALUE |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_CATEGORY_ID |
+| SOURCE_SYSTEM_ID |
+| BUSINESS_AREA_ID |
+| START_DATE |
+| END_DATE |
+| INFO_CHG_DATE |
+| RUN_ID |
+| SEQ_ID |
+| BINDING_START_DATE |
+| BINDING_END_DATE |
+| TERMINATION_FIXED_FEE |
+| TERMINATION_MONTH_FEE |
+| SYSTEM_COMPONENT_ID |
+| COMOYO_USER_ID |
+| BSB_AGREEMENT_ID |
+| BSB_AGREE_PRODUCT_OFFER_ID |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| ID |
+| PRODUCT_NAME |
+| PARENT |
+- ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| ID |
+| DESCRIPTION |
 

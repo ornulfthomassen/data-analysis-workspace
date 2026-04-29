@@ -3,8 +3,42 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'KIM_TREATMENT_HANDSET_DIM_V', serves as a dimension table providing a comprehensive set of handset characteristics for analytical purposes, likely within a CRM context. It projects all columns from its source view, 'KIM_HANDSET_DIM_V', renaming the 'HANDSET_KEY' column to 'KIM_TREATMENT_HANDSET_KEY'. Essentially, it offers a slightly customized or aliased version of the base handset dimension for specific 'KIM Treatment' analysis.
+Creates a dimension view named KIM_TREATMENT_HANDSET_DIM_V by directly selecting columns from the CRM_ANALYSE.KIM_HANDSET_DIM_V source view, with one column (HANDSET_KEY) being aliased to KIM_TREATMENT_HANDSET_KEY.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_HANDSET_DIM_V]]
+| Column Name |
+|---|
+| BAND_SUPPORTED |
+| BLUETOOTH_INTERFACE |
+| BLUETOOTH_VERSION |
+| CAMERA_INFO |
+| DESIGNATION_TYPE |
+| DEVICE_CATEGORY |
+| DISPLAY_SIZE |
+| EDGE |
+| EQ_FLAG |
+| FAC_ID |
+| FIRST_USED_DATE |
+| GPRS |
+| HANDSET_KEY |
+| HANDSET_TYPE |
+| HD_VOICE |
+| HSDPA |
+| HSDPA_MAX_DATA_RATE |
+| HSUPA_MAX_DATA_RATE |
+| IPV6 |
+| LTE |
+| LTE_BAND |
+| M2M |
+| MANUFACTURER |
+| MARKETING_NAME |
+| MODEL_FAMILY |
+| NFC |
+| NFC_UICC_SECURE_ELEMENT |
+| OS_INFO |
+| SIM_TYPE |
+| TOUCH_SCREEN |
+| UMTS |
+| WLAN |
 

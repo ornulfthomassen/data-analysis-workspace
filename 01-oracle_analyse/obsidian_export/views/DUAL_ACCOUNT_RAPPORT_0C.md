@@ -3,12 +3,41 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Identifies 'dual accounts' by linking subscriptions in the 'CM' system with user information (FIM_USER, FIM_USER_PHONES) and user services data (USER_SERVICES_PHONES) in the 'COMOYO' system. Specifically, it flags accounts where a phone number (MSISDN) associated with a 'Connect ID' in the CM system is either unverified or lacks a verification timestamp in the FIM_USER_PHONES system, while also appearing in the USER_SERVICES_PHONES for the same Connect ID. The purpose is to report on phone numbers linked to a Connect ID that are either unverified or have missing verification timestamps across different systems, indicating potential data inconsistencies or security concerns related to verification status.
+This view identifies 'dual accounts' or inconsistencies in phone number verification status across different systems (CM, TD, US) for subscribers. It specifically targets phone numbers associated with a 'Connect ID' (CID) that are either unverified or lack a verification timestamp. It achieves this by linking subscriber data from CM, user information from Comoyo FIM (TD), and user service phone details from Comoyo (US), ensuring the same phone number and Connect ID are present in all linked systems.
 
 ## Data Sources (Inputs)
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| DIRECTORY_NUMBER_ID |
+| SUBSCR_VALID_FROM_DATE |
+| INFO_IS_DELETED |
+| SUBSCR_VALID_TO_DATE |
 - ← [[CM.SUBSCRIBED_OFFER_CONFIGURATION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| PARAMETER_VALUE |
+| PARAMETER_ID |
+| VALID_TO_DATE |
+| INFO_IS_DELETED |
+| VALID_FROM_DATE |
 - ← [[COMOYO.FIM_USER]]
+| Column Name |
+|---|
+| USER_ID |
 - ← [[COMOYO.FIM_USER_PHONES]]
+| Column Name |
+|---|
+| USER_ID |
+| PH_MSISDN |
+| PH_VERIFIED |
+| PH_VERIFICATION_TIME |
 - ← [[COMOYO.USER_SERVICES_PHONES]]
+| Column Name |
+|---|
+| USER_ID |
+| FILE_DATE |
+| PHONES |
 

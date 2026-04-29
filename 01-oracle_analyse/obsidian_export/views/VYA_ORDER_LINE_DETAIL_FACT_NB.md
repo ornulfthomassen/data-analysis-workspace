@@ -3,12 +3,44 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to identify and construct detailed order line fact records for 'Nettbutikken' (webshop) device sales that are *not* already present in the main `ORDER_LINE_DETAIL_FACT_MV` table. It synthesizes these records by taking device delivery information from `VYA_INSIGHT_DEVICE_FROM_NB`, populating many order-related fields with default, hardcoded, or derived values, and marking them as 'new sales' of devices. Its primary purpose is to ensure all webshop device sales, especially those without traditional order entries, are included in the overall order line detail data.
+Creates a detailed fact view for order lines, specifically for 'Nettbutikken' (webshop) device sales. This view includes sales that do not have existing order entries in `ORDER_LINE_DETAIL_FACT_MV`. It enriches device delivery details with dimensional data for dates and dealers, leveraging a temporary device dimension for efficient lookups.
 
 ## Data Sources (Inputs)
 - ← [[CCM.VYA_INSIGHT_DEVICE_FROM_NB]]
+| Column Name |
+|---|
+| IMEI_FULL |
+| HANDSET_KEY |
+| HANDSET_DELIVERED_DATE |
+| HANDSET_DELIVERED_DTTM |
+| IMEI_USE |
 - ← [[GALAXY.DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| SOURCE_DEVICE_ID |
 - ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| IMEI |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| WEEK_NUMBER |
+| RELATIVE_WEEK |
+| MONTH_NUMBER |
+| RELATIVE_MONTH |
+| YEAR |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR_QUARTER_NUMBER |
+| DATE_KEY |
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| START_DT_KEY |
+| END_DT_KEY |
+| SOURCE_DEALER_ID |
 

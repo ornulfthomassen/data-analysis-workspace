@@ -3,16 +3,69 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure aggregates customer application usage data for a specified month (P_YYYYMM). It first performs status checks on source data. If sources are valid, it creates or ensures the existence of a partition in the main target table, `ADM_CUSTOMER_APP_USAGE_AGG`, for the given month. It then populates a temporary staging table, `TMP_CUSTOMER_APP_USAGE_AGG`, with aggregated data by joining several source tables. Finally, it uses an `EXCHANGE PARTITION` operation to efficiently swap the contents of the temporary table into the corresponding partition of the permanent `ADM_CUSTOMER_APP_USAGE_AGG` table, effectively loading the aggregated data.
+Aggregates customer application usage data for a specified month (YYYYMM), performs source data validation, and then populates or updates a partition in the 'ADM_CUSTOMER_APP_USAGE_AGG' table using a temporary table and partition exchange.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_MONTH_DIM_V]]
-- ← [[CCDW_CUSTOMER_EVENT.CUSTOMER_EVENT_DETAIL]]
-- ← [[CCDW_CUSTOMER_EVENT.EVENT_MEDIUM]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
+- ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE_KEY |
+| FIRST_DATE_KEY |
+- ← [[CCDW_CUSTOMER_EVENT.CUSTOMER_EVENT_DETAIL]]
+| Column Name |
+|---|
+| NUMBER_OF_EVENTS |
+| EVENT_DATE_ID |
+| SOURCE_SYSTEM_ID |
+| EVENT_MEDIUM_ID |
+| KURT_ID_EVENT |
+| EVENT_TYPE_ID |
+- ← [[CCDW_CUSTOMER_EVENT.EVENT_MEDIUM]]
+| Column Name |
+|---|
+| EVENT_MEDIUM_ID |
+| SOURCE_SYSTEM_ID |
+| EVENT_MEDIUM_DESC |
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
+- ← [[ADM_CUSTOMER_APP_USAGE_AGG]]
 
 ## Target Tables (Outputs)
-- → [[ADM_CUSTOMER_APP_USAGE_AGG]]
 - → [[TMP_CUSTOMER_APP_USAGE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| EVENT_MEDIUM_ID |
+| NUMBER_OF_EVENT_DATES |
+| NUMBER_OF_EVENT_TYPES |
+| NUMBER_OF_EVENTS |
+| FIRST_EVENT_DATE_KEY |
+| LAST_EVENT_DATE_KEY |
+| GET_INVOICE_EVENTS |
+| DEFERE_INVOICE_EVENTS |
+| EVENT_MEDIUM_DESC |
+- → [[ADM_CUSTOMER_APP_USAGE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| EVENT_MEDIUM_ID |
+| NUMBER_OF_EVENT_DATES |
+| NUMBER_OF_EVENT_TYPES |
+| NUMBER_OF_EVENTS |
+| FIRST_EVENT_DATE_KEY |
+| LAST_EVENT_DATE_KEY |
+| GET_INVOICE_EVENTS |
+| DEFERE_INVOICE_EVENTS |
+| EVENT_MEDIUM_DESC |
 

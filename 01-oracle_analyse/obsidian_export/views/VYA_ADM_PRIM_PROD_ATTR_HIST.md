@@ -3,8 +3,52 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a historical view of primary product attributes, standardizing data types for various product-related details such as identification keys, names, descriptions, start/end dates, source system information, brand, payment, technology, product area, category, group, reporting, portfolio, service, family, fees, included usage (minutes, SMS, MMS, MB), pricing after included usage, maximum monthly charge, and bandwidth details.
+Creates a historical view of primary product attributes by selecting and casting data from the `ADM_PRODUCT_ATTRIBUTE_HIST` table, primarily converting various data types to fixed-length character strings for consistency and analytical use.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_ATTRIBUTE_KEY |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| SOURCE_SYSTEM_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_PRODUCT_ID_2 |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+| PRODUCT_FAMILY_NAME |
+| DRM_COMMON_PORTFOLIO |
+| PRODUCT_FAMILY |
+| DRM_COMMON_SERVICE |
+| STARTUP_FEE |
+| MONTHLY_FEE |
+| PRICE_VAT_DESC |
+| INCLUDED_MINUTES |
+| PRICE_MIN_AFTER_INCLUDED |
+| INCLUDED_SMS |
+| PRICE_SMS_AFTER_INCLUDED |
+| INCLUDED_MMS |
+| PRICE_MMS_AFTER_INCLUDED |
+| INCLUDED_MB |
+| PRICE_MB_AFTER_INCLUDED |
+| MAX_MONTHLY_CHARGE_MB |
+| BAUD_UPLOAD_MBPS |
+| BAUD_DOWNLOAD_MBPS |
+| BAUD_REDUCTION_QUOTA_MB |
+| START_DATE |
+| END_DATE |
+| CURRENT_STATUS |
+| VERSION |
+| TK_PRODUCT_RANK |
+| PRODUCT_TYPE_ID |
+| PRODUCT_TYPE |
 

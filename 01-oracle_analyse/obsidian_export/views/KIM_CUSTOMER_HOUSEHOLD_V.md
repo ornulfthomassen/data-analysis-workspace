@@ -3,9 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Creates a view that combines customer household and customer IDs from the 'CCM_CUSTOMER' table with an additional placeholder row where both IDs are -1. This placeholder row is often used to represent a 'None' or 'Not Applicable' option in user interfaces.
+Provides a combined dataset of customer household and customer IDs, including a default entry where both IDs are -1, unioned with actual household and customer IDs from the CLM_CCM.CCM_CUSTOMER table.
 
 ## Data Sources (Inputs)
-- ← [[DUAL]]
 - ← [[CLM_CCM.CCM_CUSTOMER]]
+| Column Name |
+|---|
+| HOUSEHOLD_ID |
+| KURT_ID |
 

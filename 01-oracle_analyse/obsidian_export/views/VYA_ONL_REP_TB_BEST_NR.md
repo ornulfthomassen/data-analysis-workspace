@@ -3,9 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves agreement order IDs and corresponding sales IDs for orders placed through the 'Telenorbutikken' sales channel, ensuring the sales ID is a valid number. It casts the agreement order ID to a VARCHAR2 string and the sales ID to a number.
+Extracts agreement order identifiers and numerically validated sales identifiers from the 'ONL_REP.AGREEMENT_ORDER' table. It filters these records to include only those associated with the 'Telenorbutikken' sales channel, determined by joining with the 'GALAXY.DEALER_DIM' table.
 
 ## Data Sources (Inputs)
 - ← [[ONL_REP.AGREEMENT_ORDER]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| SALES_ID |
+| DEALER_ID |
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| SOURCE_DEALER_ID |
+| DRM_SALES_CHANNEL_GEN03_DESC |
 

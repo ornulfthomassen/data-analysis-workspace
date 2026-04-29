@@ -3,19 +3,80 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named 'V_CHURN_DSL', is designed for churn analysis, likely focusing on Digital Subscriber Line (DSL) or similar telecommunication services. It aggregates the total number of order lines (`NUMBER_OF_ORDER_LINES`) for specific products that are associated with termination, cancellation, or resale activities. The view joins a central `ORDER_DETAIL_FACT_V` table with numerous dimension tables (date, subscription, user, product, order indicators, order status, product category, owner, market area) to provide detailed contextual information for each aggregated record. Filters are applied to include specific product names (identified by numerical codes), customer order types (primarily 'OPPSIGELSE' - termination/cancellation, and 'VIDERESALG' - resale), an 'OPPSAGT' (cancelled/terminated) order action type, and an 'OPPDATERT' (updated) order status. It also excludes a specific product category ('FIBSVB') and certain business classifications, while restricting data to 'PRIVAT' (private) and 'PRIVAT BEDRIFT' (private business) market areas. The output provides a granular breakdown of these terminated/resale order lines by day, week, month, main number, user, product, and various order status and indicator descriptions.
+This view aggregates order line data to identify and analyze customer churn activities related to specific DSL (Digital Subscriber Line) products. It filters for particular order types (cancellation, resale), order actions ('CANCELED'), and order statuses ('UPDATED'), excluding certain product categories and customer classifications, for private and business market areas. The view calculates the total number of order lines for these churn-related events, grouped by various time dimensions, main number, user customer key, product details, and order indicators.
 
 ## Data Sources (Inputs)
-- ← [[GALAXY.ORDER_STATUS_DT_DIM_V]]
-- ← [[GALAXY.SUBSCRIPTION_DIM_MV]]
-- ← [[GALAXY.SUBSCR_USER_DIM_V]]
-- ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
-- ← [[GALAXY.SALES_ORDER_INDICATOR_DIM_MV]]
-- ← [[GALAXY.ORDER_STATUS_DIM_MV]]
-- ← [[GALAXY.ORDER_STATUS_REASON_DIM_V]]
-- ← [[GALAXY.ORDER_DETAIL_FACT_V]]
-- ← [[GALAXY.PRODUCT_CATEGORY_DIM_MV]]
-- ← [[GALAXY.COUNTERPART_OWNER_DIM_V]]
-- ← [[GALAXY.MARKET_AREA_DIM]]
-- ← [[GALAXY.SUBSCR_OWNER_DIM_V]]
+- ← [[ORDER_STATUS_DT_DIM_V]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| ORDER_STATUS_DT_KEY |
+- ← [[SUBSCRIPTION_DIM_MV]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCRIPTION_KEY |
+- ← [[SUBSCR_USER_DIM_V]]
+| Column Name |
+|---|
+| USER_CUSTOMER_KEY |
+- ← [[ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| ORDER_LINE_PRODUCT_KEY |
+- ← [[SALES_ORDER_INDICATOR_DIM_MV]]
+| Column Name |
+|---|
+| CUSTOMER_ORDER_TYPE_DESC |
+| ORDER_ACTION_TYPE_DESC |
+| ORDER_ACTION_REASON_DESC |
+| SALES_ORDER_INDICATOR_KEY |
+- ← [[ORDER_STATUS_DIM_MV]]
+| Column Name |
+|---|
+| ORDER_STATUS_NAME |
+| ORDER_STATUS_KEY |
+- ← [[ORDER_STATUS_REASON_DIM_V]]
+| Column Name |
+|---|
+| ORDER_STATUS_REASON_DESC |
+| ORDER_STATUS_REASON_KEY |
+- ← [[ORDER_DETAIL_FACT_V]]
+| Column Name |
+|---|
+| NUMBER_OF_ORDER_LINES |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| ORDER_STATUS_DT_KEY |
+| PRODUCT_CATEGORY_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| MARKET_AREA_KEY |
+| USER_CUSTOMER_KEY |
+| ORDER_SUBSCR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| OWNER_CUSTOMER_KEY |
+- ← [[PRODUCT_CATEGORY_DIM_MV]]
+| Column Name |
+|---|
+| PRODUCT_CATEGORY_KEY |
+| PRODUCT_CATEGORY_NAME |
+- ← [[COUNTERPART_OWNER_DIM_V]]
+| Column Name |
+|---|
+| COUNTERPART_KEY |
+| CP_CLASSIFICATION_DESC |
+- ← [[MARKET_AREA_DIM]]
+| Column Name |
+|---|
+| MARKET_AREA_KEY |
+| MARKET_AREA_DESC |
+- ← [[SUBSCR_OWNER_DIM_V]]
+| Column Name |
+|---|
+| OWNER_CUSTOMER_KEY |
+| OWNER_COUNTERPART_KEY |
 

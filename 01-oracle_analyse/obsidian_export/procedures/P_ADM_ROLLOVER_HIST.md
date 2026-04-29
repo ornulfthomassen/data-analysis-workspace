@@ -3,25 +3,217 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The `P_ADM_ROLLOVER_HIST` procedure processes and loads historical rollover unit data for a given month (`P_YYYYMM`). It performs a multi-stage ETL (Extract, Transform, Load) process:
-1.  **Raw Data Loading**: It first extracts raw rollover unit data from `OCS.OCS_FREE_UNITS` and `CLM_ADM.ADM_MONTH_DIM` (with specific exclusions) into a temporary table (`TMP_ROLLOVER_HIST_RAW`), which is then exchanged into a partition of the permanent `ADM_ROLLOVER_HIST_RAW` table.
-2.  **Historical Data Transformation**: It then transforms this raw data by joining it with other dimension tables (`PCAT.COMPONENT`, `CCDW.SUBSCRIPTION_MAPPING`, `CM.SUBSCRIPTION_OFFER_INCENTIVE`) and performing calculations. The results are loaded into another temporary table (`TMP_ROLLOVER_HIST`), which is then exchanged into a partition of the permanent `ADM_ROLLOVER_HIST` table.
-3.  **Monthly Summary Generation**: If the processing month is the previous month, it calculates and stores aggregated rollover balances for the current, previous, and two months prior (three months in total) into a permanent summary table named `ADM_ROLLOVER_LAST`. This involves dropping and recreating the `ADM_ROLLOVER_LAST` table.
+This Oracle SQL procedure (`P_ADM_ROLLOVER_HIST`) is responsible for processing and aggregating monthly free unit and rollover balance data. It populates two main historical tables, `CLM_ADM.ADM_ROLLOVER_HIST_RAW` (raw historical data) and `CLM_ADM.ADM_ROLLOVER_HIST` (processed historical data), using an 'exchange partition' strategy. Additionally, for the most recent month, it creates or recreates a summary table `CLM_ADM.ADM_ROLLOVER_LAST` that contains aggregated rollover balances from the last three months, derived from `CLM_ADM.ADM_ROLLOVER_HIST`.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| LAST_DATE_KEY |
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
+| RELATIVE_MONTH |
 - ← [[OCS.OCS_FREE_UNITS]]
-- ← [[CLM_ADM.ADM_ROLLOVER_HIST_RAW]]
+| Column Name |
+|---|
+| FILE_DTTM |
+| SEQ_ID |
+| FILE_NAME |
+| SUBSCRIBER_KEY |
+| SUB_GROUP_KEY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_ID |
+| FREE_UNIT_OWNER_TYPE |
+| FREE_UNIT_ADD_OWNER_TYPE |
+| FREE_UNIT_TYPE_ID |
+| RENEWAL_POLICY_ID |
+| RENEWAL_FLAG |
+| ORIGIN_TYPE |
+| ORIGIN_ID |
+| INITIAL_TYPE |
+| INITIAL_ID |
+| INITIAL_FREE_UNIT_ID |
+| INIT_BALANCE |
+| RESERVE_AMOUNT |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+| EXP_DATE |
+| EFF_DATE |
+| PAY_OFFERING_METHOD |
+| PRE_BC_AMOUNT |
+| CREATE_DATE |
+| PPRE_BC_AMOUNT |
+| TARIFF_CODE |
+| LAST_UPDATE_TIME |
+| C_GATEVALUE1 |
+| C_GATEVALUE2 |
+| RUN_ID |
+| LOAD_DTTM |
 - ← [[PCAT.COMPONENT]]
+| Column Name |
+|---|
+| SYSTEM_COMPONENT_ID |
+| SYSTEM_COMPONENT_TYPE |
+| NAME |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[CM.SUBSCRIPTION_OFFER_INCENTIVE]]
-- ← [[CLM_ADM.ROLLOVER_%]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCRIBED_COMPONENT_ID |
+| INFO_IS_DELETED |
+| INC_VALID_FROM_DATE |
+| INC_VALID_TO_DATE |
+| PRODUCT_OFFER_ID |
+- ← [[CLM_ADM.ADM_ROLLOVER_HIST_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DTTM |
+| SUBSCRIBER_KEY |
+| INIT_BALANCE |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_OWNER_TYPE |
+| ORIGIN_TYPE |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+- ← [[CLM_ADM.ROLLOVER_<YYYYMM>]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| TP_SUB_KEY |
+| SUB_IDENTITY |
+| BALANCE_MB |
+| BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
 - ← [[CLM_ADM.ADM_ROLLOVER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| BALANCE_MB |
 
 ## Target Tables (Outputs)
-- → [[ADM_ROLLOVER_HIST_RAW]]
-- → [[TMP_ROLLOVER_HIST_RAW]]
-- → [[ADM_ROLLOVER_HIST]]
-- → [[TMP_ROLLOVER_HIST]]
-- → [[ADM_ROLLOVER_LAST]]
+- → [[CLM_ADM.TMP_ROLLOVER_HIST_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIBER_KEY |
+| SUB_GROUP_KEY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_ID |
+| FREE_UNIT_OWNER_TYPE |
+| FREE_UNIT_ADD_OWNER_TYPE |
+| FREE_UNIT_TYPE_ID |
+| RENEWAL_POLICY_ID |
+| RENEWAL_FLAG |
+| ORIGIN_TYPE |
+| ORIGIN_ID |
+| INITIAL_TYPE |
+| INITIAL_ID |
+| INITIAL_FREE_UNIT_ID |
+| INIT_BALANCE |
+| RESERVE_AMOUNT |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+| EXP_DATE |
+| EFF_DATE |
+| PAY_OFFERING_METHOD |
+| PRE_BC_AMOUNT |
+| CREATE_DATE |
+| PPRE_BC_AMOUNT |
+| TARIFF_CODE |
+| LAST_UPDATE_TIME |
+| C_GATEVALUE1 |
+| C_GATEVALUE2 |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME |
+| LOAD_DTTM |
+| FILE_DTTM |
+- → [[CLM_ADM.ADM_ROLLOVER_HIST_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIBER_KEY |
+| SUB_GROUP_KEY |
+| OFFER_ID |
+| PURCHASE_SEQ |
+| FREE_UNIT_ID |
+| FREE_UNIT_OWNER_TYPE |
+| FREE_UNIT_ADD_OWNER_TYPE |
+| FREE_UNIT_TYPE_ID |
+| RENEWAL_POLICY_ID |
+| RENEWAL_FLAG |
+| ORIGIN_TYPE |
+| ORIGIN_ID |
+| INITIAL_TYPE |
+| INITIAL_ID |
+| INITIAL_FREE_UNIT_ID |
+| INIT_BALANCE |
+| RESERVE_AMOUNT |
+| CURRENT_BALANCE |
+| POLICY_CYCLE_ID |
+| EXP_DATE |
+| EFF_DATE |
+| PAY_OFFERING_METHOD |
+| PRE_BC_AMOUNT |
+| CREATE_DATE |
+| PPRE_BC_AMOUNT |
+| TARIFF_CODE |
+| LAST_UPDATE_TIME |
+| C_GATEVALUE1 |
+| C_GATEVALUE2 |
+| RUN_ID |
+| SEQ_ID |
+| FILE_NAME |
+| LOAD_DTTM |
+| FILE_DTTM |
+- → [[CLM_ADM.TMP_ROLLOVER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| BALANCE_MB |
+| BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
+- → [[CLM_ADM.ADM_ROLLOVER_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| POID |
+| BALANCE_MB |
+| BALANCE |
+| O_ID |
+| PURCHASE_SEQ |
+- → [[CLM_ADM.ADM_ROLLOVER_LAST]]
+| Column Name |
+|---|
+| IB_PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MAIN_NUMBER |
+| MB_ROLLOVER_LAST1 |
+| MB_ROLLOVER_LAST2 |
+| MB_ROLLOVER_LAST3 |
 

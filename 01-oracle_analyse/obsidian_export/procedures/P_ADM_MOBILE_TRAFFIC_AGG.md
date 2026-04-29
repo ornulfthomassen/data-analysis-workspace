@@ -3,16 +3,145 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, P_ADM_MOBILE_TRAFFIC_AGG, aggregates mobile traffic data for a specified month (P_YYYYMM). It performs initial checks on data readiness and target table/partition existence. It then creates two intermediate, temporary tables (TMP1_MOBILE_TRAFFIC_AGG and TMP2_MOBILE_TRAFFIC_AGG) by selecting and joining data from various source systems, performing aggregations. Finally, it loads the processed data from the second temporary table (TMP2_MOBILE_TRAFFIC_AGG) into a partition of the main target table (ADM_MOBILE_TRAFFIC_AGG) using an EXCHANGE PARTITION operation, ensuring efficient data loading for partitioned tables. It also manages partition creation, index rebuilding, and statistics collection, logging all actions and handling errors.
+Aggregates mobile traffic data from CDR records for a specified month, performs preliminary data validation, enriches the data with subscription details, and stores the summarized information into a new or existing monthly partition of the 'ADM_MOBILE_TRAFFIC_AGG' table. It includes checks for source data completeness and manages table partitions dynamically.
 
 ## Data Sources (Inputs)
-- ← [[CDR.CDR_GENEVA]]
-- ← [[CCDW.SUBSCRIPTION_MAPPING]]
-- ← [[CLM_ADM.ADM_MOB_SUBSCRIPTION_CORE]]
 - ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FIRST_DATE |
+| LAST_DATE |
+| ANTALL_DAGER |
+- ← [[CDR.CDR_GENEVA]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| SUBSCR_ID |
+| PRODUCT_UNIT_ID |
+| CALLING_MAIN_DIRECTORY_NUMBER |
+| CALLING_DIRECTORY_NUMBER |
+| DESTINATION_COUNTRY_CODE |
+| ROAMING_COUNTRY_CODE |
+| GENEVA_CALL_TYPE |
+| TIERID_1 |
+| TIERID_2 |
+| TIERID_3 |
+| BEARER |
+| GPRS_APN |
+| DISCOUNT_PRODUCT_OFFER_ID |
+| EDITED_B_NUMBER |
+| EVENT_TIME_DURATION |
+| EVENT_VOLUME |
+| EVENT_START_DATE_TIME |
+| RATED_EVENT_BASE_PRICE |
+| RATED_EVENT_PRICE |
+| DISCOUNT |
+| NET_REVENUE |
+| TAX_STATUS |
+| TAX_RATE |
+| EVENT_DELETED |
+- ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
+- ← [[CLM_ADM.ADM_MOB_SUBSCRIPTION_CORE]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| LAST_PARENT_SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID |
 
 ## Target Tables (Outputs)
 - → [[TMP1_MOBILE_TRAFFIC_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCR_ID |
+| PRODUCT_UNIT_ID |
+| MAIN_NUMBER_HOVED |
+| MAIN_NUMBER_BRUKT |
+| DESTINATION_COUNTRY_CODE |
+| ROAMING_COUNTRY_CODE |
+| GENEVA_CALL_TYPE |
+| TIERID_1 |
+| TIERID_2 |
+| TIERID_3 |
+| BEARER |
+| APN |
+| DISCOUNT_PRODUCT_OFFER_ID |
+| NO_EDITED_B_NUMBER |
+| EVENT_TIME_DURATION |
+| BYTE_TOTALT |
+| MB_TOTALT |
+| EVENT_START_DATE_TIME |
+| ANTALL |
+| NOK |
+| NOK_URABATTERT |
+| NOK_RABATT |
+| NET_REVENUE |
+| TAX_STATUS |
+| TAX_RATE |
 - → [[TMP2_MOBILE_TRAFFIC_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCR_ID |
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID_USED |
+| TWIN_USED_FLAG |
+| MAIN_POID |
+| DISCOUNT_POID |
+| GENEVA_CALL_TYPE |
+| TIERID_1 |
+| TIERID_2 |
+| TIERID_3 |
+| BEARER |
+| APN |
+| DESTINATION_COUNTRY_CODE |
+| ROAMING_COUNTRY_CODE |
+| NO_CONTACTED |
+| SUM_DURATION |
+| SUM_BYTE |
+| SUM_MB |
+| MAX_EVENT_START_DATE_TIME |
+| ANTALL |
+| NOK |
+| NOK_URABATTERT |
+| NOK_RABATT |
+| NET_REVENUE |
+| TAX_STATUS |
+| TAX_RATE |
 - → [[ADM_MOBILE_TRAFFIC_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCR_ID |
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID_USED |
+| TWIN_USED_FLAG |
+| MAIN_POID |
+| DISCOUNT_POID |
+| GENEVA_CALL_TYPE |
+| TIERID_1 |
+| TIERID_2 |
+| TIERID_3 |
+| BEARER |
+| APN |
+| DESTINATION_COUNTRY_CODE |
+| ROAMING_COUNTRY_CODE |
+| NO_CONTACTED |
+| SUM_DURATION |
+| SUM_BYTE |
+| SUM_MB |
+| MAX_EVENT_START_DATE_TIME |
+| ANTALL |
+| NOK |
+| NOK_URABATTERT |
+| NOK_RABATT |
+| NET_REVENUE |
+| TAX_STATUS |
+| TAX_RATE |
 

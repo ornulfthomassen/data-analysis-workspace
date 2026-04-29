@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a view of counterpart dimension data, typically for loading into Google Cloud Platform (GCP). It serves as a direct projection of an existing counterpart dimension table.
+This view extracts counterpart dimension data for loading into Google Cloud Platform (GCP), specifically for the CCDW.COUNTERPART target. It serves as a direct pass-through of specific columns from the source dimension table.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.COUNTERPART_DIM]]
+| Column Name |
+|---|
+| COUNTERPART_KEY |
+| CP_CODE |
+| CP_CLASSIFICATION_ID |
+| CP_CLASSIFICATION_DESC |
+| CP_INTERNAL_FLAG |
+| START_DT_KEY |
+| END_DT_KEY |
+| STATUS |
 

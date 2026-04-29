@@ -3,14 +3,108 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Automates the historical data loading process for 'MIN_SKY' data. For a given month (`P_YYYYMM`), it first validates the integrity and completeness of source data from `COMOYO.MINSKY_MAIN_DAILY` and `COMOYO.MINSKY_DEVICES_DAILY`. It then extracts, aggregates, and transforms various metrics related to user activity and device usage from these sources, along with month-dimension information, into a temporary staging table. Finally, it loads this processed data into a specific partition (identified by the month `P_YYYYMM`) of the permanent historical table `ADM_MIN_SKY_HIST` by either creating a new partition or overwriting an existing one, utilizing an `EXCHANGE PARTITION` operation for efficient data loading.
+This procedure aggregates daily user and device activity data from Minsky sources for a given month (P_YYYYMM). It performs data quality checks on the source data, creates a temporary table with the aggregated results, manages partitions in a permanent historical table (ADM_MIN_SKY_HIST), and then loads the processed data by exchanging the temporary table with a new partition in the historical table. It ensures that the historical data for the specified month is up-to-date and complete.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
+| FIRST_DATE |
 - ← [[COMOYO.MINSKY_MAIN_DAILY]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| GLOBAL_ID |
+| CREATION_TIME |
+| LAST_FILE_EVENT_DTTM |
+| TOTAL_QUOTA |
+| USED_QUOTA |
 - ← [[COMOYO.MINSKY_DEVICES_DAILY]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| GLOBAL_ID |
+| LAST_CONNECTION |
+| LAST_UPLOAD |
+| UPLOADCOUNT |
+| DOWNLOADCOUNT |
+| DELETECOUNT |
+| PLATFORM |
+| AUTO_UPLOAD |
+| OS_VERSION |
+| CLIENT_VERSION |
 
 ## Target Tables (Outputs)
-- → [[ADM_MIN_SKY_HIST]]
-- → [[TMP_MIN_SKY_HIST]]
+- → [[CLM_ADM.TMP_MIN_SKY_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE_KEY |
+| GLOBAL_ID |
+| GLOBAL_ID_CHAR |
+| CREATION_DTTM |
+| LAST_FILE_EVENT_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_UPLOAD_DTTM |
+| LAST_MOB_CONNECTION_DTTM |
+| LAST_MOB_UPLOAD_DTTM |
+| GB_QUOTA |
+| PCT_MB_USED |
+| MB_USED |
+| NO_DEVICE_CONNECTED |
+| NO_DEVICE_UPLOAD |
+| NO_DEVICES |
+| NO_FILES_UPLOAD |
+| NO_FILES_DOWNLOAD |
+| NO_FILES_DELETE |
+| NO_MOB_DEVICE_CONNECTED |
+| NO_MOB_DEVICE_UPLOAD |
+| NO_MOB_DEVICES_TOT |
+| MOBILE_PLATFORM_ANDROID_TOT |
+| MOBILE_PLATFORM_APPLE_TOT |
+| SUM_MOB_AUTO_UPLOAD |
+| MAX_ANDROID_OS_VERSION |
+| MAX_APPLE_OS_VERSION |
+| MAX_ANDROID_CLIENT_VERSION |
+| MAX_APPLE_CLIENT_VERSION |
+| NO_MOB_FILES_UPLOAD |
+| NO_MOB_FILES_DOWNLOAD |
+| NO_MOB_FILES_DELETE |
+- → [[CLM_ADM.ADM_MIN_SKY_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LOAD_DATE_KEY |
+| GLOBAL_ID |
+| GLOBAL_ID_CHAR |
+| CREATION_DTTM |
+| LAST_FILE_EVENT_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_UPLOAD_DTTM |
+| LAST_MOB_CONNECTION_DTTM |
+| LAST_MOB_UPLOAD_DTTM |
+| GB_QUOTA |
+| PCT_MB_USED |
+| MB_USED |
+| NO_DEVICE_CONNECTED |
+| NO_DEVICE_UPLOAD |
+| NO_DEVICES |
+| NO_FILES_UPLOAD |
+| NO_FILES_DOWNLOAD |
+| NO_FILES_DELETE |
+| NO_MOB_DEVICE_CONNECTED |
+| NO_MOB_DEVICE_UPLOAD |
+| NO_MOB_DEVICES_TOT |
+| MOBILE_PLATFORM_ANDROID_TOT |
+| MOBILE_PLATFORM_APPLE_TOT |
+| SUM_MOB_AUTO_UPLOAD |
+| MAX_ANDROID_OS_VERSION |
+| MAX_APPLE_OS_VERSION |
+| MAX_ANDROID_CLIENT_VERSION |
+| MAX_APPLE_CLIENT_VERSION |
+| NO_MOB_FILES_UPLOAD |
+| NO_MOB_FILES_DOWNLOAD |
+| NO_MOB_FILES_DELETE |
 

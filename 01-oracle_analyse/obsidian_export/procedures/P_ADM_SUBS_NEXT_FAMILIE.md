@@ -3,16 +3,66 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure processes subscription product data for a given month (P_YYYYMM). It first extracts detailed subscription records from the `CCDW.SUBSCRIBED_PRODUCT` table into a temporary table (`TMP_SUBS_NEXT_FAMILIE_DET`). This detailed temporary data is then integrated into a monthly partition of a permanent, partitioned detail table (`ADM_SUBS_NEXT_FAMILIE_DET`) using an `ALTER TABLE ... EXCHANGE PARTITION` operation. Subsequently, the procedure aggregates data from the `ADM_SUBS_NEXT_FAMILIE_DET` table, calculating last subscription details and rankings, and stores these aggregated results in another temporary table (`TMP_SUBS_NEXT_FAMILIE_AGG`). Finally, this aggregated temporary data is also integrated into a monthly partition of a permanent, partitioned aggregated table (`ADM_SUBS_NEXT_FAMILIE_AGG`) via an `EXCHANGE PARTITION`. The procedure includes checks for source data existence and handles table/partition creation and error logging.
+Processes subscription data for a given month, populating and maintaining partitioned detail and aggregated tables. It first extracts detailed subscription product information into a temporary table, then moves this data into a permanent partitioned detail table. Subsequently, it aggregates this detailed information into another temporary table, which is then moved into a permanent partitioned aggregate table.
 
 ## Data Sources (Inputs)
-- ← [[CCDW.SUBSCRIBED_PRODUCT]]
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
-- ← [[ADM_SUBS_NEXT_FAMILIE_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+- ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_OFFER_ID |
+| START_DATE |
+| END_DATE |
+| BUSINESS_AREA_ID |
+- ← [[CLM_ADM.ADM_SUBS_NEXT_FAMILIE_DET]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_OFFER_ID |
+| END_DATE |
+| PERIOD_MONTH_KEY |
 
 ## Target Tables (Outputs)
-- → [[TMP_SUBS_NEXT_FAMILIE_DET]]
-- → [[ADM_SUBS_NEXT_FAMILIE_DET]]
-- → [[TMP_SUBS_NEXT_FAMILIE_AGG]]
-- → [[ADM_SUBS_NEXT_FAMILIE_AGG]]
+- → [[CLM_ADM.TMP_SUBS_NEXT_FAMILIE_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_OFFER_ID |
+| START_DATE |
+| END_DATE |
+- → [[CLM_ADM.ADM_SUBS_NEXT_FAMILIE_DET]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_SEQ |
+| PRODUCT_OFFER_ID |
+| START_DATE |
+| END_DATE |
+- → [[CLM_ADM.TMP_SUBS_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| LAST_SUBSCRIPTION_SEQ |
+| LAST_PRODUCT_OFFER_ID |
+| MAX_END_DATE |
+| ANTALL |
+- → [[CLM_ADM.ADM_SUBS_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| LAST_SUBSCRIPTION_SEQ |
+| LAST_PRODUCT_OFFER_ID |
+| MAX_END_DATE |
+| ANTALL |
 

@@ -3,24 +3,73 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The Oracle SQL procedure `P_ADM_DEVICE_RANGE_DIM` is designed to build and maintain a device dimension table, `ADM_DEVICE_RANGE_DIM`. Its primary purpose is to categorize and enrich device information by performing the following steps:
-1.  **Identifies and Inserts New Devices**: It identifies new device types from subscription, handset, and GSMA marketing name data that are not yet present in `ADM_DEVICE_RANGE_DIM` and inserts them. During insertion, it assigns an initial `DEVICE_RANGE` (e.g., 'High-End', 'Mid-Range', 'Low-End', 'Rugged', 'Senior', 'Annet') based on patterns found in marketing names and manufacturers.
-2.  **Counts Active Terminals**: It creates a temporary intermediate table (`CURRENT_TERMINAL_USE`) to count the number of currently active terminals for each `TAC_ID` based on live subscription and handset data.
-3.  **Updates Max Terminal Count**: It updates the `MAX_NO_TERMINALS` column in `ADM_DEVICE_RANGE_DIM` for existing devices, taking the greatest value between the current `MAX_NO_TERMINALS` and the newly calculated active terminal count from `CURRENT_TERMINAL_USE`.
-4.  **Standardizes Model Information**: It updates `MODEL_ID` and `MODEL_MARKETING_NAME` in `ADM_DEVICE_RANGE_DIM` by synchronizing with `ADM_GSMA_MARKETING_NAME_DIM` where data differs.
-5.  **Aggregates Marketing Names**: It calculates and updates `NAVNEVARIANTER` (number of marketing name variants), `MAIN_MODEL_MARKETING_NAME` (the most prevalent marketing name based on terminal count), and `LIST_MARKETING_NAME_L1` (a concatenated list of marketing name variants) within `ADM_DEVICE_RANGE_DIM` itself.
-6.  **Determines Main Device Range**: It determines and updates the `MAIN_DEVICE_RANGE` for each model in `ADM_DEVICE_RANGE_DIM` based on the most common `DEVICE_RANGE` among its entries, prioritized by the total number of terminals.
-7.  **Error Handling**: The procedure includes extensive error handling mechanisms, logging any issues to `CRM_ANALYSE.P_ADM_LOAD_HISTORY` for monitoring and debugging.
+This Oracle SQL procedure (`P_ADM_DEVICE_RANGE_DIM`) is designed to populate and maintain a device range dimension table (`CLM_ADM.ADM_DEVICE_RANGE_DIM`). It categorizes devices (e.g., 'High-End', 'Mid-Range', 'Rugged') based on marketing names and manufacturers, calculates the maximum number of terminals for each device, and consolidates marketing name variants for device models. It involves inserting new device entries and then performing several updates to refine device attributes based on current usage data and existing marketing information.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| END_DATE |
+| BUSINESS_AREA_ID |
 - ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| TAC_ID |
+| IMEI |
 - ← [[CCDW.HANDSET_TYPE_EXT]]
-- ← [[ADM_GSMA_MARKETING_NAME_DIM]]
-- ← [[ADM_DEVICE_RANGE_DIM]]
-- ← [[CURRENT_TERMINAL_USE]]
+| Column Name |
+|---|
+| TACFAC |
+| HAT_PRODUCER |
+| MODELID |
+- ← [[CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| TAC |
+| MARKETING_NAME_L1 |
+| MODEL_ID |
+- ← [[CLM_ADM.ADM_DEVICE_RANGE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| MODEL_ID |
+| MODEL_MARKETING_NAME |
+| MAX_NO_TERMINALS |
+| NAVNEVARIANTER |
+| LIST_MARKETING_NAME_L1 |
+| DEVICE_RANGE |
+- ← [[CLM_ADM.CURRENT_TERMINAL_USE]]
+| Column Name |
+|---|
+| TAC_ID |
+| ANTALL |
 
 ## Target Tables (Outputs)
-- → [[ADM_DEVICE_RANGE_DIM]]
-- → [[CURRENT_TERMINAL_USE]]
+- → [[CLM_ADM.ADM_DEVICE_RANGE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| MANUFACTURER |
+| MODEL_ID |
+| MODEL_MARKETING_NAME |
+| DEVICE_RANGE |
+| NAVNEVARIANTER |
+| LIST_MARKETING_NAME_L1 |
+| MAX_NO_TERMINALS |
+| MAIN_MODEL_MARKETING_NAME |
+| MAIN_DEVICE_RANGE |
+- → [[CLM_ADM.CURRENT_TERMINAL_USE]]
+| Column Name |
+|---|
+| TAC_ID |
+| ANTALL |
+- → [[CRM_ANALYSE.ADM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| OBJECT_NAME |
+| PERIOD_DATE |
+| STATUS |
+| STATUS_MESSAGE |
 

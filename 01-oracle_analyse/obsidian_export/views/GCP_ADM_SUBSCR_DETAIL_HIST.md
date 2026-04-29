@@ -3,8 +3,33 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'GCP_ADM_SUBSCR_DETAIL_HIST', serves as a direct representation or a copy of the 'ADM_SUBSCR_DETAIL_HIST' data. It selects all columns from the source table/view, making its primary purpose to expose subscription detail history data, potentially for reporting, integration, or to provide access under a different schema (CCM) or with different permissions, possibly related to Google Cloud Platform (GCP) or administrative functions.
+Creates a view named GCP_ADM_SUBSCR_DETAIL_HIST in the CCM schema that directly exposes all columns from the CLM_ADM.ADM_SUBSCR_DETAIL_HIST table/view, effectively serving as a projection or alias for historical subscription detail data.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBS_CATEGORY |
+| SUBS_TYPE |
+| PRODUCT_ID |
+| SOURCE_SYSTEM_KEY |
+| PRODUCT_NAME |
+| BANKID_USED_LAST1 |
+| BANKID_USED_LAST2 |
+| BANKID_USED_LAST3 |
+| FRIFAM_NO_DAYS_ACTIVE |
+| FORSIKRING_NO_DAYS_ACTIVE |
+| MIN_SKY_NO_DAYS_ACTIVE |
+| BINDING_NO_DAYS_ACTIVE |
+| BINDING_ACTIVE |
+| BINDING_PRODUCT_DESC |
+| BINDING_TYPE |
+| TERMINAL_BUNDELS |
+| DATAKONTR_DOM_NO_DAYS_ACTIVE |
+| DATAKONTR_ABR_NO_DAYS_ACTIVE |
+| BINDING_PRODUCT_ID |
+| BINDING_START_DATE |
+| BINDING_END_DATE |
 

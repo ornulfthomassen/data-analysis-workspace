@@ -3,25 +3,197 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADM_AGREEMENT_DEVICE_ALL` creates and populates a new permanent table named `ADM_AGREEMENT_DEVICE_ALL` within the `CLM_ADM` schema. This table serves as a comprehensive data mart or analytical table, aggregating detailed information about customer agreements, associated devices (identified by IMEI), products, and subscriptions from various source systems. It consolidates data related to agreement statuses, product details, dealer information, subscription lifecycle events (e.g., port-ins, ownership changes), and device usage. The procedure also creates indexes on the new table, computes statistics, and grants select privileges to specific users/roles to optimize performance and access for analytical purposes.
+Aggregates and consolidates agreement, device, subscription, and product information from various source systems into a master table, CLM_ADM.ADM_AGREEMENT_DEVICE_ALL, for analytical purposes. It captures details related to agreement offers, device IMEIs, subscription lifecycle events (start/end, change type), associated customer and dealer information, product types (e.g., SWAP, insurance, repayment), and calculates statuses and rankings based on validity and usage. The procedure drops and recreates the target table on each execution and logs its load history.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.AGREEMENT_DIM]]
+| Column Name |
+|---|
+| AGREEMENT_OFFER_NAME |
+| SOURCE_SYSTEM_AGREEMENT_ID_1 |
+| INFO_IS_DELETED |
+| AGREEMENT_KEY |
+| SOURCE_AGREEMENT_STATUS |
+| DEALER_KEY |
+| SOURCE_DEALER_ID |
+| AGREEMENT_START_DT_KEY |
+| AGREEMENT_OWNER_KEY |
 - ← [[CM.AGREEMENT_OFFER]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| PRODUCT_OFFER_ID |
+| INFO_IS_DELETED |
+| AGREEMENT_OFFER_ID |
+| AGREEMENT_OFFER_ID_PARENT |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| ORIGINAL_FROM_DATE |
+| INFO_REG_DATE |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_CATEGORY_ID |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| PRODUCT_DESC |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| MONTHLY_PRICE |
+| DRM_COMMON_PRODUCT_CATEGORY |
 - ← [[CM.AGREEMENT_OFFER_CONFIGURATION]]
+| Column Name |
+|---|
+| AGREEMENT_OFFER_ID |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| PARAMETER_ID |
+| INFO_IS_DELETED |
+| PARAMETER_VALUE |
+| INFO_REG_DATE |
 - ← [[ONL_REP.SERVICE_ORDER_PRODUCT]]
+| Column Name |
+|---|
+| ORDER_ID |
+| ORDER_LINE_ID |
+| PRODUCT_STATUS_ID |
+| PRODUCT_STATUS_REASON_ID |
+| DEALER_ID |
+| SUBSCR_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| ORDER_TYPE_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER_OFFER]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| AGREEMENT_OFFER_ID |
+| AGREEMENT_ORDER_OFFER_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER_COMPONENT]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_ID |
+| AGREEMENT_ORDER_OFFER_ID |
+| COMPONENT_ID |
+| VALID_FROM_DATE |
+| AGREEMENT_ORDER_COMPONENT_ID |
 - ← [[ONL_REP.AGREEMENT_ORDER_COMP_PARAM]]
+| Column Name |
+|---|
+| AGREEMENT_ORDER_COMPONENT_ID |
+| PARAMETER_ID |
+| PARAMETER_VALUE |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| END_DATE |
+| ORIGINAL_START_DATE |
+| PORT_IN_DEALER_ID |
+| PRODUCT_GROUP |
+| SUBSCR_START_REASON |
+| PORT_OUT_DEALER_ID |
+| SUBSCRIPTION_ID_PREV |
+| OWNER |
+| SUBSCR_ID_NUM |
+| MARKET_AREA_ID |
+| LAST_USER |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 - ← [[LIVE.EUREKA_IMEI]]
+| Column Name |
+|---|
+| IMEI |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| SUBSCR_ID |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| S212_PRODUCT_ID |
 - ← [[CM.PROD_SERV_MAPPING]]
+| Column Name |
+|---|
+| PRODUCT_UNIT_ID |
+| PRODUCT_DESCR |
 
 ## Target Tables (Outputs)
 - → [[CLM_ADM.ADM_AGREEMENT_DEVICE_ALL]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| AGREEMENT_OFFER_NAME |
+| ORDER_SUBSCRIPTION_ID |
+| ORDER_MAIN_NUMBER_SK |
+| ORDER_CUSTOMER_SK_OWNER |
+| ORDER_SUBSCRIPTION_KEY_STATUS |
+| ORDER_SUBSCRIPTION_START_DT |
+| ORDER_SUBS_CHANGETYPE_START |
+| ORDER_SUBS_PORT_IN_DEALER_ID |
+| ORDER_SUBSCRIPTION_END_DT |
+| ORDER_SUBS_PORT_OUT_DEALER_ID |
+| USE_SUBSCRIPTION_ID |
+| USE_MAIN_NUMBER_SK |
+| USE_CUSTOMER_SK_USER |
+| USE_MARKET_AREA_KEY |
+| USE_BRAND |
+| ROOT_AGREEMENT_KEY |
+| ROOT_AGREEMENT_DEALER_KEY |
+| ROOT_AGREEMENT_ID |
+| ROOT_AGREEMENT_DEALER_ID |
+| ROOT_AGREEMENT_START_DATE |
+| PRODUCT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_STATUS |
+| PRODUCT_AGREEMENT_STATUS_INFO |
+| PRODUCT_AGREEMENT_REG_DATE |
+| PRODUCT_AGREEMENT_START_DATE |
+| PRODUCT_AGREEMENT_END_DATE |
+| PRODUCT_AGREEMENT_ORDER_ID |
+| PRODUCT_AGREE_ORDER_STATUS |
+| PRODUCT_AGREE_ORDER_STATUS_RSN |
+| PRODUCT_AGREEMENT_DEALER_ID |
+| PRODUCT_AGREE_DEALER_CHANNEL |
+| PRODUCT_AGREE_DRM_COM_PROD_GRP |
+| PRODUCT_AGREE_DRM_COM_MRK_PROD |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| PRODUCT_AGREEMENT_PRODUCT_NM |
+| PRODUCT_AGREE_MONTHLY_PRICE |
+| INSURANCE_DISCOUNT_AGREE_ID |
+| INSURANCE_DISCOUNT_REG_DATE |
+| INSURANCE_DISCOUNT_START_DATE |
+| INSURANCE_DISCOUNT_END_DATE |
+| INSURANCE_DISCOUNT_PROD_KEY |
+| INSURANCE_DISCOUNT_PROD_NM |
+| INSURANCE_DISCOUNT_MONTHLY |
+| PRODUCT_AGREE_TERMINATION_FEE |
+| PRODUCT_AGREE_USER_REFERENCE |
+| DEVICE_AGREEMENT_ID |
+| DEVICE_AGREEMENT_STATUS |
+| DEVICE_AGREEMENT_REG_DATE |
+| DEVICE_AGREEMENT_START_DATE |
+| DEVICE_AGREEMENT_END_DATE |
+| HANDSET_KEY |
+| IMEI |
+| IMEI_REG_DATE |
+| IMEI_START_DATE |
+| IMEI_END_DATE |
+| IMEI_STATUS |
+| IMEI_USE_FIRST_DATE |
+| IMEI_USE_LAST_DATE |
+| RANGERING |
+- → [[CRM_ANALYSE.P_ADM_LOAD_HISTORY_TABLE]]
 

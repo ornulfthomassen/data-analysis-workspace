@@ -3,8 +3,36 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a dimension view of campaign details, directly exposing all columns from the CLM_CDM.CI_CAMPAIGN table without any transformations, filtering, or aggregations. It serves as an abstraction layer or a dedicated dimension view for campaign data.
+Creates a dimension view named CAMPAIGN_DIM_V, exposing all columns from the CLM_CDM.CI_CAMPAIGN table, likely for reporting or data warehousing purposes.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CDM.CI_CAMPAIGN]]
+| Column Name |
+|---|
+| CAMPAIGN_SK |
+| CAMPAIGN_CD |
+| CAMPAIGN_STATUS_CD |
+| CAMPAIGN_VERSION_NO |
+| CURRENT_VERSION_FLG |
+| CAMPAIGN_NM |
+| CAMPAIGN_DESC |
+| CAMPAIGN_FOLDER_TXT |
+| CAMPAIGN_OWNER_NM |
+| CAMPAIGN_GROUP_SK |
+| DEPLOYMENT_VERSION_NO |
+| MIN_BUDGET_OFFER_AMT |
+| MAX_BUDGET_OFFER_AMT |
+| MIN_BUDGET_AMT |
+| MAX_BUDGET_AMT |
+| START_DTTM |
+| END_DTTM |
+| RUN_DTTM |
+| LAST_MODIFIED_DTTM |
+| LAST_MODIFIED_BY_USER_NM |
+| APPROVAL_DTTM |
+| APPROVAL_GIVEN_BY_NM |
+| BUSINESS_CONTEXT_NM |
+| CAMPAIGN_TYPE_CD |
+| DELETED_FLG |
+| PROCESSED_DTTM |
 

@@ -3,15 +3,105 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Implements a daily Slowly Changing Dimension Type 2 (SCD2) update for user activity and quota data. The procedure processes daily snapshots from the `COMOYO.MINSKY_MAIN_DAILY` table, identifies changes in user records based on attributes like connection timestamps and quotas, and updates the `CURRENT_REC` and `PAST_REC` partitions of the main `SCD2_MIN_SKY_MAIN` dimension table using temporary staging tables and Oracle's partition exchange mechanism. This ensures that a full history of user records is maintained.
+This procedure implements a Type 2 Slowly Changing Dimension (SCD2) logic for user activity data. It processes daily snapshots from 'COMOYO.MINSKY_MAIN_DAILY', identifies changes in user attributes, and maintains historical and current records in the 'SCD2_MIN_SKY_MAIN' table. It updates the 'CURRENT_REC' and 'PAST_REC' partitions of 'SCD2_MIN_SKY_MAIN' by exchanging them with dynamically generated temporary tables, ensuring that a full history of user attributes is preserved over time.
 
 ## Data Sources (Inputs)
 - ← [[SCD2_MIN_SKY_MAIN]]
+| Column Name |
+|---|
+| LAST_DATE |
+| USER_ID |
+| CREATION_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DATE |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
+| FIRST_DATE |
+| ON_LAST_FILE |
+| CURRENT_RECORD |
 - ← [[COMOYO.MINSKY_MAIN_DAILY]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| GLOBAL_ID |
+| CREATION_TIME |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DTTM |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
 
 ## Target Tables (Outputs)
 - → [[SCD2_MIN_SKY_MAIN]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DATE |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
+| FIRST_DATE |
+| LAST_DATE |
+| ON_LAST_FILE |
+| CURRENT_RECORD |
 - → [[TMP_MINSKY_MAIN_DAILY_CURR]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DATE |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
+| LOAD_DATE |
 - → [[TMP_SCD2_MIN_SKY_MAIN_CURR_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DATE |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
+| FIRST_DATE |
+| LAST_DATE |
+| ON_LAST_FILE |
+| CURRENT_RECORD |
 - → [[TMP_SCD2_MIN_SKY_MAIN_PAST_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| CREATION_DTTM |
+| LAST_CONNECTION_DTTM |
+| LAST_FOREGROUND_DATE |
+| LAST_FILE_EVENT_DATE |
+| LAST_UPLOAD_DATE |
+| TOTAL_QUOTA |
+| USED_QUOTA |
+| MEDIA_FILE_COUNT |
+| OPT_OUT_PROD_IMPROVMNT_ANALTCS |
+| FIRST_DATE |
+| LAST_DATE |
+| ON_LAST_FILE |
+| CURRENT_RECORD |
 

@@ -3,17 +3,99 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_ADM_SUBSCRIPTION_HISTORY` manages and populates monthly partitions of the `ADM_SUBSCRIPTION_HISTORY` table. It begins by validating the availability of source data for a given month (`P_YYYYMM`) across several `ADM_MONTH_DIM`, `ADM_SUBSCRIPTION_HIST_KURT`, `ADM_SUBSCRIPTION_MASTER_HIST`, and `ADM_CUSTOMER_MAPPING_HIST` tables. If validation passes, it checks for the existence of the target partition in `ADM_SUBSCRIPTION_HISTORY`, creating it if necessary or preventing overwrites of existing data. A temporary table named `TMP_SUBSCRIPTION_HISTORY` is then created and populated with transformed historical subscription data from `CLM_ADM.ADM_SUBSCRIPTION_HIST_KURT`, `CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST`, and `CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT`. Finally, it performs an `EXCHANGE PARTITION` operation to efficiently load this data into the corresponding partition of `ADM_SUBSCRIPTION_HISTORY` and gathers table statistics.
+This procedure processes subscription history data for a specified month (`P_YYYYMM`). It performs a data quality check on source tables, creates a new partition in the `ADM_SUBSCRIPTION_HISTORY` table (if it doesn't exist), populates a temporary table (`TMP_SUBSCRIPTION_HISTORY`) with transformed data from multiple source tables, and then exchanges this temporary table with the newly created partition in `ADM_SUBSCRIPTION_HISTORY`. It also includes error handling and prevents overwriting existing data unless explicitly allowed.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| LAST_DATE_KEY |
+| LAST_DATE |
+| PERIOD_MONTH_KEY |
+| NEXT_PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HIST_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| MARKET_AREA_ID |
+| BUSINESS_AREA_ID |
+| PRODUCT_OFFER_ID |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_BRAND |
+| PRODUCT_NAME |
+| LAST_PRODUCT_OFFER_ID |
+| LAST_PRODUCT_CATEGORY_ID |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
+| PRODUCT_ATTRIBUTE_KEY |
 - ← [[CRM_ANALYSE.ADM_SUBSCRIPTION_MASTER_HIST]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| ORIGINAL_START_DATE |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
 - → [[ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MARKET_AREA_ID |
+| BUSINESS_AREA_ID |
+| PRODUCT_OFFER_ID |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_BRAND |
+| PRODUCT_NAME |
+| LAST_PRODUCT_OFFER_ID |
+| LAST_PRODUCT_CATEGORY_ID |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
+| PRODUCT_ATTRIBUTE_KEY |
 - → [[TMP_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| MARKET_AREA_ID |
+| BUSINESS_AREA_ID |
+| PRODUCT_OFFER_ID |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_BRAND |
+| PRODUCT_NAME |
+| LAST_PRODUCT_OFFER_ID |
+| LAST_PRODUCT_CATEGORY_ID |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| NO_DAYS_LAST_START |
+| NO_DAYS_LAST_CHANGE |
+| NO_DAYS_BIND_START |
+| NO_DAYS_BIND_END |
+| PRODUCT_ATTRIBUTE_KEY |
 

@@ -3,10 +3,24 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view extracts a unique customer key and an associated subscription key, primarily for active 'FKM MOBIL' subscriptions. For each customer, it selects the highest-ranked subscription key available. If no matching active 'FKM MOBIL' subscription is found, the subscription key defaults to -1. The resulting customer_sk and subscription_sk are cast to CHAR types. The view is explicitly noted as being part of the reporting basis for the 'safe and secure squad'.
+This view identifies the primary (highest `subscription_key`) 'FKM MOBIL' subscription for each unique customer. It links customer contact phone numbers from `CCM_CUST_CONTACT_PHONE` to customer mappings in `ADM_CUSTOMER_MAPPING`, and then to subscription details in `SUBSCRIPTION_DIM_MV`. It filters for active 'FKM MOBIL' subscriptions and assigns -1 if no matching subscription is found for a customer. The final output provides cast customer and subscription identifiers for reporting purposes.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.CCM_CUST_CONTACT_PHONE]]
-- ← [[clm_adm.adm_customer_mapping]]
-- ← [[galaxy.subscription_dim_mv]]
+| Column Name |
+|---|
+| kurt_id |
+| CONTACT_PHN_MOB |
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| kurt_id |
+| customer_sk |
+- ← [[GALAXY.SUBSCRIPTION_DIM_MV]]
+| Column Name |
+|---|
+| subscription_key |
+| main_number |
+| current_status |
+| subscr_category_desc |
 

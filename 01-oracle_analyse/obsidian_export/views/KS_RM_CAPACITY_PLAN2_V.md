@@ -3,8 +3,68 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named KS_RM_CAPACITY_PLAN2_V, serves as a direct exposure of the underlying RM_CAPACITY_PLAN2 table from the RSSHUGIN schema. It selects all columns from the source table, providing a comprehensive dataset for capacity planning and performance analysis, likely in a contact center or service environment. The columns cover various metrics including agent activity durations (login, ready, busy, ACW, talk, hold), call handling statistics (answered, offered, lost calls), planned vs. actual work (levert vs. plan), and staffing levels (headcount and FTE for different shifts and employee types).
+This view, 'KS_RM_CAPACITY_PLAN2_V', serves as a direct passthrough wrapper for the 'RM_CAPACITY_PLAN2' table within the RSSHUGIN schema. It exposes all columns from the underlying capacity planning data, likely for consumption by a specific application or user group (indicated by the 'KS_' prefix and 'CCM' schema). The view does not perform any transformations, aggregations, or filtering on the source data.
 
 ## Data Sources (Inputs)
-- ← [[RSSHUGIN.RM_CAPACITY_PLAN2]]
+- ← [[RM_CAPACITY_PLAN2]]
+| Column Name |
+|---|
+| CAL_DATE |
+| CAL_DATE_SAS |
+| YEAR_WEEK |
+| YEAR_MONTH |
+| SITENAME |
+| CLIENT |
+| PROGRAM |
+| QUEUE_SHORTNAME |
+| RAPPORTGRUPPE |
+| UTILIZATION_GROUP |
+| CONTRACTNAME |
+| TOTAL_LOGIN_SESSION_DURATION |
+| TOTAL_READY_DURATION |
+| TOTAL_NOT_READY_DURATION |
+| TOTAL_BUSY_DURATION |
+| TOTAL_ACW_DURATION |
+| TOTAL_INCALL_TALK_DURATION |
+| TOTAL_HOLD_DURATION |
+| TOTAL_OUTCALL_DURATION |
+| TOTAL_OUTCALL_COUNT |
+| TOTAL_ANSWERED_COUNT |
+| TOTAL_TRANSFER_INITIATED_COUNT |
+| PRODUCTION_SEC |
+| NOTREADY_BREAK_SEC |
+| LUNCH_MEETING_TRAINING_SEC |
+| ADMIN_SEC |
+| TOTAL_DURATION_SEC |
+| TOTAL_ACW_DURATION_IN |
+| TOTAL_ACW_DURATION_OUT |
+| KUNDE_TELEFON_LEVERT |
+| KUNDE_SKRIFTL_LEVERT |
+| KUNDE_TELEFON_PLAN |
+| KUNDE_SKRIFTL_PLAN |
+| LEVERT_TIMER |
+| PLAN_TIMER |
+| IWS_VALID_SEC |
+| WFM_SEC |
+| TIMER_UTILIZATION |
+| BEMANNING_KVELD_HELG_HEAD |
+| BEMANNING_DAGTID_HEAD |
+| BEMANNING_EKSTERN_VIKAR_HEAD |
+| SLUTTET_KVELD_HELG_HEAD |
+| SLUTTET_DAGTID_HEAD |
+| SLUTTET_EKSTERN_VIKAR_HEAD |
+| BEMANNING_KVELD_HELG_FTE |
+| BEMANNING_DAGTID_FTE |
+| BEMANNING_EKSTERN_VIKAR_FTE |
+| SLUTTET_KVELD_HELG_FTE |
+| SLUTTET_DAGTID_FTE |
+| SLUTTET_EKSTERN_VIKAR_FTE |
+| OFFERED_CALLS_QUEUE |
+| ANSWER_CALLS_QUEUE |
+| LOST_CALLS_QUEUE |
+| TYPE |
+| CAPACITY_GROUP |
+| SUB_GROUP1 |
+| SUB_GROUP2 |
+| SHRINKAGE_GROUP |
 

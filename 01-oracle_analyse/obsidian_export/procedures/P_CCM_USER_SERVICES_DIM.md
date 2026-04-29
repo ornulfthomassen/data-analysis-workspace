@@ -3,15 +3,39 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure processes user service access data from the last 35 days. It first aggregates and categorizes this data, standardizing service names and marking services of interest, and stores the results in a temporary table named `TMP_USER_SERVICES_DIM`. Subsequently, it uses this temporary data to maintain (update existing records or insert new ones into) a permanent dimension table called `CCM_USER_SERVICES_DIM`.
+Populates or refreshes the `CCM_USER_SERVICES_DIM` table with aggregated user service data. It summarizes user service activity from `COMOYO.USER_SERVICES_SERVICE` and `ODS.CONNECT_ID_LINK` over the last 35 days, categorizes service names, counts their occurrences, and then merges this data into the `CCM_USER_SERVICES_DIM` table, updating existing entries or inserting new ones.
 
 ## Data Sources (Inputs)
 - ← [[COMOYO.USER_SERVICES_SERVICE]]
+| Column Name |
+|---|
+| SERVICE_NAME |
+| LAST_ACCESS_TM |
+| USER_ID |
 - ← [[ODS.CONNECT_ID_LINK]]
-- ← [[TMP_USER_SERVICES_DIM]]
+| Column Name |
+|---|
+| USER_ID |
+| RANK_CONNECTION |
+| ACTIVE_FLAG |
 - ← [[CCM_USER_SERVICES_DIM]]
+| Column Name |
+|---|
+| SERVICE_CD |
 
 ## Target Tables (Outputs)
 - → [[TMP_USER_SERVICES_DIM]]
+| Column Name |
+|---|
+| SERVICE_CD |
+| SERVICE_NAME |
+| ANTALL |
+| SERVICE_OF_INTEREST |
 - → [[CCM_USER_SERVICES_DIM]]
+| Column Name |
+|---|
+| SERVICE_CD |
+| SERVICE_NAME |
+| ANTALL |
+| SERVICE_OF_INTEREST |
 

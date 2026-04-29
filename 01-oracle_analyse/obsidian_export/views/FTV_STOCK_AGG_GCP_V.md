@@ -3,10 +3,68 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This Oracle SQL view calculates a comprehensive set of Key Performance Indicators (KPIs) related to telecommunication product stock, customer growth (tilvekst), churn, and various product changes (e.g., speed upgrades/downgrades, technology migrations like Coax to Fiber, and subscription type changes). It provides detailed historical (monthly) insights into opening and closing balances for broadband (BB), TV, dualplay, BB-only, and TV-only subscriptions, enriched with product attributes (name, area, group, category, technology, speed, dwelling unit type) and source system information. It aggregates data to show net changes, total changes, and specific types of growth and churn events, often differentiating between current and previous product states.
+Calculates and aggregates key performance indicators (KPIs) related to product stock, opening/closing balances, net changes, churn, growth (tilvekst), speed changes, product changes, and technology changes. It combines data from stock equivalent records, product master data (broadband and TV products), and a date dimension to provide a comprehensive view of product movement and status, including dualplay, broadband-only, and TV-only subscriptions, and crossover migrations.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.FTV_STOCK_EQV_V4]]
+| Column Name |
+|---|
+| RUN_DT_KEY |
+| TV_TYPE |
+| BB_PRODUCT_KEY |
+| P1_BB_PRODUCT_KEY |
+| P2_BB_PRODUCT_KEY |
+| P3_BB_PRODUCT_KEY |
+| P4_BB_PRODUCT_KEY |
+| TV_PRODUCT_KEY |
+| P1_TV_PRODUCT_KEY |
+| P2_TV_PRODUCT_KEY |
+| P3_TV_PRODUCT_KEY |
+| P4_TV_PRODUCT_KEY |
+| BB_PRIM_PRODUCT_KEY |
+| P1_BB_PRIM_PRODUCT_KEY |
+| P2_BB_PRIM_PRODUCT_KEY |
+| NUM_CB_BB |
+| NUM_CB_TV |
+| NUM_OB_BB |
+| NUM_OB_TV |
+| CHURN_VULA |
+| CHURN_FLYTTING |
+| CHURN_RETURN |
+| CHURN_KORTVARIG |
+| TILVEKST_FLYTTING |
+| TILVEKST_RETURN |
+| CHURN_TBB_TO_FIBER |
+| CHURN_COAX_TO_FIBER |
+| TILVEKST_TBB_TO_FIBER |
+| TILVEKST_COAX_TO_FIBER |
+| TILVEKST_KORTVARIG |
+| TILVEKST_UTBYGGING |
+| TILVEKST_OFFNET |
+| PERIOD_MONTH_KEY |
 - ← [[ccm.FTV_PRODUCT_BB_V_TMP]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DWELLING_UNIT_TYPE |
+| SUBSCRIPTION_TYPE |
+| PRODUCT_NAME_USE |
+| SOURCE_PRODUCT_ID_1 |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| TECHNOLOGY |
+| PRODUCT_SPEED |
+| VALUECHAIN |
+| SOURCE_SYSTEM_NAME |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DATE_KEY |
+| DAY |
+| MONTH_NUMBER |
+| YEAR |
+| RELATIVE_MONTH |
 

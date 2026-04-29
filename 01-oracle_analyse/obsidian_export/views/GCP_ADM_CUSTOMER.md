@@ -3,17 +3,152 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a comprehensive, monthly aggregated profile of customer information. It consolidates various customer-related attributes such as demographics (age, gender, birth month, life stage), household details (composition, age distribution), address and location data (postal code, municipality, house type), service coverage information (mobile, ADSL, VDSL), subscription counts (by product type for both customer and user level), revenue, and key usage metrics (active days, product days). The primary purpose, as indicated in the comments, is to prepare this enriched customer data for loading into a data platform referred to as 'Mjøsa'. It also includes filters to exclude known test customers.
+Aggregates and enriches customer data, including personal details, household demographics, subscription counts, revenue, and network coverage information, for analytical purposes. The view filters data by month and excludes specific known test customers, preparing it for loading into a data mart (Mjøsa).
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_CHAR |
+| PERIOD_MONTH_DATE |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| CUSTOMER_SK |
+| HOUSEHOLD_ADDR_SK |
+| AGE |
+| GENDER |
+| MONTH_OF_BIRTH |
+| EMAIL_IND |
+| SMS_IND |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTNR |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| BOLIGTYPE |
+| FARID |
+| FARID_HUS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
 - ← [[CLM_ADM.ADM_HOUSEHOLD_INFO_HIST]]
+| Column Name |
+|---|
+| HOUSEHOLD_ADDR_SK |
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_UNIT_SK |
+| MIN_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
 - ← [[CLM_ADM.ADM_HOUSEHOLD_SUBS_CNT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ADDR_SK |
+| HH_NO_MPP_USR |
+| HH_NO_MPP_BUS_SUBS_USR |
+| HH_NO_MPR_USR |
+| HH_NO_MBB_USR |
+| HH_NO_MBB_BUS_SUBS_USR |
+| HH_NO_FIX_USR |
+| HH_NO_FIX_BUS_SUBS_USR |
+| HH_NO_DSL_USR |
+| HH_NO_DSL_BUS_SUBS_USR |
+| HH_NO_FBR_USR |
+| HH_NO_FBR_BUS_SUBS_USR |
 - ← [[CLM_ADM.ADM_CUSTOMER_OWNER_SUBS_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| NO_MPP |
+| NO_MPR |
+| NO_MBB |
+| NO_FIX |
+| NO_DSL |
+| NO_FBR |
+| NO_TNM_SUBS |
+| NO_DJU_SUBS |
+| NET_FEE |
+| NET_USE |
+| MPP_NO_DAYS_ACTIVE |
+| MPP_NO_DAYS_PROD |
+| MPR_NO_DAYS_ACTIVE |
+| MPR_NO_DAYS_PROD |
+| MBB_NO_DAYS_ACTIVE |
+| MBB_NO_DAYS_PROD |
+| FIX_NO_DAYS_ACTIVE |
+| FIX_NO_DAYS_PROD |
+| DSL_NO_DAYS_ACTIVE |
+| DSL_NO_DAYS_PROD |
 - ← [[CLM_ADM.ADM_CUSTOMER_USER_SUBS_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| NO_MPP |
+| NO_MPR |
+| NO_MBB |
+| NO_FIX |
+| NO_DSL |
+| NO_FBR |
+| NO_TNM_SUBS |
+| NO_DJU_SUBS |
+| NO_MPP_BUS_SUBS |
+| NET_FEE |
+| NET_USE |
 - ← [[CLM_ADM.ADM_CUSTOMER_DETAIL_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| USER_MAIN_SUBSCR_MB_3MO |
 - ← [[CLM_ADM.ADM_CUSTOMER_OWNER_USAGE_TREND]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
 - ← [[CLM_ADM.ADM_MOB_CUST_U_TALE_P_REV_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_USER |
+| MAIN_SUBSCRIPTION_REV |
+| NET_REVENUE_ADJUSTED |
+| MAIN_SUBSCRIPTION_TYPE |
 - ← [[CRM_ANALYSE.ADM_ADDR_COVERAGE_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| FARID |
+| LTE_IN |
+| GSM_IN |
+| LTE_OUT |
+| GSM_OUT |
+| MB_BEST_MOB_COVERAGE |
+| MB_BEST_MOB_QUALITY |
+| LINE_STATUS |
+| LINE_USAGE_CATEGORY |
+| ADSL_OK_RESULT |
+| ADSL_RESULT_CODE |
+| ADSL_MAX_PRODUCT_CLASS_TEXT |
+| ADSL_MAX_DOWNLOAD_SPEED |
+| VDSL_OK_RESULT |
+| VDSL_RESULT_CODE |
+| VDSL_MAX_PRODUCT_CLASS_TEXT |
+| VDSL_MAX_DOWNLOAD_SPEED |
 

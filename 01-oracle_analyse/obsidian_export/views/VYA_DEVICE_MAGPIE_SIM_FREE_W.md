@@ -3,10 +3,42 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates and standardizes weekly 'SIM-free' mobile device offers and their upfront costs collected from a third-party service (Magpie). It performs extensive data cleaning on device names and brands, calculates various price statistics (maximum, minimum, average, and median upfront costs), and attempts to map these devices to internal Global Trade Item Numbers (GTINs) using multiple matching strategies. The view filters out non-mobile phone devices (e.g., watches, tablets) and non-new conditions, focusing specifically on offers that are truly 'SIM-free' (zero effective monthly cost) and have a significant upfront cost. It enriches the data with weekly date dimensions for temporal analysis.
+Aggregates and cleans SIM-free mobile device pricing data from a third-party source, standardizes device information, filters out non-handset devices (e.g., watches, tablets, enterprise models), and enriches records with Global Trade Item Numbers (GTINs) and date dimensions. The resulting dataset is intended for analytical purposes, specifically for loading into a data warehouse named 'MJØSA'. It calculates various upfront cost metrics (max, min, avg, median) and provides details about device availability and deals.
 
 ## Data Sources (Inputs)
 - ← [[THIRD_PARTY_SERVICES.MAGPIE_DEVICE_PRICE]]
+| Column Name |
+|---|
+| BRAND_NAME |
+| DEVICE_NAME_STANDARDISED |
+| DEVICE_CAPACITY |
+| DATE_FOUND |
+| TOTAL_UPFRONT_COST |
+| DEAL_URL |
+| ONLINE_ONLY_DEAL |
+| EXISTING_CUSTOMERS_ONLY |
+| AVAILABILITY |
+| FREE_GIFT |
+| OTHER_INFO |
+| VENDOR |
+| DESTINATION_VENDOR |
+| NETWORK |
+| TARIFF_NAME |
+| DEVICE_COLOUR |
+| EFFECTIVE_MONTHLY_COST |
+| DEVICE_NAME_AS_SOLD |
+| DEVICE_CONDITION |
 - ← [[FPS.TERMINAL_GTIN_PROPERTIES]]
+| Column Name |
+|---|
+| MANUFACTURER |
+| MODEL_NAME |
+| TOTAL_SIZE |
+| GTIN |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_WEEK_NUMBER |
+| WEEK_ENDING |
 

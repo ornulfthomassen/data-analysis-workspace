@@ -3,9 +3,99 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a consolidated dataset of online orders placed or loaded since October 22, 2013. It enriches the order information from the 'onl_orders' table with details from active customer subscriptions by joining on the order's phone number and the subscription's main number. The view captures a wide range of attributes related to orders, products, customers, contracts, and various operational details.
+This view consolidates online order data from the 'onl.onl_orders' table with subscription information from 'CCDW.SUBSCRIPTION'. It filters for orders loaded after October 21, 2013, and joins them with active subscriptions based on the phone number. The primary purpose is to enrich recent online order details with subscriber owner information.
 
 ## Data Sources (Inputs)
 - ← [[onl.onl_orders]]
+| Column Name |
+|---|
+| ORDER_ID |
+| ORDER_LINE_ID |
+| DEALER_ID |
+| SUBSCR_ID |
+| ORDER_PROCESSED_DATE |
+| ORDER_ACTION_TYPE_ID |
+| PRODUCT_ACTION_TYPE_ID |
+| PRODUCT_ID |
+| PRODUCT_CODE_ID |
+| PARENT_ORDER_LINE_ID |
+| SYSTEM_TYPE_ID |
+| ORDER_PHONE_NUMBER |
+| ORDER_ORIGINATOR |
+| EQ_SERIAL_NUM |
+| PRODUCER_EQ_LEGACY_DESC |
+| EQ_TYPE_DESC |
+| REGION_ID |
+| ORDER_ORIGINATOR_ID |
+| EMAIL_ADDRESS |
+| ORDER_ARRIVAL_DATE |
+| CONTRACT_ID |
+| LOAD_DATE |
+| PRICE_PLAN_TYPE_ID |
+| ALLOW_PROVISION |
+| RENEWED_CONTRACT |
+| COMMISSION_INFO |
+| APPLICATION_CODE |
+| OLD_EQ_SERIAL_NUM |
+| SALES_REP_NAME |
+| SIGNATURE_HOLDER |
+| TERMINATION_CODE |
+| REGSTATE_AT_MANUAL |
+| DEALER_MSG |
+| PRODUCT_OFFER_ID |
+| PRODUCT_OFFER_ID_BESTILL |
+| PRODUCT_OFFER_ID_AVSLUTT |
+| IDENTIFICATION_TYPE_ID |
+| IDENTIFICATION_NUM |
+| EQ_UNIQUE_NUM |
+| LOG_TEXT1 |
+| LOG_TEXT2 |
+| LOG_TEXT3 |
+| CONTRACT_TEXT |
+| CUST_BIRTHDATE |
+| CUST_FIRST_NAME |
+| CUST_LAST_NAME |
+| CUST_MIDDLE_NAME |
+| CUST_COMPANY_ID |
+| ORDER_STATUS_REASON_ID |
+| PRODUCT_STATUS_REASON_ID |
+| GSM_CARD_SIZE |
+| COS_APPLICATION_ID |
+| BND_PARAM_GYLDIG_FRA_DATO |
+| BND_UTLOPS_DATO |
+| BND_DATO_TILLATT_VIDEREF |
+| BND_FRATREKK_FAKTURA |
+| BND_OPPSIGELSES_GEBYR |
+| BND_GEBYR_TYPE |
+| BND_MND_GEBYR_RED |
+| BND_VARIGHET_AVT |
+| BND_VARIGHET_VIDEREF |
+| BND_START_DATO |
+| X_LEGACY_PRODUCT_REF |
+| BND_PRODUCT_OFFER_ID |
+| LEGACY_PRODUCT_REF |
+| AGREEMENT_ID |
+| PRODUCT_EQ_SERIAL_NUM |
+| MAN_USER_ID |
+| MAN_USER_NAME |
+| MAN_SECONDS_USED |
+| MAN_TEAM_ID |
+| MAN_TEAM_NAME |
+| MAN_DEPT_ID |
+| MAN_DEPT_NAME |
+| IMSI_NR |
+| ICC_ID |
+| PORT_CASE_ID |
+| PORT_TID |
+| PORT_SP_AT |
+| PORT_SP_MT |
+| EXTERNAL_ORDER_REF |
+| PRODUCT_SUBSCR_ID |
+| SALESTIPS_ID |
 - ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| KURT_ID_OWNER |
+| MAIN_NUMBER |
+| CURRENT_STATUS |
 

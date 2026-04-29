@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies the earliest (minimum) and latest (maximum) load dates recorded in the KS_INTERACTION_LOAD_LOG table/view. It provides a summary of the overall date range for interaction loads.
+Calculates the overall maximum and minimum load dates from the KS_INTERACTION_LOAD_LOG table.
 
 ## Data Sources (Inputs)
 - ← [[KS_INTERACTION_LOAD_LOG]]
+| Column Name |
+|---|
+| MAX_LOAD_DATE |
+| MIN_LOAD_DATE |
 

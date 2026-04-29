@@ -3,12 +3,45 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates and de-duplicates subscription and SIM card related information, including ICC_ID, IMSI_NUMBER, product details, and validity periods. It filters out specific product offers (likely related to barring or auxiliary services) and prioritizes data from various sources to create a consistent record. The primary purpose is to provide cleansed and enriched subscription SIM card type data for loading into a data warehouse system referred to as 'MJØSA'. It includes specific logic for 'MAINCARD' type subscriptions and handles historical validity using a LAG function.
+This view, named `VYA_CM_SUBSCRIPTION_SIMCARD_TYPE`, consolidates and transforms subscription and SIM card type data from various source systems. Its primary purpose, as indicated by comments, is to prepare this data for loading into a target system called MJØSA. It integrates SIM card details, product dimensions, and subscription mapping information, applying complex logic for handling historical validity dates (using `LAG` analytic function), filtering out specific product offers, deriving SIM card numbers based on card type, and de-duplicating SIM card details.
 
 ## Data Sources (Inputs)
 - ← [[SIMNR.SIMCARD_DETAILS]]
+| Column Name |
+|---|
+| ICC_ID |
+| IMSI_NUMBER |
 - ← [[CM.REL_NUMBER]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| SUBSCRIBED_OFFER_ID |
+| VALID_TO_DATE |
+| VALID_FROM_DATE |
+| SUBSCRIPTION_SIMCARD_TYPE |
+| MSISDN |
+| ICC_ID |
+| ACTIVATION_PARAMETER_ID |
+| SUBSCR_ID_OWNER |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_SYSTEM_NAME |
+| PRODUCT_KEY |
 - ← [[CM.SUBSCRIPTION_EQUIPMENT_INFO]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| INFO_IS_DELETED |
+| VALID_TO_DATE |
+| ICC_ID |
+| VALID_FROM_DATE |
+| IMSI_NUMBER_ID |
 

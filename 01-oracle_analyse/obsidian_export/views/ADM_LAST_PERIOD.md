@@ -3,7 +3,7 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Calculates a single numeric period key (YYYYMM format) representing the month that is one month prior to 'seven days ago from the current date'. This effectively provides a key for a past period, approximately 5-6 weeks before the view is queried.
+Calculates a numeric month key (YYYYMM) representing the month prior to the current week, typically used to identify the 'last period' for administrative or analytical purposes.
 
 ## Data Sources (Inputs)
 - ← [[DUAL]]

@@ -3,9 +3,22 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Consolidates participant and answer data for the 'Mobilmerket' service, specifically for loading into Google Cloud Platform (GCP) BigQuery for reporting purposes. It joins participant details with their responses, and the IP address is hashed for privacy.
+Prepares aggregated Mobilmerket response and participant data from third-party services for reporting in GCP BigQuery via Denodo, including hashing of IP addresses.
 
 ## Data Sources (Inputs)
 - ← [[THIRD_PARTY_SERVICES.MOBILMERKET_ANSWER]]
+| Column Name |
+|---|
+| PARTICIPANT_ID |
+| QUESTION |
+| BUTTON |
 - ← [[THIRD_PARTY_SERVICES.MOBILMERKET_PARTICIPANT]]
+| Column Name |
+|---|
+| PARTICIPANT_ID |
+| OID |
+| IP |
+| START_DATE |
+| END_DATE |
+| VERSION |
 

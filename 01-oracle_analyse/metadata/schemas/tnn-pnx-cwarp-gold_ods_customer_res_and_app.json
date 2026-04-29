@@ -1,0 +1,122 @@
+[
+  {
+    "name": "customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "master_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "sms_address_link_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "sms_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "sms_ind",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "sms_al_max_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "sms_ra_max_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "sms_number",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "email_address_link_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "email_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "email_ind",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "email_al_max_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "email_ra_max_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "email_address",
+    "type": "STRING"
+  },
+  {
+    "name": "email_address_dq",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "tm_ind_br",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "br_tm_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "br_tm_max_res_app_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "dm_ind_br",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "br_dm_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "br_dm_max_res_app_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "tm_ind_internal",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "tm_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "tm_max_res_app_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "dm_ind_internal",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "dm_res_and_app_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "dm_max_res_app_dttm",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  }
+]

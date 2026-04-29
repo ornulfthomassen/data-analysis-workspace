@@ -3,8 +3,13 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a view of inventory types options, specifically casting and trimming the 'ID' column to a VARCHAR2(20) and aliasing it as 'TALKMORE_TYPES_OPT_ID', along with the 'NAME' and 'DESCRIPTION'. This view likely serves to standardize or prepare this data for consumption, potentially by a Google Cloud Platform (GCP) application as suggested by the view name.
+Creates a view of inventory type options, transforming the ID column by casting it to VARCHAR2(20) and trimming it, while also including the name and description.
 
 ## Data Sources (Inputs)
 - ← [[TALKMORE.INVENTORY_TYPES_OPT]]
+| Column Name |
+|---|
+| ID |
+| NAME |
+| DESCRIPTION |
 

@@ -3,16 +3,84 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-This Oracle PL/SQL procedure, ADM11_SUBSCR_HANDSET_HIST_I, is designed to populate and maintain a partitioned historical table named `CRM_ANALYSE.ADM_SUBSCR_HANDSET_HIST_I`. It processes subscription and handset data for a specified range of months (V_YYYYMM_FRA to V_YYYYMM_TIL). For each month, the procedure checks if the main historical table exists, and if not, it creates it with defined columns, partitioning by `PERIOD_MONTH_KEY`, and associated indexes. It then iterates through the months, ensuring a partition for the current month exists in the historical table. Data for each month is gathered by joining multiple source tables (GALAXY.DATE_DIM_MV, CRM_ANALYSE.ADM_SUBSCRIPTION_HISTORY_I, CCDW.SUBSCRIPTION_HANDSET, CLM_CCM.CCM_TERMINAL_TAC, CLM_CCM.CCM_TERMINAL_DETAIL) into a temporary table named `CRM_ANALYSE.TMP_ADM_SUBSCR_HANDSET_HIST_I`. Finally, the data is efficiently moved from the temporary table into the corresponding partition of the `CRM_ANALYSE.ADM_SUBSCR_HANDSET_HIST_I` table using an `ALTER TABLE ... EXCHANGE PARTITION` statement. The procedure also manages index creation/dropping and statistical gathering for performance, and includes error logging via `DBMS_OUTPUT` and `CRM_ANALYSE.P_ADM_LOAD_HISTORY`.
+This procedure calculates and maintains a historical record of subscriber handset details for specified months. It creates or adds monthly partitions to a permanent history table (ADM_SUBSCR_HANDSET_HIST_I) and populates them by processing data from various CRM, master data, and data warehouse sources. It utilizes a temporary table for efficient bulk loading via partition exchange. The process includes checks for data availability and handles table/partition creation and index management.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DATE_DIM_MV]]
-- ← [[CRM_ANALYSE.ADM_SUBSCRIPTION_HISTORY_I]]
-- ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_CCM.CCM_TERMINAL_TAC]]
+| Column Name |
+|---|
+| MODELID |
+| TACFACID |
 - ← [[CLM_CCM.CCM_TERMINAL_DETAIL]]
+| Column Name |
+|---|
+| MODELID |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
+- ← [[CRM_ANALYSE.ADM_SUBSCRIPTION_HISTORY_I]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+- ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| TAC_ID |
+| IMEI |
+- ← [[SYS.ALL_OBJECTS]]
+- ← [[DUAL]]
 
 ## Target Tables (Outputs)
 - → [[CRM_ANALYSE.ADM_SUBSCR_HANDSET_HIST_I]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
 - → [[CRM_ANALYSE.TMP_ADM_SUBSCR_HANDSET_HIST_I]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
+- → [[CRM_ANALYSE.ADM_LOAD_HISTORY]]
 

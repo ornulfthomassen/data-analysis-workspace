@@ -3,10 +3,57 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates detailed information about active mobile device agreements, their associated products, and customer ownership. It enriches the agreement data by joining it with product master data (for details like reporting levels, categories, and fees) and customer mapping data. It calculates various derived fields such as handset keys, processed IMEI information, product active days, and assigns reporting categories. The `rownum < 3` clause in the provided script suggests that this particular view definition might be intended for testing or temporary purposes, limiting the output to the first two records matching the criteria.
+The view `V_TMP_HEH` consolidates and transforms data related to active mobile device agreements. It joins agreement and device details with product attribute information and customer mapping data, providing a comprehensive view of active products, their associated customer, and device (IMEI) information, along with various derived metrics and categorizations.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.V_ODS_AGRMT_OFFER_MOB_DEVICE]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| SRC_AGRM_AGREEMENT_OFFER_ID |
+| AGREEMENT_PRODUCT_NAME |
+| IMEI_FULL |
+| IMEI_START_DATE |
+| IMEI_END_DATE |
+| PRODUCT_DAYS_ACTIVE |
+| PRODUCT_DAYS_LEFT |
+| PRODUCT_END_DATE |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_NAME_MARKET |
+| PRODUCT_START_DATE |
+| PRODUCT_START_DATE_ORIG |
+| PRODUCT_STATUS |
+| SRC_AGREEMENT_ID |
+| SRC_AGREEMENT_PRODUCT_ID |
+| SRC_PROD_AGREEMENT_OFFER_ID |
+| SRC_PRODUCT_ID |
+| KURT_ID |
 - ← [[CRM_ANALYSE.PD]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| MONTHLY_FEE |
+| PRODUCT_REPORT_LEVEL1 |
+| PRODUCT_REPORT_LEVEL2 |
+| PRODUCT_REPORT_LEVEL3 |
+| PRODUCT_REPORT_LEVEL4 |
+| PRODUCT_REPORT_FMC |
+| PRODUCT_SALEABLE_FLAG |
+| PRODUCT_GROUP |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_REPORTING |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 

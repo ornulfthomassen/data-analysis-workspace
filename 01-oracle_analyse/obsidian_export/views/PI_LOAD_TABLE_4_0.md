@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates and displays the most recent execution details (job name, status, start time, end time) for a specific set of ETL processes or data loads within the 'S_C_ALL' library. It identifies these processes by their 'etl_table' names, such as 'MOBILE_ORDER_DETAIL', 'FINANCE_SALES_REPORTING', various 'INSIGHT_SUBSCRIPTION' related loads, 'INSIGHT_CUSTOMER', and 'CHURN' related loads. For each specified 'etl_table', it retrieves the entry corresponding to the latest start time, effectively providing a snapshot of their most recent status.
+Retrieves the latest load status (job name, status, start, and end times) for specific ETL processes (Mobile Order Detail, Finance Sales Reporting, Insight Subscription, Insight Customer, and Churn related processes) within the 'S_C_ALL' library. It identifies the most recent entry for each specified ETL table from the daily load tracking table.
 
 ## Data Sources (Inputs)
 - ← [[ccm.ccm_daily_load]]
+| Column Name |
+|---|
+| lib |
+| etl_table |
+| jobname |
+| jobstat |
+| sttime |
+| endtime |
 

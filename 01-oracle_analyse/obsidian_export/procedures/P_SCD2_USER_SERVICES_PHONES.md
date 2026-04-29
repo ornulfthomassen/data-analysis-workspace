@@ -3,14 +3,47 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure implements a daily Slowly Changing Dimension Type 2 (SCD2) process for user service phone numbers. For each new file date, it identifies new active records, records that remain active, and records that have become inactive (ceased to be current). It then populates two temporary tables: one for the updated set of 'current' records and another for the complete set of 'past' (historical) records. Finally, it uses partition exchange to efficiently replace the 'current' and 'past' partitions of the main SCD2 table with the newly generated data, thereby maintaining a complete history of user service phone numbers with their respective `FIRST_DATE` and `LAST_DATE` and `CURRENT_RECORD` status.
+This procedure implements a Slowly Changing Dimension Type 2 (SCD2) logic for user services phone data. It incrementally processes new daily records from `COMOYO.USER_SERVICES_PHONES` to update and maintain a historical record of user phone numbers in the `SCD2_USER_SERVICES_PHONES` table. For each new `FILE_DATE`, it identifies active records that remain unchanged, newly active records, and previously active records that are now inactive, and updates the `SCD2_USER_SERVICES_PHONES` table using partition exchange with temporary tables (`TMP_SCD2_USER_SERVICES_P_C_REC` and `TMP_SCD2_USER_SERVICES_P_P_REC`) to reflect these changes over time.
 
 ## Data Sources (Inputs)
-- ← [[SCD2_USER_SERVICES_PHONES]]
 - ← [[COMOYO.USER_SERVICES_PHONES]]
+| Column Name |
+|---|
+| FILE_DATE |
+| USER_ID |
+| PHONES |
+- ← [[SCD2_USER_SERVICES_PHONES]]
+| Column Name |
+|---|
+| LAST_DATE |
+| USER_ID |
+| PHONES |
+| FIRST_DATE |
+| CURRENT_RECORD |
 
 ## Target Tables (Outputs)
-- → [[SCD2_USER_SERVICES_PHONES]]
 - → [[TMP_SCD2_USER_SERVICES_P_C_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| PHONES |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_RECORD |
 - → [[TMP_SCD2_USER_SERVICES_P_P_REC]]
+| Column Name |
+|---|
+| USER_ID |
+| PHONES |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_RECORD |
+- → [[SCD2_USER_SERVICES_PHONES]]
+| Column Name |
+|---|
+| USER_ID |
+| PHONES |
+| FIRST_DATE |
+| LAST_DATE |
+| CURRENT_RECORD |
 

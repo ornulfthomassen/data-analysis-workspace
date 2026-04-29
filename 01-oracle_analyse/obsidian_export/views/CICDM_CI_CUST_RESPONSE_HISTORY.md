@@ -3,8 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct pass-through or an alias for the `CI_CUST_RESPONSE_HISTORY` table. It exposes all columns from the underlying table without any transformations, aggregations, or filters. Its primary purpose is likely to provide a consistent interface to customer response history data, possibly for schema abstraction, access control, or to simplify queries by referencing a view instead of a table directly, especially if the view is in a different schema (CCM vs CICDM).
+Provides a direct projection of customer response history data from the 'CICDM.CI_CUST_RESPONSE_HISTORY' table, making it accessible under the 'CCM' schema with identical column names.
 
 ## Data Sources (Inputs)
 - ← [[CICDM.CI_CUST_RESPONSE_HISTORY]]
+| Column Name |
+|---|
+| KURT_ID |
+| RESPONSE_CD |
+| RESPONSE_DTTM |
+| CELL_PACKAGE_SK |
+| TREATMENT_SK |
+| INFERRED_RESPONSE_FLG |
+| RESPONSE_CHANNEL_CD |
+| EXTERNAL_RESPONSE_INFO_ID1 |
+| EXTERNAL_RESPONSE_INFO_ID2 |
+| PROCESSED_DTTM |
+| TREATMENT_HASH_VAL |
+| AGREE_SEND_DATE |
+| AGREE_DATE |
+| ORDER_SEND_DATE |
+| ORDER_SYSTEM |
+| SOURCE_ORDER_ID |
 

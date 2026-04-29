@@ -1,36 +1,49 @@
 # Data Analysis Workspace
 
-Monorepo for dataanalyse-prosjekter hos Telenor Norge Consumer.
+Dataanalyse-prosjekter for Telenor Norge Consumer — primært Oracle-avhengighetsanalyse for dbt-migrering.
 
 ## Prosjekter
 
-| Mappe | Beskrivelse | Status |
-|-------|-------------|--------|
-| `01-oracle_analyse/` | Oracle-kodeanalyse med LLM (Gemini 2.5 Flash) | Prosedyrer ferdig, views må kjøres på nytt |
+| Mappe | Status | Beskrivelse |
+|-------|--------|-------------|
+| `01-oracle_analyse/` | **Aktiv** | Oracle-kodeanalyse med LLM + avhengighetsgraf i Spanner Graph |
+| `02-telenorbutikken/` | Ikke startet | SMS-pilot (kun en PowerPoint-fil) |
+| `03-customer-360/` | Ikke startet | Customer 360-spørring (kun en SQL-fil) |
 
-## Oppsett
+**Kun `01-oracle_analyse/` har reelt innhold.** Se [01-oracle_analyse/README.md](01-oracle_analyse/README.md) for full dokumentasjon.
+
+## Overlevering
+
+Prosjektet er overlevert fra Ørnulf Thomassen (april 2026). Kontaktpersoner for videre arbeid: Harald, Noman, Amanda.
+
+### Kom i gang
 
 ```bash
-# Python 3.13.7
+cd 01-oracle_analyse
 python3 -m venv .venv
 source .venv/bin/activate
-
-# GCP-autentisering
+pip install -e .
 gcloud auth application-default login
 ```
 
-## 01 — Oracle Analyse
+### GCP-ressurser
 
-Automatisert analyse av Oracle-databaseobjekter (views og prosedyrer) fra fire skjemaer (CCM, CLM_ADM, CLM_CCM, CRM_ANALYSE). SQL-kildekoden hentes fra BigQuery og sendes til Gemini for å ekstrahere funksjonalitet, datakilder og måltabeller.
+| Ressurs | Prosjekt |
+|---------|----------|
+| BigQuery (kildekode) | `tnn-consumer-common-nx` |
+| Vertex AI (Gemini) | `tnn-pnx-consumer-common-ai` |
+| Spanner Graph | `tnn-nova-spanner` (instans: `nova-eu-west1-01`, DB: `s07601-p-tnn-consumer`) |
 
-- **295 prosedyrer** analysert (ferdig)
-- **1099 views** må kjøres på nytt (feilet pga. utløpt autentisering)
+### Hva er gjort
 
-Se `01-oracle_analyse/view_and_proc_oracle_agent_analysis.ipynb` for å komme i gang.
+- LLM-analyse av **295 prosedyrer** og **1099 views** fra 4 Oracle-skjemaer (CCM, CLM_ADM, CLM_CCM, CRM_ANALYSE)
+- Avhengighetsgraf: **1389 noder, 1352 kanter** (892 kryss-skjema)
+- Data lastet inn i Spanner Graph for visualisering
+- Obsidian-vault generert for grafnavigering
+- Kolonne-lineage lagt til i promptene (runde 2 klar til kjøring)
 
-## Konvensjoner
+### Hva gjenstår
 
-- Delprosjekter nummereres sekvensielt (`01-`, `02-`, ...)
-- Hvert delprosjekt har egne avhengigheter
-- GCP Application Default Credentials for autentisering
-- Gemini (Vertex AI) som LLM for analyseoppgaver
+- Kjøre runde 2 med kolonne-lineage for alle objekter
+- Verifisere migreringsrapportens anbefalte rekkefølge
+- Definere første batch for dbt-migrering basert på sentralitetsanalyse

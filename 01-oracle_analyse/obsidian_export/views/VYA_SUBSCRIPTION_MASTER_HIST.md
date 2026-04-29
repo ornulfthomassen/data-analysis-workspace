@@ -3,8 +3,58 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a standardized and formatted representation of historical subscription master data. It primarily casts various columns from its source table to specific CHAR data types and lengths. The view name and column suffixes (e.g., _PREV, _ORIG, _PAST) indicate that it contains historical tracking information for subscriptions, including details like original start dates, previous states, market areas, product keys, and porting information. It serves to expose this detailed historical subscription data in a consistent format, likely for reporting, analytics, or integration purposes.
+Creates a view exposing historical subscription master data, applying explicit type casting for character fields from the 'ADM_SUBSCRIPTION_MASTER_HIST' table. The view standardizes column types and lengths for further consumption.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER_SK |
+| MAIN_NUMBER_RANK |
+| SUBSCRIPTION_ID |
+| FIRST_PARENT_SUBSCRIPTION_ID |
+| LAST_PARENT_SUBSCRIPTION_ID |
+| SUBSCR_TYPE |
+| SUBSCRIPTION_ID_PREV |
+| SUBSCRIPTION_ID_ORIG |
+| SUBSCRIPTION_ID_PAST |
+| DAYS_BETWEEN_SUBSCRIPTIONS |
+| SUBSCRIPTION_ID_PAST_ORIG |
+| MARKET_AREA_ID |
+| MARKET_AREA_ID_PREV |
+| MARKET_AREA_ID_ORIG |
+| MARKET_AREA_ID_PAST |
+| MARKET_AREA_ID_PAST_ORIG |
+| SUBSCR_START_REASON |
+| MARKET_AREA_START |
+| NEW_USER_IND |
+| ORIGINAL_START_DATE |
+| ORIGINAL_START_DATE_PREV |
+| ORIGINAL_START_DATE_ORIG |
+| ORIGINAL_START_DATE_PAST |
+| ORIGINAL_START_DATE_PAST_ORIG |
+| END_DATE |
+| END_DATE_PREV |
+| END_DATE_ORIG |
+| END_DATE_PAST |
+| END_DATE_PAST_ORIG |
+| CURRENT_STATUS |
+| FIRST_PRODUCT_KEY |
+| NO_PRODUCT_COUNT |
+| FIRST_PRODUCT_KEY_PREV |
+| LAST_PRODUCT_KEY_PREV |
+| NO_PRODUCT_COUNT_PREV |
+| FIRST_PRODUCT_KEY_ORIG |
+| LAST_PRODUCT_KEY_ORIG |
+| NO_PRODUCT_COUNT_ORIG |
+| FIRST_PRODUCT_KEY_PAST |
+| LAST_PRODUCT_KEY_PAST |
+| NO_PRODUCT_COUNT_PAST |
+| FIRST_PRODUCT_KEY_PAST_ORIG |
+| LAST_PRODUCT_KEY_PAST_ORIG |
+| NO_PRODUCT_COUNT_PAST_ORIG |
+| PORT_IN_DEALER_ID |
+| PORT_IN_SERV_PROV_ID |
+| PORT_OUT_DEALER_ID |
+| PORT_OUT_SERV_PROV_ID |
 

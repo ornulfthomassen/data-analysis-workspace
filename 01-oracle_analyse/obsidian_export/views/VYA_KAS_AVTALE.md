@@ -3,8 +3,74 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a comprehensive view of customer agreement/contract details, directly exposing most columns from the underlying 'AVTALE' table with minimal transformation (converting 'T_E' to uppercase).
+Creates a view named VYA_KAS_AVTALE by selecting all relevant columns from the KAS.AVTALE table, with a minor transformation (uppercase) on the T_E column, effectively providing a direct exposure of contract/agreement data.
 
 ## Data Sources (Inputs)
 - ← [[KAS.AVTALE]]
+| Column Name |
+|---|
+| AVTALE_NR |
+| ABONNENT_NR |
+| ORDRE_NR |
+| DEKODER_NR |
+| PRODUKT_NR |
+| STATUS |
+| PURREKODE |
+| ENHETS_PRIS |
+| ANTALL |
+| SELGER |
+| VIRKEMIDDEL |
+| ANSVARSTED |
+| MVA |
+| TRANS_KODE |
+| SIGNATUR |
+| FAKTURA_TEKST |
+| TEKST_KODE |
+| AUTOGIRO |
+| T_E |
+| ENDRET_DATO |
+| REG_DATO |
+| RABATT |
+| BBT_CODE |
+| FRA_DATO |
+| TIL_DATO |
+| FRITAK_FRA_DATO |
+| FRITAK_TIL_DATO |
+| FAKT_DATO |
+| FAKT_TOM |
+| PRIS_ENDRINGSDATO |
+| TERMIN |
+| NESTE_FAKT_TOM |
+| KORT_NR |
+| AVTALE_KILDE |
+| TYPE_BESTILLING |
+| OPPSIGELSES_GRUNN |
+| TRANS_PRIORITET |
+| TRANS_NUMMER |
+| STATUS_ENDRET_DATO |
+| REG_DATO_TID |
+| MODEM_NR |
+| BINDINGSTID_DATO |
+| SLUTTFAKTURA |
+| PROVISJONS_BELOP |
+| PROVISJONS_DATO |
+| RABATT_KR |
+| WEB_AVTALE_NR |
+| SUBS_RAPPORTERT |
+| TEKNISK_TILLEGGSINFO |
+| INSTALLASJONSDATO |
+| ORDRE_NOTAT |
+| DEKODER_TYPE |
+| GARANTI_TOM |
+| PROV_SPES_KALK |
+| PROV_SPES_GML_GRUNNLAG |
+| SPORING_AVTALE_NR |
+| KAMPANJE_ID |
+| SAMBAND_NR |
+| TV_TYPE |
+| AUTOGEN |
+| SPEILING_AVTALE_NR |
+| CVIEW_ORDRENR |
+| BREDBANDSUTSTYRS_ID |
+| KM_RECNO |
 

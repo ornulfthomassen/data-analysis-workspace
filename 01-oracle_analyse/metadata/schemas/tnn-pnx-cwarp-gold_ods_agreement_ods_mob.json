@@ -1,0 +1,106 @@
+[
+  {
+    "name": "agreement_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_agrm_agreement_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "root_product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "product_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_id_owner",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_id_user",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "account_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "msisdn_user",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "original_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "info_chg_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "src_agreement_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_root_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_product_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_customer_id_owner",
+    "type": "STRING"
+  },
+  {
+    "name": "src_customer_id_user",
+    "type": "STRING"
+  },
+  {
+    "name": "src_service_order_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_account_id",
+    "type": "STRING"
+  },
+  {
+    "name": "imei_full",
+    "type": "STRING"
+  },
+  {
+    "name": "imei_usage",
+    "type": "STRING"
+  },
+  {
+    "name": "handset_key",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "imei_start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "imei_end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  }
+]

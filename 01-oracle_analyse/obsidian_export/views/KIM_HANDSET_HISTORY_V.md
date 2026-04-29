@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves historical information about handsets associated with subscriptions, including subscription details, handset identifiers (TAC_ID, IMEI), and the period of terminal use. It filters out subscriptions with an ID of 0 or less.
+Creates a view showing handset history details for active subscriptions, including main number, subscription key, handset key, IMEI, and terminal usage dates.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SUBSCRIPTION_ID |
+| TAC_ID |
+| IMEI |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
 

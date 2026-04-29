@@ -1,0 +1,167 @@
+# KIM_UPDATE_FROM_CDM
+
+**Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
+
+## Description
+Enriches and updates campaign detail fact tables (`KIM_CAMPAIGN_DETAIL_FACT` and `KIM_CAMPAIGN_DETAIL_FACT_EXT`) with detailed campaign, communication, and treatment information retrieved from various Customer Data Model (CDM) and dimension tables. The updates are performed for a specified range of contact dates and for 'Decision' type campaigns, logging the process to `RYDD_LOGG`.
+
+## Data Sources (Inputs)
+- ← [[kim_campaign_detail_fact]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| SOURCE_CONTACT_ID |
+| TREATMENT_PRIORITY |
+| CONTACT_DATE_KEY |
+| CAMPAIGN_TYPE_DESC |
+| SOURCE_SYSTEM_KEY |
+- ← [[CLM_CDM.CI_CUST_CONTACT_HISTORY_SDW]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| PACKAGE_HASH_VAL |
+- ← [[CRM_ANALYSE.KIM_TREATMENT_UDF_EXT_PIVOT]]
+| Column Name |
+|---|
+| PACKAGE_HASH_VAL |
+| ACTION_CATEGORY_TEX |
+| ACTIVITY_DESCRIPTION |
+| ACTIVITY_ID |
+| ACTIVITY_MAIN_OBJECTIVE |
+| ACTIVITY_OBJECTIVE |
+| BRAND |
+| CAMPAIGN |
+| CAMPAIGN_CATEGORY |
+| CAMPAIGN_DESCRIPTION |
+| CAMPAIGN_ID |
+| DIALOG_ID |
+| DIALOGUE_ID |
+| EXISTING_PRODUCT_ID_1 |
+| OFFER_CATEGORY_TEX |
+| PLAN |
+| PREVIOUS_ACTIVITY_ID |
+| PRODUCT_ACTION_1 |
+| PRODUCT_ACTION_2 |
+| PRODUCT_ACTION_3 |
+| PRODUCT_ACTION_4 |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+| PRODUCT_KEY_4 |
+| PRODUCT_TYPE_1 |
+| PRODUCT_TYPE_2 |
+| PRODUCT_TYPE_3 |
+| PRODUCT_TYPE_4 |
+| PRODUCT_ID_1 |
+| PRODUCT_ID_2 |
+| PRODUCT_ID_3 |
+| PRODUCT_ID_4 |
+| PROGRAM |
+| TREATMENT_SK |
+| TRIGGER_ID |
+| TREATMENT_PRODUCT_KEY |
+| SUBSCRIPTION_ID |
+| TREATMENT_HASH_VAL |
+| KPI_NEWSALE |
+| KPI_NEWSALE_TEX |
+| KPI_PRODUCT_CHANGE |
+| KPI_PRODUCT_CHANGE_TEX |
+| PACKAGE_HASH_VAL |
+| MOBILE_PHONE_NUMBER |
+- ← [[CLM_CDM.CI_PACKAGE_X_TREATMENT]]
+| Column Name |
+|---|
+| PACKAGE_HASH_VAL |
+| CONTRIBUTING_CELL_PACKAGE_SK |
+- ← [[CLM_CDM.CI_CELL_PACKAGE]]
+| Column Name |
+|---|
+| CELL_PACKAGE_SK |
+| CAMPAIGN_SK |
+- ← [[CLM_CDM.CI_CAMPAIGN]]
+| Column Name |
+|---|
+| CAMPAIGN_SK |
+| CAMPAIGN_TYPE_CD |
+- ← [[CLM_CDM.CI_CAMPAIGN_TYPE]]
+| Column Name |
+|---|
+| CAMPAIGN_TYPE_DESC |
+| CAMPAIGN_TYPE_CD |
+- ← [[kim_campaign_dim]]
+| Column Name |
+|---|
+| CAMPAIGN_KEY |
+| CAMPAIGN_SK |
+| SOURCE_SYSTEM_KEY |
+- ← [[kim_COMMUNICATION_dim]]
+| Column Name |
+|---|
+| COMMUNICATION_KEY |
+| COMMUNICATION_SK |
+| SOURCE_SYSTEM_KEY |
+
+## Target Tables (Outputs)
+- → [[RYDD_LOGG]]
+| Column Name |
+|---|
+| JOBNAME |
+| VAL |
+| DESCRIPTION |
+| START_DTTM |
+- → [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| campaign_type_desc |
+| TREATMENT_PRODUCT_KEY |
+| SUBSCRIPTION_KEY |
+| TREATMENT_HASH_VAL |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| PACKAGE_HASH_VAL |
+| MAIN_NUMBER |
+| CAMPAIGN_KEY |
+| COMMUNICATION_KEY |
+| CELL_PACKAGE_SK |
+| seq_id |
+| CONTACT_KEY |
+- → [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| ACTION_CATEGORY |
+| ACTIVITY_DESC |
+| ACTIVITY_ID |
+| ACTIVITY_MAIN_OBJECTIVE |
+| ACTIVITY_OBJECTIVE |
+| BRAND |
+| CAMPAIGN |
+| CAMPAIGN_CATEGORY |
+| CAMPAIGN_DESC |
+| CAMPAIGN_ID |
+| CONTACT_KEY |
+| DIALOG_ID |
+| DIALOGUE_ID |
+| EXISTING_PRODUCT_ID |
+| OFFER_CATEGORY |
+| PLAN |
+| PREV_ACTIVITY_ID |
+| PRODUCT_ACT1 |
+| PRODUCT_ACT2 |
+| PRODUCT_ACT3 |
+| PRODUCT_ACT4 |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+| PRODUCT_KEY_4 |
+| PRODUCT_TP1 |
+| PRODUCT_TP2 |
+| PRODUCT_TP3 |
+| PRODUCT_TP4 |
+| PRODUCT1 |
+| PRODUCT2 |
+| PRODUCT3 |
+| PRODUCT4 |
+| PROGRAM |
+| TREATMENT_SK_EXT |
+| TRIGGER_ID |
+

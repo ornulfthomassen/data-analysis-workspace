@@ -3,13 +3,13 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure's main functionality is to create daily historical snapshots of two source tables. It dynamically generates two new tables, each named with a date suffix (YYYYMMDD) appended to a base name, by copying all data from the respective source tables. This process effectively 'historizes' the data from the source tables into date-stamped copies.
+This procedure creates daily historical snapshot tables by copying all data from two source tables (`AGR.BMGM_COUNTS_KURT` and `AGR.BMGM_ACCESSES_KURT`). The newly created tables are named by appending the current date (YYYYMMDD) to a base name (e.g., ADM_BMGM_COUNTS_KURTYYYYMMDD).
 
 ## Data Sources (Inputs)
 - ← [[AGR.BMGM_COUNTS_KURT]]
 - ← [[AGR.BMGM_ACCESSES_KURT]]
 
 ## Target Tables (Outputs)
-- → [[ADM_BMGM_COUNTS_KURT_YYYYMMDD]]
-- → [[ADM_BMGM_ACCESSES_KURT_YYYYMMDD]]
+- → [[ADM_BMGM_COUNTS_KURT<YYYYMMDD>]]
+- → [[ADM_BMGM_ACCESSES_KURT<YYYYMMDD>]]
 

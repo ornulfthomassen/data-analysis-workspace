@@ -3,8 +3,15 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The `ODS_ADS_ORIG_SUBS` function aims to identify the 'original' or 'root' subscription ID within a historical chain. It takes a `SUBS_ID` as input and queries the `ADS_MOBIL_SUBSCR_HIST_RAW` table to find related subscriptions based on `MAIN_NUMBER` and complex date-based conditions (joining on `START_DATE`, `END_DATE`, and `ORIGINAL_START_DATE`). The function appears to recursively trace back through linked subscriptions until it identifies the earliest parent in the lineage. If no parent is found, or if the current `SUBS_ID` is deemed the original, it returns that ID. It includes exception handling for `NO_DATA_FOUND`.
+This Oracle function, ODS_ADS_ORIG_SUBS, recursively traces back subscription history for a given SUBS_ID to find its ultimate original (earliest linked) subscription ID. It identifies preceding subscriptions based on matching MAIN_NUMBER and contiguous or near-contiguous date ranges (START_DATE, END_DATE, ORIGINAL_START_DATE) within the ADS_MOBIL_SUBSCR_HIST_RAW table. If a direct predecessor is found, it recursively calls itself with the predecessor's ID until no further predecessors are found, or the original SUBS_ID itself is determined to be the 'origin'.
 
 ## Data Sources (Inputs)
 - ← [[ADS_MOBIL_SUBSCR_HIST_RAW]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER |
+| START_DATE |
+| END_DATE |
+| ORIGINAL_START_DATE |
 

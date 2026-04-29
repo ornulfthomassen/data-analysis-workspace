@@ -3,8 +3,15 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as an alias or a projection of an existing dimension table named ORDER_LINE_TYPE_DIM from the GALAXY schema. It provides a standardized view of order line type attributes, likely for analytical purposes or to abstract the underlying data source and schema from consuming applications.
+Creates a dimension view for order line types by selecting all columns directly from the GALAXY.ORDER_LINE_TYPE_DIM table.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_LINE_TYPE_DIM]]
+| Column Name |
+|---|
+| ORDERLINE_TYPE_KEY |
+| ORDERLINE_TYPE_DESC |
+| ORDERLINE_TYPE_GROUP_DESC |
+| ORDERLINE_TYPE_CATEGORY_DESC |
+| ORDERLINE_TYPE_CATEGORY_ID |
 

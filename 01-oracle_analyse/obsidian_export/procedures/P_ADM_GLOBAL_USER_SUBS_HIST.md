@@ -3,21 +3,67 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_GLOBAL_USER_SUBS_HIST is designed to load and update historical user subscription data for a specific month (identified by V_YYYYMM) into a partitioned target table, CLM_ADM.ADM_GLOBAL_USER_SUBS_HIST. It first performs a series of checks:
-1.  Verifies the existence of the main target table.
-2.  Checks if the target partition for the given month already exists. If it does and is not empty, it prevents overwriting unless explicitly allowed. If the partition doesn't exist, it creates a new one.
-It then proceeds to create a temporary table, CLM_ADM.TMP_GLOBAL_USER_SUBS_HIST, populating it with aggregated subscription event data extracted from various source systems (CM, CCDW, COMOYO, GALAXY). After the temporary table is populated, it performs an atomic exchange of the target partition with the newly created temporary table, effectively updating the historical data. Finally, it rebuilds the associated index for the updated partition and gathers statistics. The procedure includes robust error handling and logs various stages of the process and any encountered errors using an external logging procedure.
+Generates and updates monthly user subscription history data for a specific year-month. It first creates a temporary table by joining various subscription, offer, and event data. This temporary table is then used to populate or refresh a partition within the main `ADM_GLOBAL_USER_SUBS_HIST` table via an exchange partition operation. The procedure also handles partition creation, error logging, and source data validation.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_GLOBAL_USER_SUBS_HIST]]
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE_KEY |
+| LAST_DATE |
 - ← [[CM.SUBSCRIBED_OFFER_CONFIGURATION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| PARAMETER_VALUE |
+| VALID_FROM_DATE |
+| VALID_TO_DATE |
+| PARAMETER_ID |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| INFO_IS_DELETED |
+| INFO_REG_DATE |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_ID |
+| SUBSCRIPTION_ID |
 - ← [[COMOYO.COMOYO_SUB_GRANT_EVENTS]]
+| Column Name |
+|---|
+| USER_ID |
+| EVENT |
+| SKUS |
+| EVENT_TIME |
+| LOAD_DATE |
+| GRANTOR |
 - ← [[GALAXY.SUBSCRIPTION_DIM_MV]]
+| Column Name |
+|---|
+| PARENT_SUBSCRIPTION_KEY |
+| COMOYO_USER_ID |
+| SUBSCR_USER_START_DT_KEY |
+| SUBSCR_CATEGORY_NAME |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.TMP_GLOBAL_USER_SUBS_HIST]]
-- → [[CLM_ADM.ADM_GLOBAL_USER_SUBS_HIST]]
+- → [[TMP_GLOBAL_USER_SUBS_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| COMOYO_USER_ID |
+| FIRST_EVENT_DTTM |
+| MIN_SKY_NO_DAYS_FIRST_USE |
+- → [[ADM_GLOBAL_USER_SUBS_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| COMOYO_USER_ID |
+| FIRST_EVENT_DTTM |
+| MIN_SKY_NO_DAYS_FIRST_USE |
 

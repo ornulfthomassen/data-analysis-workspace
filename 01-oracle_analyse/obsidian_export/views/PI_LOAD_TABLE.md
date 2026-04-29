@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to display the latest (most recent start time) load status for a predefined set of specific ETL (Extract, Transform, Load) tables. It retrieves details such as the library, ETL table name, job name, job status, start time, and end time for the latest execution of these specified tables, primarily focusing on tables related to 'ORDER_DETAIL', 'FINANCE_SALES_REPORTING', and various 'INSIGHT' and 'CHURN' data products within the 'HDFS_CONS_PUBLIC' library.
+This view retrieves the latest load status entries for a specific set of ETL tables/processes from the `ccm_daily_load` log table. For each tracked ETL table (e.g., 'ORDER_DETAIL', 'FINANCE_SALES_REPORTING', various 'INSIGHT' related tables, and 'insight_churn_wide'), it identifies and returns the record with the most recent start time (`sttime`), including details such as the library, ETL table name, job name, job status, start time, and end time.
 
 ## Data Sources (Inputs)
-- ← [[ccm.ccm_daily_load]]
+- ← [[CCM.CCM_DAILY_LOAD]]
+| Column Name |
+|---|
+| lib |
+| etl_table |
+| jobname |
+| jobstat |
+| sttime |
+| endtime |
 

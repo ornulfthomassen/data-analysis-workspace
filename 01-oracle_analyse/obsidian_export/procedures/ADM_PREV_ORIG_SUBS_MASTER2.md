@@ -3,8 +3,13 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Traces back the lineage of a given subscription ID (P_SUBS_ID) within the ADM_MOB_SUBSCR_MASTER_RAW2 table. It recursively follows the chain of 'PREV_SUBSCRIPTION_ID' and 'ORIG_SUBSCRIPTION_ID' links to identify the ultimate original or 'root' subscription ID in its hierarchy or historical chain. The function returns the initial P_SUBS_ID if no previous link is found or if the found link points back to the current ID, effectively stopping the recursion.
+Traces the lineage of a subscription ID within the `ADM_MOB_SUBSCR_MASTER_RAW2` table to find its ultimate original or previous subscription ID through a recursive lookup process. It prioritizes the `ORIG_SUBSCRIPTION_ID` if available, otherwise it uses `PREV_SUBSCRIPTION_ID` to follow the chain.
 
 ## Data Sources (Inputs)
 - ← [[ADM_MOB_SUBSCR_MASTER_RAW2]]
+| Column Name |
+|---|
+| ORIG_SUBSCRIPTION_ID |
+| PREV_SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID |
 

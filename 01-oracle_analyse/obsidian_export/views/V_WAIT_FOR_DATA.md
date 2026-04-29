@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to monitor the status of a specific data processing workflow instance. It retrieves the start and end times of the most recent successful run (indicated by NULL error message and error code 0) of the 'cmd_Transfer_SAS_trigger' instance within the 'wf_User_Services_SCD_Master' workflow for the 'COMOYO' subject area, looking back up to 35 days. The `DATA_IS_FRESH` column, as currently defined, always returns `0`, which might indicate that the data is not considered fresh or ready for consumption from this view's perspective, or serves as a placeholder for a 'wait' condition.
+Monitors the status of a specific ETL workflow instance ('COMOYO', 'wf_User_Services_SCD_Master', 'cmd_Transfer_SAS_trigger') by retrieving the `START_TIME` and `END_TIME` of its latest successful run (within the last 35 days) from the `PCT_REPOSITORY.REP_TASK_INST_RUN` table. It also includes a 'DATA_IS_FRESH' flag which is always set to 0 based on the current script logic.
 
 ## Data Sources (Inputs)
 - ← [[PCT_REPOSITORY.REP_TASK_INST_RUN]]
+| Column Name |
+|---|
+| END_TIME |
+| START_TIME |
+| SUBJECT_AREA |
+| WORKFLOW_NAME |
+| INSTANCE_NAME |
+| WORKFLOW_RUN_ID |
+| RUN_ERR_MSG |
+| RUN_ERR_CODE |
 

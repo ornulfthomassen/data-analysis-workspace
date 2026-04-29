@@ -3,8 +3,19 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view defines and extracts a dimension table for age groups. It selects various attributes such as ID, name, description, value ranges (from, to), hierarchical level, parent, sorting order, and type ID. The view specifically filters records from the `ANALYTICAL_GROUP_DIM` table that are related to 'AGE' by joining the table to itself to identify parent entries with the name 'AGE'.
+Creates a dimensional view for age groups by selecting relevant columns from the ANALYTICAL_GROUP_DIM table. It performs a self-join to filter for age groups based on a hierarchical relationship where the parent entry is specifically identified by 'AGE' in the 'NAME' column.
 
 ## Data Sources (Inputs)
 - ← [[ANALYTICAL_GROUP_DIM]]
+| Column Name |
+|---|
+| ID |
+| NAME |
+| DESCRIPTION |
+| VALUE_FROM |
+| VALUE_TO |
+| H_LEVEL |
+| PARENT |
+| SORTING |
+| TYPE_ID |
 

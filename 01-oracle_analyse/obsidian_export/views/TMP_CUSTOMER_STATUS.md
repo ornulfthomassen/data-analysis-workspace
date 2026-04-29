@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `TMP_CUSTOMER_STATUS`, extracts and transforms specific customer status information. It selects the period month key and customer key, and translates customer status codes ('K' for 'Levende' (Alive), 'UD' for 'Død' (Dead)) into more descriptive Norwegian names, with a default 'UKJENT' (Unknown). The data is filtered to include only certain customer types ('PU', 'P', 'PC') and specific customer status codes ('K', 'UD'), while excluding a predefined list of customer SKs. The view serves as an intermediary step, indicated by the comment 'BRUKES TIL LASTING TIL Viya' (used for loading to Viya), suggesting it prepares customer status data for an analytical platform.
+Creates a temporary view of customer status information by selecting, transforming, and filtering data from the ADM_CUSTOMER_INFO_HIST table. It maps customer status codes to Norwegian descriptions and excludes specific customer records, with the explicit purpose of loading this data into Viya.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| CUSTOMER_STATUS_CD |
+| CUSTOMER_TYPE_CD |
 

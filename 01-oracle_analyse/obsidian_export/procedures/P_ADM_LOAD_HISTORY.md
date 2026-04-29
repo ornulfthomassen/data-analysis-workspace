@@ -3,15 +3,55 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_LOAD_HISTORY functions as an ETL job logging and monitoring utility. It tracks the status and various statistics of data loading processes for a specified target table (referenced by the P_ETL_TABLE parameter). It records details such as job status ('RUNNING', 'ENDED OK', 'WARNING', 'ERROR'), start/end timestamps, duration, session information, and row counts (before and after the load) into the `CLM_ADM.ADM_LOAD_HISTORY` table. The procedure dynamically calculates percentage differences in row counts (current vs. prior period, current vs. historical maximum) for the `P_ETL_TABLE`. Based on these comparisons and predefined thresholds (e.g., >5% change from prior period, >3% change from max), it automatically assigns a job status of 'WARNING' or 'ERROR'; otherwise, it defaults to 'ENDED OK'. It supports two main modes: initiating a new load by inserting a 'RUNNING' entry or updating an existing load's entry with final status and metrics.
+Logs and monitors ETL job execution for specified tables. It verifies table existence, checks for row count changes (current vs. prior period, and current vs. historical maximum), calculates percentage differences, and assigns a job status (OK, WARNING, ERROR). All execution details, including status, row counts, and timing, are recorded in an administrative history table.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_LOAD_HISTORY]]
 - ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
 - ← [[USER_TAB_COLS]]
-- ← [[P_ETL_TABLE (this refers to the table dynamically passed as a parameter, which is queried for row counts and column existence, e.g., 'YOUR_SCHEMA.YOUR_TABLE')]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| COLUMN_NAME |
 - ← [[DUAL]]
+- ← [[CLM_ADM.ADM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| ROWS_AFTER |
+| LOAD_ID |
+| ETL_TABLE |
+| PERIOD |
+| JOBSTATUS |
+| SESSIONID |
+| START_DTTM |
+- ← [[Dynamic_P_ETL_TABLE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 
 ## Target Tables (Outputs)
 - → [[CLM_ADM.ADM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| LOAD_ID |
+| LOAD_FREQUENCY |
+| JOB_USER |
+| JOBNAME |
+| JOBSTATUS |
+| SID |
+| SESSIONID |
+| ETL_TABLE |
+| PERIOD |
+| ROWS_BEFORE |
+| ROWS_AFTER |
+| START_DTTM |
+| END_DTTM |
+| DURATION |
+| START_LINE_NUMBER |
+| END_LINE_NUMBER |
+| STATUS_MESSAGE |
 

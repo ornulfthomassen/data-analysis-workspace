@@ -3,14 +3,115 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This procedure loads and updates monthly Net Promoter Score (NPS) Customer Satisfaction (CS) historical raw data into a permanent, partitioned target table. It achieves this by first creating a temporary staging table (`TMP_NPS_CS_HIST_RAW`), populating it with processed data from various source tables, and then using an `ALTER TABLE ... EXCHANGE PARTITION` operation to efficiently swap the temporary table's data into the corresponding monthly partition of the main `ADM_NPS_CS_HIST_RAW` table. It includes logic to check for existing partitions, handle overwrite conditions, and manage the lifecycle of the temporary table.
+Loads and processes monthly raw Net Promoter Score (NPS) and customer satisfaction historical data for a specified month (`P_YYYYMM`). It performs data enrichment by joining raw NPS data with subscription and customer mapping historical data, then loads the processed data into a dedicated partition of the `ADM_NPS_CS_HIST_RAW` table using a temporary table and partition exchange. The procedure also handles partition creation and cleanup of the temporary table.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_NPS_CS_HIST_<YYYYMM>_RAW]]
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
+- ← [[ADM_NPS_CS_HIST_RAW]]
+- ← [[CLM_ADM.ADM_NPS_CS_HIST_{YYYYMM}_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| TELENOR_UNIQUE_ID |
+| TRANSACTION_DTTM |
+| TRANSACTION_DATE_KEY |
+| RESPONSE_DTTM |
+| RESPONSE_DATE_KEY |
+| DAYS_SINCE_TRANSACTION |
+| NPS_CATEGORY_MEDALLIA |
+| NPS |
+| LIKELIHOOD_TO_RECOMMEND |
+| LIKELIHOOD_TO_RECOMMEND_RAW |
+| REASON_FOR_SCORE_RAW |
+| RESCUED |
+| AVOIDED_CHURN |
+| SALE |
+| SURVEY_PROGRAM |
+| COMPLETED_WEB_SURVEY |
+| REASON_COMMENT_PROVIDED |
+| CALLER_SUBSCRIPTION_ID |
+| CALLER_MAIN_NUMBER |
+| CALLER_KURT_ID_OWNER |
+| CALLER_KURT_ID_USER |
+| INPUT_SUBSCRIPTION_ID |
+| INPUT_MAIN_NUMBER |
+| INPUT_KURT_ID_OWNER |
+| INPUT_KURT_ID_USER |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
-- → [[ADM_NPS_CS_HIST_RAW]]
 - → [[TMP_NPS_CS_HIST_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| TELENOR_UNIQUE_ID |
+| TRANSACTION_DTTM |
+| TRANSACTION_DATE_KEY |
+| RESPONSE_DTTM |
+| RESPONSE_DATE_KEY |
+| DAYS_SINCE_TRANSACTION |
+| NPS_CATEGORY |
+| NPS |
+| LIKELIHOOD_TO_RECOMMEND |
+| LIKELIHOOD_TO_RECOMMEND_RAW |
+| REASON_FOR_SCORE_RAW |
+| RESCUED |
+| AVOIDED_CHURN |
+| SALE |
+| SURVEY_PROGRAM |
+| COMPLETED_WEB_SURVEY |
+| REASON_COMMENT_PROVIDED |
+| CALLER_SUBSCRIPTION_ID |
+| CALLER_MAIN_NUMBER_SK |
+| CALLER_CUSTOMER_SK_OWNER |
+| CALLER_CUSTOMER_SK_USER |
+| INPUT_SUBSCRIPTION_ID |
+| INPUT_MAIN_NUMBER_SK |
+| INPUT_CUSTOMER_SK_OWNER |
+| INPUT_CUSTOMER_SK_USER |
+- → [[ADM_NPS_CS_HIST_RAW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| TELENOR_UNIQUE_ID |
+| TRANSACTION_DTTM |
+| TRANSACTION_DATE_KEY |
+| RESPONSE_DTTM |
+| RESPONSE_DATE_KEY |
+| DAYS_SINCE_TRANSACTION |
+| NPS_CATEGORY |
+| NPS |
+| LIKELIHOOD_TO_RECOMMEND |
+| LIKELIHOOD_TO_RECOMMEND_RAW |
+| REASON_FOR_SCORE_RAW |
+| RESCUED |
+| AVOIDED_CHURN |
+| SALE |
+| SURVEY_PROGRAM |
+| COMPLETED_WEB_SURVEY |
+| REASON_COMMENT_PROVIDED |
+| CALLER_SUBSCRIPTION_ID |
+| CALLER_MAIN_NUMBER_SK |
+| CALLER_CUSTOMER_SK_OWNER |
+| CALLER_CUSTOMER_SK_USER |
+| INPUT_SUBSCRIPTION_ID |
+| INPUT_MAIN_NUMBER_SK |
+| INPUT_CUSTOMER_SK_OWNER |
+| INPUT_CUSTOMER_SK_USER |
 

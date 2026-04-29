@@ -3,8 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates and summarizes the mobile number portability history (port-in and port-out events) for each unique owner and main number combination. It specifically focuses on events that occurred within the last two years (730 days) from the current date. For these events, the view calculates the total count of porting operations, the earliest and latest port-in dates, the earliest and latest port-out dates, and provides a concatenated list of service providers involved in both port-in and port-out events.
+This view summarizes the porting history for main numbers, providing an aggregated view of port-in and port-out events, associated service providers, and relevant dates over the last two years. It groups data by owner and main number to present a consolidated history for each unique main number within that period.
 
 ## Data Sources (Inputs)
 - ← [[ADM_MOBIL_SUBSCR_HIST]]
+| Column Name |
+|---|
+| OWNER |
+| MAIN_NUMBER |
+| CURRENT_STATUS |
+| PORT_IN_DATE |
+| PORT_IN_SERV_PROV_NAME |
+| PORT_OUT_DATE |
+| PORT_OUT_SERV_PROV_NAME |
 

@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Exposes aggregated inventory development KPIs (Key Performance Indicators) for Ring Norden customers. It includes metrics such as 'New Ring Norden', 'Retained Ring Norden' (RM_RING_NORDEN), and 'Total Ring Norden' (KPI_RING_NORDEN), along with the corresponding 'Period Week'. The view essentially provides a direct gateway to pre-calculated inventory development data for these customers.
+This view provides aggregated KPI (Key Performance Indicator) data related to 'Ring Norden' customers, specifically focusing on inventory development metrics like new, remaining, and total Ring Norden KPIs, organized by period week. The comment suggests it's for uploading aggregated inventory development.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.uk_2344_stage]]
+| Column Name |
+|---|
+| PERIOD_WEEK |
+| KPI_NEW_RING_NORDEN |
+| KPI_RM_RING_NORDEN |
+| KPI_RING_NORDEN |
 

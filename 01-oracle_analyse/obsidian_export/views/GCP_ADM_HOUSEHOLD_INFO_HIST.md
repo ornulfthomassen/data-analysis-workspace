@@ -3,8 +3,66 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a direct projection of historical household information for administrative purposes, effectively acting as an alias or abstraction layer for the underlying `ADM_HOUSEHOLD_INFO_HIST` table. It simply selects all columns from the source table without any transformations, aggregations, or filtering.
+Creates a view named GCP_ADM_HOUSEHOLD_INFO_HIST in the CCM schema, which is a direct pass-through or alias for all columns from the CLM_ADM.ADM_HOUSEHOLD_INFO_HIST table, likely for schema abstraction, permissions management, or migration purposes.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_HOUSEHOLD_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DS |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
 

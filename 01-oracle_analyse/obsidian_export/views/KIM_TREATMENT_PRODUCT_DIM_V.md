@@ -3,8 +3,63 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a product dimension table, providing a comprehensive set of product-related attributes. It directly exposes all columns from its underlying source table without any transformations, aggregations, or joins, essentially creating a projection or alias for the product dimension data.
+This view serves as a direct projection of the `GALAXY.PRODUCT_DIM` table, making its product dimension data available under the `CRM_ANALYSE` schema with explicitly defined column names.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRODUCT_TYPE_NAME |
+| PRODUCT_TYPE_DESC |
+| PRODUCT_BRAND |
+| DRM_PRODUCT_BUSINESS_AREA |
+| DRM_PRODUCT_BUSINESS_AREA_DET |
+| DRM_PRODUCT_ACCESS_PAYTYPE |
+| DRM_PRODUCT_GROUP |
+| DRM_MARKET_PRODUCT_GROUP |
+| DRM_MARKET_PRODUCT |
+| DRM_MARKET_PRODUCT_CATEGORY |
+| DRM_MARKET_PRODUCT_FAMILY |
+| DRM_MARKET_PRODUCT_BELONGING |
+| DRM_RESPONSIBLE_1 |
+| DRM_RESPONSIBLE_2 |
+| DRM_RESPONSIBLE_3 |
+| DRM_CLASSIFICATION |
+| DRM_CALCULATION_FACTOR |
+| DRM_ACTUAL_VALUE |
+| DRM_PRODUCT_DESC |
+| DRM_PRODUCT_CLASS |
+| DRM_PRODUCT_NEED |
+| DRM_SELF_SERVICE |
+| DRM_BINDING_TYPE |
+| DRM_IS_VALUE_CHAIN |
+| DRM_MEASURING_UNIT |
+| PRODUCT_PAYTYPE |
+| PRIMARY_PRODUCT_FLAG |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_PRODUCT_ID_2 |
+| SOURCE_PRODUCT_ID_3 |
+| SOURCE_PRODUCT_ID_4 |
+| PRICE_CATEGORY |
+| PRICE_CATEGORY_DESC |
+| PRODUCT_INITIATION_PRICE |
+| PRODUCT_PERIODIC_PRICE |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| SOURCE_SYSTEM_NAME |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| MONTHLY_PRICE |
+| PRODUCT_FAMILY_NAME |
 

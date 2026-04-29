@@ -1,650 +1,4081 @@
 [
     {
-        "view_name":"ADM_PRODUCT_ATTRIBUTE_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MPR_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"SUBS_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_SWAP_FLAGGING",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_TRIGGER_GALAXY_ORDER_MOB",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_MONTH_DIM_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MOB_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_CUSTOMER_MAPPING",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_1",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_NPS_CS_LAST_YEAR",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"FRAUD_DETECTION",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"TMP_BMGM_PRODUCT_DIM",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_SUBS_USAGE_MONTH_AGG_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_ADM_AGRMT_FAMILIEBONUS_AGG_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VYA_ODS_CUSTOMER",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"TMP_HEH_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ORDER_LINE_DETAIL_MOB_ENRICH_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_TRIGGER_COMOYO_USER_SRVC_DAILY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_SUBSCRIPTION_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_BS_HITS",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_4",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_AGREEMENT_DEVICE",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CM_MOB_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_CURRENT_SUBS_PROFIT_CAT",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_AGREEMENT_DEVICE_MPX",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_3A",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_BR_ANALYTIC_UNIVERSE_ALL",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_AGREEMENT_DEVICE_SWAPPED",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_ADM_AGRMT_FAMILIEBONUS_DET_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_AGREEMENT_DEVICE_AGG_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MISSING_DRM_REP_BRAND_PAY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ODS_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_0",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_BS_MPX",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_SUBS_PROD_CAT_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_AGREEMENT_MEMB_SWAP_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_CUSTOMER_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"SUBS_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"BMGM_PRODUCT_DIM",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_CHURN_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_SUBSCR_USR_TO_OWN_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_AGRMT_REWARD_MPP_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_BS_CONSIGNOR_AGG",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_SURVEYS",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"SJEKK_TALKMORE_PRODUCT_DIM",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_NPS_CS_RAW_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"GPD",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CM_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MBB_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CM_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_3B",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_AGREEMENT_MEMB_INSURANCE_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_CUSTOMER_EVENT_SURVEY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_KURT_CONNECTID_HARDLINK_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_BS_SAP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_TRIGGER_ODS_CONNECT_ID_LINK",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_AGREEMENTS_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_FAMILIEBONUS_HIST_RAW",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_HANDSET_DIM_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_SUBSCR_PROD_RAW_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_MIN_SKY_FIRST_USE",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"PRODUCT_DIM_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_2",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_TRIGGER_COMOYO_MIN_SKY_DAILY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MOB_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_SUBSCR_PROD_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHECK_PARTITION_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VYA_USAGE_DAY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUMMY_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"V_TRIGGER_OCS_FREE_UNITS_DAILY",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_0C",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"VA_BS_CONSIGNOR",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_0B",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"DUAL_ACCOUNT_RAPPORT_0A",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MPP_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MBB_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MPP_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"MPR_S",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ODS_SP",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"CHURN_CUST_SUBSCR_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
-    },
-    {
-        "view_name":"ADM_WEEK_DIM_V",
-        "functionality":"Error during analysis",
-        "data_sources":[
-
-        ],
-        "error":"503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate."
+        "view_name": "ADM_PRODUCT_ATTRIBUTE_V",
+        "functionality": "Provides a standardized and enriched view of product attributes by combining current product information from GALAXY.PRODUCT_DIM with historical data from CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST. It performs extensive data cleaning, type conversions, calculations (e.g., for included data, network speeds, fees), and standardization of product categories, brands, and families. It also generates an MD5 hash for change detection across a comprehensive set of product attributes. The view is used for analytical purposes and historical data management.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC",
+                    "PRIMARY_PRODUCT_FLAG",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "SOURCE_SYSTEM_NAME",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_PRODUCT_ID_2",
+                    "PRODUCT_FAMILY_NAME",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_PAYMENT",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "ESTABLISHMENT_PRICE",
+                    "MONTHLY_PRICE",
+                    "PRICE_VAT_DESC",
+                    "INCLUDED_MINUTES",
+                    "INCLUDED_SMS",
+                    "PRICE_SMS_AFTER_INCLUDED",
+                    "INCLUDED_MMS",
+                    "PRICE_MMS",
+                    "INCLUDED_DATA",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "BAUD_REDUCTION_QUOTA",
+                    "BAUD_DOWNLOAD",
+                    "PRICE_DATA_AFTER_INCLUDED",
+                    "MAX_MONTHLY_DATA_CHARGE",
+                    "BAUD_UPLOAD",
+                    "TK_PRODUCT_RANK"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "CURRENT_STATUS",
+                    "STARTUP_FEE",
+                    "MONTHLY_FEE",
+                    "PRICE_VAT_DESC",
+                    "INCLUDED_MINUTES",
+                    "PRICE_MIN_AFTER_INCLUDED",
+                    "INCLUDED_SMS",
+                    "PRICE_SMS_AFTER_INCLUDED",
+                    "INCLUDED_MMS",
+                    "PRICE_MMS_AFTER_INCLUDED",
+                    "INCLUDED_MB",
+                    "PRICE_MB_AFTER_INCLUDED",
+                    "MAX_MONTHLY_CHARGE_MB",
+                    "BAUD_UPLOAD_MBPS",
+                    "BAUD_DOWNLOAD_MBPS",
+                    "BAUD_REDUCTION_QUOTA_MB"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MPR_SP",
+        "functionality": "Combines subscribed product information with product type configuration details, enriching subscription data with product name and description from the product hierarchy.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID",
+                    "RESOURCE_VALUE",
+                    "SUBSCRIPTION_SEQ",
+                    "PRODUCT_CATEGORY_ID",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "TERMINATION_FIXED_FEE",
+                    "TERMINATION_MONTH_FEE",
+                    "SYSTEM_COMPONENT_ID",
+                    "COMOYO_USER_ID"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "ID",
+                    "PARENT",
+                    "PRODUCT_NAME",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "SUBS_SP",
+        "functionality": "Retrieves comprehensive information about subscribed products by joining core subscription data with product details from GALAXY.PRODUCT_DIM and hierarchical product type configurations from CLM_CCM.CCM_PRODUCT_TYPE_CONFIG. This view enriches subscribed product records with product names and descriptions from various sources.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "PRODUCT_OFFER_ID",
+                    "SUBSCRIPTION_ID",
+                    "RESOURCE_VALUE",
+                    "SUBSCRIPTION_SEQ",
+                    "PRODUCT_CATEGORY_ID",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "TERMINATION_FIXED_FEE",
+                    "TERMINATION_MONTH_FEE",
+                    "SYSTEM_COMPONENT_ID",
+                    "COMOYO_USER_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "ID",
+                    "PARENT",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_SWAP_FLAGGING",
+        "functionality": "This view consolidates detailed information for 'SWAP' agreements. It identifies active 'SWAP' products associated with agreements, extracts IMEI details from product configurations, and links these to original subscription main numbers and usage-based main numbers and subscriber IDs. It then prioritizes the latest IMEI usage data for each agreement to provide a comprehensive, current view of swap-related agreements, their owners, users, and IMEI history.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.AGREEMENT",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "AGREEMENT_OWNER_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "BUSINESS_AREA_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.AGREEMENT_PRODUCT_CONFIG",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "CURRENT_STATUS",
+                    "CONFIG_PARAMETER_ID",
+                    "PRODUCT_OFFER_ID",
+                    "CONFIG_PARAMETER_VALUE",
+                    "START_DATE",
+                    "END_DATE",
+                    "SOURCE_AGREEMENT_ID",
+                    "SOURCE_AGREEMENT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "PRODUCT_CATEGORY_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_VALUE",
+                    "PARAMETER_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION_MAPPING",
+                "columns": [
+                    "SOURCE_SYSTEM_KEY",
+                    "SOURCE_SYSTEM_ID",
+                    "SUBSCRIPTION_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_MOBIL_SUBSCR_HIST",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "MAIN_NUMBER",
+                    "SUBSCR_ID_NUM",
+                    "LAST_USER"
+                ]
+            },
+            {
+                "table_name": "LIVE.EUREKA_IMEI",
+                "columns": [
+                    "IMEI",
+                    "TERMINAL_USE_FIRST_DATE",
+                    "TERMINAL_USE_LAST_DATE",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_TRIGGER_GALAXY_ORDER_MOB",
+        "functionality": "This view retrieves recent execution details (started today) for a specific ETL task instance ('s_Order_Line_Detail_MOB_Fact') within the 'wf_Order_Line_Detail_Fact' workflow and 'CCDW_ORDER' subject area from a repository table. It effectively filters for specific task run statuses and timings.",
+        "data_sources": [
+            {
+                "table_name": "PCT_REPOSITORY.REP_TASK_INST_RUN",
+                "columns": [
+                    "TASK_TYPE_NAME",
+                    "SUBJECT_AREA",
+                    "WORKFLOW_NAME",
+                    "INSTANCE_NAME",
+                    "START_TIME",
+                    "END_TIME",
+                    "RUN_ERR_CODE",
+                    "RUN_ERR_MSG",
+                    "RUN_STATUS_CODE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_MONTH_DIM_V",
+        "functionality": "This view aggregates daily information from the `DATE_DIM_MV` source to create a monthly dimension. It provides monthly period keys (numeric and character), month name, relative month, first and last date keys, first and last actual dates, total days, and total working days for each month. The data is filtered to include months from July 2012 onwards and for months within a 24-month relative range.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "YEAR_MONTH_NUMBER",
+                    "MONTH_NAME",
+                    "RELATIVE_MONTH",
+                    "DATE_KEY",
+                    "DAY",
+                    "TYPE_OF_DAY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MOB_S",
+        "functionality": "Consolidates detailed subscription information with related product descriptions and type configurations from multiple data sources, enriching core subscription records with product, mapping, and configuration metadata.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_OFFER_ID",
+                    "MARKET_AREA_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_PAYER",
+                    "KURT_ID_USER",
+                    "KURT_ID_USER_2",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "DEALER_ID",
+                    "ACCOUNT_ID",
+                    "MAIN_NUMBER",
+                    "USER_ID",
+                    "ORIGINAL_START_DATE",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "CURRENT_STATUS",
+                    "SECRET_NUMBER_FLAG",
+                    "TERMINATION_REASON",
+                    "SOURCE_OWNER_ID",
+                    "SOURCE_PAYER_ID",
+                    "SOURCE_USER_ID",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "PRIORITY_FLAG",
+                    "OPERATIONAL_STABILITY_DESC"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION_MAPPING",
+                "columns": [
+                    "source_system_key",
+                    "SUBSCRIPTION_id"
+                ]
+            },
+            {
+                "table_name": "PD",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "POID",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_DESC",
+                    "BRAND",
+                    "DRM_PRODUCT_CLASS",
+                    "DRM_PRODUCT_NEED",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "DRM_COMMON_PAYMENT",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "STARTUP_FEE",
+                    "MONTHLY_FEE",
+                    "INCLUDED_MB",
+                    "TK_INCOME_SERVICE",
+                    "TK_PRODUCT_RANK",
+                    "SB_INCLUDED_DATA",
+                    "PRODUCT_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "ID",
+                    "PARENT",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_CUSTOMER_MAPPING",
+        "functionality": "Creates a view named ADM_CUSTOMER_MAPPING in the CLM_ADM schema, which serves as a direct passthrough or alias for the ccdw.customer_mapping table/view, exposing all its columns under the new view name.",
+        "data_sources": [
+            {
+                "table_name": "ccdw.customer_mapping",
+                "columns": [
+                    "CUSTOMER_SK",
+                    "KURT_ID",
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_STATUS_ID",
+                    "CUSTOMER_UNIT_TYPE_ID",
+                    "MAP_STATUS",
+                    "STATUS_DATE",
+                    "OWNER_FLG",
+                    "USER_FLG",
+                    "PAYER_FLG",
+                    "OWNER_START_DATE_ORIG",
+                    "USER_START_DATE_ORIG",
+                    "PAYER_START_DATE_ORIG",
+                    "OWNER_START_DATE",
+                    "USER_START_DATE",
+                    "PAYER_START_DATE",
+                    "OWNER_END_DATE",
+                    "USER_END_DATE",
+                    "PAYER_END_DATE",
+                    "OWNER_NUMBER_OF_TIMES",
+                    "USER_NUMBER_OF_TIMES",
+                    "PAYER_NUMBER_OF_TIMES",
+                    "KURT_ID_INSERT_DATE",
+                    "KURT_ID_UPDATE_DATE",
+                    "KURT_ID_ANONYMIZE_DATE",
+                    "CURRENT_STATUS",
+                    "RUN_ID",
+                    "SEQ_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_1",
+        "functionality": "Identifies 'Dual Accounts' where a Mobile Station International Subscriber Directory Number (MSISDN) is associated with one 'Connect ID' for service provisioning (TnN) but linked to a different 'Connect ID' in subscriber data (TD), by comparing subscriber-level and account-level user IDs. Specifically, it flags instances where the Connect ID derived from subscription parameters differs from the user ID associated with the phone or account in FIM tables.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "CUST_ID_USER",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_CHG_DATE",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.CUSTOMER",
+                "columns": [
+                    "CUST_ID",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "PARAMETER_VALUE",
+                    "VALID_FROM_DATE",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "ACC_USER_ID",
+                    "USER_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_NPS_CS_LAST_YEAR",
+        "functionality": "This view provides a historical overview of Net Promoter Score (NPS) survey data from the past 12 months. It enriches the survey data by linking it to mobile subscription history records for both the caller and input phone numbers, capturing details like subscription ID, owner, and user. The view standardizes NPS categories, calculates days since the transaction, and ranks surveys for each customer/user based on transaction recency.",
+        "data_sources": [
+            {
+                "table_name": "NPS.MEDALLIA_SURVEY_IMPORT",
+                "columns": [
+                    "TELENOR_UNIQUE_ID",
+                    "TRANSACTION_DATE",
+                    "RESPONSE_DATE",
+                    "LIKELIHOOD_TO_RECOMMEND",
+                    "LIKELIHOOD_TO_RECOMMEND_RAW",
+                    "NPS_CATEGORY",
+                    "REASON_FOR_SCORE_RAW",
+                    "RESCUED",
+                    "AVOIDED_CHURN",
+                    "SALE",
+                    "SURVEY_PROGRAM",
+                    "COMPLETED_WEB_SURVEY",
+                    "REASON_COMMENT_PROVIDED",
+                    "PHONE_NUMBER",
+                    "INPUT_NUMBER"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_MOBIL_SUBSCR_HIST",
+                "columns": [
+                    "MAIN_NUMBER",
+                    "SUBSCRIPTION_ID",
+                    "OWNER",
+                    "FIRST_USER",
+                    "START_DATE",
+                    "END_DATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "FRAUD_DETECTION",
+        "functionality": "This view is designed for fraud detection. It identifies customers and their associated orders within the last 60 days that exhibit suspicious purchasing patterns, such as multiple purchases or distinct main numbers, exceeding certain thresholds. It then consolidates detailed information about these potentially fraudulent orders and customer/subscriber data for further analysis or reporting.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.ORDER_LINE_DETAIL_FACT_MV",
+                "columns": [
+                    "OWNER_CUSTOMER_KEY",
+                    "RESOURCE_VALUE",
+                    "ORDER_DT_KEY",
+                    "ORDERLINE_PRODUCT_KEY",
+                    "DEALER_KEY",
+                    "HANDSET_KEY",
+                    "KPI_GROSS_SALE",
+                    "MARKET_AREA_KEY",
+                    "USER_CUSTOMER_KEY",
+                    "SOURCE_ORDER_ID",
+                    "SALES_ORDER_INDICATOR_KEY",
+                    "ORDER_LINE_TYPE_KEY",
+                    "IMEI",
+                    "ORDER_SUBSCR_KEY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_LINE_PRODUCT_DIM_V",
+                "columns": [
+                    "ORDER_LINE_PRODUCT_KEY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_PRODUCT_CATEGORY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.DEALER_DIM",
+                "columns": [
+                    "DEALER_KEY",
+                    "DEALER_CHAIN_NAME",
+                    "DEALER_NAME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.HANDSET_DIM_V",
+                "columns": [
+                    "HANDSET_KEY",
+                    "MARKETING_NAME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.CUSTOMER_DIM",
+                "columns": [
+                    "CUSTOMER_KEY",
+                    "BIRTH_DATE_AGE"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_CUSTOMER_V",
+                "columns": [
+                    "KURT_ID",
+                    "DATE_OF_BIRTH"
+                ]
+            },
+            {
+                "table_name": "GALAXY.SUBSCRIPTION_DIM_MV",
+                "columns": [
+                    "SUBSCRIPTION_KEY",
+                    "OWNER_FIRST_NAME",
+                    "OWNER_LAST_NAME",
+                    "OWNER_MAIN_ADDRESS_MUNIC_NO",
+                    "USER_FIRST_NAME",
+                    "USER_LAST_NAME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "TMP_BMGM_PRODUCT_DIM",
+        "functionality": "This view aggregates and categorizes product information from the `GALAXY.PRODUCT_DIM` table. It combines product data from different source systems ('Pacman', 'deFakto', 'KAS') and applies business rules to assign product roles ('USER', 'OWNER') and calculate various subscription metrics (e.g., private postpaid, swap agreements, business postpaid, mobile broadband, fixed broadband, fixed telephony subscriptions) based on product attributes like area, category, and payment type. The view aims to provide a consolidated product dimension for reporting and analysis, distinguishing between different types of product usage and ownership.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME_USE",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_PAYTYPE",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_REPORTING",
+                    "PRODUCT_NAME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_SUBS_USAGE_MONTH_AGG_V",
+        "functionality": "This view aggregates monthly usage data for subscriptions, combining data from main subscriptions and their 'twin' subscriptions to present a unified view. It is used for loading revenue data into the 'Mj\u00f8sa' system and for SAS IMM and BI (CCM) reporting.",
+        "data_sources": [
+            {
+                "table_name": "ADM_SUBS_USAGE_MOB_MONTH_AGG",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_ID",
+                    "NET_REVENUE",
+                    "ANT_MMS",
+                    "ANT_MMS_DOM",
+                    "ANT_MMS_INTL_EU",
+                    "ANT_MMS_INTL_ROW",
+                    "ANT_MMS_ROAM_EU",
+                    "ANT_MMS_ROAM_ROW",
+                    "NET_REVENUE_MMS",
+                    "NET_REVENUE_MMS_DOM",
+                    "NET_REVENUE_MMS_INTL_EU",
+                    "NET_REVENUE_MMS_INTL_ROW",
+                    "NET_REVENUE_MMS_ROAM_EU",
+                    "NET_REVENUE_MMS_ROAM_ROW",
+                    "ANT_SMS",
+                    "ANT_SMS_DOM",
+                    "ANT_SMS_INTL_EU",
+                    "ANT_SMS_INTL_ROW",
+                    "ANT_SMS_ROAM_EU",
+                    "ANT_SMS_ROAM_ROW",
+                    "NET_REVENUE_SMS",
+                    "NET_REVENUE_SMS_DOM",
+                    "NET_REVENUE_SMS_INTL_EU",
+                    "NET_REVENUE_SMS_INTL_ROW",
+                    "NET_REVENUE_SMS_ROAM_EU",
+                    "NET_REVENUE_SMS_ROAM_ROW",
+                    "ANT_TALE",
+                    "ANT_TALE_DOM",
+                    "ANT_TALE_INTL_EU",
+                    "ANT_TALE_INTL_ROW",
+                    "ANT_TALE_ROAM_EU",
+                    "ANT_TALE_ROAM_ROW",
+                    "MIN_TALE",
+                    "MIN_TALE_DOM",
+                    "MIN_TALE_INTL_EU",
+                    "MIN_TALE_INTL_ROW",
+                    "MIN_TALE_ROAM_EU",
+                    "MIN_TALE_ROAM_ROW",
+                    "NET_REVENUE_TALE",
+                    "NET_REVENUE_TALE_DOM",
+                    "NET_REVENUE_TALE_INTL_EU",
+                    "NET_REVENUE_TALE_INTL_ROW",
+                    "NET_REVENUE_TALE_ROAM_EU",
+                    "NET_REVENUE_TALE_ROAM_ROW",
+                    "MB_DATA",
+                    "MB_DATA_DOM",
+                    "MB_DATA_DOM_MUSIC_FREEDM",
+                    "MB_DATA_DOM_ZERO_RATED",
+                    "MB_DATA_DOM_INCLUDED",
+                    "MB_DATA_DOM_INVOICED",
+                    "MB_DATA_DOM_REDUCED_SPEED",
+                    "MB_DATA_DOM_PACKAGE_CAMP",
+                    "MB_DATA_DOM_PACKAGE_PAID",
+                    "MB_DATA_DOM_SHARED_BUCKET",
+                    "MB_DATA_ROAM_EU",
+                    "MB_DATA_ROAM_EU_MUSIC_FREEDM",
+                    "MB_DATA_ROAM_EU_ZERO_RATED",
+                    "MB_DATA_ROAM_EU_INCLUDED",
+                    "MB_DATA_ROAM_EU_INVOICED",
+                    "MB_DATA_ROAM_EU_REDUCED_SPEED",
+                    "MB_DATA_ROAM_EU_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_EU_PACKAGE_PAID",
+                    "MB_DATA_ROAM_EU_SHARED_BUCKET",
+                    "MB_DATA_ROAM_ROW",
+                    "MB_DATA_ROAM_ROW_MUSIC_FREEDM",
+                    "MB_DATA_ROAM_ROW_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_ROW_PACKAGE_PAID",
+                    "MB_DATA_ROAM_ROW_OTHER",
+                    "MB_DATA_ROAM_OTHR",
+                    "MB_DATA_ROAM_OTHR_MUSIC_FR",
+                    "MB_DATA_ROAM_OTHR_PACKAGE_CAMP",
+                    "MB_DATA_ROAM_OTHR_PACKAGE_PAID",
+                    "MB_DATA_ROAM_OTHR_OTHER",
+                    "MB_DATA_PACKAGE_FBB_GARANTI",
+                    "MB_DATA_PACKAGE",
+                    "MB_DATA_PACKAGE_CAMP_OTHR",
+                    "MB_DATA_PACKAGE_COLA",
+                    "MB_DATA_PACKAGE_COLC",
+                    "MB_DATA_PACKAGE_CRLA",
+                    "MB_DATA_PACKAGE_CRLC",
+                    "MB_DATA_PACKAGE_CRUA",
+                    "MB_DATA_PACKAGE_TRLA",
+                    "MB_DATA_PACKAGE_PRCH_OTHR",
+                    "MB_DATA_PACKAGE_POLA",
+                    "MB_DATA_PACKAGE_POLC",
+                    "MB_DATA_PACKAGE_PRUC",
+                    "MB_DATA_PACKAGE_PXLC",
+                    "MB_DATA_PACKAGE_GOODIES",
+                    "MB_DATA_SHARED_BUCKET",
+                    "MB_DATA_SB_FAM_BONUS",
+                    "MB_DATA_SB_INCLUDED",
+                    "MB_DATA_SB_EXTRA",
+                    "NET_REVENUE_DATA",
+                    "NET_REVENUE_DATA_DOM",
+                    "NET_REVENUE_DATA_ROAM",
+                    "NO_PRIM_PRODUCT_KEY",
+                    "SUB_NUMBER"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_ADM_AGRMT_FAMILIEBONUS_AGG_V",
+        "functionality": "Provides an aggregated view of 'familiebonus' agreement data, likely for churn analysis, filtering records from the last 25 months up to the current month.",
+        "data_sources": [
+            {
+                "table_name": "CCM.VYA_ADM_AGRMT_FAMILIEBONUS_AGG",
+                "columns": [
+                    "PERIOD_MONTH_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VYA_ODS_CUSTOMER",
+        "functionality": "This view consolidates comprehensive customer data for loading into the 'Mj\u00f8sa' system. It combines core customer attributes from the ODS (Operational Data Store), customer consent and application data, and derived demographic information (age, age group, birth month) by joining various ODS and CRM analytic tables and views. It also includes subscription numbers for mobile, fixed, and FTV services, and aggregates net/gross amounts and traffic data.",
+        "data_sources": [
+            {
+                "table_name": "ODS.CUSTOMER_ODS",
+                "columns": [
+                    "CUSTOMER_TYPE_ID",
+                    "CUSTOMER_STATUS_ID",
+                    "DATE_OF_BIRTH",
+                    "DATE_OF_BIRTH_NUMBER",
+                    "COMMERCIAL_CUSTOMER_NAME",
+                    "ORGANISATION_NUMBER",
+                    "AVG_MONTH_NET_AMOUNT",
+                    "AVG_MONTH_GROSS_AMOUNT",
+                    "OWNER_MOB_SUB_NUM",
+                    "PAYER_MOB_SUB_NUM",
+                    "USER_MOB_SUB_NUM",
+                    "USER_MOB_SUB_NUM_BIZ",
+                    "USER_MOB_SUB_NUM_CONS",
+                    "OWNER_FIX_SUB_NUM",
+                    "PAYER_FIX_SUB_NUM",
+                    "USER_FIX_SUB_NUM",
+                    "USER_FIX_SUB_NUM_BIZ",
+                    "USER_FIX_SUB_NUM_CONS",
+                    "OWNER_FTV_SUB_NUM",
+                    "PAYER_FTV_SUB_NUM",
+                    "USER_FTV_SUB_NUM",
+                    "USER_FTV_SUB_NUM_BIZ",
+                    "USER_FTV_SUB_NUM_CONS",
+                    "OWNER_MOB_AGR_NUM",
+                    "NET_FEE_LAST_MONTH",
+                    "TRAFFIC_NET_AMOUNT_THIS_MONTH",
+                    "TRAFFIC_NET_AMOUNT_LAST_MONTH",
+                    "CUSTOMER_ID",
+                    "HOUSEHOLD_ID"
+                ]
+            },
+            {
+                "table_name": "ODS.CUSTOMER_RES_AND_APP",
+                "columns": [
+                    "DM_IND_BR",
+                    "TM_IND_BR",
+                    "DM_IND_INTERNAL",
+                    "TM_IND_INTERNAL",
+                    "BR_DM_MAX_RES_APP_DTTM",
+                    "BR_TM_MAX_RES_APP_DTTM",
+                    "DM_MAX_RES_APP_DTTM",
+                    "TM_MAX_RES_APP_DTTM",
+                    "EMAIL_IND",
+                    "EMAIL_ADDRESS",
+                    "EMAIL_RA_MAX_DTTM",
+                    "SMS_IND",
+                    "SMS_NUMBER",
+                    "SMS_RA_MAX_DTTM",
+                    "CUSTOMER_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V",
+                "columns": [
+                    "CUSTOMER_SK",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_HOUSEHOLD_MAPPING_V",
+                "columns": [
+                    "HOUSEHOLD_ADDR_SK",
+                    "HOUSEHOLD_UNIT_SK",
+                    "HOUSEHOLD_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_AGE_GROUP_DIM",
+                "columns": [
+                    "AGE_GROUP_NAME_10C",
+                    "AGE_GROUP_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "TMP_HEH_V",
+        "functionality": "Provides a filtered view of 'COMOYO_SUB_GRANT_EVENTS' data, specifically focusing on 'RightUsed' events. It excludes entries where the SKUS column starts with 'CMO-STO-' and includes a truncated string representation of the SKUS column.",
+        "data_sources": [
+            {
+                "table_name": "COMOYO_SUB_GRANT_EVENTS",
+                "columns": [
+                    "LOAD_DATE",
+                    "EVENT_ID",
+                    "EVENT",
+                    "EVENT_TIME",
+                    "USER_ID",
+                    "GRANTOR",
+                    "GRANTOR_CONTEXT",
+                    "SKUS",
+                    "SUBSCRIPTION_ID",
+                    "RIGHT_ID",
+                    "RIGHT_CREATOR",
+                    "CREATOR_TYPE",
+                    "SEQ_ID",
+                    "RUN_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ORDER_LINE_DETAIL_MOB_ENRICH_V",
+        "functionality": "This view enriches mobile order line details by integrating product, customer segmentation, device agreement, and other related dimensional data, while also calculating various key performance indicators (KPIs) and derived attributes for analysis of mobile sales, porting, and terminations. It filters for mobile-specific orders from particular source systems within a defined historical period.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.ORDER_LINE_DETAIL_FACT_MV",
+                "columns": [
+                    "ORDER_LINE_ID",
+                    "ORDER_KEY",
+                    "ORDER_LINE_KEY",
+                    "ORDER_CATEGORY_KEY",
+                    "SALES_ORDER_INDICATOR_KEY",
+                    "ORDERLINE_PRODUCT_KEY",
+                    "ORDER_LINE_TYPE_KEY",
+                    "BINDING_TYPE_BENEFIT_KEY",
+                    "BINDING_PRODUCT_KEY",
+                    "BINDED_PRODUCT_KEY",
+                    "BINDING_START_DT_KEY",
+                    "BINDING_END_DT_KEY",
+                    "CUSTOMER_ORDER_ID",
+                    "ORDER_LINE_PARENT_ID",
+                    "ORDER_STATUS_KEY",
+                    "ORDER_STATUS_REASON_KEY",
+                    "PRODUCT_CATEGORY_KEY",
+                    "ORDERING_DT_KEY",
+                    "FROM_ORDER_PRODUCT_KEY",
+                    "TO_ORDER_PRODUCT_KEY",
+                    "PRODUCT_CHANGE_FLAG",
+                    "ACCOUNT_KEY",
+                    "ORDER_SUBSCR_KEY",
+                    "SUBSCR_PRIM_PRODUCT_KEY",
+                    "ORDERLINE_SUBSCR_KEY",
+                    "ORDERLINE_SUBSCR_PRIM_PROD_KEY",
+                    "AGREEMENT_OFFER_KEY",
+                    "MARKET_AREA_KEY",
+                    "MARKET_AREA_FROM_KEY",
+                    "OWNER_CUSTOMER_KEY",
+                    "USER_CUSTOMER_KEY",
+                    "SUBSCR_OWNER_LOC_KEY",
+                    "SUBSCR_USER_LOC_KEY",
+                    "ORDER_LINE_STATUS_KEY",
+                    "ORDER_LINE_STATUS_REASON_KEY",
+                    "BUSINESS_AREA_KEY",
+                    "ORDER_APPLICATION_KEY",
+                    "DEALER_KEY",
+                    "SOURCE_SYSTEM_KEY",
+                    "EMPLOYEE_SALES_KEY",
+                    "SERVICE_PROVIDER_FROM_KEY",
+                    "EMPLOYEE_DEALER_KEY",
+                    "SERVICE_PROVIDER_TO_KEY",
+                    "AGREEMENT_KEY",
+                    "HANDSET_KEY",
+                    "ORDER_DT_KEY",
+                    "ORDER_TIME_KEY",
+                    "ORDER_STATUS_DT_KEY",
+                    "ORDER_STATUS_TIME_KEY",
+                    "WANTED_DELIVERY_DT_KEY",
+                    "AGREED_DELIVERY_DT_KEY",
+                    "CAMPAIGN_REF_KEY",
+                    "CAMPAIGN_REF_TTC",
+                    "CAMPAIGN_COMMUNICATION_KEY",
+                    "CAMPAIGN_HIT_TYPE_KEY",
+                    "CAMPAIGN_CHANNEL_KEY",
+                    "CAMPAIGN_REF_SOURCE_SYSTEM_ID",
+                    "SOURCE_ORDERING_ID",
+                    "RESOURCE_VALUE",
+                    "IMEI",
+                    "IMSI",
+                    "ICC",
+                    "CARDSIZE",
+                    "PORT_CASE_ID",
+                    "SOURCE_ORDER_ID",
+                    "NUMBER_OF_ORDERS",
+                    "NUMBER_OF_ORDER_LINES",
+                    "KPI_NEWSALE",
+                    "KPI_PORTING_OUTBOUND",
+                    "KPI_PORTING_INBOUND",
+                    "KPI_PRODUCT_CHANGE",
+                    "KPI_TERMINATION",
+                    "KPI_SUBSCRIPTION_TERMINATION",
+                    "KPI_GROSS_SALE",
+                    "KPI_INTERNAL_CHURN",
+                    "CAMPAIGN_DATE_KEY",
+                    "CAMPAIGN_TREATMENT_KEY",
+                    "CUSTOMER_EVENT_ID",
+                    "SOURCE_CUST_ORDER_REF",
+                    "SOURCE_PROJECT_REF",
+                    "DEVICE_AGREEMENT_KEY",
+                    "NUMBER_OF_LICENSES",
+                    "NUMBER_OF_LICENSES_NET_CHANGE",
+                    "NRPORT_DEALER_ID",
+                    "SWAP_AGREE_PRODUCT_KEY",
+                    "SWAP_AGREE_VALID_FROM_DT_KEY",
+                    "SWAP_AGREE_VALID_TO_DT_KEY",
+                    "TERMINATION_REASON_KEY",
+                    "COMMISSION_GROUP_TYPE_KEY",
+                    "SD_AGREEMENT_KEY",
+                    "DATASTEP_GB",
+                    "DATASTEP_PRICE",
+                    "DEVICE_PRODUCT_AGREE_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_LINE_PRODUCT_DIM_V",
+                "columns": [
+                    "ORDER_LINE_PRODUCT_KEY",
+                    "TK_INCOME_SERVICE",
+                    "PRODUCT_PAYTYPE",
+                    "TK_PRODUCT_RANK",
+                    "PRODUCT_BRAND",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "PRIMARY_PRODUCT_FLAG"
+                ]
+            },
+            {
+                "table_name": "GALAXY.FROM_ORDER_PRODUCT_DIM_V",
+                "columns": [
+                    "FROM_ORDER_PRODUCT_KEY",
+                    "PRODUCT_PAYTYPE",
+                    "TK_PRODUCT_RANK",
+                    "PRODUCT_BRAND"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_NEWSALE_SWAP_V",
+                "columns": [
+                    "ORDER_KEY",
+                    "SWAP_NEWSALE_FLAG"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_LINE_DETAIL_MOB_REGRET_V",
+                "columns": [
+                    "ORDER_KEY",
+                    "ORDER_LINE_KEY",
+                    "REGRET_ORDER_KEY",
+                    "PREV_ORDER_DT_KEY",
+                    "PREV_ORDER_TIME_KEY",
+                    "PREV_ORDER_STATUS_DT_KEY",
+                    "PREV_ORDER_STATUS_TIME_KEY",
+                    "PREV_ORDER_PRODUCT_KEY",
+                    "PREV_ORDER_DAYS",
+                    "PREV_ORDER_STATUS_DAYS",
+                    "PREV_ORDER_CATEGORY_KEY",
+                    "PREV_ORDER_DEALER_KEY",
+                    "PREV_ORDER_SP_FROM_KEY"
+                ]
+            },
+            {
+                "table_name": "CCDW_SEGMENT.CUSTOMER_SEGMENT_V",
+                "columns": [
+                    "KURT_ID",
+                    "MODEL_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "SEGMENT_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.SEGMENT_DIM",
+                "columns": [
+                    "SEGMENT_ID",
+                    "SEGMENT_MODEL_ID",
+                    "SEGMENT_KEY"
+                ]
+            },
+            {
+                "table_name": "CCDW.DEVICE_AGREE_SWAPPING_MV",
+                "columns": [
+                    "DEVICE_AGREEMENT_ID",
+                    "SWAP_AGREEMENT_OFFER_TO_ID",
+                    "SWAP_AGREE_PROD_OFFER_FROM_ID",
+                    "SWAP_FROM_VALID_FROM_DATE",
+                    "SWAP_FROM_VALID_TO_DATE",
+                    "SWAP_AGREE_PROD_OFFER_TO_ID",
+                    "SWAP_TO_VALID_FROM_DATE",
+                    "SWAP_TO_VALID_TO_DATE"
+                ]
+            },
+            {
+                "table_name": "CCDW.AGREEMENT_PRODUCT_MOB_SD_MV",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "VALID_FROM_DATE",
+                    "VALID_TO_DATE_ODB",
+                    "SB_PRODUCT_BUCKET_SIZE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_TRIGGER_COMOYO_USER_SRVC_DAILY",
+        "functionality": "Generates a single row with predefined literal values and system timestamps (SYSDATE), likely simulating a task or workflow execution status for logging, testing, or triggering purposes.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_SUBSCRIPTION_V",
+        "functionality": "This view prepares a filtered dataset of subscription information, specifically for 'MPP' product groups within the last 24 months up to the current month. It extracts various details like customer, dealer, device, and revenue information, and calculates a revenue-to-monthly-fee ratio, likely for churn analysis.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_ADM_SUBSCRIPTION",
+                "columns": [
+                    "period_month",
+                    "period_month_date",
+                    "subscription_sk",
+                    "main_number_sk",
+                    "customer_sk_owner",
+                    "customer_sk_user",
+                    "dealer_chain",
+                    "dealer_name",
+                    "device_producername",
+                    "device_modelname",
+                    "changetype",
+                    "in_port_sp_group",
+                    "mb_last1",
+                    "net_revenue_adj",
+                    "no_days_mno_start",
+                    "no_days_subs_start",
+                    "no_mb_pct_last1",
+                    "no_porting",
+                    "profit_cat",
+                    "prod_attr_incl_mb",
+                    "prod_attr_mth_fee",
+                    "product_family",
+                    "product_name",
+                    "sales_ch",
+                    "subs_start_reason",
+                    "next_familie_rabatt_status",
+                    "swap_status",
+                    "product_group"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_BS_HITS",
+        "functionality": "Creates a view in the CLM_ADM schema that mirrors all specified columns from the THIRD_PARTY_SERVICES.BS_HITS table, serving as a direct exposure or alias for the underlying data.",
+        "data_sources": [
+            {
+                "table_name": "THIRD_PARTY_SERVICES.BS_HITS",
+                "columns": [
+                    "CLAIM_NR",
+                    "ORDER_NR",
+                    "CLAIM_DATE",
+                    "DEDUCTIBLE",
+                    "INCIDENT_DATE",
+                    "CLAIM_ORIGIN_TYPE",
+                    "PAYMENT_DATE",
+                    "SHIPPED_DATE",
+                    "APPROVED_DATE",
+                    "PENDING_REASON_TYPE",
+                    "INSURANCE_TYPE",
+                    "SERIAL_NR",
+                    "PHONE_NR",
+                    "SHIP_TO_NAME",
+                    "SHIP_TO_ADDRESS",
+                    "SHIP_TO_CITY",
+                    "SHIP_TO_ZIP",
+                    "EQUIPMENT",
+                    "MAKE",
+                    "MODEL",
+                    "FULFILLMENT_METHOD",
+                    "REPAIR_START_DATE",
+                    "REPAIR_COMPLETION_DATE",
+                    "REPLACEMENT_ORDER_CREATED_DATE",
+                    "NON_REPAIR_REASON_TYPE",
+                    "NON_REPAIR_REASON_TYPE_DESC",
+                    "WALKIN_LOCATION",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "FILE_NAME_INSERT",
+                    "FILE_NAME_UPDATE",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_4",
+        "functionality": "This view identifies 'hardlink' user accounts (from COMOYO.FIM_USER_ACCOUNTS) that have an associated MSISDN, where that specific MSISDN is NOT registered under the same USER_ID in COMOYO.FIM_USER_PHONES (indicating a potential mismatch or unregistered phone for that user ID), but might be registered under a different USER_ID in COMOYO.FIM_USER_PHONES. It consolidates account, phone, and email information for these potential 'dual account' scenarios.",
+        "data_sources": [
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID",
+                    "ACC_USER_ID",
+                    "ACC_MSISDN",
+                    "ACC_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_ID",
+                    "PH_VERIFICATION_TIME",
+                    "PH_VERIFIED"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_EMAILS",
+                "columns": [
+                    "USER_ID",
+                    "EMAIL_ADDRESS",
+                    "EMAIL_ID",
+                    "EMAIL_ISPRIMARY",
+                    "EMAIL_VERIFIED"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_AGREEMENT_DEVICE",
+        "functionality": "Provides a filtered dataset of active agreement and device information, excluding internal test data and specific combinations of swap/insurance products, likely for analytical or reporting purposes.",
+        "data_sources": [
+            {
+                "table_name": "VA_AGREEMENT_DEVICE_ALL",
+                "columns": [
+                    "AGRM_DATA_LOAD_DATE",
+                    "AGREEMENT_OFFER_NAME",
+                    "VOLUME",
+                    "KPI_SWAP",
+                    "KPI_DEVICE_INSURANCE",
+                    "KPI_SWAP_WITH_INSURANCE",
+                    "KPI_INSURANCE_WITH_SWAP",
+                    "KPI_INSURANCE_CAMPAIGN_PERIOD",
+                    "ASSOCIATED_PRODUCT_NAME",
+                    "KPI_PORT_OUT_SUBS_ORDER",
+                    "KPI_PORT_OUT_SUBS_USE",
+                    "KPI_DURATION_24",
+                    "KPI_DURATION_23",
+                    "KPI_DURATION_22",
+                    "KPI_DURATION_21",
+                    "KPI_DURATION_20",
+                    "KPI_DURATION_19",
+                    "KPI_DURATION_18",
+                    "KPI_DURATION_17",
+                    "KPI_DURATION_16",
+                    "KPI_DURATION_15",
+                    "KPI_DURATION_14",
+                    "KPI_DURATION_13",
+                    "KPI_DURATION_12",
+                    "KPI_DURATION_11",
+                    "KPI_DURATION_10",
+                    "KPI_DURATION_09",
+                    "KPI_DURATION_08",
+                    "KPI_DURATION_07",
+                    "KPI_DURATION_06",
+                    "KPI_DURATION_05",
+                    "KPI_DURATION_04",
+                    "KPI_DURATION_03",
+                    "KPI_DURATION_02",
+                    "KPI_DURATION_01",
+                    "AGRM_KEY",
+                    "AGRM_ID",
+                    "KPI_SWAPPING",
+                    "AGRM_SWAP_START_REASON",
+                    "AGRM_SWAP_PRODUCT_PHASE_DET",
+                    "AGRM_PRODUCT_PHASE",
+                    "AGRM_STATUS",
+                    "AGRM_STATUS_INFO",
+                    "AGRM_STATUS_INFO_DESC",
+                    "AGRM_TERMINATION_FEE",
+                    "AGRM_ORDER_ID",
+                    "AGRM_PRODUCT_GROUP",
+                    "AGRM_PRODUCT_KEY",
+                    "AGRM_PRODUCT_NAME",
+                    "AGRM_MONTHLY_PRICE",
+                    "AGRM_START_MONTH",
+                    "AGRM_END_MONTH",
+                    "AGRM_MONTHS_SINCE_START",
+                    "AGRM_MONTHS_SINCE_END",
+                    "AGRM_MONTHS_DURATION",
+                    "AGRM_VALID_FROM_DATE",
+                    "AGRM_VALID_TO_DATE",
+                    "AGRM_VALID_FROM_WEEK",
+                    "AGRM_VALID_TO_WEEK",
+                    "AGRM_MONTHS_TO_END_DATE",
+                    "INSURANCE_DISCOUNT_START_DATE",
+                    "INSURANCE_DISCOUNT_END_DATE",
+                    "INSURANCE_DISCOUNT_PROD_KEY",
+                    "INSURANCE_DISCOUNT_PROD_NM",
+                    "INSURANCE_DISCOUNT_MONTHLY",
+                    "AGRM_DEALER_KEY",
+                    "AGRM_SALES_CHANNEL",
+                    "AGRM_DEALER_CHAIN",
+                    "AGRM_DEALER_NAME",
+                    "DEVICE_IMEI",
+                    "DEVICE_USE_FIRST_DATE",
+                    "DEVICE_USE_LAST_DATE",
+                    "DEVICE_DAYS_SINCE_LAST_USE",
+                    "DEVICE_MANUFACTURER_SHORT",
+                    "DEVICE_CAMERA_INFO",
+                    "DEVICE_MARKETING_NAME",
+                    "DEVICE_TYPE",
+                    "DEVICE_MANUFACTURER",
+                    "DEVICE_OS_INFO",
+                    "DEVICE_CLASS",
+                    "DEVICE_COLOR_NAME",
+                    "DEVICE_MEMORY_SIZE",
+                    "DEVICE_ARTICLE_TEXT",
+                    "OWNER_CUSTOMER_SK",
+                    "OWNER_AGE",
+                    "OWNER_AGE_GROUP",
+                    "OWNER_GENDER",
+                    "OWNER_SMS_IND",
+                    "OWNER_EMAIL_IND",
+                    "OWNER_MAP_SEGMENT",
+                    "OWNER_CLM_LIVSFASE_SEGMENT",
+                    "OWNER_TOT_NO_SWAP_AGR",
+                    "OWNER_TOT_NO_SWAP_ACTIVE_AGR",
+                    "OWNER_TOT_NO_INSRC_AGR",
+                    "OWNER_TOT_NO_INSRC_ACTIVE_AGR",
+                    "USER_CUSTOMER_SK",
+                    "USER_AGE",
+                    "USER_AGE_GROUP",
+                    "USER_GENDER",
+                    "USER_SMS_IND",
+                    "USER_EMAIL_IND",
+                    "USER_MAP_SEGMENT",
+                    "USER_CLM_LIVSFASE_SEGMENT",
+                    "SUBS_ORDER",
+                    "SUBS_ORDER_PRODUCT_NAME",
+                    "SUBS_ORDER_PRODUCT_FAMILY_NAME",
+                    "SUBS_ORDER_STATUS",
+                    "SUBS_ORDER_STATUS_DESC",
+                    "SUBS_ORDER_START_DATE",
+                    "SUBS_ORDER_END_DT",
+                    "SUBS_ORDER_CHANGETYPE_START",
+                    "SUBS_ORDER_PORT_IN_DEALER_ID",
+                    "SUBS_ORDER_PORT_OUT_SERV_PROV",
+                    "SUBS_ORDER_PORT_OUT_SP_GROUP",
+                    "USER_REFERENCE_ON_AGREEMENT",
+                    "SUBS_USE",
+                    "SUBS_USE_PRODUCT_NAME",
+                    "SUBS_USE_PRODUCT_FAMILY_NAME",
+                    "SUBS_USE_MARKET_AREA_ID",
+                    "SUBS_USE_STATUS",
+                    "SUBS_USE_STATUS_DESC",
+                    "SUBS_USE_START_DATE",
+                    "SUBS_USE_END_DT",
+                    "SUBS_USE_START_REASON",
+                    "SUBS_USE_PORT_IN_DEALER_ID",
+                    "SUBS_USE_PORT_OUT_SERV_PROV",
+                    "SUBS_USE_PORT_OUT_SP_GROUP"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CM_MOB_SP",
+        "functionality": "Consolidates mobile subscription details, including associated products, components, and hierarchical product catalog information, by joining data from various operational and catalog systems, filtered for active records and specific source systems.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIPTION_MAPPING",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "SOURCE_SYSTEM_KEY",
+                    "SOURCE_SYSTEM_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_ID",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION_OFFER_INCENTIVE",
+                "columns": [
+                    "SUBSCR_OFFER_INC_ID",
+                    "SUBSCR_ID",
+                    "PRODUCT_OFFER_ID",
+                    "PARAMETER_ID",
+                    "INC_VALID_FROM_DATE",
+                    "INC_VALID_TO_DATE",
+                    "INFO_REG_DATE",
+                    "INFO_REG_APPL_NAME",
+                    "INFO_REG_USER_NAME",
+                    "INFO_CHG_DATE",
+                    "INFO_CHG_APPL_NAME",
+                    "INFO_CHG_USER_NAME",
+                    "INFO_IS_DELETED",
+                    "ORIGINAL_FROM_DATE",
+                    "ORIGINAL_END_DATE",
+                    "SUBSCRIBED_OFFER_ID",
+                    "STATUS",
+                    "AGREEMENT_MEMBER_ID",
+                    "SUBSCRIBED_COMPONENT_ID"
+                ]
+            },
+            {
+                "table_name": "PCAT.COMPONENT",
+                "columns": [
+                    "NAME",
+                    "COMPONENT_ID"
+                ]
+            },
+            {
+                "table_name": "GPD",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_KEY"
+                ]
+            },
+            {
+                "table_name": "PTC",
+                "columns": [
+                    "PARENT",
+                    "ID",
+                    "H_LEVEL",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_CURRENT_SUBS_PROFIT_CAT",
+        "functionality": "Extracts the latest period's subscription profit category data and related metrics, such as revenue adjustments and cumulative distribution values, from the `ADM_PROFIT_CAT_SUBS_HIST` table. The 'latest period' is determined by the maximum `PERIOD_MONTH_KEY` available in the source table.",
+        "data_sources": [
+            {
+                "table_name": "ADM_PROFIT_CAT_SUBS_HIST",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_ID",
+                    "SUBSCR_ID",
+                    "MARKET_AREA_ID",
+                    "PAYMENT_TYPE",
+                    "PRODUCT_BRAND",
+                    "SUBS_PERIOD_START_DATE",
+                    "SUBS_DAYS_ACTIVE_IN_PERIOD",
+                    "NET_REVENUE_ADJUSTED",
+                    "CUME_DIST_VALUE",
+                    "CATEGORY",
+                    "PT_CUME_DIST_VALUE",
+                    "PT_CATEGORY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_AGREEMENT_DEVICE_MPX",
+        "functionality": "Creates a direct projection of all columns from the `CRM_ANALYSE.ADM_AGREEMENT_DEVICE_MPX` object into a new view `CLM_ADM.VA_AGREEMENT_DEVICE_MPX`, providing an alternative access point or schema segregation for the underlying data.",
+        "data_sources": [
+            {
+                "table_name": "CRM_ANALYSE.ADM_AGREEMENT_DEVICE_MPX",
+                "columns": [
+                    "IMEI",
+                    "TELENOR_PRIS_ADJ",
+                    "TRANSAKSJONS_ID",
+                    "TRANSAKSJONSTYPE",
+                    "BUTIKK_ID",
+                    "BUTIKK_NAVN",
+                    "ANSATT_NAVN",
+                    "KRAV_ID",
+                    "RMA_NUMMER",
+                    "EGENANDEL_FAKTURERES_KUNDE",
+                    "DATO_GRADERT_BUTIKK",
+                    "DATO_GRADERT_BRIGHTSTAR",
+                    "IMEI_GRADERT_BUTIKK",
+                    "IMEI_GRADERT_BRIGHTSTAR",
+                    "MODELL_GRADERT_BUTIKK",
+                    "MODELL_GRADERT_BRIGHTSTAR",
+                    "TELENOR_PRIS",
+                    "MAKSIMAL_VERDI",
+                    "BUTIKK_GRAD_ETTER_FRATREKK",
+                    "BUTIKK_GITT_UT_TIL_KUNDE",
+                    "BRIGHTSTAR_GRAD_ETTER_FRATREKK",
+                    "BUTIKK_FORTJENESTE",
+                    "POWER1",
+                    "DISPLAY1",
+                    "CASE1",
+                    "KEYS1",
+                    "LOCK1",
+                    "POWER1_DEFECT",
+                    "DISPLAY1_DEFECT",
+                    "CASE1_DEFECT",
+                    "KEYS1_DEFECT",
+                    "LOCK1_DEFECT",
+                    "POWER2",
+                    "DISPLAY2",
+                    "CASE2",
+                    "KEYS2",
+                    "LOCK2",
+                    "POWER2_DEFECT",
+                    "DISPLAY2_DEFECT",
+                    "CASE2_DEFECT",
+                    "KEYS2_DEFECT",
+                    "LOCK2_DEFECT",
+                    "AARSAK_TIL_DESTRUERING",
+                    "OPERATOR_LAAS",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "FILE_NAME_INSERT",
+                    "FILE_NAME_UPDATE",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE",
+                    "DEALER_NAME",
+                    "DEALER_CHAIN_NAME",
+                    "DRM_SALES_CHANNEL_GEN03_DESC",
+                    "DRM_SALES_CHANNEL_GEN04_DESC",
+                    "AGRM_KEY",
+                    "AGRM_ID",
+                    "AGRM_MONTHLY_PRICE",
+                    "AGRM_VALID_FROM_DATE",
+                    "AGRM_VALID_TO_DATE",
+                    "DEVICE_MARKETING_NAME",
+                    "DEVICE_MANUFACTURER",
+                    "AGRM_STATUS",
+                    "AGRM_STATUS_INFO",
+                    "AGRM_STATUS_INFO_DESC",
+                    "VARIGHET"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_3A",
+        "functionality": "Identifies 'dual accounts' or unlinked accounts by finding subscriptions that have a 'CONNECT_ID' associated with them (from CM.SUBSCRIBED_OFFER_CONFIGURATION) but where this 'CONNECT_ID' does not correspond to an existing entry in COMOYO.FIM_USER_ACCOUNTS. It retrieves subscription details, and compares the subscription's CONNECT_ID with user IDs from phone records if available, highlighting discrepancies or missing links between different account systems.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "CUST_ID_USER",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_CHG_DATE",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.CUSTOMER",
+                "columns": [
+                    "CUST_ID",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_VALUE",
+                    "PARAMETER_ID",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED",
+                    "VALID_FROM_DATE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_ID",
+                    "PH_VERIFICATION_TIME",
+                    "PH_VERIFIED"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_BR_ANALYTIC_UNIVERSE_ALL",
+        "functionality": "This view constructs an 'analytic universe' by joining historical customer data from CLM_ADM.BRING_ANALYTIC_UNIVERSE_HIST with monthly time dimension data from CRM_ANALYSE.ADM_MONTH_DIM_V. It provides customer-related attributes like lifecycle stage and household composition for each relevant month, covering a recent 24-month historical period up to the previous month.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.BRING_ANALYTIC_UNIVERSE_HIST",
+                "columns": [
+                    "CUSTOMER_SK",
+                    "X_SIST_OPPDATERT",
+                    "X_LIVSFASE",
+                    "X_BARN",
+                    "X_SMAABARN",
+                    "X_SKOLEBARN",
+                    "X_SMAASKOLEBARN",
+                    "X_TENAARINGSBARN",
+                    "X_ANTALL_I_HUSSTAND",
+                    "PERIOD_MONTH_KEY"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_MONTH_DIM_V",
+                "columns": [
+                    "YEAR_MONTH_NUMBER",
+                    "LAST_DATE",
+                    "RELATIVE_MONTH"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_AGREEMENT_DEVICE_SWAPPED",
+        "functionality": "This view provides a comprehensive, unified dataset for analyzing device swap events. It combines detailed information from a 'from' (original) agreement and a 'to' (new) agreement, along with associated device, customer, subscription, and dealer data. The view includes metrics related to the swap, customer demographics, and product/subscription specifics for both the originating and the target agreements after a device swap.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_SWAPPED",
+                "columns": [
+                    "MATCHED_PRODUKT_AGREEMENT_ID",
+                    "DAYS_BETWEEN_AGREEMENTS",
+                    "MATCH_CRITERIA",
+                    "PRODUCT_AGREEMENT_ID"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_ALL",
+                "columns": [
+                    "LOAD_DATE",
+                    "AGREEMENT_OFFER_NAME",
+                    "ROOT_AGREEMENT_KEY",
+                    "PRODUCT_AGREEMENT_ID",
+                    "PRODUCT_AGREEMENT_STATUS",
+                    "PRODUCT_AGREEMENT_START_DATE",
+                    "PRODUCT_AGREEMENT_STATUS_INFO",
+                    "PRODUCT_AGREE_TERMINATION_FEE",
+                    "PRODUCT_AGREEMENT_ORDER_ID",
+                    "PRODUCT_AGREEMENT_PRODUCT_NM",
+                    "PRODUCT_AGREE_MONTHLY_PRICE",
+                    "PRODUCT_AGREEMENT_END_DATE",
+                    "PRODUCT_AGREEMENT_DEALER_ID",
+                    "IMEI",
+                    "IMEI_USE_FIRST_DATE",
+                    "IMEI_USE_LAST_DATE",
+                    "HANDSET_KEY",
+                    "ORDER_CUSTOMER_SK_OWNER",
+                    "USE_CUSTOMER_SK_USER",
+                    "ORDER_SUBSCRIPTION_ID",
+                    "ORDER_SUBSCRIPTION_KEY_STATUS",
+                    "ORDER_SUBSCRIPTION_START_DT",
+                    "ORDER_SUBSCRIPTION_END_DT",
+                    "ORDER_SUBS_CHANGETYPE_START",
+                    "ORDER_SUBS_PORT_IN_DEALER_ID",
+                    "PRODUCT_AGREE_USER_REFERENCE",
+                    "USE_SUBSCRIPTION_ID",
+                    "PRODUCT_AGREE_DRM_COM_MRK_PROD",
+                    "RANGERING"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_AGG_V",
+                "columns": [
+                    "DEV_AGREEMENT_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_CUSTOMER_MAPPING",
+                "columns": [
+                    "CUSTOMER_SK",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_DEVICE_DIM",
+                "columns": [
+                    "DEVICE_KEY",
+                    "DEVICE_MANUFACTURER_SHORT",
+                    "DEVICE_CAMERA_INFO",
+                    "DEVICE_MARKETING_NAME",
+                    "DEVICE_TYPE",
+                    "DEVICE_MANUFACTURER",
+                    "DEVICE_OS_INFO",
+                    "DEVICE_CLASS"
+                ]
+            },
+            {
+                "table_name": "GALAXY.DEALER_DIM",
+                "columns": [
+                    "SOURCE_DEALER_ID",
+                    "CURRENT_STATUS",
+                    "DRM_SALES_CHANNEL_GEN04_DESC",
+                    "DEALER_KEY",
+                    "DRM_SALES_CHANNEL_GEN03_DESC",
+                    "DRM_SALES_CHANNEL_GEN07_DESC"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_CUSTOMER",
+                "columns": [
+                    "KURT_ID",
+                    "AGE",
+                    "GENDER",
+                    "SMS_IND",
+                    "EMAIL_IND"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_AGE_GROUP_DIM",
+                "columns": [
+                    "AGE_GROUP_KEY",
+                    "AGE_GROUP_NAME_10C"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_CUSTOMER_INFO_2",
+                "columns": [
+                    "KURT_ID",
+                    "MAP_SEGMENT_NAME",
+                    "CLM_LIVSFASE_SEGMENT_NAME"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_MEMB_INSURANCE_V",
+                "columns": [
+                    "INSURANCE_IMEI"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_MEMB_SWAP_V",
+                "columns": [
+                    "SWAP_IMEI"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PORT_OUT_SERV_PROV_ID",
+                    "LAST_PRODUCT_KEY",
+                    "SUBSCRIPTION_ID_PREV",
+                    "OWNER",
+                    "OWNER_PREV",
+                    "MARKET_AREA_ID",
+                    "PRODUCT_GROUP",
+                    "CURRENT_STATUS",
+                    "ORIGINAL_START_DATE",
+                    "END_DATE",
+                    "SUBSCR_START_REASON",
+                    "PORT_IN_DEALER_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_FAMILY_NAME"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_SERVICE_PROVIDER_DIM",
+                "columns": [
+                    "SERVICE_PROVIDER_KEY",
+                    "SERVICE_PROVIDER_GROUP"
+                ]
+            },
+            {
+                "table_name": "THIRD_PARTY_SERVICES.HANDSET_GTIN",
+                "columns": [
+                    "IMEI",
+                    "GTIN",
+                    "ARTICLE_TEXT"
+                ]
+            },
+            {
+                "table_name": "FPS.TERMINAL_GTIN_PROPERTIES",
+                "columns": [
+                    "GTIN",
+                    "COLOR_NAME",
+                    "TOTAL_SIZE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_ADM_AGRMT_FAMILIEBONUS_DET_V",
+        "functionality": "This view, 'CHURN_ADM_AGRMT_FAMILIEBONUS_DET_V', retrieves detailed agreement and 'Familiebonus' (family bonus) data from the source view 'VYA_ADM_AGRMT_FAMILIEBONUS_DET'. It filters the data to include only records where the 'PERIOD_MONTH' is from the last 25 months relative to the current date, likely for churn analysis or reporting purposes.",
+        "data_sources": [
+            {
+                "table_name": "CCM.VYA_ADM_AGRMT_FAMILIEBONUS_DET",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "PERIOD_MONTH",
+                    "PERIOD_MONTH_DATE",
+                    "CUSTOMER_SK_OWNER",
+                    "CUSTOMER_SK_MEMBER",
+                    "UNIT_SK",
+                    "UNIT_TYPE",
+                    "MONTH_CUSTOMER_SK_OWNER",
+                    "MONTH_CUSTOMER_SK_MEMBER",
+                    "MONTH_UNIT_SK",
+                    "AGREEMENT_ID",
+                    "SRC_AGREEMENT_ID",
+                    "SRC_AGRM_AGREEMENT_OFFER_ID",
+                    "ROOT_PRODUCT_OFFER_ID",
+                    "PRODUCT_OFFER_ID",
+                    "SRC_ROOT_PRODUCT_ID",
+                    "SRC_PRODUCT_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "STATUS",
+                    "DATABONUS_START_DATE",
+                    "REWARD",
+                    "UNIT_CUSTOMER_ROLE",
+                    "POID",
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC",
+                    "PRODUCT_GROUP_CLM",
+                    "PRODUCT_AREA",
+                    "PRODUCT_CATEGORY",
+                    "PRODUCT_REPORTING",
+                    "PRODUCT_PAYMENT",
+                    "PRODUCT_FAMILY_NAME",
+                    "NUM_PRIV_POSTPAID_SUBS_OWNED",
+                    "NUM_BUS_POSTPAID_SUBS_USED",
+                    "NUM_SWAP_AGREEMENTS_OWNED",
+                    "NUM_MBB_SUBS_OWNED",
+                    "NUM_FIXED_BROADBAND_OWNED",
+                    "NUM_FIXED_TELEPHONY_OWNED",
+                    "NUM_FIBER_CDK",
+                    "NUM_COAX_CDK",
+                    "NUM_TV_CDK",
+                    "NUM_IP_PHONE_CDK"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_AGREEMENT_DEVICE_AGG_V",
+        "functionality": "Aggregates device-related agreement details by `ROOT_AGREEMENT_KEY`. It counts different types of agreements (SWAP, Insurance, Downpayment) and their active counterparts. It also calculates the earliest and latest start dates for active SWAP and Insurance agreements, and for Downpayment agreements, filtering for agreements related to devices and where `RANGERING` is 1.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_ALL",
+                "columns": [
+                    "ROOT_AGREEMENT_KEY",
+                    "PRODUCT_AGREEMENT_STATUS",
+                    "PRODUCT_AGREEMENT_START_DATE",
+                    "PRODUCT_AGREE_DRM_COM_PROD_GRP",
+                    "RANGERING",
+                    "PRODUCT_AGREEMENT_PRODUCT_KEY",
+                    "PRODUCT_NAME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "PRODUCT_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MISSING_DRM_REP_BRAND_PAY",
+        "functionality": "Identifies products from `GALAXY.PRODUCT_DIM` that are missing specific 'DRM Common' attributes (Reporting, Brand, Payment, Technology), categorizes the type of missing attributes, and enriches this information with associated treatment details from `CRM_ANALYSE.KIM_TREATMENT_DIM`.",
+        "data_sources": [
+            {
+                "table_name": "CRM_ANALYSE.KIM_TREATMENT_DIM",
+                "columns": [
+                    "TREATMENT_SK",
+                    "PRODUCT_KEY_1",
+                    "PRODUCT_KEY_2",
+                    "PRODUCT_KEY_3",
+                    "PRODUCT_KEY_4",
+                    "PRODUCT_KEY_5",
+                    "PRODUCT_KEY_6",
+                    "TREATMENT_KEY",
+                    "TREATMENT_CD",
+                    "TREATMENT_NM",
+                    "TREATMENT_DESC",
+                    "TREATMENT_PRODUCT_DESC",
+                    "BRAND",
+                    "KPI_TYPE",
+                    "ACTION_CATEGORY",
+                    "ACTION_CATEGORY_TYPE",
+                    "OFFER_CATEGORY",
+                    "HANDSET_KEY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_PAYMENT",
+                    "SOURCE_SYSTEM_NAME",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "SOURCE_PRODUCT_ID_1",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ODS_S",
+        "functionality": "This view combines subscription details from an operational data store (`ODS.SUBSCRIPTION_ODS_MOB`) with comprehensive product information from a CRM analytics product dimension view (`CRM_ANALYSE.PRODUCT_DIM_V`). It creates a unified dataset for subscriptions, including product attributes, customer and account identifiers, subscription status and dates, and a derived customer role, primarily for analytical or reporting purposes.",
+        "data_sources": [
+            {
+                "table_name": "ODS.SUBSCRIPTION_ODS_MOB",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "SRC_SUBSCRIPTION_ID_1",
+                    "SRC_SUBSCRIPTION_STATUS",
+                    "MAIN_NUMBER",
+                    "CUSTOMER_ID",
+                    "CUSTOMER_ROLE_ID",
+                    "MARKET_AREA_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "SUBSCR_START_DATE",
+                    "SUBSCR_END_DATE",
+                    "INFO_CHG_DATE",
+                    "PRODUCT_OFFER_ID",
+                    "ACCOUNT_ID",
+                    "SRC_ACCOUNT_ID",
+                    "SRC_CUSTOMER_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.PRODUCT_DIM_V",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_GROUP",
+                    "PRODUCT_KEY",
+                    "PRODUCT_POID",
+                    "PRODUCT_DESC",
+                    "PRODUCT_CLASS",
+                    "PRODUCT_NEED",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "PRODUCT_AREA",
+                    "PRODUCT_TECHNOLOGY",
+                    "PRODUCT_CATEGORY",
+                    "PRODUCT_MARKET_NAME",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_REPORTING",
+                    "PRODUCT_PORTFOLIO",
+                    "PRODUCT_SERVICE",
+                    "PRODUCT_PAYMENT",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "PRODUCT_STARTUP_FEE",
+                    "PRODUCT_MONTHLY_FEE",
+                    "PRODUCT_INCLUDED_MB"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_0",
+        "functionality": "Identifies and reports on dual or unlinked accounts by comparing TnN service provisioning data (from FIM_USER and FIM_USER_ACCOUNTS) with CM subscription and MSISDN information (from CM.SUBSCRIPTION and related tables). The view focuses on discrepancies where a subscription ID exists in one system/subquery but not the other, providing details from both sources where available, along with an 'INFO' column describing the status of CM MSISDN/User ID linkage.",
+        "data_sources": [
+            {
+                "table_name": "COMOYO.FIM_USER",
+                "columns": [
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID",
+                    "ACC_MSISDN",
+                    "ACC_USER_ID",
+                    "ACC_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "SUBSCR_VALID_TO_DATE",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "INFO_IS_DELETED",
+                    "VALID_TO_DATE",
+                    "VALID_FROM_DATE",
+                    "PARAMETER_VALUE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.USER_SERVICES_PHONES",
+                "columns": [
+                    "USER_ID",
+                    "file_date",
+                    "PHONES"
+                ]
+            },
+            {
+                "table_name": "COMOYO.USER_SERVICES",
+                "columns": [
+                    "USER_ID",
+                    "file_date"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_BS_MPX",
+        "functionality": "This view provides a direct projection of all columns from the `BS_MPX` table, likely containing transactional and device grading data, making it accessible under the `CLM_ADM` schema without any transformations or filters.",
+        "data_sources": [
+            {
+                "table_name": "THIRD_PARTY_SERVICES.BS_MPX",
+                "columns": [
+                    "TRANSAKSJONS_ID",
+                    "TRANSAKSJONSTYPE",
+                    "BUTIKK_ID",
+                    "BUTIKK_NAVN",
+                    "ANSATT_NAVN",
+                    "KRAV_ID",
+                    "RMA_NUMMER",
+                    "EGENANDEL_FAKTURERES_KUNDE",
+                    "DATO_GRADERT_BUTIKK",
+                    "DATO_GRADERT_BRIGHTSTAR",
+                    "IMEI_GRADERT_BUTIKK",
+                    "IMEI_GRADERT_BRIGHTSTAR",
+                    "MODELL_GRADERT_BUTIKK",
+                    "MODELL_GRADERT_BRIGHTSTAR",
+                    "TELENOR_PRIS",
+                    "MAKSIMAL_VERDI",
+                    "BUTIKK_GRAD_ETTER_FRATREKK",
+                    "BUTIKK_GITT_UT_TIL_KUNDE",
+                    "BRIGHTSTAR_GRAD_ETTER_FRATREKK",
+                    "BUTIKK_FORTJENESTE",
+                    "POWER1",
+                    "DISPLAY1",
+                    "CASE1",
+                    "KEYS1",
+                    "LOCK1",
+                    "POWER2",
+                    "DISPLAY2",
+                    "CASE2",
+                    "KEYS2",
+                    "LOCK2",
+                    "AARSAK_TIL_DESTRUERING",
+                    "OPERATOR_LAAS",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "FILE_NAME_INSERT",
+                    "FILE_NAME_UPDATE",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_SUBS_PROD_CAT_V",
+        "functionality": "Aggregates and categorizes various product-related attributes and discounts (e.g., age-based discounts, family discounts, data boosts, free SIMs) for subscriptions on a monthly basis, presenting them as boolean flags or counts.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_SUBSCR_PROD_V",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_KEY",
+                    "SUB_PRODUCT_NAME",
+                    "MARKET_PRODUCT"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_AGREEMENT_MEMB_SWAP_V",
+        "functionality": "Identifies the latest swap agreement details for each unique IMEI, filtering for device-related products, by selecting agreement key, product ID, and product name based on the most recent agreement end date.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_ALL",
+                "columns": [
+                    "IMEI",
+                    "ROOT_AGREEMENT_KEY",
+                    "PRODUCT_AGREEMENT_ID",
+                    "DEVICE_AGREEMENT_END_DATE",
+                    "PRODUCT_AGREEMENT_PRODUCT_NM",
+                    "PRODUCT_AGREE_DRM_COM_MRK_PROD",
+                    "PRODUCT_AGREE_DRM_COM_PROD_GRP"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_CUSTOMER_V",
+        "functionality": "This view extracts historical customer demographic, product, and revenue data for churn analysis. It filters the data to include records for the last 24 months, specifically from 23 months prior to the current month (relative to the first day of the previous month) up to the current month.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_ADM_CUSTOMER",
+                "columns": [
+                    "PERIOD_MONTH",
+                    "PERIOD_MONTH_DATE",
+                    "CUSTOMER_SK",
+                    "HOUSEHOLD_UNIT_SK",
+                    "CU_AGE",
+                    "CU_GENDER",
+                    "CU_AREA_ID",
+                    "CU_MUNICIPALITY_ID",
+                    "CU_NET_REVENUE",
+                    "CU_NO_FBR",
+                    "CU_NO_MBB",
+                    "CU_NO_MPP",
+                    "CU_NO_MPP_BUS_SUBS_USR",
+                    "CU_NO_MPP_USR",
+                    "CU_NO_MPR",
+                    "CU_NO_MPR_USR",
+                    "CU_NO_PROD_CAT",
+                    "CU_NO_PROD_CAT_USR",
+                    "CU_SEGMENT_LIFE_STAGE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "SUBS_S",
+        "functionality": "The view 'CLM_ADM.SUBS_S' provides a comprehensive, unified view of subscription data. It combines core subscription details with various product-related attributes (names and descriptions) by joining subscription records with product dimension information and product type configurations. This enriches the subscription data, making product details readily available alongside subscription specifics.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_OFFER_ID",
+                    "MARKET_AREA_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_PAYER",
+                    "KURT_ID_USER",
+                    "KURT_ID_USER_2",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "DEALER_ID",
+                    "ACCOUNT_ID",
+                    "MAIN_NUMBER",
+                    "USER_ID",
+                    "ORIGINAL_START_DATE",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "CURRENT_STATUS",
+                    "SECRET_NUMBER_FLAG",
+                    "TERMINATION_REASON",
+                    "SOURCE_OWNER_ID",
+                    "SOURCE_PAYER_ID",
+                    "SOURCE_USER_ID",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "PRIORITY_FLAG",
+                    "OPERATIONAL_STABILITY_DESC"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "ID",
+                    "PARENT",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "BMGM_PRODUCT_DIM",
+        "functionality": "This view, \"BMGM_PRODUCT_DIM\", consolidates and categorizes product information from the \"GALAXY.PRODUCT_DIM\" table. It processes product data from various source systems (Pacman, deFakto, KAS) and assigns a 'ROLLE' (USER or OWNER) to each product. Furthermore, it generates binary flags (0 or 1) to classify products into specific subscription types such as private postpaid, business postpaid, swap agreements, mobile broadband, fixed broadband, and fixed telephony, based on their attributes like product area, category, pay type, and reporting segment. The view provides a standardized product dimension for analytical purposes.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME_USE",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_SYSTEM_NAME",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_REPORTING",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_NAME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_CHURN_V",
+        "functionality": "This view identifies and tracks churn-related events for specific mobile telephony subscriptions by joining various order, product, and status dimensions. It calculates several Key Performance Indicators (KPIs) such as porting outbound and termination, derives a combined churn indicator, and filters for recent events (last 25 months) while ensuring distinctness based on the earliest period month date for unique order, subscription, and event details.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.ORDER_LINE_DETAIL_MOB_FACT",
+                "columns": [
+                    "ORDER_SUBSCR_KEY",
+                    "OWNER_CUSTOMER_SK",
+                    "USER_CUSTOMER_SK",
+                    "KPI_PORTING_OUTBOUND",
+                    "ORDER_KEY",
+                    "ORDER_DT_KEY",
+                    "ORDER_TIME_KEY",
+                    "ORDER_STATUS_DT_KEY",
+                    "ORDER_STATUS_TIME_KEY",
+                    "SERVICE_PROVIDER_TO_KEY",
+                    "ORDERLINE_PRODUCT_KEY",
+                    "MARKET_AREA_KEY",
+                    "ORDER_LINE_TYPE_KEY",
+                    "KPI_TERMINATION_SPEECH",
+                    "ORDER_STATUS_KEY",
+                    "ORDER_STATUS_REASON_KEY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_TIME_DIM_V",
+                "columns": [
+                    "ORDER_TIME_KEY",
+                    "ORDER_TIME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PAYMENT",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "PRODUCT_FAMILY_NAME"
+                ]
+            },
+            {
+                "table_name": "CCDW.SERVICE_PROVIDER",
+                "columns": [
+                    "SERVICE_PROVIDER_ID",
+                    "SERVICE_PROVIDER_NAME"
+                ]
+            },
+            {
+                "table_name": "GALAXY.SUBSCR_DETAIL_FACT",
+                "columns": [
+                    "SUBSCRIPTION_KEY",
+                    "MAIN_NUMBER"
+                ]
+            },
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "DATE_KEY",
+                    "DAY"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_STATUS_DIM_MV",
+                "columns": [
+                    "ORDER_STATUS_KEY",
+                    "SOURCE_SYSTEM_STATUS_CODE"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_LINE_TYPE_DIM",
+                "columns": [
+                    "ORDERLINE_TYPE_KEY",
+                    "ORDERLINE_TYPE_DESC"
+                ]
+            },
+            {
+                "table_name": "GALAXY.ORDER_STATUS_REASON_DIM_V",
+                "columns": [
+                    "ORDER_STATUS_REASON_KEY",
+                    "ORDER_STATUS_REASON_DESC"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_SUBSCR_USR_TO_OWN_V",
+        "functionality": "Identifies and tracks events where a user becomes the owner of an MPP product subscription, providing a flag for the event, the date it occurred, and the number of months since the owner change. The view filters data for the last 25 months.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_ADM_SUBSCRIPTION",
+                "columns": [
+                    "PERIOD_MONTH",
+                    "SUBSCRIPTION_SK",
+                    "CUSTOMER_SK_OWNER",
+                    "CUSTOMER_SK_USER",
+                    "MAIN_NUMBER_SK",
+                    "PERIOD_MONTH_DATE",
+                    "PRODUCT_GROUP"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_AGRMT_REWARD_MPP_V",
+        "functionality": "Combines subscription details with agreement reward information by joining the `CHURN_SUBSCRIPTION_V` view and the `CHURN_AGRMT_REWARD` table on `PERIOD_MONTH_KEY` and `SUBSCRIPTION_KEY`.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_SUBSCRIPTION_V",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.CHURN_AGRMT_REWARD",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "NO_MEMBERS",
+                    "SUM_REWARD_UNITS",
+                    "REWARD_AGRMT_ACTIVATED_FLG",
+                    "REWARD_AGRMT_DEACTIVATED_FLG",
+                    "REWARD_AGRMT_QUALIFIED_FLG",
+                    "REWARD_AGRMT_DEQUALIFIED_FLG",
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_BS_CONSIGNOR_AGG",
+        "functionality": "Creates a view in the CLM_ADM schema that exposes all columns from the THIRD_PARTY_SERVICES.BS_CONSIGNOR_AGG table/view.",
+        "data_sources": [
+            {
+                "table_name": "THIRD_PARTY_SERVICES.BS_CONSIGNOR_AGG",
+                "columns": [
+                    "ORDER_NR",
+                    "PACKAGE_NR",
+                    "DELIVERED_DATE",
+                    "FIRST_ARRIVAL_DATE",
+                    "LAST_ARRIVAL_DATE",
+                    "PICKED_UP_DATE",
+                    "LABEL_PRINT_DATE",
+                    "ACTOR_ID",
+                    "NAME_1",
+                    "NAME_2",
+                    "STREET_1",
+                    "POST_CODE",
+                    "CITY",
+                    "COUNTRY_CODE",
+                    "PHONE_NR",
+                    "EMAIL",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE",
+                    "STATUS"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_SURVEYS",
+        "functionality": "Consolidates and categorizes Qualtrics survey results, enriching them with customer and device metadata, to provide a comprehensive view of survey responses across different question types. It handles various question types like headings, single-choice with comments, multiple-choice with comments, free-text comments, NPS scores, and SMS comments, filtering data for specific survey IDs.",
+        "data_sources": [
+            {
+                "table_name": "NPS.SURVEYS",
+                "columns": [
+                    "NAME",
+                    "SURVEY_ID"
+                ]
+            },
+            {
+                "table_name": "NPS.SURVEY_ANSWER_META",
+                "columns": [
+                    "STARTDATE",
+                    "ENDDATE",
+                    "RECORDED_DATE",
+                    "RESPONSE_ID",
+                    "CUSTOMER_ID",
+                    "CUSTOMER_ID_OWNER",
+                    "CUSTOMER_TYPE",
+                    "CUSTOMER_JOURNEY",
+                    "SUBSCRIPTION_ID",
+                    "AGE",
+                    "AGE_GROUP",
+                    "POSTCODE",
+                    "POST_NAME",
+                    "MUNICIPALITY",
+                    "MUNICIPALITY_ID",
+                    "AREA_NAME",
+                    "AREA",
+                    "DEVICE_MODEL_ID",
+                    "DEVICE_MODEL_NAME",
+                    "DEVICE_PRODUCER_NAME",
+                    "DEVICE_CATEGORY",
+                    "DEVICE_TYPE",
+                    "DEVICE_OS",
+                    "DEVICE_VOLTE_YN",
+                    "DEVICE_LTE_YN",
+                    "DEVICE_HD_VOICE_YN",
+                    "DEVICE_TOUCHSCREEN_YN",
+                    "DEVICE_VOWIFI",
+                    "STATUS",
+                    "RESULT",
+                    "PRODUCT_NAME",
+                    "RESPONSESET",
+                    "FINISHED",
+                    "SOURCE_SYSTEM",
+                    "CONSENT_PROVIDED_YN",
+                    "SURVEY_ID"
+                ]
+            },
+            {
+                "table_name": "NPS.SURVEY_QUESTIONS",
+                "columns": [
+                    "QUESTION_NAME",
+                    "QUESTIONTEXT",
+                    "SURVEY_ID",
+                    "QUESTION_TYPE",
+                    "SUBSELECTOR",
+                    "SELECTOR"
+                ]
+            },
+            {
+                "table_name": "NPS.SURVEY_ANSWER",
+                "columns": [
+                    "SURVEY_ID",
+                    "ANSWER",
+                    "RESPONSE_ID",
+                    "QUESTION"
+                ]
+            },
+            {
+                "table_name": "NPS.SURVEY_QUESTION_CHOICES",
+                "columns": [
+                    "DESCRIPTION",
+                    "SURVEY_ID",
+                    "QUESTION_NAME",
+                    "RECODE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "SJEKK_TALKMORE_PRODUCT_DIM",
+        "functionality": "Identifies and presents changed or newly introduced 'TALKMORE' product dimension records by comparing a filtered master product list against an existing prime product dimension, including derived and standardized product attributes.",
+        "data_sources": [
+            {
+                "table_name": "FINANCE_MART.PRODUCT_DIM_V",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC",
+                    "PRODUCT_NAME_USE",
+                    "PRODUCT_TYPE_NAME",
+                    "PRODUCT_TYPE_DESC",
+                    "VALUE_CHAIN",
+                    "DRM_PRODUCT_BUSINESS_AREA",
+                    "DRM_PRODUCT_BUSINESS_AREA_DET",
+                    "DRM_PRODUCT_ACCESS_PAYTYPE",
+                    "DRM_PRODUCT_GROUP",
+                    "DRM_MARKET_PRODUCT_GROUP",
+                    "DRM_MARKET_PRODUCT",
+                    "DRM_MARKET_PRODUCT_CATEGORY",
+                    "DRM_MARKET_PRODUCT_FAMILY",
+                    "DRM_MARKET_PRODUCT_BELONGING",
+                    "DRM_RESPONSIBLE_1",
+                    "DRM_RESPONSIBLE_2",
+                    "DRM_RESPONSIBLE_3",
+                    "DRM_CLASSIFICATION",
+                    "DRM_CALCULATION_FACTOR",
+                    "DRM_ACTUAL_VALUE",
+                    "DRM_PRODUCT_DESC",
+                    "DRM_PRODUCT_CLASS",
+                    "DRM_PRODUCT_NEED",
+                    "DRM_SELF_SERVICE",
+                    "DRM_BINDING_TYPE",
+                    "DRM_IS_VALUE_CHAIN",
+                    "DRM_MEASURING_UNIT",
+                    "DRM_COMMON_PAYMENT",
+                    "PRIMARY_PRODUCT_FLAG",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_PRODUCT_ID_2",
+                    "SOURCE_PRODUCT_ID_3",
+                    "SOURCE_PRODUCT_ID_4",
+                    "PRICE_CATEGORY",
+                    "PRICE_CATEGORY_DESC",
+                    "PRODUCT_INITIATION_PRICE",
+                    "PRODUCT_PERIODIC_PRICE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_CATEGORY_DESC",
+                    "PRODUCT_OFFER_TEXT_ID",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "DRM_PARTNER_SERVICES",
+                    "ESTABLISHMENT_PRICE",
+                    "MONTHLY_PRICE",
+                    "PRICE_VAT_DESC",
+                    "INCLUDED_MINUTES",
+                    "INCLUDED_SMS",
+                    "INCLUDED_MMS",
+                    "INCLUDED_DATA",
+                    "BAUD_UPLOAD",
+                    "BAUD_DOWNLOAD",
+                    "BAUD_REDUCTION_QUOTA",
+                    "PRICE_DATA_AFTER_INCLUDED",
+                    "MAX_MONTHLY_DATA_CHARGE",
+                    "PRICE_SMS_AFTER_INCLUDED",
+                    "PRICE_MMS",
+                    "TK_PRODUCT_RANK",
+                    "TK_INCOME_SERVICE",
+                    "BAUD_THROTTLED_SPEED",
+                    "DRM_PRODUCT_CHANGE",
+                    "SB_INCLUDED_DATA",
+                    "FB_BUCKET_SIZE",
+                    "UNIT_PRICE_FLAG",
+                    "UNIT_PRICE_DESC",
+                    "API_PRICE_PER_CALL",
+                    "DATA_LIMIT_SIZE",
+                    "DATA_LIMIT_PRICE",
+                    "VAT_CODE_FLAG",
+                    "QUARANTINE_LENGTH_MONTHS",
+                    "MAX_NUMBER_OF_GOODIES",
+                    "BSB_PAY_TYPE",
+                    "NBR_ACTIVE_PROD_CONSUMER",
+                    "NBR_ACTIVE_PROD_BUSINESS",
+                    "NBR_ACTIVE_PROD",
+                    "PRODUCT_ACTIVE_FLAG",
+                    "BEH_KATEGORI_MDU_SDU",
+                    "PRODUKT_KUNDE_SEGMENT",
+                    "PRODUKT_TEKNOLOGI_TYPE",
+                    "PRODUKT_VOLUM_GRP"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.TALKMORE_PRIM_PRODUCT_DIM",
+                "columns": []
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_NPS_CS_RAW_V",
+        "functionality": "This view combines Net Promoter Score (NPS) survey data from the Medallia import table with customer mobile subscription history and mobile number porting information. It cleans and standardizes raw NPS scores, deriving a calculated NPS value and categorizing it. The view enriches the data with various customer and call attributes, as well as porting status details, to provide a comprehensive dataset for detailed NPS analysis.",
+        "data_sources": [
+            {
+                "table_name": "CRM_ANALYSE.ADM_MONTH_DIM",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "RELATIVE_MONTH",
+                    "LAST_DATE_KEY",
+                    "FIRST_DATE_KEY"
+                ]
+            },
+            {
+                "table_name": "NPS.MEDALLIA_SURVEY_IMPORT",
+                "columns": [
+                    "PHONE_NUMBER",
+                    "CUSTOMER_ID_OWNER",
+                    "CUSTOMER_ID_USER",
+                    "INPUT_NUMBER",
+                    "TELENOR_UNIQUE_ID",
+                    "TRANSACTION_DATE",
+                    "SURVEY_SENT_TIME",
+                    "RESPONSE_DATE",
+                    "TOPIC_OF_CALL",
+                    "CONSUMER_DIVISION",
+                    "MOBILE_BRAND",
+                    "REPEATED_CALL",
+                    "TRANSFERRED_CALL",
+                    "TIME_IN_QUEUE",
+                    "CONVERSATION_TIME",
+                    "CUSTOMER_TYPE",
+                    "AGE_GROUP",
+                    "DISTRICT",
+                    "PORTFOLIO",
+                    "LIKELIHOOD_TO_CHURN",
+                    "CONTACT_CENTER",
+                    "UNIT",
+                    "LIKELIHOOD_TO_RECOMMEND",
+                    "LIKELIHOOD_TO_RECOMMEND_RAW",
+                    "NPS_CATEGORY",
+                    "REASON_FOR_SCORE_RAW",
+                    "RESCUED",
+                    "AVOIDED_CHURN",
+                    "SALE",
+                    "SURVEY_PROGRAM",
+                    "COMPLETED_WEB_SURVEY",
+                    "REASON_COMMENT_PROVIDED"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.ADM_MOBIL_SUBSCR_HIST",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "MAIN_NUMBER",
+                    "SUBSCR_ID"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.MPORT_PORT_REPORT",
+                "columns": [
+                    "ORDER_ID",
+                    "ORDER_PHONE_NUM",
+                    "ORDER_STATUS_ID",
+                    "ORDER_ARRIVAL_DATE",
+                    "INFO_CHG_DATE",
+                    "SERVICE_PROVIDER_ID_OUT"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.MPORT_PORT_REPORT_EXTRA_INFO",
+                "columns": [
+                    "ORDER_ID",
+                    "SUBSCR_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "GPD",
+        "functionality": "This view, \"CLM_ADM\".\"GPD\", serves as a direct projection of the \"GALAXY\".\"PRODUCT_DIM\" table, exposing all its columns without any transformations, aggregations, or filtering. Its primary purpose is to provide an alias or a specific access point for the product dimension data.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC",
+                    "PRODUCT_TYPE_NAME",
+                    "PRODUCT_TYPE_DESC",
+                    "PRODUCT_BRAND",
+                    "DRM_PRODUCT_BUSINESS_AREA",
+                    "DRM_PRODUCT_BUSINESS_AREA_DET",
+                    "DRM_PRODUCT_ACCESS_PAYTYPE",
+                    "DRM_PRODUCT_GROUP",
+                    "DRM_MARKET_PRODUCT_GROUP",
+                    "DRM_MARKET_PRODUCT",
+                    "DRM_MARKET_PRODUCT_CATEGORY",
+                    "DRM_MARKET_PRODUCT_FAMILY",
+                    "DRM_MARKET_PRODUCT_BELONGING",
+                    "DRM_RESPONSIBLE_1",
+                    "DRM_RESPONSIBLE_2",
+                    "DRM_RESPONSIBLE_3",
+                    "DRM_CLASSIFICATION",
+                    "DRM_CALCULATION_FACTOR",
+                    "DRM_ACTUAL_VALUE",
+                    "DRM_PRODUCT_DESC",
+                    "DRM_PRODUCT_CLASS",
+                    "DRM_PRODUCT_NEED",
+                    "DRM_SELF_SERVICE",
+                    "DRM_BINDING_TYPE",
+                    "DRM_IS_VALUE_CHAIN",
+                    "DRM_MEASURING_UNIT",
+                    "PRODUCT_PAYTYPE",
+                    "PRIMARY_PRODUCT_FLAG",
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_PRODUCT_ID_2",
+                    "SOURCE_PRODUCT_ID_3",
+                    "SOURCE_PRODUCT_ID_4",
+                    "PRICE_CATEGORY",
+                    "PRICE_CATEGORY_DESC",
+                    "PRODUCT_INITIATION_PRICE",
+                    "PRODUCT_PERIODIC_PRICE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "SOURCE_SYSTEM_NAME",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "DRM_COMMON_PAYMENT",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_CATEGORY_DESC",
+                    "PRODUCT_OFFER_TEXT_ID",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "DRM_PARTNER_SERVICES",
+                    "ESTABLISHMENT_PRICE",
+                    "MONTHLY_PRICE",
+                    "PRICE_VAT_DESC",
+                    "INCLUDED_MINUTES",
+                    "INCLUDED_SMS",
+                    "INCLUDED_MMS",
+                    "INCLUDED_DATA",
+                    "BAUD_UPLOAD",
+                    "BAUD_DOWNLOAD",
+                    "BAUD_REDUCTION_QUOTA",
+                    "PRICE_DATA_AFTER_INCLUDED",
+                    "MAX_MONTHLY_DATA_CHARGE",
+                    "PRICE_SMS_AFTER_INCLUDED",
+                    "PRICE_MMS",
+                    "TK_PRODUCT_RANK",
+                    "TK_INCOME_SERVICE",
+                    "BAUD_THROTTLED_SPEED",
+                    "DRM_PRODUCT_CHANGE",
+                    "SB_INCLUDED_DATA"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CM_S",
+        "functionality": "Combines subscription details from the CM.SUBSCRIPTION table with product service mapping descriptions from the CM.PROD_SERV_MAPPING table, returning a distinct set of subscription and product-related information.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "CUST_ID_PAYER",
+                    "CUST_ID_RESP",
+                    "CUST_ID_USER",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "SUBSCR_VALID_TO_DATE",
+                    "PRODUCT_ID",
+                    "S212_PRODUCT_ID"
+                ]
+            },
+            {
+                "table_name": "CM.PROD_SERV_MAPPING",
+                "columns": [
+                    "PRODUCT_DESCR",
+                    "PRODUCT_UNIT_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MBB_SP",
+        "functionality": "Combines subscribed product details with product type configuration information, filtering for specific product categories (3, 25, 35, 43, 49, 57, 58, 59), to provide a comprehensive view of products, including their names, descriptions, and various subscription-related attributes.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID",
+                    "RESOURCE_VALUE",
+                    "SUBSCRIPTION_SEQ",
+                    "PRODUCT_CATEGORY_ID",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "TERMINATION_FIXED_FEE",
+                    "TERMINATION_MONTH_FEE",
+                    "SYSTEM_COMPONENT_ID",
+                    "COMOYO_USER_ID"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "DESCRIPTION",
+                    "ID",
+                    "PARENT"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CM_SP",
+        "functionality": "This view combines subscription details with associated offer incentives and product offer information. It filters for product offers belonging to category ID 20 and provides a distinct list of records, ordered by subscription validity dates. The view essentially links customer subscriptions to specific product offers and their incentive details.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "CUST_ID_PAYER",
+                    "CUST_ID_RESP",
+                    "CUST_ID_USER",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "SUBSCR_VALID_TO_DATE"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION_OFFER_INCENTIVE",
+                "columns": [
+                    "SUBSCR_ID",
+                    "INC_VALID_FROM_DATE",
+                    "INC_VALID_TO_DATE",
+                    "INFO_CHG_DATE",
+                    "PARAMETER_ID",
+                    "PRODUCT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "PCAT.PRODUCT_OFFER",
+                "columns": [
+                    "PRODUCT_OFFER_ID",
+                    "PRODUCT_OFFER_CATEGORY_ID",
+                    "PUBLIC_NAME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_3B",
+        "functionality": "Identifies 'Dual Accounts' where a Connect ID (from CM.SUBSCRIBED_OFFER_CONFIGURATION) associated with a subscription does not have a corresponding linked account in COMOYO.FIM_USER_ACCOUNTS, implying the Connect ID no longer exists in that system. It also compares the Connect ID from the subscription with user IDs from phone records.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "CUST_ID_USER",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_CHG_DATE",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.CUSTOMER",
+                "columns": [
+                    "CUST_ID",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED",
+                    "PARAMETER_VALUE",
+                    "VALID_FROM_DATE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_ID",
+                    "PH_VERIFICATION_TIME",
+                    "PH_VERIFIED"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "ACC_USER_ID",
+                    "USER_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_AGREEMENT_MEMB_INSURANCE_V",
+        "functionality": "This view extracts the most recent insurance agreement details for each unique device (identified by IMEI). It filters agreements to include only those marked as 'Forsikring' (Insurance) and belonging to the 'DEVICE' product group, providing the IMEI, root agreement key, product agreement ID, and product name associated with the latest device agreement end date.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.ADM_AGREEMENT_DEVICE_ALL",
+                "columns": [
+                    "IMEI",
+                    "ROOT_AGREEMENT_KEY",
+                    "PRODUCT_AGREEMENT_ID",
+                    "PRODUCT_AGREEMENT_PRODUCT_NM",
+                    "DEVICE_AGREEMENT_END_DATE",
+                    "PRODUCT_AGREE_DRM_COM_MRK_PROD",
+                    "PRODUCT_AGREE_DRM_COM_PROD_GRP"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_CUSTOMER_EVENT_SURVEY",
+        "functionality": "This view (`V_CUSTOMER_EVENT_SURVEY`) consolidates detailed information about a specific customer event survey (identified by `SURVEY_ID = 336`). It joins survey metadata, individual questions, and corresponding customer responses to provide a comprehensive dataset including survey name, question text, response scores, answer details, invitation and response timestamps, customer type, journey description, source system information, and product/device details.",
+        "data_sources": [
+            {
+                "table_name": "CCDW_CUSTOMER_EVENT.SURVEYS",
+                "columns": [
+                    "SURVEY_ID",
+                    "SURVEY_NAME"
+                ]
+            },
+            {
+                "table_name": "CCDW_CUSTOMER_EVENT.QUESTIONS",
+                "columns": [
+                    "QUESTION_ID",
+                    "QUESTION_TEXT",
+                    "SURVEY_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW_CUSTOMER_EVENT.SURVEY_RESPONSE_FACT",
+                "columns": [
+                    "RESPONSE_ID",
+                    "SOURCE_SYSTEM_ID",
+                    "ANSWER_ID",
+                    "ANSWER_TEXT",
+                    "STARTDATE",
+                    "ENDDATE",
+                    "CUSTOMER_TYPE",
+                    "CUSTOMER_JOURNEY_DESC",
+                    "SOURCE_SYSTEM_DESC",
+                    "SUBSCRIPTION_ID",
+                    "POSTCODE",
+                    "POST_NAME",
+                    "AREA",
+                    "PRODUCT_NAME",
+                    "FINISHED",
+                    "DEVICE_MODEL_ID",
+                    "DEVICE_MODEL_NAME",
+                    "QUESTION_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_KURT_CONNECTID_HARDLINK_V",
+        "functionality": "Aggregates user account, email, and phone data, extracting 'KURT_ID' and 'TNUID' from account identifiers based on 'HARDLINK_' and 'TNUID_TSS-' patterns, respectively. For each user, it retrieves the most recent verified phone information (MSISDN and verification time) and their email address. The view filters for user accounts containing 'HARDLINK_' in their ID, specific Norwegian MSISDN ranges, and explicitly verified phone numbers.",
+        "data_sources": [
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID",
+                    "ACC_USER_ID",
+                    "ACC_MSISDN"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_EMAILS",
+                "columns": [
+                    "USER_ID",
+                    "EMAIL_ADDRESS"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "USER_ID",
+                    "PH_MSISDN",
+                    "PH_VERIFIED",
+                    "PH_VERIFICATION_TIME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_BS_SAP",
+        "functionality": "Provides a direct view of SAP business data by selecting all listed columns from the `THIRD_PARTY_SERVICES.BS_SAP` table.",
+        "data_sources": [
+            {
+                "table_name": "THIRD_PARTY_SERVICES.BS_SAP",
+                "columns": [
+                    "REFERENCE_NR",
+                    "ORDER_NR",
+                    "SOLD_TO",
+                    "SHIP_TO",
+                    "MATERIAL_NR",
+                    "MATERIAL_DESCR",
+                    "MANUF_COMP_NR",
+                    "INVOICED_QTY",
+                    "MATERIAL_GROUP",
+                    "MATERIAL_GROUP_NAME",
+                    "DOC_CREATED_DATE",
+                    "BILLING_DATE",
+                    "PROFIT_CENTER",
+                    "PROFIT_CENTER_DESCR",
+                    "INVOICE_NR",
+                    "SOLD_TO_NAME",
+                    "NODE1_OFFICE",
+                    "NODE2_OFFICE",
+                    "NODE3_OFFICE",
+                    "FREIGHT_COST",
+                    "BILLING_PERIOD",
+                    "BILLING_TYPE",
+                    "DELIVERY_NR",
+                    "ORDER_TYPE",
+                    "ORDER_TYPE_DESCR",
+                    "ORDER_REASON",
+                    "ORDER_REASON_DESCR",
+                    "SALES_GROUP",
+                    "SALES_GROUP_DESCR",
+                    "SHIP_TO_NAME",
+                    "SHIP_TO_ADDRESS",
+                    "SHIP_TO_CITY",
+                    "SHIP_TO_POSTALCODE",
+                    "SERIAL_NR",
+                    "ZZRMA_NR",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "FILE_NAME_INSERT",
+                    "FILE_NAME_UPDATE",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_TRIGGER_ODS_CONNECT_ID_LINK",
+        "functionality": "Retrieves the details of the most recent run (within the last 2 days) for the specific 'wf_Connect_Id_Link' ETL workflow instance ('s_m_Connect_Id_Link') within the 'ODS' subject area, providing status, timing, and error information for monitoring purposes.",
+        "data_sources": [
+            {
+                "table_name": "PCT_REPOSITORY.REP_TASK_INST_RUN",
+                "columns": [
+                    "TASK_TYPE_NAME",
+                    "SUBJECT_AREA",
+                    "WORKFLOW_NAME",
+                    "INSTANCE_NAME",
+                    "START_TIME",
+                    "END_TIME",
+                    "RUN_ERR_CODE",
+                    "RUN_ERR_MSG",
+                    "RUN_STATUS_CODE",
+                    "INSTANCE_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_AGREEMENTS_V",
+        "functionality": "This view consolidates agreement-related data, specifically focusing on 'Swap Agreements' and 'Insurance Agreements'. It gathers comprehensive details such as agreement ownership, dealer information, start and end dates, product specifics (key, name, family), account details, unique agreement identifiers, invoice accounts, IMEI, device names, and IMEI status. The data is sourced from various operational and data warehousing tables, linking agreements to product configurations, subscriptions, and device information.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.AGREEMENT",
+                "columns": [
+                    "AGREEMENT_OWNER_ID",
+                    "DEALER_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "ACCOUNT_ID",
+                    "AGREEMENT_ID",
+                    "BUSINESS_AREA_ID",
+                    "AGREEMENT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.AGREEMENT_PRODUCT_CONFIG",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "CURRENT_STATUS",
+                    "CONFIG_PARAMETER_ID",
+                    "PRODUCT_OFFER_ID",
+                    "SOURCE_AGREEMENT_ID",
+                    "CONFIG_PARAMETER_VALUE",
+                    "START_DATE",
+                    "END_DATE"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "PRODUCT_NAME",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_CATEGORY_ID",
+                    "DRM_COMMON_PRODUCT_GROUP"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_VALUE",
+                    "PARAMETER_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION_MAPPING",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "SOURCE_SYSTEM_KEY"
+                ]
+            },
+            {
+                "table_name": "AGR.EQUIPMENT",
+                "columns": [
+                    "MARKETING_NAME",
+                    "TAC"
+                ]
+            },
+            {
+                "table_name": "GALAXY.HANDSET_DIM_V",
+                "columns": [
+                    "MARKETING_NAME",
+                    "HANDSET_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_FAMILIEBONUS_HIST_RAW",
+        "functionality": "The view 'V_FAMILIEBONUS_HIST_RAW' retrieves historical raw data for 'Familiebonus' (family bonus) agreements, specifically for product offer ID 956. It combines agreement, offer, and configuration details, including parameter values related to data volume and service types. It calculates the data volume in an agreement (MB_IN_AGR) and a family bonus basis (FB_GRUNNLAG), and identifies the presence of specific service types like Mobile, Business, SWAP, Fixed Telephony, and Fixed Broadband based on configuration parameters. This view provides a comprehensive, raw dataset for analyzing specific family bonus agreements.",
+        "data_sources": [
+            {
+                "table_name": "CM.AGREEMENT_OFFER",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "VALID_FROM_DATE",
+                    "VALID_TO_DATE",
+                    "AGREEMENT_OFFER_ID",
+                    "MARKET_NAME",
+                    "PRODUCT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "CM.AGREEMENT_OFFER_COMPONENT",
+                "columns": [
+                    "AGREEMENT_OFFER_ID",
+                    "AGREEMENT_COMPONENT_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.AGREEMENT_MAPPING",
+                "columns": [
+                    "AGREEMENT_ID",
+                    "SOURCE_SYSTEM_KEY",
+                    "SOURCE_SYSTEM_ID"
+                ]
+            },
+            {
+                "table_name": "CM.AGREEMENT_OFFER_CONFIGURATION",
+                "columns": [
+                    "AGREEMENT_COMPONENT_ID",
+                    "PARAMETER_ID",
+                    "PARAMETER_VALUE",
+                    "VALID_FROM_DATE",
+                    "VALID_TO_DATE"
+                ]
+            },
+            {
+                "table_name": "ONL_REP.SUBSCRIBED_OFFER_PARAM_ORDER",
+                "columns": [
+                    "PARAM_VALUE",
+                    "PARAM_ID",
+                    "OFFER_ORDER_LINE_ID",
+                    "ORDER_ID",
+                    "PARAM_ORDER_LINE_ID"
+                ]
+            },
+            {
+                "table_name": "ONL_REP.SUBSCRIBED_OFFER_ORDER",
+                "columns": [
+                    "OFFER_ORDER_LINE_ID",
+                    "ORDER_ID",
+                    "PRODUCT_OFFER_CATEGORY_ID",
+                    "ACTION_TYPE_ID",
+                    "CREATED_DATE",
+                    "PRODUCT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "ONL_REP.SERVICE_ORDER_PRODUCT",
+                "columns": [
+                    "ORDER_LINE_ID",
+                    "ORDER_ID",
+                    "SUBSCR_ID"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "SOURCE_PRODUCT_ID_1",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_NAME",
+                    "PRODUCT_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_HANDSET_DIM_V",
+        "functionality": "The view `ADM_HANDSET_DIM_V` creates a standardized and enriched dimension table for mobile handsets. It processes raw device data from `CCDW.HANDSET_TYPE_EXT` by applying complex logic to normalize manufacturer names and derive a primary marketing name (`MARKETING_NAME_L1`) from various designation fields. It also generates a secondary marketing name (`MARKETING_NAME_L2`) for unclassified devices, retaining original source values for auditing and debugging purposes. It leverages `ADM_GSMA_MARKETING_NAME_DIM` for lookup and filtering during the data processing.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.HANDSET_TYPE_EXT",
+                "columns": [
+                    "TACFAC",
+                    "MODELID",
+                    "HAT_PRODUCER",
+                    "HAT_MODEL_MARKETING_NAME",
+                    "GSMA_NAME"
+                ]
+            },
+            {
+                "table_name": "ADM_GSMA_MARKETING_NAME_DIM",
+                "columns": [
+                    "TAC",
+                    "MARKETING_NAME_L1"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_SUBSCR_PROD_RAW_V",
+        "functionality": "Provides raw subscription product data, filtered for a 25-month historical window up to the current month, likely for churn analysis. This view selects specific product and subscription-related attributes.",
+        "data_sources": [
+            {
+                "table_name": "ccm.vya_churn_wide_subscr_products",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_KEY",
+                    "SUB_PRODUCT_START_DATE",
+                    "SUB_PRODUCT_END_DATE",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "SUB_PRODUCT_NAME",
+                    "SUB_PRODUCT_DESC",
+                    "SOURCE_PRODUCT_ID_1",
+                    "period_month"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_MIN_SKY_FIRST_USE",
+        "functionality": "This view identifies and consolidates the first recorded usage events for 'Min Sky' related services across different subscription types or data sources. It combines subscription details, customer identifiers, and event timestamps from various schemas to calculate the number of days since the initial event.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_VALUE",
+                    "VALID_TO_DATE",
+                    "PARAMETER_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "INFO_IS_DELETED",
+                    "SUBSCR_VALID_TO_DATE"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION_MAPPING",
+                "columns": [
+                    "SOURCE_SYSTEM_KEY",
+                    "SOURCE_SYSTEM_ID",
+                    "SUBSCRIPTION_ID"
+                ]
+            },
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_USER",
+                    "MARKET_AREA_ID",
+                    "BUSINESS_AREA_ID",
+                    "MAIN_NUMBER",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.COMOYO_SUB_GRANT_EVENTS",
+                "columns": [
+                    "USER_ID",
+                    "EVENT",
+                    "SKUS",
+                    "EVENT_TIME",
+                    "LOAD_DATE"
+                ]
+            },
+            {
+                "table_name": "GALAXY.SUBSCRIPTION_DIM_MV",
+                "columns": [
+                    "SUBSCRIPTION_KEY",
+                    "COMOYO_USER_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "PRODUCT_DIM_V",
+        "functionality": "Provides a comprehensive product dimension view, selecting various product attributes and details from a source table or view, filtered to include products originating from specific source systems (KAS, FKM, deFakto, Pacman). This view is likely intended for analytical or reporting purposes within a data warehouse or business intelligence environment.",
+        "data_sources": [
+            {
+                "table_name": "PD",
+                "columns": [
+                    "PRODUCT_KEY",
+                    "POID",
+                    "SOURCE_PRODUCT_ID_2",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_SOURCE_SYSTEM_ID",
+                    "PRODUCT_BUSINESS_AREA_ID",
+                    "SUBSCRIPTION_TYPE",
+                    "SUBSCRIPTION_TYPE_ID",
+                    "PRODUCT_GROUP",
+                    "PRODUCT_NAME",
+                    "PRODUCT_DESC",
+                    "PRIMARY_PRODUCT_FLAG",
+                    "DRM_COMMON_BRAND",
+                    "BRAND",
+                    "DRM_PRODUCT_CLASS",
+                    "DRM_PRODUCT_NEED",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "PRODUCT_SALEABLE_FLAG",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "DRM_COMMON_PAYMENT",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "PRICE_VAT_DESC",
+                    "VAT_CODE_FLAG",
+                    "STARTUP_FEE",
+                    "MONTHLY_FEE",
+                    "INCLUDED_MINUTES",
+                    "PRICE_MIN_AFTER_INCLUDED",
+                    "INCLUDED_SMS",
+                    "PRICE_SMS_AFTER_INCLUDED",
+                    "INCLUDED_MMS",
+                    "PRICE_MMS_AFTER_INCLUDED",
+                    "INCLUDED_MB",
+                    "PRICE_DATA_AFTER_INCLUDED",
+                    "PRICE_MB_AFTER_INCLUDED",
+                    "MAX_MONTHLY_CHARGE_MB",
+                    "BAUD_UPLOAD_MBPS",
+                    "BAUD_DOWNLOAD_MBPS",
+                    "BAUD_REDUCTION_QUOTA_MB",
+                    "TK_INCOME_SERVICE",
+                    "TK_PRODUCT_RANK",
+                    "SB_INCLUDED_DATA",
+                    "FB_BUCKET_SIZE",
+                    "QUARANTINE_LENGTH_MONTHS",
+                    "MAX_NUMBER_OF_GOODIES"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_2",
+        "functionality": "Identifies subscriptions where an MSISDN is associated with a 'Connect ID' within the CM system (Customer Management) but is not registered as a phone number in the COMOYO.FIM_USER_PHONES system. This view aims to detect potential data discrepancies or 'dual account' scenarios by listing subscription details, MSISDNs, and Connect ID information for such cases. The 'Connect ID' is specifically filtered by PARAMETER_ID = 2100.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_CHG_DATE",
+                    "CUST_ID_USER",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.CUSTOMER",
+                "columns": [
+                    "CUST_ID",
+                    "KURT_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED",
+                    "VALID_FROM_DATE",
+                    "PARAMETER_VALUE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "V_TRIGGER_COMOYO_MIN_SKY_DAILY",
+        "functionality": "Monitors the run status and details of a specific daily Minsky process ('wf_PROC_MINSKY_DAILY' and 's_mUpdate_ST_TRAFFIC' within the 'COMOYO' subject area) that have started within the last 12 hours, by querying repository task instance run logs.",
+        "data_sources": [
+            {
+                "table_name": "PCT_REPOSITORY.REP_TASK_INST_RUN",
+                "columns": [
+                    "TASK_TYPE_NAME",
+                    "SUBJECT_AREA",
+                    "WORKFLOW_NAME",
+                    "INSTANCE_NAME",
+                    "START_TIME",
+                    "END_TIME",
+                    "RUN_ERR_CODE",
+                    "RUN_ERR_MSG",
+                    "RUN_STATUS_CODE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MOB_SP",
+        "functionality": "This view consolidates subscribed product information by joining subscription details with comprehensive product master data and product type configurations. It enriches the subscription records with various product attributes, classifications, and payment details from multiple product-related dimensions.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID",
+                    "RESOURCE_VALUE",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "SYSTEM_COMPONENT_ID",
+                    "COMOYO_USER_ID"
+                ]
+            },
+            {
+                "table_name": "PD",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_KEY",
+                    "POID",
+                    "SOURCE_SYSTEM_NAME",
+                    "PRODUCT_DESC",
+                    "BRAND",
+                    "DRM_PRODUCT_CLASS",
+                    "DRM_PRODUCT_NEED",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "DRM_COMMON_PRODUCT_AREA",
+                    "DRM_COMMON_TECHNOLOGY",
+                    "DRM_COMMON_PRODUCT_CATEGORY",
+                    "DRM_COMMON_PRODUCT_GROUP",
+                    "DRM_COMMON_MARKET_PRODUCT",
+                    "DRM_COMMON_BRAND",
+                    "DRM_COMMON_REPORTING",
+                    "DRM_COMMON_PORTFOLIO",
+                    "DRM_COMMON_SERVICE",
+                    "DRM_COMMON_PAYMENT",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "STARTUP_FEE",
+                    "MONTHLY_FEE",
+                    "INCLUDED_MB",
+                    "TK_INCOME_SERVICE",
+                    "TK_PRODUCT_RANK",
+                    "SB_INCLUDED_DATA"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "ID",
+                    "PARENT",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_SUBSCR_PROD_V",
+        "functionality": "This view, `CHURN_SUBSCR_PROD_V`, processes raw subscription product data for churn analysis. It filters for specific sub-product names, standardizes market product categories, calculates the active duration of sub-products within a month, and generates flags indicating if a sub-product started or ended in that month. It also constructs a standardized, unique market sub-product name for aggregated reporting.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_SUBSCR_PROD_RAW_V",
+                "columns": [
+                    "PERIOD_MONTH_KEY",
+                    "SUBSCRIPTION_KEY",
+                    "SUB_PRODUCT_START_DATE",
+                    "SUB_PRODUCT_END_DATE",
+                    "SUB_PRODUCT_NAME",
+                    "SUB_PRODUCT_DESC",
+                    "SOURCE_PRODUCT_ID_1",
+                    "drm_common_market_product"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHECK_PARTITION_V",
+        "functionality": "Identifies the latest partition (based on its name, assumed to be a 6-digit period key like YYYYMM) for partitioned tables owned by 'CLM_ADM'. It specifically targets partitions where the partitioning key column is 'PERIOD_MONTH_KEY' and the partition name indicates a period after November 2025, ensuring the extracted partition name is numeric.",
+        "data_sources": [
+            {
+                "table_name": "SYS.ALL_OBJECTS",
+                "columns": [
+                    "OBJECT_NAME",
+                    "SUBOBJECT_NAME",
+                    "OWNER",
+                    "OBJECT_TYPE"
+                ]
+            },
+            {
+                "table_name": "SYS.ALL_PART_KEY_COLUMNS",
+                "columns": [
+                    "NAME",
+                    "OWNER",
+                    "COLUMN_NAME"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VYA_USAGE_DAY",
+        "functionality": "Creates a wrapper view, `VYA_USAGE_DAY`, in the `CLM_ADM` schema by selecting all columns directly from the `VA_USAGE_DAY` view in the `clm_ccm` schema. It serves to expose the underlying view's data, potentially for schema separation or controlled access.",
+        "data_sources": [
+            {
+                "table_name": "VA_USAGE_DAY",
+                "columns": [
+                    "VOLUME_TOTAL",
+                    "VOLUME_DOWN",
+                    "VOLUME_MB_01",
+                    "VOLUME_MB_01_NAME",
+                    "DAY",
+                    "DAY_OF_WEEK",
+                    "SUBSCRIPTION_KEY",
+                    "PRODUCT_NAME",
+                    "PRODUCT_OFFER_NAME",
+                    "PRODUCT_COMMON_PAYMENT",
+                    "PRODUCT_COMMON_REPORTING",
+                    "PRODUCT_COMMON_CATEGORY",
+                    "PRODUCT_COMMON_GROUP",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_MONTHLY_PRICE",
+                    "PRODUCT_POID",
+                    "INVOICE_REPORTING_CODE_3",
+                    "PRODUCT_MB_INCLUDED_DATA",
+                    "USAGE_PRODUCT_FAMILY_NAME",
+                    "DISCOUNTED_PRODUCT_NAME",
+                    "USAGE_PRODUCT_NAME",
+                    "USAGE_PRODUCT_POID",
+                    "USAGE_PRODUCT_MONTHLY_PRICE",
+                    "DEVICE_CAMERA_INFO",
+                    "DEVICE_TYPE",
+                    "DEVICE_MANUFACTURER",
+                    "DEVICE_MARKETING_NAME",
+                    "DEVICE_COMMON_MANUFACTURER",
+                    "DEVICE_OS_INFO",
+                    "DEVICE_CLASS"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUMMY_V",
+        "functionality": "Creates a static lookup view containing predefined dummy or placeholder values, such as 'Ukjent' (Unknown) and 'N/A' (Not Applicable), to be used as default or reference entries.",
+        "data_sources": [
+            {
+                "table_name": "DUAL",
+                "columns": []
+            }
+        ]
+    },
+    {
+        "view_name": "V_TRIGGER_OCS_FREE_UNITS_DAILY",
+        "functionality": "This view tracks and retrieves the daily run status and details for a specific ETL task instance named 'Trigger_File_to_SAS' within the 'wf_Postswap_OCS' workflow, under the 'OCS' subject area, from the current day. It is likely used for monitoring or reporting on the execution of this particular task.",
+        "data_sources": [
+            {
+                "table_name": "PCT_REPOSITORY.REP_TASK_INST_RUN",
+                "columns": [
+                    "TASK_TYPE_NAME",
+                    "SUBJECT_AREA",
+                    "WORKFLOW_NAME",
+                    "INSTANCE_NAME",
+                    "START_TIME",
+                    "END_TIME",
+                    "RUN_ERR_CODE",
+                    "RUN_ERR_MSG",
+                    "RUN_STATUS_CODE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_0C",
+        "functionality": "Identifies 'dual accounts' by linking mobile subscription data (MSISDN) with corresponding user IDs from different systems (Connect ID, FIM, User Services Phones). The view specifically targets scenarios where phone numbers in the FIM system are either unverified or lack a verification timestamp, and cross-references this with the most recent user services phone data.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "INFO_IS_DELETED",
+                    "SUBSCR_VALID_TO_DATE"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_VALUE",
+                    "PARAMETER_ID",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED",
+                    "VALID_FROM_DATE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER",
+                "columns": [
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_VERIFIED",
+                    "PH_VERIFICATION_TIME"
+                ]
+            },
+            {
+                "table_name": "COMOYO.USER_SERVICES_PHONES",
+                "columns": [
+                    "USER_ID",
+                    "PHONES",
+                    "FILE_DATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "VA_BS_CONSIGNOR",
+        "functionality": "Creates a direct pass-through view named `VA_BS_CONSIGNOR` in the `CLM_ADM` schema, exposing all specified columns directly from the `THIRD_PARTY_SERVICES.BS_CONSIGNOR` table or view.",
+        "data_sources": [
+            {
+                "table_name": "THIRD_PARTY_SERVICES.BS_CONSIGNOR",
+                "columns": [
+                    "ORDER_NR",
+                    "PACKAGE_NR",
+                    "DELIVERED_DATE",
+                    "ARRIVAL_DATE",
+                    "PICKED_UP_DATE",
+                    "LABEL_PRINT_DATE",
+                    "ACTOR_ID",
+                    "NAME_1",
+                    "NAME_2",
+                    "STREET_1",
+                    "POST_CODE",
+                    "CITY",
+                    "COUNTRY_CODE",
+                    "PHONE_NR",
+                    "EMAIL",
+                    "CHECKSUM",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "FILE_NAME_INSERT",
+                    "FILE_NAME_UPDATE",
+                    "SYS_DATE_INSERT",
+                    "SYS_DATE_UPDATE",
+                    "STATUS"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_0B",
+        "functionality": "Identifies and categorizes various 'dual account' or inconsistent relationships between CM subscriptions, MSISDNs, and user IDs across CM, COMOYO FIM, and COMOYO USER_SERVICES systems, focusing on service provisioning and mobile number associations.",
+        "data_sources": [
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "DIRECTORY_NUMBER_ID",
+                    "SUBSCR_VALID_FROM_DATE",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "VALID_TO_DATE",
+                    "INFO_IS_DELETED",
+                    "VALID_FROM_DATE",
+                    "PARAMETER_VALUE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER",
+                "columns": [
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_PHONES",
+                "columns": [
+                    "PH_MSISDN",
+                    "USER_ID",
+                    "PH_VERIFIED",
+                    "PH_VERIFICATION_TIME"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID",
+                    "ACC_USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_EMAILS",
+                "columns": [
+                    "EMAIL_ADDRESS",
+                    "USER_ID",
+                    "EMAIL_ISPRIMARY",
+                    "EMAIL_VERIFIED"
+                ]
+            },
+            {
+                "table_name": "COMOYO.USER_SERVICES_PHONES",
+                "columns": [
+                    "PHONES",
+                    "USER_ID",
+                    "FILE_DATE"
+                ]
+            },
+            {
+                "table_name": "COMOYO.USER_SERVICES",
+                "columns": [
+                    "FILE_DATE",
+                    "USER_ID"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "DUAL_ACCOUNT_RAPPORT_0A",
+        "functionality": "Identifies and categorizes 'dual account' scenarios in Telenor's service provisioning system where FIM user accounts lack an MSISDN, by correlating FIM account details (from COMOYO schema) with subscription and Connect ID statuses (from CM schema). It distinguishes between closed and open subscriptions and highlights cases requiring manual handling due to potential inconsistencies in Connect ID assignments.",
+        "data_sources": [
+            {
+                "table_name": "COMOYO.FIM_USER",
+                "columns": [
+                    "USER_ID"
+                ]
+            },
+            {
+                "table_name": "COMOYO.FIM_USER_ACCOUNTS",
+                "columns": [
+                    "USER_ID",
+                    "ACC_USER_ID",
+                    "ACC_MSISDN",
+                    "ACC_ID"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "SUBSCR_VALID_TO_DATE",
+                    "INFO_IS_DELETED"
+                ]
+            },
+            {
+                "table_name": "CM.SUBSCRIBED_OFFER_CONFIGURATION",
+                "columns": [
+                    "SUBSCR_ID",
+                    "PARAMETER_ID",
+                    "PARAMETER_VALUE",
+                    "INFO_IS_DELETED",
+                    "VALID_TO_DATE"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MPP_SP",
+        "functionality": "Creates a comprehensive view of subscribed products by joining base subscription data with product type configurations to enrich it with product names and descriptions, filtered by specific parent product categories.",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIBED_PRODUCT",
+                "columns": [
+                    "PRODUCT_OFFER_ID",
+                    "SUBSCRIPTION_ID",
+                    "RESOURCE_VALUE",
+                    "SUBSCRIPTION_SEQ",
+                    "PRODUCT_CATEGORY_ID",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "TERMINATION_FIXED_FEE",
+                    "TERMINATION_MONTH_FEE",
+                    "SYSTEM_COMPONENT_ID",
+                    "COMOYO_USER_ID"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "DESCRIPTION",
+                    "ID",
+                    "PARENT"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MBB_S",
+        "functionality": "Combines subscription details with product information, including product name and description, by joining the CCDW.SUBSCRIPTION table with a product dimension table and the CLM_CCM.CCM_PRODUCT_TYPE_CONFIG table, filtering product types by specific parent IDs (3, 25, 35, 63).",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_OFFER_ID",
+                    "MARKET_AREA_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_PAYER",
+                    "KURT_ID_USER",
+                    "KURT_ID_USER_2",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "DEALER_ID",
+                    "ACCOUNT_ID",
+                    "MAIN_NUMBER",
+                    "USER_ID",
+                    "ORIGINAL_START_DATE",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "CURRENT_STATUS",
+                    "SECRET_NUMBER_FLAG",
+                    "TERMINATION_REASON",
+                    "SOURCE_OWNER_ID",
+                    "SOURCE_PAYER_ID",
+                    "SOURCE_USER_ID",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "PRIORITY_FLAG",
+                    "OPERATIONAL_STABILITY_DESC"
+                ]
+            },
+            {
+                "table_name": "GALAXY.PRODUCT_DIM",
+                "columns": [
+                    "PRODUCT_KEY"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "DESCRIPTION",
+                    "ID",
+                    "PARENT"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MPP_S",
+        "functionality": "This view enriches detailed subscription records from the CCDW.SUBSCRIPTION table by joining them with product configuration data from CLM_CCM.CCM_PRODUCT_TYPE_CONFIG. It retrieves product names and descriptions based on a product hierarchy, filtering for specific parent product categories (1, 24, 43, 49, 57, 58, 59).",
+        "data_sources": [
+            {
+                "table_name": "CCDW.SUBSCRIPTION",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_OFFER_ID",
+                    "MARKET_AREA_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_PAYER",
+                    "KURT_ID_USER",
+                    "KURT_ID_USER_2",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "DEALER_ID",
+                    "ACCOUNT_ID",
+                    "MAIN_NUMBER",
+                    "USER_ID",
+                    "ORIGINAL_START_DATE",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "CURRENT_STATUS",
+                    "SECRET_NUMBER_FLAG",
+                    "TERMINATION_REASON",
+                    "SOURCE_OWNER_ID",
+                    "SOURCE_PAYER_ID",
+                    "SOURCE_USER_ID",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "PRIORITY_FLAG",
+                    "OPERATIONAL_STABILITY_DESC"
+                ]
+            },
+            {
+                "table_name": "CLM_CCM.CCM_PRODUCT_TYPE_CONFIG",
+                "columns": [
+                    "ID",
+                    "PARENT",
+                    "PRODUCT_NAME",
+                    "DESCRIPTION"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "MPR_S",
+        "functionality": "Enriches subscription records with product names and descriptions by joining the `CCDW.SUBSCRIPTION` table with the `CLM_CCM.CCM_PRODUCT_TYPE_CONFIG` table, linking product types based on their offer ID and hierarchical parentage.",
+        "data_sources": [
+            {
+                "table_name": "\"CCDW\".\"SUBSCRIPTION\"",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_CATEGORY_ID",
+                    "PRODUCT_OFFER_ID",
+                    "MARKET_AREA_ID",
+                    "KURT_ID_OWNER",
+                    "KURT_ID_PAYER",
+                    "KURT_ID_USER",
+                    "KURT_ID_USER_2",
+                    "SOURCE_SYSTEM_ID",
+                    "BUSINESS_AREA_ID",
+                    "DEALER_ID",
+                    "ACCOUNT_ID",
+                    "MAIN_NUMBER",
+                    "USER_ID",
+                    "ORIGINAL_START_DATE",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE",
+                    "PARENT_SUBSCRIPTION_ID",
+                    "BINDING_START_DATE",
+                    "BINDING_END_DATE",
+                    "CURRENT_STATUS",
+                    "SECRET_NUMBER_FLAG",
+                    "TERMINATION_REASON",
+                    "SOURCE_OWNER_ID",
+                    "SOURCE_PAYER_ID",
+                    "SOURCE_USER_ID",
+                    "RUN_ID",
+                    "SEQ_ID",
+                    "PRIORITY_FLAG",
+                    "OPERATIONAL_STABILITY_DESC"
+                ]
+            },
+            {
+                "table_name": "\"CLM_CCM\".\"CCM_PRODUCT_TYPE_CONFIG\"",
+                "columns": [
+                    "ID",
+                    "PRODUCT_NAME",
+                    "DESCRIPTION",
+                    "PARENT"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ODS_SP",
+        "functionality": "This view combines subscription offer details with product dimension information, linking them via product offer IDs to provide a comprehensive view of subscribed products and their attributes.",
+        "data_sources": [
+            {
+                "table_name": "ODS.SUBSCRIBED_OFFER_ODS_MOB",
+                "columns": [
+                    "SUBSCRIPTION_ID",
+                    "PRODUCT_OFFER_ID",
+                    "SUBSCRIPTION_SEQ",
+                    "PRODUCT_CATEGORY_ID",
+                    "SRC_PRODUCT_ID",
+                    "START_DATE",
+                    "END_DATE",
+                    "INFO_CHG_DATE"
+                ]
+            },
+            {
+                "table_name": "CRM_ANALYSE.PRODUCT_DIM_V",
+                "columns": [
+                    "PRODUCT_NAME",
+                    "PRODUCT_GROUP",
+                    "PRODUCT_POID",
+                    "PRODUCT_DESC",
+                    "PRODUCT_CLASS",
+                    "PRODUCT_NEED",
+                    "PRODUCT_PAYTYPE",
+                    "PRODUCT_START_DATE",
+                    "PRODUCT_END_DATE",
+                    "PRODUCT_AREA",
+                    "PRODUCT_TECHNOLOGY",
+                    "PRODUCT_CATEGORY",
+                    "PRODUCT_MARKET_NAME",
+                    "PRODUCT_BRAND",
+                    "PRODUCT_REPORTING",
+                    "PRODUCT_PORTFOLIO",
+                    "PRODUCT_SERVICE",
+                    "PRODUCT_PAYMENT",
+                    "PRODUCT_CATEGORY_NAME",
+                    "PRODUCT_PORTFOLIO_NAME",
+                    "PRODUCT_FAMILY_NAME",
+                    "PRODUCT_ACCESS_TYPE_NAME",
+                    "PRODUCT_PAYMENT_TYPE_NAME",
+                    "PRODUCT_BINDING_TYPE_NAME",
+                    "PRODUCT_STARTUP_FEE",
+                    "PRODUCT_MONTHLY_FEE",
+                    "PRODUCT_INCLUDED_MB",
+                    "PRODUCT_KEY"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "CHURN_CUST_SUBSCR_V",
+        "functionality": "Combines subscription details with owner and user customer demographic and behavioral data for churn analysis. It links subscriptions to their primary owner and actual user, providing a comprehensive view for analytical purposes, and identifies relationships between owner and user.",
+        "data_sources": [
+            {
+                "table_name": "CLM_ADM.CHURN_SUBSCRIPTION_v",
+                "columns": [
+                    "cu_customer_sk_owner",
+                    "mpp_customer_sk_user",
+                    "PERIOD_MONTH_KEY",
+                    "PERIOD_MONTH_DATE",
+                    "SUBSCRIPTION_KEY",
+                    "MPP_MAIN_ID_SK",
+                    "MPP_DEALER_CHAIN",
+                    "MPP_DEALER_NAME",
+                    "MPP_DEVICE_PRODUCERNAME",
+                    "MPP_DEVICE_MODELNAME",
+                    "MPP_CHANGETYPE",
+                    "MPP_IN_PORT_SP_NAME",
+                    "MPP_MB_LAST1",
+                    "MPP_NET_REVENUE_ADJ",
+                    "MPP_NO_DAYS_MNO_START",
+                    "MPP_NO_DAYS_SUBS_START",
+                    "MPP_NO_MB_PCT_LAST1",
+                    "MPP_NO_PORTING",
+                    "MPP_PROFIT_CAT",
+                    "MPP_PROD_ATTR_INCL_MB",
+                    "MPP_PROD_ATTR_MTH_FEE",
+                    "MPP_PRODUCT_FAMILY",
+                    "MPP_PRODUCT_NAME",
+                    "MPP_SALES_CH",
+                    "MPP_SUBS_START_REASON",
+                    "MPP_NEXT_FAMILIE_RABATT_STATUS",
+                    "MPP_SWAP_STATUS",
+                    "REVENUE_FEE_RATIO"
+                ]
+            },
+            {
+                "table_name": "CLM_ADM.CHURN_CUSTOMER_v",
+                "columns": [
+                    "cu_age",
+                    "cu_gender",
+                    "clm_livsfase_segment",
+                    "cu_net_revenue",
+                    "cu_no_fbr",
+                    "cu_no_mbb",
+                    "cu_no_mpp",
+                    "cu_no_mpr",
+                    "cu_no_prod_cat",
+                    "period_month_key",
+                    "customer_sk"
+                ]
+            }
+        ]
+    },
+    {
+        "view_name": "ADM_WEEK_DIM_V",
+        "functionality": "This view aggregates date information from a daily dimension table into a weekly dimension. For each week (identified by `YEAR_WEEK_NUMBER` and `RELATIVE_WEEK`), it calculates the first and last year-month numbers, relative months, year keys, date keys, and actual dates. It also counts the total number of days and the number of working days within each week. The data is filtered to include dates from January 2013 onwards and up to two years into the future from the current date.",
+        "data_sources": [
+            {
+                "table_name": "GALAXY.DATE_DIM_MV",
+                "columns": [
+                    "YEAR_WEEK_NUMBER",
+                    "RELATIVE_WEEK",
+                    "YEAR_MONTH_NUMBER",
+                    "RELATIVE_MONTH",
+                    "YEAR",
+                    "DATE_KEY",
+                    "DAY",
+                    "TYPE_OF_DAY"
+                ]
+            }
+        ]
     }
 ]

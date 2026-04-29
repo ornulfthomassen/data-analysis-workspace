@@ -3,15 +3,145 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a comprehensive, denormalized dataset for analyzing detailed campaign and marketing treatment outcomes. It focuses specifically on activities that resulted in new sales or product changes for customer subscriptions. The view combines core campaign facts with extensive details from various dimensions, including customer demographics, contact information, product attributes (for up to four products per treatment), treatment characteristics, channel used, and customer response details.
+Creates a detailed fact view for CRM campaign analysis, integrating campaign, customer, treatment, and response data with filtering for recent activities and key performance indicators like new sales or product changes.
 
 ## Data Sources (Inputs)
 - ← [[KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| VOLUME |
+| CONTACT_KEY |
+| SOURCE_SYSTEM_KEY |
+| CONN_ID |
+| MEASURE_TYPE |
+| CHANNEL_KEY |
+| CAMPAIGN_KEY |
+| COMMUNICATION_KEY |
+| CELL_PACKAGE_SK |
+| TREATMENT_KEY |
+| TREATMENT_PRIORITY |
+| CONTACT_DATE_KEY |
+| CONTACT_MONTH_KEY |
+| CONTACT_DTTM |
+| PRESENTED_KEY |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| CUST_HOUSEHOLD_ID |
+| CUST_FAR_ID |
+| CUST_AGE |
+| CUST_AGE_GROUP_KEY |
+| GENDER |
+| IS_SUBS_CAMP |
+| SUBSCRIPTION_KEY |
+| MAIN_NUMBER |
+| CONTACT_PRODUCT_KEY |
+| CONTACTED_BIND_START_DATE_KEY |
+| CONTACTED_BIND_END_DATE_KEY |
+| PROFIT_ID |
+| CUST_STRATEGIC_SEGMENT_KEY |
+| CUST_SEGMENT_KEY |
+| SUBSCRIPTION_SEGMENT_KEY |
+| RESPONSE_DATE_KEY |
+| RESPONSE_KEY |
+| RESPONSE_CHANNEL_KEY |
+| RESPONSE_REASON_KEY |
+| SUBS_DATA_GROUP_KEY |
+| SUBS_TRAFFIC_GROUP_KEY |
+| ORDER_ID |
+| ORDER_FROM_PRODUCT_KEY |
+| ORDER_TO_PRODUCT_KEY |
+| ORDER_SERVICE_PROVIDER_KEY |
+| ORDER_DEALER_KEY |
+| ORDER_MATCH_KEY |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_BINDING_PRODUCT_KEY |
+| PRESENTED_DURATION_KEY |
+| PRESENTED_DATE_KEY |
+| TREATMENT_PRODUCT_KEY |
+| TREATMENT_HASH_VAL |
+| CUST_RESPONSE_KEY |
+| CONTACT_TIME_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| ORDER_SOURCE_SYSTEM_KEY |
+| ORDER_DT_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| ORDER_RANK |
+| CONTACT_HANDSET_KEY |
+| CONTACT_SECONDS |
+| CONTACT_LOCATION |
+| ORDER_STATUS_KEY |
+| CONTACT_TEAM |
+| CHURN_GROUP_KEY |
+| ORDER_RANK_GROUP_KEY |
+| SALES_MATRIX |
+| BINDING_BENEFIT_DESC |
+| ORDER_HANDSET_KEY |
+| ORDER_DAYS |
+| USER_HOUSEHOLD_ID |
+| CONTACT_DELAY_DAYS |
+| ORDER_CAPTURE_DAYS |
+| RUN_ID |
+| SEQ_ID |
+| SEQ_ID_UPD |
+| CUST_FLAG_TREATMENT_KEY |
+| SUBS_FLAG_TREATMENT_KEY |
+| ORDER_STATUS_DT_KEY |
+| SOURCE_CONTACT_ID |
+| CAMPAIGN_TYPE_DESC |
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+| ACTION_CATEGORY |
+| OFFER_CATEGORY |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+| PRODUCT_KEY_4 |
+| PRODUCT_KEY_5 |
+| PRODUCT_KEY_6 |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
 - ← [[CRM_ANALYSE.KIM_CUSTOMER_RESPONSE]]
+| Column Name |
+|---|
+| SOURCE_ORDER_ID |
+| CONTACT_KEY |
 - ← [[CRM_ANALYSE.KIM_TREATMENT_DIM]]
+| Column Name |
+|---|
+| TREATMENT_KEY |
+| PRODUCT_KEY_1 |
+| PRODUCT_KEY_2 |
+| PRODUCT_KEY_3 |
+| PRODUCT_KEY_4 |
+| TREATMENT_SK |
+| ACTION_CATEGORY |
+| OFFER_CATEGORY |
 - ← [[CRM_ANALYSE.KIM_TREATMENT_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_PAYMENT |
+| PRIMARY_PRODUCT_FLAG |
 - ← [[CRM_ANALYSE.KIM_CHANNEL_DIM]]
+| Column Name |
+|---|
+| CHANNEL_KEY |
 - ← [[CRM_ANALYSE.KIM_RESPONSE_DIM]]
+| Column Name |
+|---|
+| RESPONSE_KEY |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
 

@@ -3,14 +3,41 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Calculates monthly aggregated counts of specific 'Next Family' product offers (categorized by adult vs. under 18) per customer. It uses subscription history and a month dimension for aggregation. The results are staged in a temporary table, then loaded into a specific partition of a permanent aggregate table via partition exchange. The procedure includes checks for source data availability and target table/partition existence, along with comprehensive error handling.
+Aggregates customer subscription data to count specific product offers per customer for a given month, storing the results in a partitioned aggregate table. It first creates a temporary table with aggregated data and then uses a partition exchange operation to insert this data into the permanent target table.
 
 ## Data Sources (Inputs)
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CUSTOMER_SK_OWNER |
 - ← [[ADM_SUBS_NEXT_FAMILIE_AGG]]
-- ← [[ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| LAST_PRODUCT_OFFER_ID |
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| MAX_END_DATE |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
 
 ## Target Tables (Outputs)
-- → [[TMP_CUST_NEXT_FAMILIE_AGG]]
+- → [[CLM_ADM.TMP_CUST_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| ANT_RAB_NEXT_FAM_VOKSEN |
+| ANT_RAB_NEXT_FAM_U18 |
 - → [[ADM_CUST_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| ANT_RAB_NEXT_FAM_VOKSEN |
+| ANT_RAB_NEXT_FAM_U18 |
 

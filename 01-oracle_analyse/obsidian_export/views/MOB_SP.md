@@ -3,10 +3,63 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates comprehensive information about subscribed products. It combines subscription details with extensive product metadata, including product names, descriptions, brands, classification attributes (DRM, common product areas, technology, category, group, market product, etc.), fees, and included services/data. It also integrates product type classifications and their parent types. The primary purpose is to provide a rich, analytical dataset for CRM analysis, reporting, or business intelligence related to subscribed products, enabling a holistic view of what products subscribers have.
+Combines subscribed product details with comprehensive product master data and hierarchical product type configurations, providing a unified and detailed view of products associated with subscriptions.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| RESOURCE_VALUE |
+| SOURCE_SYSTEM_ID |
+| BUSINESS_AREA_ID |
+| START_DATE |
+| END_DATE |
+| INFO_CHG_DATE |
+| SYSTEM_COMPONENT_ID |
+| COMOYO_USER_ID |
 - ← [[PD]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| POID |
+| SOURCE_SYSTEM_NAME |
+| PRODUCT_DESC |
+| BRAND |
+| DRM_PRODUCT_CLASS |
+| DRM_PRODUCT_NEED |
+| PRODUCT_PAYTYPE |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_CATEGORY_NAME |
+| PRODUCT_PORTFOLIO_NAME |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| PRODUCT_PAYMENT_TYPE_NAME |
+| STARTUP_FEE |
+| MONTHLY_FEE |
+| INCLUDED_MB |
+| TK_INCOME_SERVICE |
+| TK_PRODUCT_RANK |
+| SB_INCLUDED_DATA |
+| PRODUCT_KEY |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| PRODUCT_NAME |
+| ID |
+| PARENT |
+| DESCRIPTION |
 

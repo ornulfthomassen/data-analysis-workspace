@@ -3,10 +3,19 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure `P_CCM_ADHOC_DATA_CLEANUP` is designed to perform a cleanup operation on ad-hoc campaign data. It identifies and deletes records from the `CLM_CCM.CCM_ADHOC_DATA` table (referred to as the 'main fact table') that are associated with campaigns marked for removal (`REMOVE_DATA = 'Y'`) or have passed their end date (`END_DATE < SYSDATE`), using criteria from the `ADHOC_CMD.ADHOC_CONTROL_SASCI` table. After cleaning the main data table, it proceeds to clean up the `ADHOC_CMD.ADHOC_CONTROL_SASCI` table itself, removing the control entries that meet the same removal or expiry conditions.
+The procedure cleans up ad-hoc data entries from the CLM_CCM.CCM_ADHOC_DATA table and their corresponding control records from ADHOC_CMD.ADHOC_CONTROL_SASCI. Deletions are based on campaigns marked for removal (REMOVE_DATA = 'Y') or campaigns whose end date has already passed (END_DATE < SYSDATE).
 
 ## Data Sources (Inputs)
+- ← [[CLM_CCM.CCM_ADHOC_DATA]]
+| Column Name |
+|---|
+| CAMPAIGN_CODE |
 - ← [[ADHOC_CMD.ADHOC_CONTROL_SASCI]]
+| Column Name |
+|---|
+| CAMPAIGN_CODE |
+| REMOVE_DATA |
+| END_DATE |
 
 ## Target Tables (Outputs)
 - → [[CLM_CCM.CCM_ADHOC_DATA]]

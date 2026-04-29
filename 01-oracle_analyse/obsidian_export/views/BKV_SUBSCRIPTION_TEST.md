@@ -3,11 +3,41 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves comprehensive details for active mobile subscriptions, including subscription attributes (e.g., main number, sub number, market area, IMEI, IMSI), associated product information (e.g., brand, market product group, payment type), and commercial customer data (e.g., customer name, company family, segment, employees). It specifically filters for mobile services with an end date in the future and resolves the primary subscription number for linked or hierarchical subscriptions.
+Provides a consolidated view of active mobile subscription details, including associated product information and commercial customer data, linking subscriptions to their primary numbers and handling specific customer segment logic.
 
 ## Data Sources (Inputs)
 - ← [[galaxy.subscription_dim]]
+| Column Name |
+|---|
+| main_number |
+| market_area_desc |
+| subscription_key |
+| parent_subscription_key |
+| imei_last_used |
+| imsi_number |
 - ← [[galaxy.subscr_detail_fact]]
+| Column Name |
+|---|
+| sub_number |
+| subscription_key |
+| prim_product_key |
+| source_system_key |
+| prim_prod_end_Dt_key |
+| owner_customer_key |
 - ← [[galaxy.product_dim]]
+| Column Name |
+|---|
+| product_brand |
+| drm_common_market_product |
+| drm_market_product_group |
+| drm_common_payment |
+| product_key |
 - ← [[galaxy.customer_dim]]
+| Column Name |
+|---|
+| COMMERSIAL_CUSTOMER_NAME |
+| current_company_family |
+| COM_CUSTOMER_SEGMENT |
+| COM_CUSTOMER_EMPLOYEES |
+| CUSTOMER_KEY |
 

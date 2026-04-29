@@ -3,9 +3,65 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates comprehensive customer response history data from two distinct historical tables, `CI_CUST_RESPONSE_HISTORY_H1` and `CI_CUST_RESPONSE_HISTORY_H2`. It combines all records from both sources, standardizing data types for several key identifiers and metrics, to provide a unified and complete view of customer interactions with campaigns, channels, and communications.
+Combines customer response history data from two history tables (CI_CUST_RESPONSE_HISTORY_H1 and CI_CUST_RESPONSE_HISTORY_H2) into a single, unified view, applying specific data type casts during the union.
 
 ## Data Sources (Inputs)
 - ← [[clm_kim.CI_CUST_RESPONSE_HISTORY_H1]]
+| Column Name |
+|---|
+| RESPONSE_WEEK |
+| RESPONSE_DTTM |
+| RESPONSE_KEY |
+| CUSTOMER_SK |
+| MAIN_NUMBER_SK |
+| SUBSCRIPTION_ID |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| CHANNEL_CD |
+| CHANNEL_NM |
+| CHANNEL_DESC |
+| COMMUNICATION_CD |
+| COMMUNICATION_NM |
+| CAMPAIGN_TYPE_CD |
+| CAMPAIGN_TYPE_DESC |
+| OB_SUBSCRIPTION_ID |
+| INSERT_DTTM |
+| RESPONSE_NM |
+| RESPONSE_CHANNEL_RESPONSE_CD |
+| RESPONSE_COMMON_NM |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
+| CELL_PACKAGE_SK |
+| TREATMENT_HASH_VAL |
+| TREATMENT_SK |
+| CAMPAIGN_SK |
 - ← [[clm_kim.CI_CUST_RESPONSE_HISTORY_H2]]
+| Column Name |
+|---|
+| RESPONSE_WEEK |
+| RESPONSE_DTTM |
+| RESPONSE_KEY |
+| CUSTOMER_SK |
+| MAIN_NUMBER_SK |
+| SUBSCRIPTION_ID |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| CHANNEL_CD |
+| CHANNEL_NM |
+| CHANNEL_DESC |
+| COMMUNICATION_CD |
+| COMMUNICATION_NM |
+| CAMPAIGN_TYPE_CD |
+| CAMPAIGN_TYPE_DESC |
+| OB_SUBSCRIPTION_ID |
+| INSERT_DTTM |
+| RESPONSE_NM |
+| RESPONSE_CHANNEL_RESPONSE_CD |
+| RESPONSE_COMMON_NM |
+| RESPONSE_GROUP |
+| RESPONSE_RANK |
+| CELL_PACKAGE_SK |
+| TREATMENT_HASH_VAL |
+| TREATMENT_SK |
+| CAMPAIGN_SK |
 

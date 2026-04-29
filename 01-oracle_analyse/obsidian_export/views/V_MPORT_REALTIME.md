@@ -3,14 +3,55 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named V_MPORT_REALTIME, is designed to provide real-time or near real-time information on mobile number porting (MNP) orders. It aggregates various details about service orders, associated products, subscriptions, and their specific parameters (such as IMEI, 'to' and 'from' service providers, and the actual porting date). It filters for specific customer types, recent orders (within approximately the last 7 hours), and a particular product offer category (ID 10), likely corresponding to porting-related offers. The output includes key identifiers, statuses, product information, timestamps, and aggregated parameter values.
+Provides a unified, real-time view of mobile porting orders by consolidating data from service orders, products, subscriptions, and their associated parameters. It extracts key porting-related details such as service providers, IMEI numbers, and porting dates for recent customer orders, specifically those with a customer type 'P' and product offer category '10'.
 
 ## Data Sources (Inputs)
 - ← [[ONL_REP.SERVICE_ORDER]]
+| Column Name |
+|---|
+| ORDER_ID |
+| ORDER_STATUS_ID |
+| ORDER_ARRIVAL_DATE |
+| ORDER_PROCESSED_DATE |
+| CUST_TYPE_ID |
 - ← [[ONL_REP.SERVICE_ORDER_PRODUCT]]
+| Column Name |
+|---|
+| ORDER_ID |
+| SUBSCR_ID |
+| order_phone_num |
+| PRODUCT_STATUS_ID |
+| PRODUCT_ACTION_TYPE_ID |
+| PRODUCT_NAME |
 - ← [[ONL_REP.SERVICE_ORDER_PRODUCT_PARAM]]
+| Column Name |
+|---|
+| ORDER_ID |
+| PARAM_ID |
+| PARAM_VALUE |
 - ← [[ONL_REP.SUBSCRIBED_OFFER_ORDER]]
+| Column Name |
+|---|
+| ORDER_ID |
+| PRODUCT_OFFER_CATEGORY_ID |
+| ACTION_TYPE_ID |
+| STATUS_ID |
 - ← [[ONL_REP.SUBSCRIBED_OFFER_PARAM_ORDER]]
+| Column Name |
+|---|
+| ORDER_ID |
+| PARAM_ID |
+| PARAM_VALUE |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCR_VALID_FROM_DATE |
+| SUBSCR_VALID_TO_DATE |
+| S212_PRODUCT_ID |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_BRAND |
 

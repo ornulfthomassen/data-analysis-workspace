@@ -3,9 +3,87 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies and retrieves order line data that has not been matched or processed by the 'KS_INTERACTION_ORDERMATCH_C_V' view. It selects a comprehensive set of order-related attributes from 'KS_ORDER_LINE_REP', while setting all interaction-specific attributes (like call duration, agent IDs, etc.) to NULL. This suggests it's designed to represent 'unmatched' or 'excluded' order lines within a broader data model that combines interaction and order information, effectively serving as one leg of a union operation where only order details are relevant. It also filters for orders placed on or after January 1, 2017.
+This view identifies order lines from the 'KS_ORDER_LINE_REP' table that were created on or after January 1, 2017, and crucially, do not have a corresponding entry (based on 'SOURCE_ORDER_ID') in the 'KS_INTERACTION_ORDERMATCH_C_V' view. It extracts comprehensive order-related details while populating all interaction-related fields with NULL values, suggesting its intended use as a component in a larger unified dataset, likely through a UNION ALL operation with another view that provides the matched interaction data.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KS_ORDER_LINE_REP]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| RESOURCE_VALUE |
+| MAIN_NUMBER |
+| IMEI |
+| SOURCE_ORDER_ID |
+| KPI_NEWSALE |
+| KPI_NEWSALE_MPP |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_PRODUCT_CHANGE_MPP |
+| ORDER_DATE |
+| ORDER_STATUS_DATE |
+| DEALER_NAME |
+| SOURCE_DEALER_ID |
+| FROM_PRODUCT_NAME |
+| FROM_PRODUCT_DESC |
+| FROM_SOURCE_PRODUCT_ID_1 |
+| FROM_DRM_COMMON_PRODUCT_AREA |
+| FROM_DRM_COMMON_TECHNOLOGY |
+| FROM_DRM_COMMON_PRODUCT_CAT |
+| FROM_DRM_COMMON_PRODUCT_GROUP |
+| FROM_DRM_COMMON_MARKET_PRODUCT |
+| FROM_DRM_COMMON_BRAND |
+| FROM_DRM_COMMON_REPORTING |
+| FROM_DRM_COMMON_PORTFOLIO |
+| FROM_DRM_COMMON_SERVICE |
+| FROM_DRM_COMMON_PAYMENT |
+| FROM_ESTABLISHMENT_PRICE |
+| FROM_MONTHLY_PRICE |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| SOURCE_PRODUCT_ID_1 |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| ESTABLISHMENT_PRICE |
+| MONTHLY_PRICE |
+| SALES_MATRIX |
+| EMPLOYEE_NUMBER |
+| EMPLOYEE_KEY |
+| ORDER_STATUS_NAME |
+| ORDER_STATUS_REASON |
+| ORDER_STATUS_REASON_DESC |
+| SALES_REP_NAME_ORD |
+| EMPLOYEE_ID_ORD |
+| TEAM_NUMBER_ORD |
+| UNIT_NUMBER_ORD |
+| SITE_NAME_ORD |
+| ACTION_TYPE_ID |
+| ORDER_ACTION_TYPE_ID |
+| PRODUCT_ACTION_TYPE_ID |
+| SERVICE_PROVIDER_FROM |
+| REASON_OD_OSDC |
+| REASON_OSD_OSDC |
+| DAYS_BETWEEN_OSD_OSDC |
+| DAYS_BETWEEN_OD_OSDC |
+| DAYS_BETWEEN_OD_OSD |
+| CH_ORDER_ID |
+| CH_ORDER_DATE |
+| CH_ORDER_STATUS_DATE |
+| CH_PRODUCT_ACTION_TYPE_ID |
+| SERVICE_PROVIDER_TO |
+| SUBSCR_ID |
+| KURT_ID |
 - ← [[KS_INTERACTION_ORDERMATCH_C_V]]
+| Column Name |
+|---|
+| SOURCE_ORDER_ID |
 

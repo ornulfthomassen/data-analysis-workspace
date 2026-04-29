@@ -3,11 +3,10 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure loads historical monthly subscription data from a series of source tables (e.g., CLM_ADM.ADM_SUBSCRIPTION_YYYYMM) into a single target staging table (CLM_ADM.TMP_CHURN_ADM_SUBSCRIPTION). It iterates through the last 26 months (current month and 25 preceding months). For the oldest month (25 months ago), it truncates the target table and inserts the data. For all subsequent months (from 24 months ago up to the current month), it appends data to the target table, effectively consolidating historical subscription records.
+Consolidates historical monthly subscription data into a single temporary staging table. It iterates through tables suffixed with `YYYYMM` for the past 26 months (from 25 months ago to the current month). The target temporary table is truncated once at the beginning of the process, then data from each historical source table is appended to it.
 
 ## Data Sources (Inputs)
-- ← [[DUAL]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_YYYYMM]]
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_<YYYYMM_SUFFIX>]]
 
 ## Target Tables (Outputs)
 - → [[CLM_ADM.TMP_CHURN_ADM_SUBSCRIPTION]]

@@ -3,8 +3,68 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, GCP_ADM_CUSTOMER_INFO_HIST, provides a direct projection (or alias) of historical customer information. It selects all columns from the underlying ADM_CUSTOMER_INFO_HIST table/view without any transformations, aggregations, or filtering, effectively making the historical customer data available under a new view name and schema (CCM).
+Provides a direct projection of historical customer information from the `CLM_ADM.ADM_CUSTOMER_INFO_HIST` object into the `CCM` schema, making all its columns available under a new view name.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK |
+| HOUSEHOLD_ADDR_SK |
+| HOUSEHOLD_UNIT_SK |
+| MONTH_OF_BIRTH |
+| AGE |
+| GENDER |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ACCEPT_FLAG |
+| SMS_AKSEPT_FLAG |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
+| FARID |
+| FARID_HUS |
+| ANTALL_I_HUSSTAND |
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| POSTNR |
+| POSTSTED |
+| CU_HH_SAME_ADDR_FLAG |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| GRUNNKRETS |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| LEILIGHET_NR |
+| ADRESSETYPE |
+| ADRESSESTATUS |
+| ANT_BEDRIFTER |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_FIBER |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FRI_FAMILIE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_TALE_HOS_ANDRE |
+| GAB_NUMBER |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_TBB_UTENF_HS |
 

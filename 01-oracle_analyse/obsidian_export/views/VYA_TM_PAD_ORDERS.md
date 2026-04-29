@@ -3,9 +3,43 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is designed to load PAD (presumably 'Plan And Dial' or similar system) Order data into a Mjøsa system. It consolidates order details, customer information (both primary and main order customer), agent details, campaign data, and other related attributes from various source systems, performing necessary joins and data transformations (e.g., converting agent ID to lowercase, truncating load dates).
+This view is designed for loading 'PAD Orders' data into a system referred to as 'Mjøsa'. It joins order details with customer mapping information to enrich order records with customer and main order customer keys.
 
 ## Data Sources (Inputs)
 - ← [[PAD_STAGE.PAD_ORDERS]]
+| Column Name |
+|---|
+| ORDERTYPE |
+| ORDERID |
+| CALLDATE |
+| CONSULT |
+| WHYREASON |
+| WRSTCD |
+| WHYREASONDESCRIPTION |
+| CELLPACKAGESK |
+| RESPTRACINGCODE |
+| COSORDERID |
+| COSTTRANSFERDATE |
+| TIMEOFCONTACT |
+| MAINPRODUCTID |
+| MAINPRODUCTDESC |
+| NOOFCALLBACKS |
+| CONCENTREQUESTED |
+| CONCENTRECEIVED |
+| BACKTOCALLLIST |
+| ANSWERINGMACHINE |
+| BUSINESSAREAID |
+| DEALERID |
+| DEALERIDDESC |
+| CAMPAIGN_CD |
+| CAMPAIGN_NM |
+| HOUSEHOLD_ID |
+| LOAD_DTTM |
+| KURTID |
+| MAINORDERKURT |
 - ← [[CRM_ANALYSE.ADM_CUSTOMER_MAPPING_V]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| KURT_ID |
 

@@ -3,9 +3,28 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view consolidates product master data with hierarchical product type configuration details. It extracts various product attributes like name, category, reporting group, technology, payment type, brand, and service from the `PRODUCT_DIM` table, and then enriches this data by joining with `CCM_PRODUCT_TYPE_CONFIG` to include product type parentage and descriptions. This comprehensive product dimension is likely used for CRM analysis, order matching, or other business intelligence purposes requiring detailed and structured product information.
+Creates a product dimension view by joining product details from 'PRODUCT_DIM' with hierarchical product type configuration information from 'CCM_PRODUCT_TYPE_CONFIG', including parent product type descriptions.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| product_name |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_SERVICE |
+| PRIMARY_PRODUCT_FLAG |
+| PRODUCT_FAMILY_NAME |
 - ← [[CLM_CCM.CCM_PRODUCT_TYPE_CONFIG]]
+| Column Name |
+|---|
+| ID |
+| PARENT |
+| H_LEVEL |
+| DESCRIPTION |
 

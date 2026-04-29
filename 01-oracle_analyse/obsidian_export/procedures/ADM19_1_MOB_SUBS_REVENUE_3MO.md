@@ -3,15 +3,86 @@
 **Schema:** `CRM_ANALYSE` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure creates and populates a partitioned table named ADM_MOB_SUBS_REVENUE_3MO within the CRM_ANALYSE schema. Its main purpose is to calculate and store aggregated mobile subscription revenue data, adjusted for factors like roaming profit, over a three-month rolling period. It processes data month by month, dynamically creating new table partitions as needed for each period. The procedure also handles the initial creation of the target table, its indexes, and gathers statistics.
+Calculates and aggregates mobile subscription revenue data over a three-month rolling period for each subscription. The procedure dynamically creates the target partitioned table `CRM_ANALYSE.ADM_MOB_SUBS_REVENUE_3MO` if it doesn't exist, and then populates it with monthly aggregated revenue metrics derived from `CRM_ANALYSE.ADM_MOB_SUBS_REVENUE`, `GALAXY.DATE_DIM_MV`, and `CRM_ANALYSE.ADM_MONTH_DIM_V`. It also manages partition creation for the target table.
 
 ## Data Sources (Inputs)
-- ← [[SYS.ALL_OBJECTS]]
-- ← [[DUAL]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| DATE_KEY |
+| DAY |
 - ← [[CRM_ANALYSE.ADM_MOB_SUBS_REVENUE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER |
+| SUBSCR_ID |
+| MARKET_AREA_ID |
+| PAYMENT_TYPE |
+| PRODUCT_BRAND |
+| PRODUCT_KEY |
+| PRODUCT_TYPE |
+| LAST_EVENT_DATE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
+| RELATIVE_MONTH |
+| ANTALL_DAGER |
 
 ## Target Tables (Outputs)
-- → [[ADM_MOB_SUBS_REVENUE_3MO]]
+- → [[CRM_ANALYSE.ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER |
+| SUBSCR_ID |
+| MARKET_AREA_ID |
+| PAYMENT_TYPE |
+| PRODUCT_BRAND |
+| PRODUCT_KEY |
+| PRODUCT_TYPE |
+| LAST_EVENT_DATE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 

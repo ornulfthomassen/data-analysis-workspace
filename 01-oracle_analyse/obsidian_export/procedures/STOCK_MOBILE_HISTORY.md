@@ -3,28 +3,226 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure generates a daily historical snapshot of mobile subscription data. It first extracts raw subscription and product details from operational (CM) and data warehouse (CCDW, GALAXY) sources, then enriches this data with customer demographics, lifecycle segments, profit categories, and calculates various discounts. Finally, it aggregates this comprehensive data, including Talkmore subscriptions, into detailed and aggregated history tables for reporting and analysis.
+This procedure extracts mobile subscription data for a given day, enriches it with customer demographics, product attributes, and calculated discount information, and then aggregates the results. It constructs several temporary tables in sequence to achieve the final daily aggregated view of mobile stock/subscription history.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.PRIMARY_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| SOURCE_PRODUCT_ID_1 |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| PRIM_PRODUCT_KEY |
+| PRIM_PRODUCT_DESC |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
 - ← [[CM.SUBSCRIPTION_OFFER_INCENTIVE]]
+| Column Name |
+|---|
+| PRODUCT_OFFER_ID |
+| PARAMETER_ID |
+| INC_VALID_FROM_DATE |
+| INC_VALID_TO_DATE |
+| INFO_IS_DELETED |
+| SUBSCR_ID |
 - ← [[CM.SUBSCRIPTION]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCR_VALID_FROM_DATE |
+| SUBSCR_VALID_TO_DATE |
+| INFO_IS_DELETED |
+| DIRECTORY_NUMBER_ID |
 - ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PRODUCT_OFFER_ID |
+| BUSINESS_AREA_ID |
+| START_DATE |
+| END_DATE |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_SYSTEM_NAME |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
 - ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| SUBSCRIPTION_ID |
+| END_DATE |
+| START_DATE |
+| PARENT_SUBSCRIPTION_ID |
+| MARKET_AREA_ID |
+| BUSINESS_AREA_ID |
+| SOURCE_SYSTEM_ID |
+| PRODUCT_OFFER_ID |
 - ← [[CCDW.SUBSCRIPTION_MAPPING]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SOURCE_SYSTEM_KEY |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| DATE_KEY |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
+| CURRENT_AGE |
+| DATE_ID_OF_BIRTH |
+| CUSTOMER_TYPE_ID |
+| CUSTOMER_STATUS_ID |
+| COUNTERPART_KEY |
 - ← [[CLM_ADM.ADM_PROFIT_CAT_SUBS_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CATEGORY |
+| PT_CATEGORY |
 - ← [[CRM_ANALYSE.LIVSFASESEGMENT_MOBILE]]
+| Column Name |
+|---|
+| KURT_ID |
+| START_DATE |
+| END_DATE |
+| SEGMENT_ID |
 - ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| START_DATE |
+| END_DATE |
+| PRODUCT_ATTRIBUTE_KEY |
+| MONTHLY_FEE |
 - ← [[CLM_ADM.ADM_DISCOUNT_PRODUCT_DIM]]
+| Column Name |
+|---|
+| DISCOUNT_PRODUCT_KEY |
+| DISCOUNT_TYPE |
+| OVERRIDE_PRICE |
+| PRICE_REDUCTION |
+| PRICE_REDUCTION_PCT |
 - ← [[GALAXY.TALKMORE_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| QUANTITY |
+| DATE_KEY |
+| PRIM_PRODUCT_KEY |
 
 ## Target Tables (Outputs)
+- → [[ADM_LOAD_HISTORY]]
 - → [[TMP_STOCK_MOBILE_HISTORY_CM]]
+| Column Name |
+|---|
+| DIRECTORY_NUMBER_ID |
+| SUBSCR_ID |
+| MAIN_PRODUCT_ID |
 - → [[TMP_STOCK_MOBILE_HISTORY_RAW]]
+| Column Name |
+|---|
+| DAY |
+| KURT_ID_OWNER |
+| KURT_ID_PAYER |
+| KURT_ID_USER |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER |
+| PRODUCT_OFFER_ID |
+| PRIM_PRODUCT_DESC |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| FAMILY_BONUS_FLG |
+| DISCOUNT_PRODUCT_OFFER_ID |
 - → [[STOCK_MOBILE_HISTORY_DET]]
+| Column Name |
+|---|
+| REFRESH_DATE |
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| OWNER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| MAP2_SEGMENT_O |
+| CUSTOMER_SK_PAYER |
+| PAYER_COUNTERPART_KEY |
+| CUSTOMER_SK_USER |
+| USER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| MAP2_SEGMENT_U |
+| SUBSCRIPTION_KEY |
+| PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| PROFIT_CAT_TALE |
+| PROFIT_CAT_PAY_TYPE |
+| PROFIT_PERIOD |
+| VAR_SEGMENT |
+| CHURN_SEGMENT |
+| FAMILY_BONUS_FLG |
+| DISCOUNT_PRODUCT_KEY |
 - → [[TMP_STOCK_MOBILE_HISTORY_AGG_SUB]]
+| Column Name |
+|---|
+| SUBSCRIPTION_KEY |
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| PAYER_COUNTERPART_KEY |
+| USER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| PROFIT_CAT_TALE |
+| PROFIT_CAT_PAY_TYPE |
+| PROFIT_PERIOD |
+| FAMILY_BONUS_FLG |
+| DISCOUNT_PRODUCT_KEY |
+| DISCOUNT |
 - → [[STOCK_MOBILE_HISTORY_AGG]]
+| Column Name |
+|---|
+| BALANCE |
+| REFRESH_DATE |
+| DAY |
+| PERIOD_DATE_KEY |
+| PERIOD_WEEK_KEY |
+| PERIOD_MONTH_KEY |
+| OWNER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_O |
+| PAYER_COUNTERPART_KEY |
+| USER_AGE |
+| CLM_LIVSFASE_SEGMENT_ID_U |
+| PRODUCT_KEY |
+| PRODUCT_ATTRIBUTE_KEY |
+| PROFIT_CAT_TALE |
+| PROFIT_CAT_PAY_TYPE |
+| PROFIT_PERIOD |
+| FAMILY_BONUS_FLG |
+| DISCOUNT_PRODUCT_KEY |
+| MAP2_SEGMENT_O |
+| MAP2_SEGMENT_U |
+| VAR_SEGMENT |
+| CHURN_SEGMENT |
+| DISCOUNT |
 

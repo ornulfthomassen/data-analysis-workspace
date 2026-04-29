@@ -3,15 +3,90 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure dynamically prepares and loads monthly aggregated data into a specific partition of a permanent historical table. It first creates a temporary staging table, populates it with filtered and transformed data from multiple source tables for a given month, then uses a partition exchange mechanism to efficiently replace (or insert into) the corresponding partition in the main historical table, and finally gathers statistics on the updated partition.
+The procedure processes and aggregates data related to fixed broadband (FB) accesses for a specified month (`P_YYYYMM`). It creates a temporary table with the processed data and then uses an `EXCHANGE PARTITION` operation to atomically load this data into a specific partition of the `ADM_FB_ACCESSES_KURT_HIST` permanent table, managing partition creation if necessary.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
 - ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
 - ← [[AGR.BMGM_ACCESSES_KURT]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_ROLE |
+| SK_PRODUCT_OFFER_ID |
+| MAIN_NUMBER |
+| MOB_SUBSCR_ID |
+| SWAP_AGREEMENT_OFFER_ID |
+| FIXEDBROADBAND_SUBSCRIPTION_ID |
+| NUM_PRIV_POSTPAID_SUBS_OWNED |
+| NUM_BUS_POSTPAID_SUBS_USED |
+| NUM_SWAP_AGREEMENTS_OWNED |
+| NUM_MBB_SUBS_OWNED |
+| NUM_FIXED_BROADBAND_OWNED |
+| NUM_FIXED_TELEPHONY_SUBS_OWNED |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
 - ← [[CM.AGREEMENT_OFFER]]
+| Column Name |
+|---|
+| AGREEMENT_OFFER_ID |
+| AGREEMENT_ID |
 
 ## Target Tables (Outputs)
-- → [[TMP_ADM_FB_ACCESSES_KURT_HIST]]
-- → [[ADM_FB_ACCESSES_KURT_HIST]]
+- → [[CLM_ADM.TMP_ADM_FB_ACCESSES_KURT_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| CUSTOMER_ROLE |
+| POID |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| MAIN_NUMBER |
+| MOB_SUBSCR_ID |
+| SWAP_AGREEMENT_OFFER_ID |
+| SWAP_AGREEMENT_ID |
+| FIXEDBROADBAND_SUBSCRIPTION_ID |
+| NUM_PRIV_POSTPAID_SUBS_OWNED |
+| NUM_BUS_POSTPAID_SUBS_USED |
+| NUM_SWAP_AGREEMENTS_OWNED |
+| NUM_MBB_SUBS_OWNED |
+| NUM_FIXED_BROADBAND_OWNED |
+| NUM_FIXED_TELEPHONY_SUBS_OWNED |
+- → [[CLM_ADM.ADM_FB_ACCESSES_KURT_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
+| CUSTOMER_ROLE |
+| POID |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| MAIN_NUMBER |
+| MOB_SUBSCR_ID |
+| SWAP_AGREEMENT_OFFER_ID |
+| SWAP_AGREEMENT_ID |
+| FIXEDBROADBAND_SUBSCRIPTION_ID |
+| NUM_PRIV_POSTPAID_SUBS_OWNED |
+| NUM_BUS_POSTPAID_SUBS_USED |
+| NUM_SWAP_AGREEMENTS_OWNED |
+| NUM_MBB_SUBS_OWNED |
+| NUM_FIXED_BROADBAND_OWNED |
+| NUM_FIXED_TELEPHONY_SUBS_OWNED |
 

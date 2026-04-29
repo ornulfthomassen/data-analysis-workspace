@@ -3,8 +3,38 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a direct view/alias for mobile subscription revenue data over a 3-month period. It mirrors all columns from the source table/view, likely for administrative, reporting, or specific platform (GCP) exposure purposes without any transformations or aggregations.
+Creates a direct projection view named GCP_ADM_MOB_SUBS_REVENUE_3MO, exposing all columns from the CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO source for mobile subscription revenue data over a 3-month period.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUBSCR_ID |
+| MARKET_AREA_ID |
+| PAYMENT_TYPE |
+| PRODUCT_BRAND |
+| PRODUCT_KEY |
+| PRODUCT_TYPE |
+| LAST_EVENT_DATE |
+| SUBS_PERIOD_START_DATE |
+| SUBS_DAYS_ACTIVE_IN_PERIOD |
+| DAYS_IN_PERIOD |
+| SUBS_REVENUE_FACTOR |
+| NET_INITIATION_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| BINDING_PRODUCT_KEY |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| ROAMING_COST_USE |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
+| NET_REVENUE_ADJUSTED |
 

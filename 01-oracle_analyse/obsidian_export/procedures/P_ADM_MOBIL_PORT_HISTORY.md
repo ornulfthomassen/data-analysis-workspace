@@ -3,15 +3,67 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-Processes mobile number porting event history for a specified month. It gathers raw porting data and subscription information, aggregates it into monthly statistics per subscription (including number of ports, first/last port dates, and service providers involved in porting), and then uses a temporary staging table to load this aggregated data into a specific monthly partition of a permanent history table. The procedure includes checks for source data availability and handles existing partitions, either overwriting or creating new ones.
+Generates and loads mobile number portability history for a specified month into a partitioned data warehouse table. It aggregates mobile number porting events and related subscription data, performs source data validation, and manages table partitions by creating or overwriting monthly partitions.
 
 ## Data Sources (Inputs)
-- ← [[NRPORT.NRPORT_PORTERINGER]]
-- ← [[ADM_MOB_SUBSCRIPTION_CORE]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+- ← [[NRPORT.NRPORT_PORTERINGER]]
+| Column Name |
+|---|
+| MSISDN_ID |
+| PORT_LOG_VALID_FROM_DATE |
+| SERVICE_PROVIDER_ID_PORT_FROM |
+| SERVICE_PROVIDER_ID_PORT_TO |
+- ← [[ADM_MOB_SUBSCRIPTION_CORE]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER |
+| END_DATE |
 
 ## Target Tables (Outputs)
-- → [[ADM_MOBIL_PORT_HISTORY]]
 - → [[TMP_MOBIL_PORT_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| ANT_TELENOR |
+| ANTALL |
+| SHOPPER_FLG |
+| FIRST_PORT_DATE |
+| LAST_PORT_DATE |
+| FIRST_PORT_IN_SERV_PROV_ID |
+| FIRST_PORT_IN_SERV_PROV_NAME |
+| LAST_PORT_IN_SERV_PROV_ID |
+| LAST_PORT_IN_SERV_PROV_NAME |
+| FIRST_PORT_OUT_SERV_PROV_ID |
+| FIRST_PORT_OUT_SERV_PROV_NAME |
+| LAST_PORT_OUT_SERV_PROV_ID |
+| LAST_PORT_OUT_SERV_PROV_NAME |
+- → [[ADM_MOBIL_PORT_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| ANT_TELENOR |
+| ANTALL |
+| SHOPPER_FLG |
+| FIRST_PORT_DATE |
+| LAST_PORT_DATE |
+| FIRST_PORT_IN_SERV_PROV_ID |
+| FIRST_PORT_IN_SERV_PROV_NAME |
+| LAST_PORT_IN_SERV_PROV_ID |
+| LAST_PORT_IN_SERV_PROV_NAME |
+| FIRST_PORT_OUT_SERV_PROV_ID |
+| FIRST_PORT_OUT_SERV_PROV_NAME |
+| LAST_PORT_OUT_SERV_PROV_ID |
+| LAST_PORT_OUT_SERV_PROV_NAME |
 

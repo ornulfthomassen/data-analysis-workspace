@@ -3,19 +3,115 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The `PP_GCP_MOBILE_ORDER_CHURN_MAP` procedure calculates and maps mobile order churn events to corresponding sales events within a 70-day window. For each month in a specified range (defaulting to the month three months prior to the current date), it performs the following steps:
-1.  It checks if a specific partition for the current processing month exists in the `GCP_MOBILE_ORDER_CHURN_MAP` table. If not, it creates that partition.
-2.  It creates an intermediate temporary table, `TMP_ORDER_CHURN_MAP_JOIN`, by joining sales order data (`GCP_MOBILE_ORDER_CHURN_SALES`) with churn order data (`GCP_MOBILE_ORDER_CHURN_CHURN`). This join identifies churn events that occur within 70 days of a sales event, categorizing them by 'Abonnement' (Subscription) or 'Avtale' (Agreement) based on specific sales and churn types. It also calculates churn duration in seconds and days, and assigns churn day categories (0-14, 15-70, 0-70 days).
-3.  Finally, it replaces the content of the corresponding partition in the permanent target table `GCP_MOBILE_ORDER_CHURN_MAP` with the data from the temporary `TMP_ORDER_CHURN_MAP_JOIN` table using an `ALTER TABLE ... EXCHANGE PARTITION` statement, thereby integrating the processed churn-to-sales mapping data.
+Processes mobile order sales and churn data for a given month range. It joins sales orders with corresponding churn orders, calculates churn-related metrics, and then stages this data into a temporary table. Finally, it uses an exchange partition mechanism to load the processed data into a monthly partition of a permanent target table, creating the partition if it doesn't already exist.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_SALES]]
-- ← [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_CHURN]]
 - ← [[GALAXY.DATE_DIM_MV]]
-- ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| YEAR_MONTH_NUMBER |
 - ← [[DUAL]]
+- ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| RELATIVE_MONTH |
+- ← [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_SALES]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SALES_ORDER_LINE_KEY |
+| SALES_DTTM |
+| SALES_DATE |
+| OWNER_SK |
+| SUBSCRIPTION_SK |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| SALES_SOURCE_ORDER_ID |
+| SALES_PRODUCT_POID |
+| SALES_STATUS_DATE |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDERLINE_TYPE_DESC |
+| ORDER_SALES_TYPE |
+- ← [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_CHURN]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| ORDER_CHURN_TYPE |
+| OWNER_SK |
+| CHURN_DATE |
+| SUBSCRIPTION_SK |
+| AGREEMENT_SK |
+| SRC_AGREEMENT_OFFER_SK |
+| CHURN_SOURCE_ORDER_ID |
+| CHURN_PRODUCT_POID |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_SERV_PROVIDER_SK |
+| CHURN_SERV_PROVIDER_NAME |
+| CHURN_SERV_PROVIDER_GROUP |
+| CHURN_DTTM |
+| CHURN_CHANNEL_NAME3 |
+| SOURCE_DEALER_ID |
+| CHURN_ORDER_LINE_KEY |
+| CHURN_ORDER_KEY |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_MAP]]
 - → [[CLM_ADM.TMP_ORDER_CHURN_MAP_JOIN]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KPI_CHURN_TYPE |
+| SALES_ORDER_LINE_KEY |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_SERVICE_PROVIDER_ID |
+| CHURN_SERVICE_PROVIDER_NAME |
+| CHURN_SERVICE_PROVIDER_GROUP |
+| SALES_DTTM |
+| CHURN_DTTM |
+| CHURN_SEC |
+| CHURN_DAYS |
+| CHURN_0_14_DAYS |
+| CHURN_15_70_DAYS |
+| CHURN_0_70_DAYS |
+| CHURN_CHANNEL_NAME3 |
+| CHURN_DEALER_ID |
+| CHURN_RANK |
+| SALES_SOURCE_ORDER_ID |
+| CHURN_SOURCE_ORDER_ID |
+| SALES_ORDER_KEY |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| SALES_STATUS_DATE |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDERLINE_TYPE_DESC |
+| CHURN_ORDERLINE_TYPE_DESC |
+- → [[CLM_ADM.GCP_MOBILE_ORDER_CHURN_MAP]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KPI_CHURN_TYPE |
+| SALES_ORDER_LINE_KEY |
+| CHURN_ORDER_CATEGORY_NAME |
+| CHURN_SERVICE_PROVIDER_ID |
+| CHURN_SERVICE_PROVIDER_NAME |
+| CHURN_SERVICE_PROVIDER_GROUP |
+| SALES_DTTM |
+| CHURN_DTTM |
+| CHURN_SEC |
+| CHURN_DAYS |
+| CHURN_0_14_DAYS |
+| CHURN_15_70_DAYS |
+| CHURN_0_70_DAYS |
+| CHURN_CHANNEL_NAME3 |
+| CHURN_DEALER_ID |
+| CHURN_RANK |
+| SALES_SOURCE_ORDER_ID |
+| CHURN_SOURCE_ORDER_ID |
+| SALES_ORDER_KEY |
+| CHURN_ORDER_KEY |
+| CHURN_ORDER_LINE_KEY |
+| SALES_STATUS_DATE |
+| SALES_ORDER_CATEGORY_NAME |
+| SALES_ORDERLINE_TYPE_DESC |
+| CHURN_ORDERLINE_TYPE_DESC |
 

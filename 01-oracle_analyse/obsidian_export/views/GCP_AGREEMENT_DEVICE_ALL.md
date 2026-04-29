@@ -3,25 +3,187 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, "GCP_AGREEMENT_DEVICE_ALL", provides a comprehensive and aggregated overview of device agreements, primarily for 'SWAP' (device exchange) and 'Forsikring' (device insurance) products. It integrates data from various domains including agreement details, device specifications (IMEI, manufacturer, model), customer information (owner and user demographics, lifecycle segments, communication preferences), subscription data (order and usage, status, port-out details), product information, and dealer/sales channel data. The view calculates numerous key performance indicators (KPIs) related to swap, insurance, duration, and subscription port-outs. It also derives complex agreement statuses and phases, with specific logic differentiating between swap and insurance product lifecycles and durations. The overall purpose is to consolidate and enrich disparate data points into a single analytical dataset for reporting and analysis of device agreements and their associated entities.
+This view provides a comprehensive, consolidated dataset of device agreements, encompassing details about SWAP and Insurance products. It integrates agreement-specific attributes, device information, customer demographics (owner and user), and associated subscription details. The view calculates various key performance indicators (KPIs) related to agreement duration, status, product associations, and customer life-cycle segments.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_ALL]]
+| Column Name |
+|---|
+| LOAD_DATE |
+| AGREEMENT_OFFER_NAME |
+| ROOT_AGREEMENT_KEY |
+| PRODUCT_AGREEMENT_ID |
+| ROOT_AGREEMENT_ID |
+| DEVICE_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_ORDER_ID |
+| PRODUCT_AGREE_DRM_COM_MRK_PROD |
+| ORDER_SUBSCRIPTION_ID |
+| ORDER_SUBSCRIPTION_END_DT |
+| USE_SUBSCRIPTION_ID |
+| PRODUCT_AGREEMENT_STATUS |
+| PRODUCT_AGREE_ORDER_STATUS |
+| PRODUCT_AGREEMENT_STATUS_INFO |
+| PRODUCT_AGREE_TERMINATION_FEE |
+| PRODUCT_AGREEMENT_PRODUCT_KEY |
+| PRODUCT_AGREEMENT_PRODUCT_NM |
+| PRODUCT_AGREE_MONTHLY_PRICE |
+| PRODUCT_AGREEMENT_START_DATE |
+| INSURANCE_DISCOUNT_PROD_KEY |
+| INSURANCE_DISCOUNT_END_DATE |
+| INSURANCE_DISCOUNT_START_DATE |
+| INSURANCE_DISCOUNT_PROD_NM |
+| INSURANCE_DISCOUNT_MONTHLY |
+| PRODUCT_AGREE_USER_REFERENCE |
+| DEVICE_AGREEMENT_START_DATE |
+| DEVICE_AGREEMENT_END_DATE |
+| IMEI |
+| IMEI_USE_FIRST_DATE |
+| IMEI_USE_LAST_DATE |
+| HANDSET_KEY |
+| ORDER_CUSTOMER_SK_OWNER |
+| USE_CUSTOMER_SK_USER |
+| RANGERING |
+| ORDER_SUBSCRIPTION_KEY_STATUS |
+| ORDER_SUBS_CHANGETYPE_START |
+| ORDER_SUBS_PORT_IN_DEALER_ID |
+| PRODUCT_AGREEMENT_DEALER_ID |
+| ORDER_MAIN_NUMBER_SK |
+| ORDER_SUBS_PORT_OUT_DEALER_ID |
+| PRODUCT_AGREE_ORDER_STATUS_RSN |
+| PRODUCT_AGREE_DEALER_CHANNEL |
+| ROOT_AGREEMENT_DEALER_KEY |
+| ROOT_AGREEMENT_DEALER_ID |
+| ROOT_AGREEMENT_START_DATE |
+| PRODUCT_AGREEMENT_REG_DATE |
+| PRODUCT_AGREE_DRM_COM_PROD_GRP |
+| INSURANCE_DISCOUNT_AGREE_ID |
+| INSURANCE_DISCOUNT_REG_DATE |
+| DEVICE_AGREEMENT_STATUS |
+| DEVICE_AGREEMENT_REG_DATE |
+| IMEI_REG_DATE |
+| IMEI_START_DATE |
+| IMEI_END_DATE |
+| IMEI_STATUS |
+| USE_MAIN_NUMBER_SK |
+| USE_MARKET_AREA_KEY |
+| USE_BRAND |
+| PRODUCT_AGREEMENT_END_DATE |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_TRANSFER]]
+| Column Name |
+|---|
+| FIRST_START_DATE |
+| NEXT_DEVICE_AGREEMENT_ID |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_AGG_V]]
+| Column Name |
+|---|
+| DEV_AGREEMENT_KEY |
+| NO_AGR_SWAP |
+| NO_AGR_SWAP_ACTIVE |
+| NO_AGR_DEV_INSURACE |
+| NO_AGR_DEV_INSURACE_ACTIVE |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_CURRENT]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 - ← [[CLM_ADM.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| RELATIVE_MONTH |
 - ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME |
+| PRODUCT_FAMILY_NAME |
 - ← [[CLM_ADM.ADM_DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| DEVICE_MANUFACTURER_SHORT |
+| DEVICE_CAMERA_INFO |
+| DEVICE_MARKETING_NAME |
+| DEVICE_TYPE |
+| DEVICE_MANUFACTURER |
+| DEVICE_OS_INFO |
+| DEVICE_CLASS |
 - ← [[CLM_ADM.ADM_AGREEMENT_DEVICE_SWAPPED]]
+| Column Name |
+|---|
+| MATCHED_PRODUKT_AGREEMENT_ID |
+| PRODUCT_AGREEMENT_ID |
+| RANGERING |
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| SOURCE_DEALER_ID |
+| CURRENT_STATUS |
+| DEALER_KEY |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DRM_SALES_CHANNEL_GEN07_DESC |
 - ← [[CLM_CCM.CCM_CUSTOMER_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| AGE |
+| GENDER |
+| SMS_IND |
+| EMAIL_IND |
 - ← [[CRM_ANALYSE.ADM_AGE_GROUP_DIM]]
+| Column Name |
+|---|
+| AGE_GROUP_KEY |
+| AGE_GROUP_NAME_10C |
 - ← [[CLM_CCM.CCM_CUSTOMER_INFO_2_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| CLM_LIVSFASE_SEGMENT_NAME |
 - ← [[CLM_ADM.ADM_AGREEMENT_MEMB_INSURANCE_V]]
+| Column Name |
+|---|
+| INSURANCE_IMEI |
+| INSURANCE_PRODUCT_NAME |
 - ← [[CLM_ADM.ADM_AGREEMENT_MEMB_SWAP_V]]
+| Column Name |
+|---|
+| SWAP_IMEI |
+| SWAP_PRODUCT_NAME |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PORT_OUT_SERV_PROV_ID |
+| LAST_PRODUCT_KEY |
+| SUBSCRIPTION_ID_PREV |
+| OWNER |
+| OWNER_PREV |
+| MARKET_AREA_ID |
+| MARKET_AREA_ID_PREV |
+| PRODUCT_GROUP |
+| END_DATE |
+| CURRENT_STATUS |
+| ORIGINAL_START_DATE |
+| SUBSCR_START_REASON |
+| PORT_IN_DEALER_ID |
 - ← [[CRM_ANALYSE.ADM_SERVICE_PROVIDER_DIM]]
+| Column Name |
+|---|
+| SERVICE_PROVIDER_KEY |
+| SERVICE_PROVIDER_GROUP |
 - ← [[THIRD_PARTY_SERVICES.HANDSET_GTIN]]
+| Column Name |
+|---|
+| IMEI |
+| GTIN |
+| ARTICLE_TEXT |
 - ← [[FPS.TERMINAL_GTIN_PROPERTIES]]
+| Column Name |
+|---|
+| GTIN |
+| COLOR_NAME |
+| TOTAL_SIZE |
 

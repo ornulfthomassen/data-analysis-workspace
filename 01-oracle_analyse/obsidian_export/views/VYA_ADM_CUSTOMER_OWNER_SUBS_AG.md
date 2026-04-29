@@ -3,9 +3,28 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates monthly subscription and financial data (gross/net fees) for customers identified as 'owners'. It calculates the number of subscriptions for various product categories such as mobile postpaid (MPP), mobile prepaid (MPR), mobile broadband (MBB), fixed line (FIX), DSL, and fiber (FBR). It also determines the total number of distinct product categories a customer owner subscribes to and the total number of subscriptions (TNM + DJU). The view combines monthly period information with customer-specific aggregated subscription details, likely for loading into a data mart named 'Mjøsa' as indicated in the comments.
+This view aggregates customer owner subscription data monthly. It calculates the number of various subscription types (mobile post-paid, pre-paid, mobile broadband, fixed, DSL, fiber), the count of distinct product categories, total subscriptions, and gross/net fees for each customer owner for a given month. It combines monthly dimension information with customer-level subscription aggregates.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_CUSTOMER_OWNER_SUBS_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| CUSTOMER_SK_OWNER |
+| NO_MPP |
+| NO_MPR |
+| NO_MBB |
+| NO_FIX |
+| NO_DSL |
+| NO_FBR |
+| NO_TNM_SUBS |
+| NO_DJU_SUBS |
+| GROSS_FEE |
+| NET_FEE |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_CHAR |
+| PERIOD_MONTH_DATE |
 

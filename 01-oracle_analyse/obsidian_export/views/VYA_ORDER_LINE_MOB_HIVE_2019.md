@@ -3,16 +3,155 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named `VYA_ORDER_LINE_MOB_HIVE_2019`, provides a comprehensive, enriched dataset of mobile order line items. It integrates core order details with extensive information on order categories, termination reasons, customer demographics (owner and user age, age groups, and location data), subscription details, and a wide array of key performance indicators (KPIs) related to sales, churn, product changes, and regretted/canceled orders. The view specifically filters data to include only order lines with an order status date prior to January 1, 2020, suggesting its purpose is for historical reporting and analytical insights into mobile order trends and performance up to the end of 2019.
+This view, named `VYA_ORDER_LINE_MOB_HIVE_2019`, consolidates and enriches detailed mobile order line transaction data. It joins a base order line fact table with various dimension tables to provide comprehensive information including order categories, termination reasons, customer demographics (age, location), subscription details, and time-related attributes. It also calculates numerous Key Performance Indicators (KPIs) related to sales, porting, product changes, terminations, and device swaps. The view specifically filters for orders with an `ORDER_STATUS_DT_KEY` before the year 2020, suggesting its purpose is to provide historical order line data, likely for the year 2019 and earlier.
 
 ## Data Sources (Inputs)
 - ← [[CCM.ORDER_LINE_MOB_HIVE_2019]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| ORDER_CATEGORY_KEY |
+| TERMINATION_REASON_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| TO_ORDER_PRODUCT_KEY |
+| ORDER_SUBSCR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_PRIM_PROD_KEY |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| HANDSET_KEY |
+| ORDER_DT_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_STATUS_TIME_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| SALES_MATRIX_KEY |
+| SOURCE_ORDERING_ID |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| SOURCE_ORDER_ID |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_SUBSCRIPTION_TERMINATION |
+| KPI_GROSS_SALE |
+| KPI_INTERNAL_CHURN |
+| KPI_NEWSALE_SPEECH |
+| KPI_PORTING_OUTBOUND_SPEECH |
+| KPI_PORTING_OUTBOUND_MBB |
+| KPI_TERMINATION_SPEECH |
+| KPI_GROSS_SALE_SPEECH |
+| KPI_DEVICE_SWAPPING |
+| SWAP_NEWSALE_FLAG |
+| SWAP_AGREE_VALID_FROM_DT_KEY |
+| SWAP_AGREE_VALID_TO_DT_KEY |
+| REGRET_ORDER_KEY |
+| REGRET_ORDER_DT_KEY |
+| REGRET_ORDER_STATUS_DT_KEY |
+| REGRET_ORDER_PRODUCT_KEY |
+| REGRET_ORDER_DAYS |
+| REGRET_ORDER_STATUS_DAYS |
+| REGRET_ORDER_CATEGORY_KEY |
+| REGRET_ORDER_DEALER_KEY |
+| REGRET_ORDER_SP_FROM_KEY |
+| DEVICE_AGREEMENT_KEY |
+| SWAP_AGREE_PRODUCT_KEY |
+| SWAP_FROM_AGREE_PRODUCT_KEY |
+| SWAP_FROM_VALID_FROM_DT_KEY |
+| SWAP_FROM_VALID_TO_DT_KEY |
+| SWAP_TO_AGREE_PRODUCT_KEY |
+| SWAP_TO_VALID_FROM_DT_KEY |
+| SWAP_TO_VALID_TO_DT_KEY |
+| FB_AGREEMENT_KEY |
+| FB_DATABONUS_SIZE |
+| FB_NUMBER_OF_PRODUCTS |
+| COMMISSION_GROUP_TYPE_KEY |
+| LOAD_DT_CCDW |
+| SEQ_ID |
+| MAIN_NUMBER_SK |
 - ← [[GALAXY.ORDER_TIME_DIM_V]]
+| Column Name |
+|---|
+| ORDER_TIME_KEY |
+| ORDER_TIME |
 - ← [[GALAXY.ORDER_CATEGORY_DIM]]
+| Column Name |
+|---|
+| ORDER_CATEGORY_KEY |
+| ORDER_CATEGORY_NAME |
 - ← [[GALAXY.TERMINATION_REASON_DIM_V]]
+| Column Name |
+|---|
+| TERMINATION_REASON_KEY |
+| TERMINATION_REASON_DESC |
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| WEEK_NUMBER |
+| RELATIVE_WEEK |
+| MONTH_NUMBER |
+| RELATIVE_MONTH |
+| YEAR |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR_QUARTER_NUMBER |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| PERIOD_MONTH_KEY |
+| FARID |
+| AGE |
+| POSTADR_POSTNR |
+| KOMMUNENR |
 - ← [[CCM.ASM_2019]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| ORIGINAL_START_DATE |
+| ORIGINAL_START_DATE_ORIG |
 - ← [[CRM_ANALYSE.ADM_AGE_GROUP_DIM]]
+| Column Name |
+|---|
+| AGE_GROUP_KEY |
+| AGE_GROUP_NAME_10C |
 - ← [[CLM_ADM.MUNICIPALITY_COUNTY_REGION_DIM]]
+| Column Name |
+|---|
+| MUNICIPALITY_CODE |
+| MUNICIPALITY_NAME |
+| COUNTY_CODE |
+| COUNTY_NAME |
 

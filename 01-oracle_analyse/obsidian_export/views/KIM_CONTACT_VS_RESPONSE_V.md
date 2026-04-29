@@ -3,9 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view aggregates contact and response data, providing the minimum and maximum interaction dates and the total count of interactions for each 'SOURCE_SYSTEM_KEY'. It distinguishes between campaign contact details (labeled 'F') and customer responses (labeled 'R') by combining data from two different fact tables.
+Aggregates campaign contact details and customer response details, providing the minimum date, maximum date, and total count for each 'SOURCE_SYSTEM_KEY', with a flag ('F' for contact, 'R' for response) to distinguish between the two data types.
 
 ## Data Sources (Inputs)
 - ← [[KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| CONTACT_DTTM |
 - ← [[KIM_CUSTOMER_RESPONSE]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| RESPONSE_DTTM |
 

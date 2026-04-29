@@ -1,0 +1,46 @@
+[
+  {
+    "name": "agreement_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "src_agrm_agreement_offer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "customer_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "source_system_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "business_area_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "start_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "end_date",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "src_agreement_id",
+    "type": "STRING"
+  },
+  {
+    "name": "src_customer_id",
+    "type": "STRING"
+  },
+  {
+    "name": "run_id",
+    "type": "NUMERIC"
+  },
+  {
+    "name": "seq_id",
+    "type": "NUMERIC"
+  }
+]

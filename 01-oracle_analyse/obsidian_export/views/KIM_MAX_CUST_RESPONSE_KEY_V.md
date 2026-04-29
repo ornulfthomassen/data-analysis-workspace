@@ -3,8 +3,12 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Retrieves the maximum 'CUST_RESPONSE_KEY' from the 'KIM_CUSTOMER_RESPONSE' table, excluding records where 'source_system_key' is 94. If no such key is found, it defaults to 0. This is typically used to identify the highest existing customer response identifier.
+Calculates the maximum customer response key from the KIM_CUSTOMER_RESPONSE table, excluding entries from source system key '94'. Returns 0 if no matching records are found.
 
 ## Data Sources (Inputs)
 - ← [[KIM_CUSTOMER_RESPONSE]]
+| Column Name |
+|---|
+| CUST_RESPONSE_KEY |
+| source_system_key |
 

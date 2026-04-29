@@ -3,18 +3,87 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure populates or updates monthly partitions of the 'ADM_SUBSCR_HANDSET_HIST_I' table. It collects historical subscription handset data for a given month (specified by 'V_YYYYMM') from various source tables. It first ensures the target partition exists, then creates a temporary staging table ('TMP_SUBSCR_HANDSET_HIST_I') with the processed data. Finally, it uses an 'ALTER TABLE ... EXCHANGE PARTITION' statement to efficiently load the data from the temporary table into the corresponding partition of the 'ADM_SUBSCR_HANDSET_HIST_I' table, followed by statistics computation. It includes checks for source data availability and robust error handling.
+This procedure populates a monthly partition of the 'ADM_SUBSCR_HANDSET_HIST_I' table. It first validates the existence of necessary data in various source tables for a given month (P_YYYYMM). If the target partition for the month doesn't exist, it creates it. It then constructs a temporary table ('TMP_SUBSCR_HANDSET_HIST_I') by joining subscription, handset, and date dimension data. Finally, it exchanges this temporary table's data into the corresponding partition of the permanent 'ADM_SUBSCR_HANDSET_HIST_I' table, ensuring efficient and atomic updates for monthly historical data.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_MONTH_DIM]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY_I]]
-- ← [[LIVE.SUBSCRIPTION_HANDSET_HIST]]
-- ← [[CCDW.HANDSET_TYPE]]
-- ← [[CCDW.HANDSET_TYPE_EXT]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY_I]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
 - ← [[CCDW.SUBSCRIPTION_HANDSET]]
+| Column Name |
+|---|
+| TERMINAL_USE_FIRST_DATE |
+- ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
+- ← [[LIVE.SUBSCRIPTION_HANDSET_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| TAC_ID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+- ← [[CCDW.HANDSET_TYPE]]
+| Column Name |
+|---|
+| TAC_ID |
+| MANUFACTURER |
+| MARKETING_NAME |
+| OS_INFO |
+| DEVICE_CATEGORY |
+| TOUCH_SCREEN |
+| HANDSET_TYPE |
+| HD_VOICE |
+| LTE |
+- ← [[CCDW.HANDSET_TYPE_EXT]]
+| Column Name |
+|---|
+| TACFAC |
+| MODELID |
+- ← [[ADM_SUBSCR_HANDSET_HIST_I]]
 
 ## Target Tables (Outputs)
-- → [[ADM_SUBSCR_HANDSET_HIST_I]]
 - → [[TMP_SUBSCR_HANDSET_HIST_I]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
+- → [[ADM_SUBSCR_HANDSET_HIST_I]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| PRODUCERNAME |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| DEVICE_CATEGORY |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_LTE |
 

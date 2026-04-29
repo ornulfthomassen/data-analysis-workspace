@@ -3,15 +3,46 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The procedure updates and maintains the `CCM_CUST_CHANNEL_INTERACTION` table by implementing a 'swap' mechanism. It first populates a new table named `CCM_CUST_CHANNEL_INTERACTION_N` with aggregated customer channel interaction data derived from a staging table. After validating the new data's row count against a predefined threshold, it performs a table swap: the existing `CCM_CUST_CHANNEL_INTERACTION` table is renamed to `CCM_CUST_CHANNEL_INTERACTION_O` (serving as a backup), and then `CCM_CUST_CHANNEL_INTERACTION_N` is renamed to `CCM_CUST_CHANNEL_INTERACTION`, making it the new active table. The procedure also dynamically creates indexes on the new table, adjusts index names after the swap, grants necessary permissions, and performs data retention cleanup (deletion of old records) on the staging table.
+Aggregates customer channel interaction data from a staging table, performs data retention housekeeping on the staging table, and updates a permanent aggregated table using a table swap strategy, which includes index and grant management, based on row count deviation thresholds.
 
 ## Data Sources (Inputs)
-- ← [[STG_CUST_CHL_INTERACTION]]
-- ← [[CCM_CUST_CHANNEL_INTERACTION]]
-- ← [[ALL_INDEXES]]
+- ← [[CLM_CCM.CCM_CUST_CHANNEL_INTERACTION]]
+- ← [[CLM_CCM.STG_CUST_CHL_INTERACTION]]
+| Column Name |
+|---|
+| KURT_ID_EVENT |
+| PERIOD_KEY |
+| EVENT_DATE |
+| EVENT_MEDIUM_DESC |
 
 ## Target Tables (Outputs)
-- → [[CCM_CUST_CHANNEL_INTERACTION]]
-- → [[CCM_CUST_CHANNEL_INTERACTION_N]]
-- → [[CCM_CUST_CHANNEL_INTERACTION_O]]
+- → [[CLM_CCM.STG_CUST_CHL_INTERACTION]]
+| Column Name |
+|---|
+| PERIOD_KEY |
+- → [[CLM_CCM.CCM_CUST_CHANNEL_INTERACTION_N]]
+| Column Name |
+|---|
+| KURT_ID |
+| APP_LAST_USED_DATE |
+| APP_PERIOD_KEY_CURRENT_MO |
+| NO_DAYS_USED_APP_CURRENT_MO |
+| NO_DAYS_USED_APP_PREV_MO_1 |
+| NO_DAYS_USED_APP_PREV_MO_2 |
+| NO_DAYS_USED_APP_PREV_MO_3 |
+| APP_MEDIUM_LAST_USED |
+| LOAD_DTTM |
+- → [[CLM_CCM.CCM_CUST_CHANNEL_INTERACTION_O]]
+- → [[CLM_CCM.CCM_CUST_CHANNEL_INTERACTION]]
+| Column Name |
+|---|
+| KURT_ID |
+| APP_LAST_USED_DATE |
+| APP_PERIOD_KEY_CURRENT_MO |
+| NO_DAYS_USED_APP_CURRENT_MO |
+| NO_DAYS_USED_APP_PREV_MO_1 |
+| NO_DAYS_USED_APP_PREV_MO_2 |
+| NO_DAYS_USED_APP_PREV_MO_3 |
+| APP_MEDIUM_LAST_USED |
+| LOAD_DTTM |
 

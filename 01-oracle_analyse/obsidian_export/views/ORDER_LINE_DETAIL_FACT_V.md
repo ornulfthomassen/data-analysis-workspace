@@ -3,14 +3,174 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `ORDER_LINE_DETAIL_FACT_V`, serves as a comprehensive fact table for detailed mobile order line data. It consolidates a vast array of order-related attributes and key performance indicators (KPIs) by joining the primary order line fact table with various dimension and mapping tables. The view enriches the core order line data with customer, subscription, time, and location details, including mapping customer and subscription IDs. Its purpose is explicitly stated as 'LOADING Order-DATA TO MJØSA', suggesting it's designed to prepare and stage detailed order line information for a data warehouse or analytical data mart ('Mjøsa'). It also derives specific datetime fields from key values.
+Creates a comprehensive fact view for order line details, consolidating data from various sources including the primary order line fact table, customer and subscription mapping tables, date and time dimensions, and user location information. It enriches order data with customer and subscription keys, calculates order and status datetimes, and extracts detailed date components for agreed delivery dates, facilitating detailed analysis and data warehousing processes (e.g., loading to MJØSA).
 
 ## Data Sources (Inputs)
-- ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_MV]]
-- ← [[GALAXY.ORDER_TIME_DIM_V]]
-- ← [[GALAXY.DATE_DIM_MV]]
-- ← [[GALAXY.SUBSCR_USER_LOC_DIM_V]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_V]]
+| Column Name |
+|---|
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| ORDER_SUBSCR_KEY |
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+- ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| ORDER_CATEGORY_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_PRODUCT_KEY |
+| BINDED_PRODUCT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| ORDERING_DT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| TO_ORDER_PRODUCT_KEY |
+| PRODUCT_CHANGE_FLAG |
+| ACCOUNT_KEY |
+| ORDER_SUBSCR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_PRIM_PROD_KEY |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| SUBSCR_OWNER_LOC_KEY |
+| SUBSCR_USER_LOC_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| HANDSET_KEY |
+| ORDER_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_STATUS_TIME_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| CAMPAIGN_REF_KEY |
+| CAMPAIGN_REF_TTC |
+| CAMPAIGN_COMMUNICATION_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_CHANNEL_KEY |
+| SALES_MATRIX_KEY |
+| CAMPAIGN_SOURCE_SYSTEM_KEY |
+| SOURCE_ORDERING_ID |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| SOURCE_ORDER_ID |
+| NUMBER_OF_ORDERS |
+| NUMBER_OF_ORDER_LINES |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_SUBSCRIPTION_TERMINATION |
+| KPI_GROSS_SALE |
+| KPI_INTERNAL_CHURN |
+| KPI_NEWSALE_SPEECH |
+| KPI_PORTING_OUTBOUND_SPEECH |
+| KPI_PORTING_OUTBOUND_MBB |
+| KPI_TERMINATION_SPEECH |
+| KPI_GROSS_SALE_SPEECH |
+| KPI_DEVICE_SWAPPING |
+| KPI_NEWSALE_DEVICE |
+| CAMPAIGN_DATE_KEY |
+| CAMPAIGN_TREATMENT_KEY |
+| CUSTOMER_EVENT_ID |
+| SOURCE_CUST_ORDER_REF |
+| SOURCE_PROJECT_REF |
+| DEVICE_AGREEMENT_KEY |
+| NUMBER_OF_LICENSES |
+| NUMBER_OF_LICENSES_NET_CHANGE |
+| NRPORT_DEALER_ID |
+| SWAP_AGREE_PRODUCT_KEY |
+| SWAP_AGREE_VALID_FROM_DT_KEY |
+| SWAP_AGREE_VALID_TO_DT_KEY |
+| TERMINATION_REASON_KEY |
+| SWAP_NEWSALE_FLAG |
+| REGRET_ORDER_KEY |
+| REGRET_ORDER_LINE_KEY |
+| REGRET_ORDER_DT_KEY |
+| REGRET_ORDER_TIME_KEY |
+| REGRET_ORDER_STATUS_DT_KEY |
+| REGRET_ORDER_STATUS_TIME_KEY |
+| REGRET_ORDER_PRODUCT_KEY |
+| REGRET_ORDER_DAYS |
+| REGRET_ORDER_STATUS_DAYS |
+| REGRET_ORDER_CATEGORY_KEY |
+| REGRET_ORDER_DEALER_KEY |
+| REGRET_ORDER_SP_FROM_KEY |
+| REGRET_SALES_MATRIX_KEY |
+| CLMLS_SEGMENT_KEY |
+| CLMLS_SOURCE_SEGMENT_ID |
+| COMMISSION_GROUP_TYPE_KEY |
+| SWAP_FROM_AGREE_PRODUCT_KEY |
+| SWAP_FROM_AGREE_VALID_FROM_DT_KEY |
+| SWAP_FROM_AGREE_VALID_TO_DT_KEY |
+| SWAP_TO_AGREE_PRODUCT_KEY |
+| SWAP_TO_AGREE_VALID_FROM_DT_KEY |
+| SWAP_TO_AGREE_VALID_TO_DT_KEY |
+| FB_AGREEMENT_KEY |
+| FB_DATABONUS_SIZE |
+| FB_NUMBER_OF_PRODUCTS |
+| DATASTEP_GB |
+| DATASTEP_PRICE |
+| RUN_ID |
+| SEQ_ID |
+| LOAD_DATE_KEY |
+| MULTI_NODE_COL |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+- ← [[GALAXY.ORDER_TIME_DIM_V]]
+| Column Name |
+|---|
+| ORDER_TIME_KEY |
+| ORDER_TIME |
+- ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| MONTH_NUMBER |
+| RELATIVE_MONTH |
+| RELATIVE_WEEK |
+| WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR_WEEK_NUMBER |
+- ← [[GALAXY.SUBSCR_USER_LOC_DIM_V]]
+| Column Name |
+|---|
+| SUBSCR_USER_LOC_KEY |
+| SUBSCR_USER_POSTCODE_ID |
 

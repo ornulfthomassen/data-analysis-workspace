@@ -3,13 +3,79 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, VYA_ODS_AGREEMENT_DEVICE, extracts and consolidates comprehensive data about active agreement devices. It combines information from agreement offers, product details, customer mappings, and device dimensions. The purpose is to provide a unified dataset for analytical use in an Operational Data Store (ODS), likely for systems like SAS Viya. It enriches agreement records with product attributes, device specifications (derived from IMEI), customer ownership, and calculates various date-related metrics such as product active days. It filters for active products and performs data cleaning and transformation on device identifiers (IMEI) and names.
+Provides a comprehensive operational data store view for agreement and associated device information. It combines data about mobile service agreements, related products, customer ownership, and detailed device attributes, including handling of IMEI data and devices not found in the primary device dimension.
 
 ## Data Sources (Inputs)
 - ← [[CLM_CCM.V_ODS_AGRMT_OFFER_MOB_DEVICE]]
+| Column Name |
+|---|
+| AGREEMENT_ID |
+| SRC_AGRM_AGREEMENT_OFFER_ID |
+| KURT_ID |
+| AGREEMENT_PRODUCT_NAME |
+| IMEI_FULL |
+| IMEI_START_DATE |
+| IMEI_END_DATE |
+| PRODUCT_DAYS_ACTIVE |
+| PRODUCT_DAYS_LEFT |
+| PRODUCT_END_DATE |
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_NAME_MARKET |
+| PRODUCT_START_DATE |
+| PRODUCT_START_DATE_ORIG |
+| PRODUCT_STATUS |
+| SRC_AGREEMENT_ID |
+| SRC_AGREEMENT_PRODUCT_ID |
+| SRC_PROD_AGREEMENT_OFFER_ID |
+| SRC_PRODUCT_ID |
 - ← [[CRM_ANALYSE.PD]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| MONTHLY_FEE |
+| PRODUCT_REPORT_LEVEL1 |
+| PRODUCT_REPORT_LEVEL2 |
+| PRODUCT_REPORT_LEVEL3 |
+| PRODUCT_REPORT_LEVEL4 |
+| PRODUCT_REPORT_FMC |
+| PRODUCT_SALEABLE_FLAG |
+| PRODUCT_GROUP |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_REPORTING |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 - ← [[CLM_ADM.ADM_DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| LOAD_DATE_KEY |
+| DEVICE_MANUFACTURER |
+| DEVICE_MANUFACTURER_SHORT |
+| DEVICE_MARKETING_NAME |
+| DEVICE_CATEGORY |
+| DEVICE_CLASS |
+| DEVICE_OS_INFO |
+| DEVICE_TYPE |
+| DEVICE_CAMERA_INFO |
 - ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| HANDSET_KEY |
 - ← [[CLM_ADM.ADM_DEVICE_RANGE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| DEVICE_RANGE |
 

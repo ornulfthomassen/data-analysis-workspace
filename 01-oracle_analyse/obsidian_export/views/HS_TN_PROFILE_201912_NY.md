@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct projection or alias for the underlying table/view `adhoc_bs.hs_tn_profile_201912_ny`. It selects all columns from the source without any transformations, aggregations, or filtering. Its primary purpose is likely to expose this specific dataset under a new name within the 'CCM' schema, potentially for easier access, schema management, or to apply specific Oracle view properties like 'FORCE EDITIONABLE'.
+Creates a view that mirrors the data and structure of the `adhoc_bs.hs_tn_profile_201912_ny` table or view, making it accessible under the `CCM` schema with the same column names and data.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.hs_tn_profile_201912_ny]]
+| Column Name |
+|---|
+| POSTADR_POSTNR |
+| POSTADR_POSTSTED |
+| CUST_CAT |
+| AGE_CAT |
+| GENDER |
+| ANTALL |
 

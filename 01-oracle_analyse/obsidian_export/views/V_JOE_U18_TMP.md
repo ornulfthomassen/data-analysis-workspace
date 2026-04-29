@@ -3,8 +3,17 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view serves as a direct alias or a temporary view for the underlying data source 'adhoc_bs.ah_2053_res3'. It selects all columns from the source without any filtering, aggregations, or transformations, effectively providing a different name ('V_JOE_U18_TMP') and potentially a different schema ('CCM') for the same data.
+Creates a temporary view named V_JOE_U18_TMP by selecting specific columns from the 'adhoc_bs.ah_2053_res3' table. It appears to be a direct projection or a snapshot for a specific purpose, possibly temporary given the '_TMP' suffix.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.ah_2053_res3]]
+| Column Name |
+|---|
+| KVARTAL |
+| CUSTOMER_SK |
+| PRIM_PRODUCT_DESC |
+| OUTPORT_DAY |
+| SERVICE_PROVIDER_NAME |
+| SERVICE_PROVIDER_NAME_MOD |
+| VOLUM |
 

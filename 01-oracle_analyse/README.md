@@ -24,11 +24,17 @@ python analyze_procedures.py --schema all
 
 # Dry run (bare vis antall, ingen LLM-kall)
 python analyze_views.py --schema all --dry-run
+
+# Test med begrenset antall
+python analyze_views.py --schema ccm --max-items 5
+python analyze_procedures.py --schema ccm --max-items 5
 ```
 
 Checkpoint/resume er innebygd — avbryt og kjør på nytt for å gjenoppta.
 
-**Status:** Prosedyrer ferdig (295 stk). Views ferdig (1099 stk).
+**Status:**
+- Runde 1 (objekt-nivå): Fullført — 295 prosedyrer, 1099 views.
+- Runde 2 (kolonne-lineage): Klar til kjøring. Promptene ber nå om `columns`-lister i `data_sources` og `target_tables`, slik at man ser hvilke kolonner som leses fra kilder og skrives til mål.
 
 ## Steg 2: Dependency analysis
 

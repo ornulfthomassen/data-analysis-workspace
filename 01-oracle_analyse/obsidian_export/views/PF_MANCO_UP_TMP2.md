@@ -3,8 +3,57 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view is a direct projection of an existing data source, `adhoc_bs.ah_2343_down3`. It exposes a comprehensive set of columns related to customer agreements, profiles (demographics, activation groups, digital engagement), and various Key Performance Indicators (KPIs) for product activation (email, call center, VPN), sales events (new sales, product changes), and terminations, tracked over time by year-week number. Its primary purpose is to provide an accessible interface or a snapshot of this detailed customer and KPI data, possibly for reporting or further analysis, without performing any complex transformations or aggregations itself.
+This view, PF_MANCO_UP_TMP2, serves as a direct projection or alias for the underlying source view or table 'adhoc_bs.ah_2343_down3'. It selects all specified columns from the source without any transformations, aggregations, or filtering, effectively providing a specific interface to the data within 'adhoc_bs.ah_2343_down3'.
 
 ## Data Sources (Inputs)
 - ← [[adhoc_bs.ah_2343_down3]]
+| Column Name |
+|---|
+| YEAR_WEEK_NUMBER |
+| LAST_WEEK |
+| AGREEMENT_SK |
+| OL_SRC_AGREEMENT_OFFER_SK |
+| CU_OWNER_SK |
+| CUSTOMER_PROFILE |
+| AGE |
+| AGE_GROUP |
+| LIFE_STAGE |
+| ACTIVATION_GROUP |
+| MY_PAGES |
+| MY_TELENOR |
+| EVENT_CHANNEL_3 |
+| EVENT_CHANNEL_7 |
+| RM_EVENT_CHANNEL_3 |
+| RM_EVENT_CHANNEL_7 |
+| AGRM_SALES_TYPE |
+| AGRM_START_DATE |
+| AGRM_END_DATE |
+| AGRM_DAYS |
+| AGRM_START_WEEK |
+| AGRM_END_WEEK |
+| FROM_PRODUCT_DESC |
+| PRODUCT_DESC |
+| TO_PRODUCT_DESC |
+| EMA_YEAR_WEEK_NUMBER |
+| DAYS_TO_EMAIL_ACTIVATION |
+| CC_YEAR_WEEK_NUMBER |
+| DAYS_TO_CC_ACTIVATION |
+| VPN_YEAR_WEEK_NUMBER |
+| KPI_NEW_EMAIL_ACTIVATION |
+| KPI_EMAIL_ACTIVATED |
+| KPI_EMAIL_TERMINATED |
+| KPI_NEW_CC_ACTIVATION |
+| KPI_CC_ACTIVATED |
+| KPI_CC_TERMINATED |
+| KPI_NEW_VPN_ACTIVATION |
+| KPI_VPN_ACTIVATED |
+| KPI_VPN_TERMINATED |
+| KPI_SAFE_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| KPI_SAFE_NEW |
+| KPI_SAFE_DOWNCHANGE |
+| KPI_TERMINATION |
+| KPI_SAFE_TERM |
+| KPI_SAFE_STOCK |
+| VOLUME |
 

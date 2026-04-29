@@ -3,8 +3,8 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Creates a static view containing two predefined 'dummy' or 'special' records, representing 'Unknown' ('Ukjent') and 'Not Available' ('N/A') entries, likely used as default or placeholder values in applications or reports.
+Creates a small, static lookup table containing 'Unknown' and 'N/A' placeholder values for common missing or inapplicable data. This view effectively generates two predefined rows with fixed values.
 
 ## Data Sources (Inputs)
-- ← [[dual]]
+- ← [[DUAL]]
 

@@ -3,8 +3,14 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view extracts specific parameter details (Order ID, parameter value, and parameter status ID) for service orders where the parameter ID is exactly 100. Based on the view name 'GCP_ORDER_SIM_TYPE', it likely isolates information pertaining to a 'simulation type' or a particular characteristic identified by PARAM_ID 100 for service orders.
+Selects order product parameters (ORDER_ID, PARAM_VALUE, PARAM_STATUS_ID) specifically for entries where PARAM_ID is 100, effectively filtering for a particular type or configuration.
 
 ## Data Sources (Inputs)
 - ← [[ONL_REP.SERVICE_ORDER_PRODUCT_PARAM]]
+| Column Name |
+|---|
+| ORDER_ID |
+| PARAM_VALUE |
+| PARAM_STATUS_ID |
+| PARAM_ID |
 

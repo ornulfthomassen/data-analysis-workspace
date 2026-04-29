@@ -3,12 +3,63 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure aggregates historical handset usage data from the `CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG` table. It groups the data by `MODELID` and calculates the count of entries, along with the minimum and maximum values for various period keys, terminal usage dates, producer names, model names, device OS types, categories, touch screen status, device types, HD voice, and LTE capabilities. Before processing, it performs a check to ensure sufficient data exists in both the main source table (`CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG`) and `GALAXY.DATE_DIM_MV` for the specified month. If the target aggregated table (`ADM_HANDSET_HIST_AGG`) already exists, it is dropped and then recreated, effectively performing a full overwrite. After creation, statistics are computed on the new table, and `SELECT` privileges are granted to `CRM_ANALYSE`.
+Aggregates handset history data from the `CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG` table by model identifier (MODELID). It calculates counts of records and determines the first/last period month keys, terminal usage dates, and various first/last attributes related to the device producer, model, OS type, category, touch screen, device type, HD voice, and LTE capabilities. The aggregated results are stored in the `ADM_HANDSET_HIST_AGG` table, which is completely rebuilt (dropped and recreated) for the specified period after validating the availability and status of necessary source data from `GALAXY.DATE_DIM_MV` and `CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG` itself.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG]]
 - ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| YEAR_MONTH_NUMBER |
+- ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST_AGG]]
+| Column Name |
+|---|
+| LAST_PERIOD_MONTH_KEY |
+| MODELID |
+| FIRST_PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| FIRST_PRODUCERNAME |
+| LAST_PRODUCERNAME |
+| FIRST_MODELNAME |
+| LAST_MODELNAME |
+| FIRST_DEVICE_OS_TYPE |
+| LAST_DEVICE_OS_TYPE |
+| FIRST_DEVICE_CATEGORY |
+| LAST_DEVICE_CATEGORY |
+| FIRST_DEVICE_TOUCH_SCREEN |
+| LAST_DEVICE_TOUCH_SCREEN |
+| FIRST_DEVICE_TYPE |
+| LAST_DEVICE_TYPE |
+| FIRST_DEVICE_HD_VOICE |
+| LAST_DEVICE_HD_VOICE |
+| FIRST_DEVICE_LTE |
+| LAST_DEVICE_LTE |
 
 ## Target Tables (Outputs)
 - → [[ADM_HANDSET_HIST_AGG]]
+| Column Name |
+|---|
+| MODEL_KEY |
+| ANTALL |
+| FIRST_PERIOD_MONTH_KEY |
+| LAST_PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| FIRST_PRODUCERNAME |
+| LAST_PRODUCERNAME |
+| FIRST_MODELNAME |
+| LAST_MODELNAME |
+| FIRST_DEVICE_OS_TYPE |
+| LAST_DEVICE_OS_TYPE |
+| FIRST_DEVICE_CATEGORY |
+| LAST_DEVICE_CATEGORY |
+| FIRST_DEVICE_TOUCH_SCREEN |
+| LAST_DEVICE_TOUCH_SCREEN |
+| FIRST_DEVICE_TYPE |
+| LAST_DEVICE_TYPE |
+| FIRST_DEVICE_HD_VOICE |
+| LAST_DEVICE_HD_VOICE |
+| FIRST_DEVICE_LTE |
+| LAST_DEVICE_LTE |
 

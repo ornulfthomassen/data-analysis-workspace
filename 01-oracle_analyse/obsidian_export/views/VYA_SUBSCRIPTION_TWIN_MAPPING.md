@@ -3,9 +3,23 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies and maps related or 'twin' subscriptions by linking child subscriptions to their parent subscriptions. It filters out self-referencing subscriptions (`parent_subscription_id <> subscription_id`) and applies additional criteria for specific business areas (ID 2), market areas (IDs 2, 3, 4), and a specific end date range (between April 1, 2019, and June 1, 2020). For each unique combination of parent subscription ID, child subscription ID, main number, and product name, it calculates the earliest start date and the latest end date among the aggregated records. The output provides a structured overview of these filtered and aggregated subscription relationships along with their associated product details and relevant timeframes.
+This view identifies and aggregates subscription data for 'twin' or related subscriptions (where a subscription has a different parent subscription ID). It filters by specific business and market areas, an end date range, consolidates the earliest start date and latest end date within each group, and includes the associated product name.
 
 ## Data Sources (Inputs)
-- ← [[ccdw.subscription]]
-- ← [[pd]]
+- ← [[CCDW.SUBSCRIPTION]]
+| Column Name |
+|---|
+| parent_subscription_id |
+| subscription_id |
+| main_number |
+| start_date |
+| end_date |
+| product_offer_id |
+| business_area_id |
+| market_Area_id |
+- ← [[PD]]
+| Column Name |
+|---|
+| product_name |
+| product_key |
 

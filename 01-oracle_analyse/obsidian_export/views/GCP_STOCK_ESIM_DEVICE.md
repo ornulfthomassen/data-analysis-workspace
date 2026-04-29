@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Transforms and standardizes device stock information, renaming columns and categorizing subscription types for various device types and marketing names. Specifically, it maps raw subscription types to standardized values like 'TaleTvilling', 'Hovedabonnement', or 'DataTvilling'.
+Provides a standardized view of eSIM device stock information, including categorized subscription types, by transforming data from the CLM_ADM.STOCK_ESIM_DEVICE table.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.STOCK_ESIM_DEVICE]]
+| Column Name |
+|---|
+| DAY |
+| MARKET |
+| REL_SUBSCR_TYPE |
+| DEVICE_TYPE |
+| MARKETING_NAME |
+| ANTALL |
 

@@ -3,9 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Creates a comprehensive postcode dimension table by combining postcode-specific details with municipality-specific details. It provides administrative information such as postcode number, place, county code, county, municipality code, municipality, postcode category, along with latitude and longitude for both the specific postcode and its corresponding municipality.
+Creates a dimension view for Norwegian postcode and municipality data, combining and enriching postcode information with municipality-level geographical coordinates from two related dimension tables.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.DIMPOSTNUMMER_T]]
+| Column Name |
+|---|
+| POSTNUMMER |
+| POSTSTED |
+| FYLKEKODE |
+| FYLKE |
+| KOMMUNEKODE |
+| KOMMUNE |
+| POSTNUMMERKATEGORIKODE |
+| POSTNUMMERKATEGORI |
+| LATITUDE |
+| LONGITUDE |
 - ← [[CRM_ANALYSE.DIMPOSTNUMMER]]
+| Column Name |
+|---|
+| KOMMUNEKODE |
+| LATITUDE |
+| LONGITUDE |
 

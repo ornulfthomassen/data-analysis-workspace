@@ -3,11 +3,43 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Consolidates and transforms movie rental agreement data from various KAS schema tables. It enriches agreement details with customer type flags (VIP, test customer), standardizes content library names, extracts film IDs, classifies movies by format (3D, HD, SD), and incorporates agreement status information. The view filters agreements based on specific dates (after 2013-01-01), status codes, and a predefined list of content providers/bibliotek names.
+This view creates a comprehensive dataset of movie rental agreements by joining core agreement data with customer, product, and status information. It enriches the raw data by deriving new attributes such as provider details, film format (3D/HD/SD), customer segments (e.g., VIP, test customer), and various status descriptions, while applying specific filters based on agreement status, date, and product library names.
 
 ## Data Sources (Inputs)
 - ← [[KAS.avtale]]
+| Column Name |
+|---|
+| avtale_nr |
+| status |
+| abonnent_nr |
+| produkt_nr |
+| enhets_pris |
+| rabatt |
+| fra_dato |
+| reg_dato |
+| rabatt_kr |
+| signatur |
 - ← [[KAS.kunde]]
+| Column Name |
+|---|
+| abonnent_nr |
+| PURREKODE |
+| kundegruppe |
 - ← [[KAS.produkt_vod]]
+| Column Name |
+|---|
+| bibliotek_navn |
+| film_id |
+| platform |
+| pris |
+| produkt_nr |
+| tittel |
+| behandlet |
+| dato_i_tabell |
 - ← [[KAS.FSO_KAS_STATUS]]
+| Column Name |
+|---|
+| status |
+| KATEGORI_BESKRIVELSE |
+| PRODUKT_NR |
 

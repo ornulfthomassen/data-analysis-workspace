@@ -3,11 +3,151 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, named 'ORDER_LINE_DETAIL_FACT_BUS_V', serves as a comprehensive fact table for detailed order line analysis in a business intelligence or data warehousing context. It consolidates and enriches core order line data with related information from customer mappings, subscription master data, and time dimensions. Specifically, it joins order line details with customer ownership and usage, subscription information, and converts date and time keys into readable datetime formats (OSD_DTTM, OD_DTTM). It calculates and presents a wide array of attributes including various keys, indicators (KPIs for sales, porting, churn, etc.), product details, campaign references, and resource values, making it suitable for granular reporting and analytical queries related to order line performance, customer behavior, and operational metrics.
+Consolidates detailed order line information, customer mapping, subscription master data, and order time dimensions into a comprehensive business-level fact view for reporting and analysis. It enriches core order line data with related customer, subscription, and temporal attributes.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.ORDER_LINE_DETAIL_MOB_BUS_MV]]
+| Column Name |
+|---|
+| ORDER_LINE_ID |
+| ORDER_KEY |
+| ORDER_LINE_KEY |
+| ORDER_CATEGORY_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_PRODUCT_KEY |
+| BINDED_PRODUCT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CUSTOMER_ORDER_ID |
+| ORDER_LINE_PARENT_ID |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| PRODUCT_CATEGORY_KEY |
+| ORDERING_DT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| TO_ORDER_PRODUCT_KEY |
+| PRODUCT_CHANGE_FLAG |
+| ACCOUNT_KEY |
+| ORDER_SUBSCR_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_PRIM_PROD_KEY |
+| AGREEMENT_OFFER_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| SUBSCR_OWNER_LOC_KEY |
+| SUBSCR_USER_LOC_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| BUSINESS_AREA_KEY |
+| ORDER_APPLICATION_KEY |
+| DEALER_KEY |
+| SOURCE_SYSTEM_KEY |
+| EMPLOYEE_SALES_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| EMPLOYEE_DEALER_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| AGREEMENT_KEY |
+| HANDSET_KEY |
+| ORDER_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDER_STATUS_DT_KEY |
+| ORDER_STATUS_TIME_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| CAMPAIGN_REF_KEY |
+| CAMPAIGN_REF_TTC |
+| CAMPAIGN_COMMUNICATION_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_CHANNEL_KEY |
+| SALES_MATRIX_KEY |
+| CAMPAIGN_SOURCE_SYSTEM_KEY |
+| SOURCE_ORDERING_ID |
+| RESOURCE_VALUE |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| SOURCE_ORDER_ID |
+| NUMBER_OF_ORDERS |
+| NUMBER_OF_ORDER_LINES |
+| KPI_NEWSALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_PRODUCT_CHANGE |
+| KPI_TERMINATION |
+| KPI_SUBSCRIPTION_TERMINATION |
+| KPI_GROSS_SALE |
+| KPI_INTERNAL_CHURN |
+| KPI_NEWSALE_SPEECH |
+| KPI_PORTING_OUTBOUND_SPEECH |
+| KPI_PORTING_OUTBOUND_MBB |
+| KPI_TERMINATION_SPEECH |
+| KPI_GROSS_SALE_SPEECH |
+| KPI_DEVICE_SWAPPING |
+| KPI_NEWSALE_DEVICE |
+| CAMPAIGN_DATE_KEY |
+| CAMPAIGN_TREATMENT_KEY |
+| CUSTOMER_EVENT_ID |
+| SOURCE_CUST_ORDER_REF |
+| SOURCE_PROJECT_REF |
+| DEVICE_AGREEMENT_KEY |
+| NUMBER_OF_LICENSES |
+| NUMBER_OF_LICENSES_NET_CHANGE |
+| NRPORT_DEALER_ID |
+| SWAP_AGREE_PRODUCT_KEY |
+| SWAP_AGREE_VALID_FROM_DT_KEY |
+| SWAP_AGREE_VALID_TO_DT_KEY |
+| TERMINATION_REASON_KEY |
+| SWAP_NEWSALE_FLAG |
+| REGRET_ORDER_KEY |
+| REGRET_ORDER_DT_KEY |
+| REGRET_ORDER_TIME_KEY |
+| REGRET_ORDER_STATUS_DT_KEY |
+| REGRET_ORDER_STATUS_TIME_KEY |
+| REGRET_ORDER_PRODUCT_KEY |
+| REGRET_ORDER_DAYS |
+| REGRET_ORDER_STATUS_DAYS |
+| REGRET_ORDER_CATEGORY_KEY |
+| REGRET_ORDER_DEALER_KEY |
+| REGRET_ORDER_SP_FROM_KEY |
+| MAP2_SEGMENT_KEY |
+| MAP2_SOURCE_SEGMENT_ID |
+| CLMLS_SEGMENT_KEY |
+| CLMLS_SOURCE_SEGMENT_ID |
+| COMMISSION_GROUP_TYPE_KEY |
+| SWAP_FROM_AGREE_PRODUCT_KEY |
+| SWAP_FROM_VALID_FROM_DT_KEY |
+| SWAP_FROM_VALID_TO_DT_KEY |
+| SWAP_TO_AGREE_PRODUCT_KEY |
+| SWAP_TO_VALID_FROM_DT_KEY |
+| SWAP_TO_VALID_TO_DT_KEY |
+| FB_AGREEMENT_KEY |
+| FB_DATABONUS_SIZE |
+| FB_NUMBER_OF_PRODUCTS |
+| DATASTEP_GB |
+| DATASTEP_PRICE |
+| RUN_ID |
+| SEQ_ID |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| customer_sk |
+| KURT_ID |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| main_number_sk |
+| SUBSCRIPTION_ID |
 - ← [[GALAXY.ORDER_TIME_DIM_V]]
+| Column Name |
+|---|
+| ORDER_TIME |
+| ORDER_TIME_KEY |
 

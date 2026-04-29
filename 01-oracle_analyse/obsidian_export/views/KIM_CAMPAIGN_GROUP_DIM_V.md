@@ -3,8 +3,18 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a standardized view of campaign group dimension attributes and budget information, applying explicit type-casting (VARCHAR2 length specification) to character-based columns. It serves as a direct wrapper around the source table, potentially for data consistency or reporting purposes.
+Provides a dimension view of campaign group information by selecting all columns from the source table and applying data type casting to character columns for specific length requirements.
 
 ## Data Sources (Inputs)
 - ← [[CRM_ANALYSE.KIM_CAMPAIGN_GROUP_DIM]]
+| Column Name |
+|---|
+| CAMPAIGN_GROUP_SK |
+| CAMPAIGN_GROUP_NM |
+| CAMPAIGN_GROUP_DESC |
+| CAMPAIGN_GROUP_AREA |
+| MAX_BUDGET_AMT |
+| MAX_BUDGET_OFFER_AMT |
+| MIN_BUDGET_AMT |
+| MIN_BUDGET_OFFER_AMT |
 

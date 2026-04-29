@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Aggregates monthly net usage and net discount amounts per subscription, distinguishing between traffic associated with a CPA (Cost Per Action) business model and traffic not associated with it. The calculations are performed for specific subscription types/statuses.
+Calculates aggregated net usage metrics, distinguishing between CPA (Cost Per Acquisition) and non-CPA business models, for specific subscription types, grouped by period month and subscription.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.TRAFFIC_MONTH_FACT_V]]
+| Column Name |
+|---|
+| PERIODE_MONTH_KEY |
+| SUBSCRIPTION_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| TRAFFIC_NET_AMOUNT |
+| TRAFFIC_NET_DISCOUNT_AMOUNT |
+| SUBSCR_TYPE_STATUS_KEY |
 

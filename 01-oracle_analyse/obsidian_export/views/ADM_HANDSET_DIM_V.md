@@ -3,9 +3,20 @@
 **Schema:** `CLM_ADM` | **Type:** `View`
 
 ## Description
-This Oracle SQL view, named ADM_HANDSET_DIM_V, serves as a dimension table for handset (mobile device) information. Its primary purpose is to standardize and consolidate various naming conventions for manufacturers and marketing names (models) of mobile devices. It achieves this through extensive CASE statements that map diverse raw input values to cleaner, more consistent categories. The view also retains the original source information as 'HAT_MANUFACTURER' and 'HAT_MARKETING_NAME' for traceability. This standardization is crucial for consistent reporting and analysis in a data warehousing environment.
+The view `ADM_HANDSET_DIM_V` creates a standardized and enriched dimension table for mobile handsets. It processes raw device data from `CCDW.HANDSET_TYPE_EXT` by applying complex logic to normalize manufacturer names and derive a primary marketing name (`MARKETING_NAME_L1`) from various designation fields. It also generates a secondary marketing name (`MARKETING_NAME_L2`) for unclassified devices, retaining original source values for auditing and debugging purposes. It leverages `ADM_GSMA_MARKETING_NAME_DIM` for lookup and filtering during the data processing.
 
 ## Data Sources (Inputs)
 - ← [[CCDW.HANDSET_TYPE_EXT]]
+| Column Name |
+|---|
+| TACFAC |
+| MODELID |
+| HAT_PRODUCER |
+| HAT_MODEL_MARKETING_NAME |
+| GSMA_NAME |
 - ← [[ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| TAC |
+| MARKETING_NAME_L1 |
 

@@ -3,19 +3,105 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle SQL procedure, `SPES_TAB_CRM_ANALYSE_2_CLM_ADM`, is designed to migrate and transform customer and subscription data on a monthly basis. It iterates through a specified date range (P_YYYYMM_FRA to P_YYYYMM_TIL) and for each month, it processes data from a source partitioned table (P_TABLE_OLD, typically in CRM_ANALYSE schema). The procedure dynamically creates a new target partitioned table (P_TABLE_NEW, in CLM_ADM schema) if it does not exist, defining its structure based on the source table's columns and additional custom customer/subscription-related columns. It then populates a temporary staging table (P_TMP_TABLE) by selecting and transforming data from the source table, performing lookups against ADM_SUBSCRIPTION_MASTER_HIST and monthly ADM_CUSTOMER_MAPPING tables to derive new customer keys (V_CUST_COLUMN1 to V_CUST_COLUMN9). After populating and modifying the temporary table (setting columns to NOT NULL), it performs an `ALTER TABLE ... EXCHANGE PARTITION` operation, swapping the temporary table with a corresponding partition in the permanent target table. The process includes logging of migration steps and status into ADM_MIGRATE_LOG and updates table statistics.
+This procedure migrates partitioned data from a source table in the CRM_ANALYSE schema to a target partitioned table in the CLM_ADM schema. For each specified month, it creates a temporary table, populates it by joining the source data with customer mapping and subscription master history tables, transforms specific customer ID columns using mapping, and then exchanges this temporary table with a corresponding partition in the target table. It also handles target table/partition creation and logs the migration process.
 
 ## Data Sources (Inputs)
 - ← [[SYS.ALL_OBJECTS]]
-- ← [[ALL_TAB_COLS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| OWNER |
+| SUBOBJECT_NAME |
+- ← [[SYS.ALL_TAB_COLS]]
+| Column Name |
+|---|
+| COLUMN_ID |
+| OWNER |
+| TABLE_NAME |
+| COLUMN_NAME |
+| DATA_TYPE |
+| DATA_LENGTH |
+| DATA_PRECISION |
+| NULLABLE |
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
-- ← [[CRM_ANALYSE.P_TABLE_OLD]]
-- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
-- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_YYYYMM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| RELATIVE_MONTH |
 - ← [[ADM_MIGRATE_LOG]]
+| Column Name |
+|---|
+| AML_ID |
+- ← [[V_FRA_SCHEMA.V_TABLE_OLD]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| P_KURT_COLUMN1 |
+| P_KURT_COLUMN2 |
+| P_KURT_COLUMN3 |
+| P_KURT_COLUMN4 |
+| P_KURT_COLUMN5 |
+| P_KURT_COLUMN6 |
+| P_KURT_COLUMN7 |
+| P_KURT_COLUMN8 |
+| P_KURT_COLUMN9 |
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING_{ITEM.PERIOD_MONTH_KEY}]]
+| Column Name |
+|---|
+| KURT_ID |
+| CUSTOMER_SK |
 
 ## Target Tables (Outputs)
-- → [[CLM_ADM.P_TABLE_NEW]]
-- → [[P_TMP_TABLE]]
+- → [[V_TIL_SCHEMA.V_TABLE_NEW]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| P_CUST_COLUMN1 |
+| P_CUST_COLUMN2 |
+| P_CUST_COLUMN3 |
+| P_CUST_COLUMN4 |
+| P_CUST_COLUMN5 |
+| P_CUST_COLUMN6 |
+| P_CUST_COLUMN7 |
+| P_CUST_COLUMN8 |
+| P_CUST_COLUMN9 |
 - → [[ADM_MIGRATE_LOG]]
+| Column Name |
+|---|
+| AML_ID |
+| MIGRATE_DTTM_START |
+| MIGRATE_DTTM_END |
+| FROM_TABLE |
+| TO_TABLE |
+| FROM_NUM_COLUMNS |
+| TO_NUM_COLUMNS |
+| PERIOD_MONTH_KEY |
+| FROM_NUM_ROWS |
+| TO_NUM_ROWS |
+| STATUS |
+| ERROR_MESSAGE |
+- → [[V_TMP_TABLE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MAIN_NUMBER_SK |
+| P_CUST_COLUMN1 |
+| P_CUST_COLUMN2 |
+| P_CUST_COLUMN3 |
+| P_CUST_COLUMN4 |
+| P_CUST_COLUMN5 |
+| P_CUST_COLUMN6 |
+| P_CUST_COLUMN7 |
+| P_CUST_COLUMN8 |
+| P_CUST_COLUMN9 |
 

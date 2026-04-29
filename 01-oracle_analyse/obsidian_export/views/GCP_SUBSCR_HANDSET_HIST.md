@@ -3,8 +3,16 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `GCP_SUBSCR_HANDSET_HIST`, serves to expose historical subscription handset data from the `CLM_ADM` schema into the `CCM` schema. It provides a direct, untransformed mirror of the underlying table, including details such as period, subscription ID, TAC (Type Allocation Code), model ID, and the first and last dates of terminal use. The 'GCP' prefix might indicate its intended use in Google Cloud Platform-related data processes.
+Creates a view named `CCM.GCP_SUBSCR_HANDSET_HIST` by selecting specific columns directly from the `CLM_ADM.ADM_SUBSCR_HANDSET_HIST` table/view. It serves as a direct projection of the source data.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| TAC |
+| MODELID |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
 

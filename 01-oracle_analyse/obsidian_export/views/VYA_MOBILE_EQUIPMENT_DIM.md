@@ -3,12 +3,42 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, `VYA_MOBILE_EQUIPMENT_DIM`, serves as a comprehensive dimension table for mobile equipment. Its primary purpose is to consolidate and enrich device (handset) information from various sources for data warehousing or analytical loading ('LOADING Device DIM-DATA TO MJØSA'). It combines core device attributes, cleanses textual fields (e.g., marketing names, manufacturers), standardizes device types (e.g., 'PDA' to 'Smartphone'), and calculates launch dates based on the earliest known sales start or historical data. It also ensures that all handset keys found in order line details are included, even if they don't yet exist in the main device dimension, marking them as 'Ukjent' (Unknown).
+Creates a comprehensive dimension view for mobile equipment (handsets) by consolidating device attributes, range information, and launch dates from multiple source tables. It combines known devices from a device dimension with 'unknown' devices identified from order line data, ensuring all handsets from orders are represented. The view also calculates various date-related attributes like launch date, year, and month.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_DEVICE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| LOAD_DATE_KEY |
+| DEVICE_MANUFACTURER |
+| DEVICE_MANUFACTURER_SHORT |
+| DEVICE_MARKETING_NAME |
+| DEVICE_CATEGORY |
+| DEVICE_CLASS |
+| DEVICE_OS_INFO |
+| DEVICE_TYPE |
+| DEVICE_CAMERA_INFO |
 - ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| HANDSET_KEY |
 - ← [[CLM_ADM.ADM_DEVICE_RANGE_DIM]]
+| Column Name |
+|---|
+| DEVICE_KEY |
+| DEVICE_RANGE |
+| MODEL_ID |
+| MANUFACTURER |
+| MAIN_MODEL_MARKETING_NAME |
 - ← [[GALAXY.HANDSET_DIM_V]]
+| Column Name |
+|---|
+| HANDSET_KEY |
+| LOCAL_SALES_START_DATE |
 - ← [[CLM_ADM.ADM_HANDSET_HIST_AGG]]
+| Column Name |
+|---|
+| MODEL_KEY |
+| FIRST_PERIOD_MONTH_KEY |
 

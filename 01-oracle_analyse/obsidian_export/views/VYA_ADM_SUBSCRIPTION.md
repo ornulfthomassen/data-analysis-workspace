@@ -3,28 +3,233 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view provides a comprehensive, monthly snapshot of subscription data, intended for loading into a data warehouse (referred to as 'Mjøsa' in the comments). It aggregates various historical and current details related to each subscription, including customer information, product attributes, device usage, traffic statistics (data, MMS, SMS, voice), revenue figures, and status for programs like 'Next Familie Rabatt' and 'SWAP' agreements. The data is time-bound by 'PERIOD_MONTH_KEY', indicating a historical perspective on subscription attributes and activities.
+The view VYA_ADM_SUBSCRIPTION provides a comprehensive, aggregated monthly snapshot of subscription data for analytical purposes. It combines historical subscription details with customer information, product attributes, device usage, traffic statistics (MB, MMS, SMS, Voice) for the current and previous three months, revenue figures, and related attributes like market area, sales channels, porting details, and device agreements. It filters out certain internal customer IDs and calculates various derived metrics for reporting and analysis, primarily for loading into a data mart ('Mjøsa').
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_CHAR |
+| PERIOD_MONTH_DATE |
+| NEXT_PERIOD_MONTH_CHAR |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_HISTORY]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| CUSTOMER_SK_OWNER |
+| CUSTOMER_SK_USER |
+| PRODUCT_BRAND |
+| SUBS_NO_DAYS_ACTIVE |
+| PROD_NO_DAYS_ACTIVE |
+| PRODUCT_OFFER_ID |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| SUBSCRIPTION_ID_PREV |
+| SUBSCRIPTION_ID_ORIG |
+| SUBSCRIPTION_ID_PAST |
+| MAIN_NUMBER_SK |
+| PRODUCT_GROUP |
+| ORIGINAL_START_DATE |
+| ORIGINAL_START_DATE_ORIG |
+| SUBSCR_START_REASON |
+| NEW_USER_IND |
+| PORT_IN_SERV_PROV_ID |
+| PORT_OUT_SERV_PROV_ID |
+| PORT_OUT_DATE |
+| MARKET_AREA_ID |
+| MARKET_AREA_ID_PREV |
 - ← [[CLM_ADM.ADM_CUSTOMER_INFO_HIST]]
-- ← [[CLM_ADM.ADM_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| PERIOD_MONTH_KEY |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
 - ← [[CRM_ANALYSE.PD]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+- ← [[CLM_ADM.ADM_SUBSCR_DETAIL_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| BANKID_USED_LAST1 |
+| BANKID_USED_LAST2 |
+| BANKID_USED_LAST3 |
 - ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| START_DATE |
+| END_DATE |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME |
+| DRM_COMMON_PORTFOLIO |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_FAMILY |
+| PRODUCT_ATTRIBUTE_KEY |
+| INCLUDED_MB |
+| MONTHLY_FEE |
 - ← [[CRM_ANALYSE.ADM_MOBIL_SUBSCR_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| CHANGETYPE_START |
+| DEALER_NAME |
+| DEALER_SALES_CHANNEL_TYPE |
+| DEALER_CHAIN |
 - ← [[CRM_ANALYSE.ADM_SERVICE_PROVIDER_DIM]]
+| Column Name |
+|---|
+| SERVICE_PROVIDER_KEY |
+| SERVICE_PROVIDER_GROUP |
 - ← [[CRM_ANALYSE.ADM_MARKET_AREA_DIM]]
+| Column Name |
+|---|
+| MARKET_AREA_KEY |
+| MARKET_AREA_NAME_4C |
 - ← [[CLM_ADM.ADM_SUBSCRIPTION_AGG]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+| KR_MB_TOT_PREV1 |
+| KR_MB_TOT_PREV2 |
+| KR_MB_TOT_PREV3 |
+| NUMBER_OF_MMS_NORGE_PREV1 |
+| NUMBER_OF_MMS_NORGE_PREV2 |
+| NUMBER_OF_MMS_NORGE_PREV3 |
+| KR_MMS_NORGE_PREV1 |
+| KR_MMS_NORGE_PREV2 |
+| KR_MMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_NORGE_PREV1 |
+| NUMBER_OF_SMS_NORGE_PREV2 |
+| NUMBER_OF_SMS_NORGE_PREV3 |
+| NUMBER_OF_SMS_UTLAND_PREV1 |
+| NUMBER_OF_SMS_UTLAND_PREV2 |
+| NUMBER_OF_SMS_UTLAND_PREV3 |
+| KR_SMS_NORGE_PREV1 |
+| KR_SMS_NORGE_PREV2 |
+| KR_SMS_NORGE_PREV3 |
+| KR_SMS_UTLAND_PREV1 |
+| KR_SMS_UTLAND_PREV2 |
+| KR_SMS_UTLAND_PREV3 |
+| NUMBER_SPEECH_NORGE_PREV1 |
+| NUMBER_SPEECH_NORGE_PREV2 |
+| NUMBER_SPEECH_NORGE_PREV3 |
+| NUMBER_SPEECH_UTLAND_PREV1 |
+| NUMBER_SPEECH_UTLAND_PREV2 |
+| NUMBER_SPEECH_UTLAND_PREV3 |
+| DURAT_SPEECH_NORGE_PREV1 |
+| DURAT_SPEECH_NORGE_PREV2 |
+| DURAT_SPEECH_NORGE_PREV3 |
+| DURAT_SPEECH_UTLAND_PREV1 |
+| DURAT_SPEECH_UTLAND_PREV2 |
+| DURAT_SPEECH_UTLAND_PREV3 |
+| KR_SPEECH_NORGE_PREV1 |
+| KR_SPEECH_NORGE_PREV2 |
+| KR_SPEECH_NORGE_PREV3 |
+| KR_SPEECH_UTLAND_PREV1 |
+| KR_SPEECH_UTLAND_PREV2 |
+| KR_SPEECH_UTLAND_PREV3 |
+| GROSS_PERIODIC_FEE_FULL |
+| NET_FEE |
+| NET_USE |
+| NET_PERIODIC_FEE |
+| NET_DISCOUNT_PERIODIC_FEE |
+| NET_INITIATION_FEE |
+| NET_TERMINATION_FEE |
+| NET_DISCOUNT_FIXED_FEE |
+| NET_DISCOUNT_STARTUP_FEE |
+| NET_AMOUNT_USE |
+| NET_DISCOUNT_AMOUNT_USE |
 - ← [[CLM_ADM.ADM_SUBSCR_HANDSET_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| TERMINAL_USE_FIRST_DATE |
+| TERMINAL_USE_LAST_DATE |
+| MODELID |
+| MODELNAME |
+| DEVICE_OS_TYPE |
+| PRODUCERNAME |
+| DEVICE_CATEGORY |
+| DEVICE_TYPE |
+| DEVICE_HD_VOICE |
+| DEVICE_TOUCH_SCREEN |
+| DEVICE_LTE |
+| TAC |
 - ← [[CLM_ADM.ADM_GSMA_MARKETING_NAME_DIM]]
+| Column Name |
+|---|
+| TAC |
+| MARKETING_NAME_L1 |
 - ← [[CLM_ADM.ADM_MOB_SUBS_REVENUE_3MO]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| NET_REVENUE_ADJUSTED |
+| NET_PERIODIC_FEE_BINDING |
+| NET_DISCOUNT_FIXED_FEE_BINDING |
+| NET_AMOUNT_USE_ROAM |
+| NET_DISCOUNT_AMOUNT_USE_ROAM |
+| NET_AMOUNT_USE_CPA |
+| NET_AMOUNT_USE_CPA_ROAMING |
 - ← [[CLM_ADM.ADM_PROFIT_CAT_SUBS_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| CATEGORY |
 - ← [[CRM_ANALYSE.ADM_PROFIT_CAT_DIM]]
+| Column Name |
+|---|
+| PROFIT_CAT_KEY |
+| PROFIT_CAT_NAME_3C |
+| PROFIT_CAT_NAME_7C |
 - ← [[CLM_ADM.ADM_PROFIT_CAT_MND_SUBS_HIST]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| NET_REVENUE_ADJUSTED |
 - ← [[CLM_ADM.ADM_MOBIL_PORT_HISTORY]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| SHOPPER_FLG |
+| ANT_TELENOR |
 - ← [[CLM_ADM.ADM_DEVICE_AGREEMENT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| USE_SUBSCRIPTION_ID |
+| DEVICE_AGREEMENT_END_DATE |
+| IMEI_USE_LAST_DATE |
+| PRODUCT_AGREEMENT_ID |
+| IMEI |
+| PRODUCT_AGREE_DRM_COM_MRK_PROD |
+| RANGERING |
 - ← [[CLM_ADM.ADM_CUST_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| CUSTOMER_SK_OWNER |
+| PERIOD_MONTH_KEY |
 - ← [[CLM_ADM.ADM_SUBS_NEXT_FAMILIE_AGG]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| PERIOD_MONTH_KEY |
+| LAST_PRODUCT_OFFER_ID |
 

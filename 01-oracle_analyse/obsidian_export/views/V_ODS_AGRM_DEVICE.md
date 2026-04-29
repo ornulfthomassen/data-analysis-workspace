@@ -3,11 +3,40 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, V_ODS_AGRM_DEVICE, consolidates detailed information about 'Utstyr' (equipment/device) agreements, linking them to customer data and specific mobile device (IMEI) usage history. It retrieves agreement details, product specifics, customer mapping, and the latest terminal usage dates for IMEIs. It also derives flags to indicate whether an agreement, product, or IMEI (based on recent usage) is active.
+Combines agreement, product, device (IMEI), and customer mapping data, specifically for products named 'Utstyr'. It includes device details, customer ownership, agreement and product status, and calculates flags to indicate active agreements, products, and recent IMEI usage.
 
 ## Data Sources (Inputs)
 - ← [[clm_ccm.v_ods_agrmt_mob]]
+| Column Name |
+|---|
+| agreement_id |
+| src_agrm_agreement_offer_id |
+| agreement_product_name |
+| agreement_status |
+| agreement_start_date |
+| agreement_end_date |
 - ← [[clm_ccm.v_ods_agrmt_offer_mob_device]]
+| Column Name |
+|---|
+| agreement_id |
+| src_agrm_agreement_offer_id |
+| kurt_id |
+| product_status |
+| product_name_market |
+| product_name |
+| product_start_date |
+| product_end_date |
+| imei_full |
+| imei_full_num |
 - ← [[clm_adm.adm_customer_mapping]]
+| Column Name |
+|---|
+| kurt_id |
+| customer_sk |
 - ← [[live.eureka_imei]]
+| Column Name |
+|---|
+| imei |
+| terminal_use_first_date |
+| terminal_use_last_date |
 

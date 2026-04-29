@@ -3,14 +3,50 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-This Oracle PL/SQL procedure (`P_ADM_CUSTOMER_CORE`) is designed to create or refresh a specific monthly partition within a master customer core table (`ADM_CUSTOMER_CORE`). It first checks for the existence of the target table and its partition. If the partition already exists, it can either error out (if it contains data and overwrite is not allowed) or proceed. It then builds a temporary staging table (`TMP_CUSTOMER_CORE`) by selecting and transforming data from various CRM/CLM analytic dimensions and history tables for the specified month. Finally, it uses a partition exchange operation to efficiently replace or load the data from the temporary table into the corresponding monthly partition of the permanent `ADM_CUSTOMER_CORE` table, and then gathers statistics on the newly loaded partition.
+This procedure processes customer-related data for a specified month (P_YYYYMM) and loads it into a monthly partition of the 'ADM_CUSTOMER_CORE' table. It uses a partition exchange mechanism: it first creates a temporary table ('TMP_CUSTOMER_CORE') with the processed data, then swaps this temporary table's content into the target partition of 'ADM_CUSTOMER_CORE', and finally analyzes the new partition. It also handles partition creation and checks for existing data to prevent unintended overwrites.
 
 ## Data Sources (Inputs)
+- ← [[SYS.ALL_OBJECTS]]
+| Column Name |
+|---|
+| OBJECT_TYPE |
+| OBJECT_NAME |
+| SUBOBJECT_NAME |
+| OWNER |
+- ← [[ADM_CUSTOMER_CORE]]
 - ← [[CRM_ANALYSE.ADM_MONTH_DIM_V]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| LAST_DATE |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 - ← [[CRM_ANALYSE.ADM_HOUSEHOLD_INFO_KURT_HIST]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| KURT_ID |
 
 ## Target Tables (Outputs)
-- → [[ADM_CUSTOMER_CORE]]
 - → [[TMP_CUSTOMER_CORE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| CUSTOMER_BUCKET |
+| CUSTOMER_SK |
+| MONTH_CUSTOMER_SK |
+| NEXT_MONTH_CUSTOMER_SK |
+- → [[ADM_CUSTOMER_CORE]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PERIOD_MONTH_DATE |
+| CUSTOMER_BUCKET |
+| CUSTOMER_SK |
+| MONTH_CUSTOMER_SK |
+| NEXT_MONTH_CUSTOMER_SK |
 

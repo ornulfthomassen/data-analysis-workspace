@@ -3,9 +3,118 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, PRODUCT_DIM_V, serves as a comprehensive product dimension. Its primary purpose is to consolidate and standardize a wide range of product attributes from various source systems into a single, unified view. It includes detailed product classifications (e.g., reporting levels, technology, category, group), pricing and inclusion details (e.g., startup fees, monthly fees, included minutes/SMS/MB), and other descriptive characteristics. The view combines general product data with specific product data related to 'Talkmore' offerings, applying business logic and transformations (such as CASE statements for product reporting levels and technology classification) to create a consistent master data set for products, likely used for analytical reporting, CRM, and business intelligence.
+Combines product data from a general product dimension (PD) and a Talkmore-specific product dimension (CLM_ADM.TALKMORE_PRIM_PRODUCT_DIM) to create a unified product dimension view, enriching it with detailed product categorizations, reporting levels, and other derived attributes. The first set of products is filtered by source system name or product key, while the second set specifically processes Talkmore products.
 
 ## Data Sources (Inputs)
 - ← [[PD]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| POID |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRIMARY_PRODUCT_FLAG |
+| PRODUCT_REPORT_LEVEL1 |
+| PRODUCT_REPORT_LEVEL2 |
+| PRODUCT_REPORT_LEVEL3 |
+| PRODUCT_REPORT_LEVEL4 |
+| PRODUCT_REPORT_FMC |
+| DRM_COMMON_MARKET_PRODUCT |
+| SOURCE_PRODUCT_ID_2 |
+| SOURCE_SYSTEM_NAME |
+| PRODUCT_SOURCE_SYSTEM_ID |
+| PRODUCT_BUSINESS_AREA_ID |
+| SUBSCRIPTION_TYPE |
+| SUBSCRIPTION_TYPE_ID |
+| PRODUCT_GROUP |
+| DRM_COMMON_BRAND |
+| BRAND |
+| DRM_PRODUCT_CLASS |
+| DRM_PRODUCT_NEED |
+| PRODUCT_PAYTYPE |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| PRODUCT_SALEABLE_FLAG |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_CATEGORY_NAME |
+| PRODUCT_PORTFOLIO_NAME |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| PRODUCT_PAYMENT_TYPE_NAME |
+| PRODUCT_BINDING_TYPE_NAME |
+| PRICE_VAT_DESC |
+| VAT_CODE_FLAG |
+| STARTUP_FEE |
+| MONTHLY_FEE |
+| INCLUDED_MINUTES |
+| PRICE_MIN_AFTER_INCLUDED |
+| INCLUDED_SMS |
+| PRICE_SMS_AFTER_INCLUDED |
+| INCLUDED_MMS |
+| PRICE_MMS_AFTER_INCLUDED |
+| INCLUDED_MB |
+| PRICE_DATA_AFTER_INCLUDED |
+| PRICE_MB_AFTER_INCLUDED |
+| MAX_MONTHLY_CHARGE_MB |
+| BAUD_UPLOAD_MBPS |
+| BAUD_DOWNLOAD_MBPS |
+| BAUD_REDUCTION_QUOTA_MB |
+| TK_INCOME_SERVICE |
+| TK_PRODUCT_RANK |
+| SB_INCLUDED_DATA |
+| FB_BUCKET_SIZE |
+| QUARANTINE_LENGTH_MONTHS |
+| MAX_NUMBER_OF_GOODIES |
+| DRM_MARKET_PRODUCT |
+| DRM_MARKET_PRODUCT_GROUP |
 - ← [[CLM_ADM.TALKMORE_PRIM_PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRIMARY_PRODUCT_FLAG |
+| DRM_COMMON_PRODUCT_GROUP |
+| PRODUCT_PORTFOLIO_NAME |
+| DRM_COMMON_PRODUCT_AREA |
+| PRODUCT_PAYTYPE |
+| DRM_COMMON_MARKET_PRODUCT |
+| SOURCE_PRODUCT_ID_2 |
+| SOURCE_SYSTEM_NAME |
+| PRODUCT_BRAND |
+| DRM_PRODUCT_CLASS |
+| DRM_PRODUCT_NEED |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_REPORTING |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| DRM_COMMON_PAYMENT |
+| PRODUCT_CATEGORY_ID |
+| PRODUCT_CATEGORY_NAME |
+| PRODUCT_FAMILY_NAME |
+| PRODUCT_ACCESS_TYPE_NAME |
+| PRODUCT_PAYMENT_TYPE_NAME |
+| PRODUCT_BINDING_TYPE_NAME |
+| PRICE_VAT_DESC |
+| VAT_CODE_FLAG |
+| PRICE_DATA_AFTER_INCLUDED |
+| TK_INCOME_SERVICE |
+| TK_PRODUCT_RANK |
+| SB_INCLUDED_DATA |
+| FB_BUCKET_SIZE |
+| QUARANTINE_LENGTH_MONTHS |
+| MAX_NUMBER_OF_GOODIES |
+| DRM_MARKET_PRODUCT |
+| DRM_MARKET_PRODUCT_GROUP |
 

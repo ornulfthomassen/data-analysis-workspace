@@ -3,20 +3,104 @@
 **Schema:** `CCM` | **Type:** `Procedure`
 
 ## Description
-The `P_CCM_ADHOC_DATA_LOAD` procedure is designed to automate the loading of ad-hoc data from various source tables into a central target table. It uses a control table (`ADHOC_CMD.ADHOC_CONTROL_SASCI`) to manage which ad-hoc tables need processing. Before loading, it performs several validation checks for each ad-hoc source table:
-1.  **Concurrency Check:** Ensures no other load process for records marked 'Behandles %' is currently active in the control table.
-2.  **Control Table Update:** Marks newly identified ad-hoc tables in the control table with a 'Behandles' status.
-3.  **Source Data Validation:** For each identified ad-hoc source table, it verifies that the table is not empty and that it contains only one distinct `CAMPAIGN_CODE`.
-4.  **Target Data Validation:** Checks if the `CAMPAIGN_CODE` from the ad-hoc source table already exists in the main target table (`CLM_CCM.CCM_ADHOC_DATA`).
-If all validations pass, the procedure inserts data from the ad-hoc source table into `CLM_CCM.CCM_ADHOC_DATA`. Finally, it updates the `ADHOC_CMD.ADHOC_CONTROL_SASCI` control table with the final load status (success or various failure reasons, including row counts and campaign codes) and logs any warnings or errors via `CLM_CCM.P_CCM_LOAD_HISTORY`.
+This Oracle SQL procedure manages the loading of ad-hoc customer campaign data from dynamically specified source tables into a central ad-hoc data table. It performs several validation checks, including ensuring a single campaign code per source table and preventing duplicate campaign codes in the target. It updates a control table with the status and details of each load operation, and logs errors/warnings to a load history table.
 
 ## Data Sources (Inputs)
 - ← [[ADHOC_CMD.ADHOC_CONTROL_SASCI]]
+| Column Name |
+|---|
+| LOAD_STATUS |
+| ADHOC_TABLE |
+| END_DATE |
+- ← [[ADHOC_CMD.[DYNAMIC_SOURCE_TABLE]]]
+| Column Name |
+|---|
+| KURT_ID |
+| SUBSCRIPTION_ID |
+| K2_PUID |
+| CAMPAIGN_CODE |
+| DESCRIPTION |
+| ADDRESS_EMAIL_NAME |
+| NUMERIC_FIELD_1 |
+| NUMERIC_FIELD_2 |
+| NUMERIC_FIELD_3 |
+| NUMERIC_FIELD_4 |
+| NUMERIC_FIELD_5 |
+| NUMERIC_FIELD_6 |
+| NUMERIC_FIELD_7 |
+| NUMERIC_FIELD_8 |
+| NUMERIC_FIELD_9 |
+| CHARACTER_FIELD_1 |
+| CHARACTER_FIELD_2 |
+| CHARACTER_FIELD_3 |
+| CHARACTER_FIELD_4 |
+| CHARACTER_FIELD_5 |
+| CHARACTER_FIELD_6 |
+| CHARACTER_FIELD_7 |
+| CHARACTER_FIELD_8 |
+| CHARACTER_FIELD_9 |
+| DATE_FIELD_1 |
+| DATE_FIELD_2 |
+| DATE_FIELD_3 |
+| DATE_FIELD_4 |
+| DATE_FIELD_5 |
+| DATE_FIELD_6 |
+| DATE_FIELD_7 |
+| DATE_FIELD_8 |
+| DATE_FIELD_9 |
 - ← [[CLM_CCM.CCM_ADHOC_DATA]]
-- ← [[ADHOC_CMD.<table_name_from_ADHOC_CONTROL_SASCI.ADHOC_TABLE>]]
-- ← [[DUAL]]
+| Column Name |
+|---|
+| CAMPAIGN_CODE |
 
 ## Target Tables (Outputs)
 - → [[ADHOC_CMD.ADHOC_CONTROL_SASCI]]
+| Column Name |
+|---|
+| ADHOC_TABLE |
+| LOAD_DESTINATION |
+| LOAD_STATUS |
+| LOAD_DATE |
+| CAMPAIGN_CODE |
+| DESCRIPTION |
 - → [[CLM_CCM.CCM_ADHOC_DATA]]
+| Column Name |
+|---|
+| KURT_ID |
+| SUBSCRIPTION_ID |
+| K2_PUID |
+| CAMPAIGN_CODE |
+| DESCRIPTION |
+| END_DATE |
+| LOAD_DATE |
+| ADHOC_TABLE |
+| ADDRESS_EMAIL_NAME |
+| NUMERIC_FIELD_1 |
+| NUMERIC_FIELD_2 |
+| NUMERIC_FIELD_3 |
+| NUMERIC_FIELD_4 |
+| NUMERIC_FIELD_5 |
+| NUMERIC_FIELD_6 |
+| NUMERIC_FIELD_7 |
+| NUMERIC_FIELD_8 |
+| NUMERIC_FIELD_9 |
+| CHARACTER_FIELD_1 |
+| CHARACTER_FIELD_2 |
+| CHARACTER_FIELD_3 |
+| CHARACTER_FIELD_4 |
+| CHARACTER_FIELD_5 |
+| CHARACTER_FIELD_6 |
+| CHARACTER_FIELD_7 |
+| CHARACTER_FIELD_8 |
+| CHARACTER_FIELD_9 |
+| DATE_FIELD_1 |
+| DATE_FIELD_2 |
+| DATE_FIELD_3 |
+| DATE_FIELD_4 |
+| DATE_FIELD_5 |
+| DATE_FIELD_6 |
+| DATE_FIELD_7 |
+| DATE_FIELD_8 |
+| DATE_FIELD_9 |
+- → [[CLM_CCM.CCM_LOAD_HISTORY]]
 

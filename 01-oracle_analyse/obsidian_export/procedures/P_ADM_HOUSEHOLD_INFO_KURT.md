@@ -3,13 +3,163 @@
 **Schema:** `CLM_ADM` | **Type:** `Procedure`
 
 ## Description
-The procedure P_ADM_HOUSEHOLD_INFO_KURT creates or recreates the 'ADM_HOUSEHOLD_INFO_KURT' table by aggregating customer and household demographic and service information for the previous month. It performs initial checks on source data availability. Before creating the new table, it renames any existing 'ADM_HOUSEHOLD_INFO_KURT' table to 'ADM_HOUSEHOLD_INFO_KURT_OLD' (acting as a backup) and may drop an older 'ADM_HOUSEHOLD_INFO_KURT_OLD' if it exists. The new 'ADM_HOUSEHOLD_INFO_KURT' table is then populated with detailed household-level aggregations derived from 'CLM_ADM.ADM_CUSTOMER_INFO_KURT'.
+This procedure calculates and aggregates household-level demographic and service subscription information for the previous month (V_YYYYMM). It first checks the availability of source data, then creates or recreates the 'ADM_HOUSEHOLD_INFO_KURT' table by aggregating data from 'CLM_ADM.ADM_CUSTOMER_INFO_KURT'. The existing 'ADM_HOUSEHOLD_INFO_KURT' table is renamed to 'ADM_HOUSEHOLD_INFO_KURT_OLD' as a backup before the new table is created, and the old backup might be dropped based on the 'P_OVERWRITE' parameter or data age.
 
 ## Data Sources (Inputs)
-- ← [[CLM_ADM.ADM_CUSTOMER_INFO_KURT]]
 - ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+- ← [[CLM_ADM.ADM_CUSTOMER_INFO_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ID |
+| AGE |
+| GENDER |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| FARID |
+| GAB_NUMBER |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_FIBER |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| CUSTOMER_TYPE_CD |
+| CUSTOMER_STATUS_CD |
 
 ## Target Tables (Outputs)
 - → [[ADM_HOUSEHOLD_INFO_KURT]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ID |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| FARID |
+| GAB_NUMBER |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_FIBER |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| FRI_FAMILIE |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_TALE_HOS_ANDRE |
 - → [[ADM_HOUSEHOLD_INFO_KURT_OLD]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| HOUSEHOLD_ID |
+| MAX_AGE |
+| MIN_AGE |
+| MEDIAN_AGE |
+| AVG_AGE |
+| NO_00_TO_05 |
+| NO_06_TO_12 |
+| NO_13_TO_17 |
+| NO_18_TO_28 |
+| NO_29_TO_49 |
+| NO_50_TO_66 |
+| NO_67_AND_ABOVE |
+| NO_FEMALE |
+| NO_MALE |
+| RES_BRSUND_TM |
+| RES_BRSUND_DM |
+| RES_TELENOR_TM |
+| RES_TELENOR_DM |
+| EMAIL_IND |
+| SMS_IND |
+| EMAIL_ADRESSE_FLAG |
+| SMS_MOBIL_FLAG |
+| FARID |
+| GAB_NUMBER |
+| ANTALL_I_HUSSTAND |
+| KOMMUNENR |
+| GRUNNKRETS_NR |
+| POSTNR |
+| BORETTSLAGSID |
+| BYGNINGSTYPE_NR |
+| BOLIGTYPE |
+| FIXED_TALE |
+| TV |
+| FIXED_INTERNETT_DSL |
+| FIXED_INTERNETT_TBB |
+| FIXED_INTERNETT_FIBER |
+| MOBIL_INTERNETT |
+| MOBIL_TALE |
+| FIXED_TALE_UTENF_HS |
+| TV_UTENF_HS |
+| FIXED_INTERNETT_DSL_UTENF_HS |
+| FIXED_INTERNETT_TBB_UTENF_HS |
+| FIXED_INTERNETT_FIBER_UTENF_HS |
+| MULIG_ADSL_HOS_ANDRE |
+| MOBIL_TALE_HOS_ANDRE |
+| FIXED_INTERNETT_WIMAX |
+| FIXED_INTERNETT_DIALUP |
+| FRISURF |
+| FRI_FAMILIE |
+| FIXED_INTERNETT_WIMAX_UTENF_HS |
+| FIXED_TALE_HOS_ANDRE |
 

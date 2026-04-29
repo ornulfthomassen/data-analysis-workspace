@@ -3,8 +3,26 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Provides a standardized dimension view containing municipal, county, and region geographical and administrative data, including codes, names, and validity periods. It is explicitly noted as being used for loading this dimension data into the 'Mjøsa' system.
+Provides a dimension view of municipal, county, and region data, intended for loading into Mjøsa.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.MUNICIPALITY_COUNTY_REGION_DIM]]
+| Column Name |
+|---|
+| MUNICIPALITY_CODE |
+| MUNICIPALITY_CODE_RYDDET_TIL |
+| MUNICIPALITY_CODE_CURRENT |
+| MUNICIPALITY_NAME |
+| SUB_COUNTY_CODE |
+| SUB_COUNTY_NAME |
+| COUNTY_CODE |
+| COUNTY_NAME |
+| SUB_REGION_CODE |
+| SUB_REGION_NAME |
+| REGION_CODE |
+| REGION_NAME |
+| VALIDFROM |
+| VALIDTO |
+| KOMMUNEKATEGORI |
+| NOTES |
 

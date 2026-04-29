@@ -3,8 +3,41 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view (`VYA_DEALER_DIM`) serves as a Dealer Dimension, primarily transforming and standardizing dealer-related attributes by selecting all columns from the `GALAXY.DEALER_DIM` source table. Its main purpose is to cast various columns to specific data types and lengths, and in some cases, rename them (e.g., sales channel descriptions), making the data suitable for a data warehouse or reporting environment. It provides comprehensive details about dealers including identifiers, names, types, addresses, status, associated employees, sales channel information, and geographical coordinates.
+Creates a dimension view for dealer information, standardizing data types, lengths, and some column names, by selecting all relevant columns from the GALAXY.DEALER_DIM table.
 
 ## Data Sources (Inputs)
 - ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| DEALER_NAME |
+| DEALER_TYPE_DESC |
+| DEALER_CHAIN_NAME |
+| DEALER_CHAIN_TYPE |
+| ADDRESS_LINE_MAIN |
+| POSTCODE_ID_MAIN |
+| DEALER_UNIT_NUMBER |
+| DEALER_ID_PARENT |
+| CUSTOMER_ID |
+| SOURCE_DEALER_ID |
+| CURRENT_STATUS |
+| START_DT_KEY |
+| END_DT_KEY |
+| DEALER_ROLE_KEY |
+| KAM_EMPLOYEE_KEY |
+| DAM_EMPLOYEE_KEY |
+| KAM_EMPLOYEE_DEPARTMENT |
+| DRM_SALES_CHANNEL_GEN01_DESC |
+| DRM_SALES_CHANNEL_GEN02_DESC |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DRM_SALES_CHANNEL_GEN05_DESC |
+| DRM_SALES_CHANNEL_GEN06_DESC |
+| DRM_SALES_CHANNEL_GEN07_DESC |
+| DRM_SALES_CHANNEL_TYPE |
+| DRM_GROUP_MEMBERSHIP |
+| DAM_EMPLOYEE_DEPARTMENT |
+| DRM_RETAIL_GROUP |
+| LATTITUDE |
+| LONGITUDE |
 

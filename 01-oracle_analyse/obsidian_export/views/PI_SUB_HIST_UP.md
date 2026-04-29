@@ -3,10 +3,31 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view identifies and retrieves key details (subscription key, source product ID, primary product start and end date keys) for specific mobile telephony subscriptions. It filters for subscriptions with a quantity of 1, primary products ending on or after January 1, 2022, from market areas 2 or 4, and where the product is categorized as 'Abonnement' (Subscription), 'Tale' (Voice), 'Mobil Telefoni' (Mobile Telephony) from the 'Pacman' source system, with a paytype of 0 and primary product flag set to 1. Essentially, it extracts historical or current details for a specific set of mobile voice subscriptions.
+Extracts filtered mobile telephony subscription details and history from subscription, subscription detail, and primary product dimension tables. It selects specific attributes like subscription key, source product ID, and product start/end dates, applying various filters on product categories, market areas, and subscription characteristics.
 
 ## Data Sources (Inputs)
 - ← [[galaxy.subscription_dim_mv]]
+| Column Name |
+|---|
+| subscription_key |
 - ← [[galaxy.subscr_detail_fact]]
+| Column Name |
+|---|
+| prim_prod_start_dt_key |
+| prim_prod_end_dt_key |
+| subscription_key |
+| prim_product_key |
+| subscr_quantity |
+| market_area_key |
 - ← [[galaxy.primary_product_dim_v]]
+| Column Name |
+|---|
+| source_product_id_1 |
+| prim_product_key |
+| drm_common_product_category |
+| drm_common_product_group |
+| drm_common_product_area |
+| source_system_name |
+| prim_product_paytype |
+| primary_product_flag |
 

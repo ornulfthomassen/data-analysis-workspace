@@ -3,10 +3,40 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-This view, 'KIM_KS_IVR_DIALOG_V', provides a consolidated and enriched dataset of Interactive Voice Response (IVR) dialogue interactions. It combines core IVR session details (such as start time, connection ID, service path, called service, technical results, and service flow) with customer-related information by mapping owner and user IDs to customer surrogate keys. Additionally, it integrates customer satisfaction (CSAT) scores for specific questions from survey data. The view also derives various temporal attributes (date, year-month, year-week numbers) and customizes service names/types based on the interaction's nature (e.g., 'Queuing'), making the data suitable for comprehensive analysis of IVR performance, customer journey, and satisfaction.
+Combines IVR (Interactive Voice Response) dialog data with customer mapping details and customer satisfaction (CSAT) survey responses. It enriches the IVR interaction data with time-based dimensions (date, month, week), maps owner and user IDs to customer keys, and adjusts service names/types for reporting, while also incorporating CSAT scores for specific questions.
 
 ## Data Sources (Inputs)
 - ← [[RSSHUGIN.IVR_DIALOG]]
+| Column Name |
+|---|
+| START_TIME |
+| CONN_ID |
+| SERVICE_PATH |
+| CALLED_SERVICE |
+| B_NUMBER |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+| IVR_SERVICE_ID |
+| VIRTUAL_QUEUE |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| CUSTOMER_HANDLE_COUNT |
+| SERVICE_NAME |
+| SERVICE_TYPE |
+| PRECEDING_SERVICE |
+| NEXT_SERVICE |
+| OFFERED_SERVICES |
+| STEP_ORDER |
+| S_START_TIME |
 - ← [[CCDW_CUSTOMER_EVENT.SURVEY_RESPONSE_FACT]]
+| Column Name |
+|---|
+| transaction_id |
+| QUESTION_NAME |
+| ANSWER_ID |
 - ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
 

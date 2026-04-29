@@ -3,8 +3,57 @@
 **Schema:** `CCM` | **Type:** `View`
 
 ## Description
-Creates a view that directly exposes all detailed Key Performance Indicator (KPI) data related to subscription usage over a 30-day period from the underlying source. It essentially acts as an alias or a wrapper for the `CLM_ADM.TMP_SUBS_USAGE_D30_DET_KPI` table/view, making its data available under the name `CCM.VYA_TMP_SUBS_USAGE_D30_DET_KPI`.
+This view serves as a direct projection of all columns from the `CLM_ADM.TMP_SUBS_USAGE_D30_DET_KPI` table, effectively exposing its detailed subscription usage and KPI data under a new view name within the CCM schema.
 
 ## Data Sources (Inputs)
 - ← [[CLM_ADM.TMP_SUBS_USAGE_D30_DET_KPI]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| SUB_NUMBER |
+| PRIM_PRODUCT_KEY |
+| DISCOUNT_PRODUCT_OFFER_KEY |
+| SUBSCRIPTION_TYPE_STATUS_KEY |
+| ACCOUNT_KEY |
+| MARKET_AREA_KEY |
+| DESTINATION_COUNTRY_KEY |
+| ROAMING_COUNTRY_KEY |
+| CALL_TYPE_KEY |
+| NETWORK_OPERATOR_KEY |
+| TRAFFIC_TYPE_KEY |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| TWIN_SWITCH_KEY |
+| IMEI |
+| IMSI |
+| HANDSET_KEY |
+| APN_KEY |
+| PRICE_CATEGORY_KEY |
+| DISCOUNT_TYPE_KEY |
+| DISCOUNT_RATE |
+| REVENUE_CATEGORY_KEY |
+| CPA_BUSINESS_MODEL_KEY |
+| CONTENT_PROVIDER_KEY |
+| CALL_START_PRICE |
+| USAGE_NET_DISCOUNT_AMOUNT |
+| USAGE_GROSS_DISCOUNT_AMOUNT |
+| USAGE_NET_AMOUNT |
+| USAGE_GROSS_AMOUNT |
+| USAGE_VOLUME_DOWN |
+| USAGE_VOLUME_TOTAL |
+| USAGE_DURATION |
+| TOTAL_ROAMING_COST |
+| COST_OF_VALUE |
+| USAGE_NUMBER_OF_EVENTS |
+| USAGE_NUMBER_OF_CDR |
+| NET_REVENUE |
+| MAX_EVENT_DATE_KEY |
+| KPI_ROAMING_SONE |
+| KPI_DESTINATION_SONE |
+| KPI_DESTINATION_SONE_OLD |
+| KPI_TRAFFIC_TYPE_L1 |
+| KPI_TRAFFIC_TYPE_L2 |
+| KPI_DATAPAKKE |
+| KPI_SHARED_BUCKET |
 
