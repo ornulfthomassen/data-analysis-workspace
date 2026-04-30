@@ -1,0 +1,92 @@
+# KS_INTERACTION_ORDERMATCH_D_V
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view retrieves a comprehensive set of interaction data from the `ks_interaction` table. It specifically filters out interactions that have a matching `INTERACTION_SEGMENT_ID` in the `KS_INTERACTION_ORDERMATCH_C_V` view. The view projects a wide range of interaction-specific columns and includes numerous other columns as `NULL`, potentially preparing for a union with other data sources or to align with a broader data model.
+
+## Data Sources (Inputs)
+- ← [[CRM_ANALYSE.KS_INTERACTION]]
+| Column Name |
+|---|
+| START_CAL_DATE |
+| END_CAL_DATE |
+| EMPLOYEE_NUMBER |
+| CALL_FROM_NUM |
+| KEYED_NUMBER_NUM |
+| INTERACTION_ID |
+| INTERACTION_SEGMENT_ID |
+| ORDINAL |
+| LAST_SEGMENT |
+| EMPLOYEE_ID |
+| TEAM_NUMBER |
+| UNIT_NUMBER |
+| SITE_NAME |
+| COMPANY_NAME |
+| RESOURCE_TYPE |
+| VIRTUALQUEUE |
+| VQ_RESOURCE_KEY |
+| SKILL |
+| CALL_FROM |
+| KEYED_NUMBER |
+| TECHNICAL_RESULT |
+| RESULT_REASON |
+| TOTAL_DURATION |
+| QUEUE_DURATION |
+| HANDLE_COUNT |
+| WRAP_COUNT |
+| WRAP_DURATION |
+| CUSTOMER_HANDLE_COUNT |
+| CUSTOMER_HANDLE_DURATION |
+| CUSTOMER_WAIT_DURATION |
+| TARGET_ADDRESS |
+| INN_OUT |
+| INTERACTION_TYPE_KEY |
+| FORHANDLERKODE |
+| CONSULT_DONE |
+| SP_TRANSFER |
+| CONSULT |
+| XPROD |
+| VPROD |
+| B_NUMBER |
+| BRUKTYP |
+| CONNID |
+| KSTATUS |
+| RINGT_SIST |
+| TRANSFERREASON |
+| TS1 |
+| GAD_INFO |
+| DEALERIDENTIFY |
+| AVTALE |
+| FULLFØRT_KONSULT |
+| ESKALERT_TIL |
+| CALLBACK |
+| CALLED_SERVICE |
+| FAILEDREASON |
+| BEDTYP |
+| ALDERKAT |
+| CBTYPE |
+| ORIGIN_SITE |
+| CUSTOMER_HOLD_DURATION |
+| CUSTOMER_HOLD_COUNT |
+| CUSTOMER_DIAL_COUNT |
+| CUSTOMER_DIAL_DURATION |
+| CUSTOMER_RING_COUNT |
+| CUSTOMER_RING_DURATION |
+| MEDIA_TYPE_KEY |
+| MEDIA_NAME |
+| LOAD_DATE |
+| QUEUE_SHORTNAME |
+| QUEUE_TYPE |
+| QUEUE_PROGRAM |
+| QUEUE_CLIENT |
+| START_CAL_DATE_NEXT |
+| KURT_ID_OWNER |
+| KURT_ID_USER |
+
+- ← [[CCM.KS_INTERACTION_ORDERMATCH_C_V]]
+| Column Name |
+|---|
+| INTERACTION_SEGMENT_ID |
+
+

@@ -1,0 +1,4 @@
+# CRM_ANALYSE.MPORT_PORT_REPORT_EXTRA_INFO
+
+**Type:** `Source Tables`
+

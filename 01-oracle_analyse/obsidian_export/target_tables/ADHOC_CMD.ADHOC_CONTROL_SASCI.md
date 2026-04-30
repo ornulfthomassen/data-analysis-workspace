@@ -1,0 +1,8 @@
+# ADHOC_CMD.ADHOC_CONTROL_SASCI
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CCM_ADHOC_DATA_LOAD]]
+- **Columns (6):** `ADHOC_TABLE`, `CAMPAIGN_CODE`, `DESCRIPTION`, `LOAD_DATE`, `LOAD_DESTINATION`, `LOAD_STATUS`
+

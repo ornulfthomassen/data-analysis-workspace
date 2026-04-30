@@ -1,0 +1,4 @@
+# CRM_ANALYSE.NRPORT_SERVICE_PROVIDER
+
+**Type:** `Source Tables`
+

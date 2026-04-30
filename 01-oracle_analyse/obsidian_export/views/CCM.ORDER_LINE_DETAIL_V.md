@@ -1,0 +1,215 @@
+# ORDER_LINE_DETAIL_V
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view, 'ORDER_LINE_DETAIL_V', provides a comprehensive analytical dataset by combining detailed order line facts with various dimensional attributes. It enriches order information with details about dates (order, status, agreed delivery), products (both 'to' and 'from' products, including their brand, payment type, area, category, and pricing), binding types, customer demographics (age, profit and lifecycle segments), dealer information (sales channel, chain, location), source systems, and service providers. The view calculates various Key Performance Indicators (KPIs) such as newsales, gross sales, product changes, porting (in/out), and terminations, often specialized for mobile speech and mobile broadband. It also categorizes sales channels into retail groups and defines a 'sales matrix' based on product ranking. The data is filtered for a specific business area (BUSINESS_AREA_KEY = 2) and covers orders from 2017 and 2018, excluding canceled orders.
+
+## Data Sources (Inputs)
+- ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_V]]
+| Column Name |
+|---|
+| ORDER_STATUS_DT_KEY |
+| ORDER_STATUS_TIME_KEY |
+| AGREED_DELIVERY_DT_KEY |
+| ORDER_DT_KEY |
+| ORDER_TIME_KEY |
+| ORDERING_DT_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CAMPAIGN_DATE_KEY |
+| BUSINESS_AREA_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| KPI_PRODUCT_CHANGE |
+| CAMPAIGN_TREATMENT_KEY |
+| DEALER_KEY |
+| EMPLOYEE_DEALER_KEY |
+| EMPLOYEE_SALES_KEY |
+| SALES_ORDER_INDICATOR_KEY |
+| CAMPAIGN_REF_KEY |
+| CAMPAIGN_REF_TTC |
+| CAMPAIGN_COMMUNICATION_KEY |
+| CAMPAIGN_HIT_TYPE_KEY |
+| CAMPAIGN_CHANNEL_KEY |
+| CAMPAIGN_SOURCE_SYSTEM_KEY |
+| ORDER_KEY |
+| ORDER_LINE_ID |
+| ORDER_LINE_KEY |
+| ORDER_LINE_PARENT_ID |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| ORDER_APPLICATION_KEY |
+| SOURCE_SYSTEM_KEY |
+| SOURCE_ORDER_ID |
+| SOURCE_ORDERING_ID |
+| CUSTOMER_EVENT_ID |
+| CUSTOMER_ORDER_ID |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| PRODUCT_CATEGORY_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_PRODUCT_KEY |
+| BINDED_PRODUCT_KEY |
+| HANDSET_KEY |
+| DEVICE_AGREEMENT_KEY |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| ORDER_SUBSCR_KEY |
+| ORDERLINE_SUBSCR_KEY |
+| ACCOUNT_KEY |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| SUBSCR_OWNER_LOC_KEY |
+| SUBSCR_USER_LOC_KEY |
+| RESOURCE_VALUE |
+| NUMBER_OF_ORDERS |
+| NUMBER_OF_ORDER_LINES |
+| KPI_NEWSALE |
+| KPI_GROSS_SALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_TERMINATION |
+| REGRET_ORDER_DAYS |
+
+- ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| WEEK_NUMBER |
+| MONTH_NUMBER |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| YEAR |
+
+- ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_BRAND |
+| TK_INCOME_SERVICE |
+| PRODUCT_PAYTYPE |
+| TK_PRODUCT_RANK |
+| PRODUCT_BRAND |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_REPORTING |
+| PRODUCT_FAMILY_NAME |
+| PRIMARY_PRODUCT_FLAG |
+| MONTHLY_PRICE |
+| ESTABLISHMENT_PRICE |
+| INCLUDED_DATA |
+
+- ← [[GALAXY.BINDING_TYPE_BENEFIT_DIM]]
+| Column Name |
+|---|
+| BINDING_TYPE_BENEFIT_KEY |
+| BINDING_TYPE_DESC |
+| BINDING_BENEFIT_DESC |
+
+- ← [[GALAXY.CUSTOMER_DIM]]
+| Column Name |
+|---|
+| CUSTOMER_KEY |
+| MUNICIPAL_ID |
+| AGE_SEGMENT |
+| DATE_OF_BIRTH |
+
+- ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DEALER_KEY |
+| DRM_SALES_CHANNEL_GEN02_DESC |
+| DEALER_CHAIN_NAME |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DEALER_NAME |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN05_DESC |
+| DRM_SALES_CHANNEL_GEN07_DESC |
+| POSTCODE_ID_MAIN |
+
+- ← [[GALAXY.SOURCE_SYSTEM_DIM_V]]
+| Column Name |
+|---|
+| SOURCE_SYSTEM_KEY |
+| SOURCE_SYSTEM_NAME |
+
+- ← [[CRM_ANALYSE.KIM_SERVICE_PROVIDER_DIM_V]]
+| Column Name |
+|---|
+| SERVICE_PROVIDER_KEY |
+| SERVICE_PROVIDER_NAME |
+
+- ← [[CRM_ANALYSE.DIMPOSTNUMMER_T]]
+| Column Name |
+|---|
+| POSTNUMMER |
+| POSTSTED |
+| FYLKEKODE |
+| FYLKE |
+| KOMMUNEKODE |
+| KOMMUNE |
+| LATITUDE |
+| LONGITUDE |
+
+- ← [[CRM_ANALYSE.DIMPOSTNUMMER]]
+| Column Name |
+|---|
+| KOMMUNEKODE |
+| LATITUDE |
+| LONGITUDE |
+
+- ← [[CRM_ANALYSE.PROFITSEGMENT_MOBILE]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| START_DATE |
+| END_DATE |
+| SEGMENT_ID |
+
+- ← [[CCDW_SEGMENT.CUSTOMER_SEGMENT]]
+| Column Name |
+|---|
+| KURT_ID |
+| MODEL_ID |
+| START_DATE |
+| END_DATE |
+| SEGMENT_ID |
+
+- ← [[GALAXY.ORDER_LINE_DETAIL_FACT_MV]]
+| Column Name |
+|---|
+| ORDER_KEY |
+| KPI_NEWSALE |
+| ORDERLINE_PRODUCT_KEY |
+| ORDER_LINE_TYPE_KEY |
+| MARKET_AREA_KEY |
+| KPI_GROSS_SALE |
+
+- ← [[GALAXY.ORDER_LINE_PRODUCT_DIM_V]]
+| Column Name |
+|---|
+| ORDER_LINE_PRODUCT_KEY |
+| PRODUCT_FAMILY_NAME |
+
+

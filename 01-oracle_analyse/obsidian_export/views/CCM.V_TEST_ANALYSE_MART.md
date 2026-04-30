@@ -1,0 +1,78 @@
+# V_TEST_ANALYSE_MART
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view, V_TEST_ANALYSE_MART, serves as an analytical mart by combining aggregated customer usage data (including mobile activity, product details, and subscription counts) with aggregated consumption and subscription data (including fixed-line activity, data volumes, and revenue metrics). It joins two underlying aggregated views on `PERIOD_MONTH_KEY`, `MAIN_NUMBER`, and `USER_CUSTOMER_KEY` to provide a comprehensive, unified dataset for customer behavior and financial analysis.
+
+## Data Sources (Inputs)
+- ← [[CRM_ANALYSE.V_ANALYSE_USE_AGG_MAINNUMBER]]
+| Column Name |
+|---|
+| USER_CUSTOMER_KEY |
+| MAIN_NUMBER |
+| PERIOD_MONTH_KEY |
+| PRIM_PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRODUCT_BRAND |
+| DRM_PRODUCT_BUSINESS_AREA_DET |
+| DRM_MARKET_PRODUCT_GROUP |
+| DRM_PRODUCT_ACCESS_PAYTYPE |
+| MARKET_AREA_KEY |
+| MARKET_AREA_DESC |
+| PRIM_PROD_ORG_START_DT_KEY |
+| PRIM_PROD_START_DT_KEY |
+| PRIM_PROD_END_DT_KEY |
+| BUSINESS_AREA_ID |
+| BUSINESS_AREA_NAME |
+| PRIM_PROD_BIND_END_DT_KEY |
+| SUBSCR_NO_OF_SUB_PRODUCTS |
+| USER_NO_OF_SUBSCR_FIXED |
+| USER_NO_OF_SUBSCR_MOBILE |
+| USER_NO_OF_SUBSCR_INTERNET |
+| USER_NO_OF_SUBSCR_TOTAL |
+| SERVICE_PROVIDER_ID_PORT_FROM |
+| PORT_FROM_DATE |
+| FRI_FAMILIE |
+| MOB_COMP_CALLS_MIN |
+| MOB_FIXED_CALLS_MIN |
+| MOB_TNM_CALLS_MIN |
+| MOB_ABROAD_CALLS_MIN |
+| MOB_INCL_MIN_CALLS_MIN |
+| MOB_TOT_MIN |
+| MOB_SMS_NUM |
+| MOB_MMS_NUM |
+| MOB_TERM_CALLS_NUM |
+| MOB_TERM_CALLS_MIN |
+| MOB_OUT_CALLS_NUM |
+| MOB_INCL_MIN_CALLS_NUM |
+| MOB_SMALL_SCR_VOL |
+| MOB_BIG_SCR_VOL |
+| MOB_LAST_EVENT_DATE |
+
+- ← [[CRM_ANALYSE.V_ANALYSE_CON_SUBSCR_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| MAIN_NUMBER |
+| USER_CUSTOMER_KEY |
+| FIXED_MOB_CALLS_MIN |
+| FIXED_REMOTE_CALLS_MIN |
+| FIXED_LOCAL_CALLS_MIN |
+| FIXED_OTHER_CALLS_MIN |
+| FIXED_FOREIGN_CALLS_MIN |
+| FIXED_COMP_CALLS_MIN |
+| FIXED_MOB_CALLS_NUM |
+| FIXED_REMOTE_CALLS_NUM |
+| FIXED_LOCAL_CALLS_NUM |
+| FIXED_OTHER_CALLS_NUM |
+| FIXED_FOREIGN_CALLS_NUM |
+| FIXED_COMP_CALLS_NUM |
+| FIXED_LAST_EVENT_DATE |
+| VOLUME_DOWN |
+| VOLUME_TOTAL |
+| NET_REVENUE |
+| GROSS_REVENUE |
+
+

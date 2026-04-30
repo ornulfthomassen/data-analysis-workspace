@@ -1,0 +1,262 @@
+# P_CU_CCM_CUSTOMER_EVENTS
+
+**Schema:** `CCM` | **Type:** `Procedure`
+
+## Description
+This Oracle SQL procedure generates customer event data by combining 'beautiful exit' and 'winback' events. It populates two temporary work tables with transformed data from various source systems, unions them into a new table, and then performs a 'swap' operation. The swap involves renaming the existing `CCM_CUSTOMER_EVENTS` table to a backup (`CCM_CUSTOMER_EVENTS_O`) and renaming the newly generated table (`CCM_CUSTOMER_EVENTS_N`) to `CCM_CUSTOMER_EVENTS`, making it the new active event data table. The procedure includes a check for significant row count changes to prevent accidental data loss or corruption during the swap. It also manages indexes and grants on the tables. Error and warning messages are logged to a history table.
+
+## Data Sources (Inputs)
+- ← [[CLM_CCM.CCM_CUSTOMER_EVENTS]]
+- ← [[NRPORT.NRPORT_PORTERINGER]]
+| Column Name |
+|---|
+| MSISDN_ID |
+| PORT_LOG_VALID_FROM_DATE |
+| SUBSCR_ID |
+| MARKET |
+| SERVICE_PROVIDER_ID_PORT_TO |
+
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| SUBSCR_ID |
+| SUBSCR_ID_NUM |
+| MAIN_NUMBER |
+| OWNER |
+| LAST_USER |
+| PRODUCT_GROUP |
+| LAST_PRODUCT_KEY |
+| ORIGINAL_START_DATE |
+| END_DATE |
+| SUBSCRIPTION_ID |
+
+- ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_NAME |
+| MONTHLY_PRICE |
+
+- ← [[CLM_CCM.CCM_CUSTOMER_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| AGE |
+
+- ← [[CLM_CCM.CCM_CUST_CONTACT_PHONE_V]]
+| Column Name |
+|---|
+| KURT_ID |
+| CONTACT_PHN_MOB |
+
+- ← [[CLM_ADM.ADM_MONTH_DIM]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| PREV1_PERIOD_MONTH_KEY |
+| PREV2_PERIOD_MONTH_KEY |
+
+- ← [[CLM_ADM.ADM_SUBS_USAGE_MOB_MONTH_AGG]]
+| Column Name |
+|---|
+| PERIOD_MONTH_KEY |
+| SUBSCRIPTION_ID |
+| MB_DATA_DOM |
+| MB_DATA_ROAM_EU |
+
+- ← [[CLM_CCM.WORK_BEAUTIFUL_EXIT]]
+- ← [[CLM_CCM.WORK_WINBACK_14D]]
+
+## Target Tables (Outputs)
+- → [[CLM_CCM.WORK_BEAUTIFUL_EXIT]]
+| Column Name |
+|---|
+| LOAD_DTTM |
+| FARID |
+| KURT_ID |
+| EVENT_DETECTION_DT |
+| PROJ_NUM |
+| NAME |
+| EVENT_REF_NO |
+| DELAY_AGREED_DT1 |
+| DELAY_AGREED_DT2 |
+| EVENT_NM |
+| MAIN_NUMBER |
+| PROD_OFFER_NAME |
+| EVENT_VALUE_1_DESC |
+| EVENT_VALUE_1 |
+| EVENT_VALUE_2_DESC |
+| EVENT_VALUE_2 |
+| EVENT_VALUE_3_DESC |
+| EVENT_VALUE_3 |
+| EVENT_VALUE_4_DESC |
+| EVENT_VALUE_4 |
+| EVENT_VALUE_5_DESC |
+| EVENT_VALUE_5 |
+| EVENT_VALUE_6_DESC |
+| EVENT_VALUE_6 |
+| EVENT_VALUE_7_DESC |
+| EVENT_VALUE_7 |
+| EVENT_START_DT |
+| EVENT_END_DT |
+| PERIOD_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+
+- → [[CLM_CCM.WORK_WINBACK_14D]]
+| Column Name |
+|---|
+| LOAD_DTTM |
+| FARID |
+| KURT_ID |
+| EVENT_DETECTION_DT |
+| PROJ_NUM |
+| NAME |
+| EVENT_REF_NO |
+| DELAY_AGREED_DT1 |
+| DELAY_AGREED_DT2 |
+| EVENT_NM |
+| MAIN_NUMBER |
+| PROD_OFFER_NAME |
+| EVENT_VALUE_1_DESC |
+| EVENT_VALUE_1 |
+| EVENT_VALUE_2_DESC |
+| EVENT_VALUE_2 |
+| EVENT_VALUE_3_DESC |
+| EVENT_VALUE_3 |
+| EVENT_VALUE_4_DESC |
+| EVENT_VALUE_4 |
+| EVENT_VALUE_5_DESC |
+| EVENT_VALUE_5 |
+| EVENT_VALUE_6_DESC |
+| EVENT_VALUE_6 |
+| EVENT_VALUE_7_DESC |
+| EVENT_VALUE_7 |
+| EVENT_START_DT |
+| EVENT_END_DT |
+| PERIOD_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+
+- → [[CLM_CCM.CCM_CUSTOMER_EVENTS_N]]
+| Column Name |
+|---|
+| LOAD_DTTM |
+| FARID |
+| KURT_ID |
+| EVENT_DETECTION_DT |
+| PROJ_NUM |
+| NAME |
+| EVENT_REF_NO |
+| DELAY_AGREED_DT1 |
+| DELAY_AGREED_DT2 |
+| EVENT_NM |
+| MAIN_NUMBER |
+| PROD_OFFER_NAME |
+| EVENT_VALUE_1_DESC |
+| EVENT_VALUE_1 |
+| EVENT_VALUE_2_DESC |
+| EVENT_VALUE_2 |
+| EVENT_VALUE_3_DESC |
+| EVENT_VALUE_3 |
+| EVENT_VALUE_4_DESC |
+| EVENT_VALUE_4 |
+| EVENT_VALUE_5_DESC |
+| EVENT_VALUE_5 |
+| EVENT_VALUE_6_DESC |
+| EVENT_VALUE_6 |
+| EVENT_VALUE_7_DESC |
+| EVENT_VALUE_7 |
+| EVENT_START_DT |
+| EVENT_END_DT |
+| PERIOD_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+
+- → [[CLM_CCM.CCM_CUSTOMER_EVENTS_O]]
+| Column Name |
+|---|
+| LOAD_DTTM |
+| FARID |
+| KURT_ID |
+| EVENT_DETECTION_DT |
+| PROJ_NUM |
+| NAME |
+| EVENT_REF_NO |
+| DELAY_AGREED_DT1 |
+| DELAY_AGREED_DT2 |
+| EVENT_NM |
+| MAIN_NUMBER |
+| PROD_OFFER_NAME |
+| EVENT_VALUE_1_DESC |
+| EVENT_VALUE_1 |
+| EVENT_VALUE_2_DESC |
+| EVENT_VALUE_2 |
+| EVENT_VALUE_3_DESC |
+| EVENT_VALUE_3 |
+| EVENT_VALUE_4_DESC |
+| EVENT_VALUE_4 |
+| EVENT_VALUE_5_DESC |
+| EVENT_VALUE_5 |
+| EVENT_VALUE_6_DESC |
+| EVENT_VALUE_6 |
+| EVENT_VALUE_7_DESC |
+| EVENT_VALUE_7 |
+| EVENT_START_DT |
+| EVENT_END_DT |
+| PERIOD_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+
+- → [[CLM_CCM.CCM_CUSTOMER_EVENTS]]
+| Column Name |
+|---|
+| LOAD_DTTM |
+| FARID |
+| KURT_ID |
+| EVENT_DETECTION_DT |
+| PROJ_NUM |
+| NAME |
+| EVENT_REF_NO |
+| DELAY_AGREED_DT1 |
+| DELAY_AGREED_DT2 |
+| EVENT_NM |
+| MAIN_NUMBER |
+| PROD_OFFER_NAME |
+| EVENT_VALUE_1_DESC |
+| EVENT_VALUE_1 |
+| EVENT_VALUE_2_DESC |
+| EVENT_VALUE_2 |
+| EVENT_VALUE_3_DESC |
+| EVENT_VALUE_3 |
+| EVENT_VALUE_4_DESC |
+| EVENT_VALUE_4 |
+| EVENT_VALUE_5_DESC |
+| EVENT_VALUE_5 |
+| EVENT_VALUE_6_DESC |
+| EVENT_VALUE_6 |
+| EVENT_VALUE_7_DESC |
+| EVENT_VALUE_7 |
+| EVENT_START_DT |
+| EVENT_END_DT |
+| PERIOD_ID |
+| MB_TOT_PREV1 |
+| MB_TOT_PREV2 |
+| MB_TOT_PREV3 |
+
+- → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| START_DATETIME |
+| STATUS |
+| MESSAGE |
+| POWERCENTER_WF_NAME |
+| POWERCENTER_S_NAME |
+
+

@@ -1,0 +1,8 @@
+# CCM.CCM_USER_KURT_KILDE_CP
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CCM_USER_SERVICES_KURT]]
+- **Columns (6):** `CUSTOMER_TYPE_CD`, `KILDE_LIST`, `KURT_ID`, `MAX_VERIFICATION_DTTM`, `QA_FLAG`, `USER_ID`
+

@@ -1,0 +1,4 @@
+# GALAXY.CUSTOMER_SEGMENT_OWNER_DIM_V
+
+**Type:** `Source Views`
+

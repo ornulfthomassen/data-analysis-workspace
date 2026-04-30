@@ -1,0 +1,4 @@
+# CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST
+
+**Type:** `Source Tables`
+

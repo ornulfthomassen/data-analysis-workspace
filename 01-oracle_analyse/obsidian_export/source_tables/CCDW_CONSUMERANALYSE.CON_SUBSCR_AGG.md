@@ -1,0 +1,4 @@
+# CCDW_CONSUMERANALYSE.CON_SUBSCR_AGG
+
+**Type:** `Source Tables`
+

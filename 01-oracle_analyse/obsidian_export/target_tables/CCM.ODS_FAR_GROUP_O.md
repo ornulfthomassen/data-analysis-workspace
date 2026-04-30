@@ -1,0 +1,8 @@
+# CCM.ODS_FAR_GROUP_O
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_ADR_ODS_FAR_GROUP]]
+- **Columns (10):** `ADDRESS_STATUS`, `ADDRESS_TYPE`, `BOLIG_FAR_1`, `BOLIG_FAR_2`, `FARID`, `FLATNUMBER`, `GAB_FLAT`, `GAB_NUMBER`, `LOADED_DTTM`, `STREETPOSTALCODE`
+

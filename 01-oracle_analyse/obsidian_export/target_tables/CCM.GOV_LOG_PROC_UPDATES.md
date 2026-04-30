@@ -1,0 +1,8 @@
+# CCM.GOV_LOG_PROC_UPDATES
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CU_UPDATE_ODS_CUST_PROF_BMGM]]
+- **Columns (4):** `ANTALL_OPPDATERT`, `SOURCE_PROCESS`, `TARGET_TABLE`, `UPDATE_DTTM`
+

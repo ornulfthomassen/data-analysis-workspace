@@ -1,0 +1,4 @@
+# CRM_ANALYSE.KIM_COMMUNICATION_DIM_V
+
+**Type:** `Source Views`
+

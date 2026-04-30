@@ -1,0 +1,4 @@
+# CRM_ANALYSE.BALANCE_MOBILE_SEGMENT_AGG
+
+**Type:** `Source Tables`
+

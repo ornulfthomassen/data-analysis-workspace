@@ -1,0 +1,4 @@
+# CCDW_SEGMENT.SUBSCRIPTION_SEGMENT
+
+**Type:** `Source Tables`
+

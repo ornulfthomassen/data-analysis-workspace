@@ -1,0 +1,4 @@
+# CRM_ANALYSE.KIM_TREATMENT_PRODUCT_DIM_V
+
+**Type:** `Source Views`
+

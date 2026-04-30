@@ -1,0 +1,4 @@
+# CRM_ANALYSE.KIM_SERVICE_PROVIDER_DIM_V
+
+**Type:** `Source Views`
+

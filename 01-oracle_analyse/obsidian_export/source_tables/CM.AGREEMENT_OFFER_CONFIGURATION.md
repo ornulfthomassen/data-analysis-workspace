@@ -1,0 +1,4 @@
+# CM.AGREEMENT_OFFER_CONFIGURATION
+
+**Type:** `Source Tables`
+

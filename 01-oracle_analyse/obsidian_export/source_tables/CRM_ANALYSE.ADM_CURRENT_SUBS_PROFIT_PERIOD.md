@@ -1,0 +1,4 @@
+# CRM_ANALYSE.ADM_CURRENT_SUBS_PROFIT_PERIOD
+
+**Type:** `Source Tables`
+

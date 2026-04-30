@@ -1,0 +1,4 @@
+# CLM_ADM.ADM_STOCK_AGREEMENT_DEVICE_ALL
+
+**Type:** `Source Tables`
+

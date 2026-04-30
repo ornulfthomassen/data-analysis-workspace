@@ -1,0 +1,4 @@
+# CRM_ANALYSE.PROFITSEGMENT_MOBILE
+
+**Type:** `Source Tables`
+

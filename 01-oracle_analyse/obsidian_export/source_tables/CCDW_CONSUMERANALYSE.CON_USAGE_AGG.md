@@ -1,0 +1,4 @@
+# CCDW_CONSUMERANALYSE.CON_USAGE_AGG
+
+**Type:** `Source Tables`
+

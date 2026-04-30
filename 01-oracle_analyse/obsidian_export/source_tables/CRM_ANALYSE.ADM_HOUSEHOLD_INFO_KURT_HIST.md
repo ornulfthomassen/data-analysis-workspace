@@ -1,0 +1,4 @@
+# CRM_ANALYSE.ADM_HOUSEHOLD_INFO_KURT_HIST
+
+**Type:** `Source Tables`
+

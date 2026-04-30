@@ -1,0 +1,4 @@
+# CRM_ANALYSE.ADM_SUBSCRIPTION_MAPPING
+
+**Type:** `Source Tables`
+

@@ -1,0 +1,4 @@
+# CRM_ANALYSE.KIM_ORDER_MATCH_PRODUCT_DIM_V
+
+**Type:** `Source Views`
+

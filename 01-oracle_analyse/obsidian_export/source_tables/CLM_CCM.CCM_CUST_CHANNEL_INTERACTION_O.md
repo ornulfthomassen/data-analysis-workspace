@@ -1,0 +1,4 @@
+# CLM_CCM.CCM_CUST_CHANNEL_INTERACTION_O
+
+**Type:** `Source Tables`
+

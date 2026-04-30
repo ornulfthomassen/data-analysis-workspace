@@ -1,0 +1,4 @@
+# CCDW_SEGMENT.COMMUNICATION_FREEZE
+
+**Type:** `Source Tables`
+

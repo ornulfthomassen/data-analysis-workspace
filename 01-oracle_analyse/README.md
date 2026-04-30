@@ -112,6 +112,20 @@ Dette scriptet gjør følgende:
 Åpne `obsidian_export`-mappen i Obsidian for å se grafen.
 Obsidian er en kraftig kunnskapsbase som lar deg organisere notater og visualisere sammenhenger mellom dem ved hjelp av en grafvisning. Du kan laste ned Obsidian her: [https://obsidian.md/download](https://obsidian.md/download)
 
+### Seneste Oppdateringer (2026-04-28)
+
+*   **Forbedringer i `generate_obsidian_files.py`:**
+    *   Løste problemer med dupliserte filer ved å korrekt skille mellom interne og eksterne objekter.
+    *   Lagt til "Created By"-seksjon i filer for tabeller som blir laget av prosedyrer, inkludert en liste over hvilke kolonner som skrives.
+    *   Gjeninnført visning av kolonnetabeller for alle kilder og mål i alle relevante filer.
+    *   Reorganisert output-mappene til en flatere og mer logisk struktur (`target_tables`, `source_views`, `source_tables`) direkte under `obsidian_export/`.
+    *   Lagt til en automatisk opprydding av målmapper før hver kjøring for å sikre en "fersk" eksport.
+*   **Nytt skript: `summarize_oracle_usage.py`:**
+    *   Laget et nytt verktøy for å generere en rapport som oppsummerer hvilke eksterne Oracle-kolonner som brukes, og av hvilke objekter. Rapporten er plassert i `dependency_analysis/output/oracle_source_usage_summary.md`.
+*   **Opprettet `commands.md`:**
+    *   Laget en jukselapp (`commands.md` i rot-workspace) med ofte brukte terminalkommandoer for prosjektet og generell bruk.
+
+
 ## Filstruktur
 
 ```

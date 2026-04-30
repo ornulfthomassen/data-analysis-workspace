@@ -1,0 +1,125 @@
+# P_EV_ODS_LEADS_CONSUMER
+
+**Schema:** `CCM` | **Type:** `Procedure`
+
+## Description
+Loads hot and cold opportunities consumer data into the ODS_LEADS_CONSUMER table using a full table swap method. It stages data in temporary tables, performs row count deviation checks for data quality, creates/renames indexes, and manages table renames for atomic deployment. The procedure also logs execution status and errors to a history table.
+
+## Data Sources (Inputs)
+- ← [[CLM_CCM.ODS_LEADS_CONSUMER]]
+- ← [[REFERENCE.CONSUMER_CUST_INFO]]
+| Column Name |
+|---|
+| DATADELIVERYID |
+| DATADELIVERYDATE |
+| CONTACTPHONENUMBER1 |
+| NUMBER1 |
+| NUMBER2 |
+| NUMBER3 |
+| TEXT1 |
+| TEXT2 |
+| TEXT3 |
+| DATE1 |
+
+- ← [[CLM_CCM.TELEPHONY_NUMBERPLAN_NO_DIM]]
+| Column Name |
+|---|
+| NR_FROM |
+| NR_TO |
+| NUMBER_CATEGORY |
+
+- ← [[ODS.CUSTOMER_ODS]]
+| Column Name |
+|---|
+| CUSTOMER_ID |
+| CUSTOMER_AGE |
+| CUSTOMER_TYPE_ID |
+| CUSTOMER_STATUS_ID |
+
+- ← [[CLM_CCM.ODS_MSISDN_SERVICE_PROVIDER]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| SERVICE_PROVIDER |
+| CURRENT_STATUS |
+| SERVICE_TYPE |
+| R_NUM |
+
+- ← [[CCM.ALL_INDEXES]]
+| Column Name |
+|---|
+| OWNER |
+| TABLE_NAME |
+| INDEX_NAME |
+
+
+## Target Tables (Outputs)
+- → [[CLM_CCM.STG_LEADS_CONSUMER_MOB]]
+| Column Name |
+|---|
+| DATADELIVERYID |
+| DATADELIVERYDATE |
+| CONTACTPHONENUMBER |
+| KURT_ID |
+| PREF_NUMBER_IND |
+| SRC_UNIT_ID |
+| SRC_PHONENUMBER_CATEGORY |
+| SRC_MATCH_QUALITY_CATEGORY |
+| SRC_MATCH_CRITERIA |
+| SRC_REG_DATE |
+| NUMBER_CATEGORY |
+| SERVICE_PROVIDER |
+| CURRENT_STATUS |
+
+- → [[CLM_CCM.ODS_LEADS_CONSUMER_N]]
+| Column Name |
+|---|
+| LEADS_SUBJECT_KEY |
+| LEADS_SUBJECT_TYPE |
+| LEADS_SUPPL_SUBJECT_KEY |
+| LEADS_SUPPL_SUBJECT_TYPE |
+| SRC_NAME |
+| SRC_DELIVERY_ID |
+| SRC_DATADELIVERYDATE |
+| LEADS_CLASSIFICATION |
+| LEADS_TYPE |
+| SRC_MATCH_QUALITY_CATEGORY |
+| NBR_LEAD_RESOURCES |
+| LEAD_RESOURCE_1 |
+| LEAD_RESOURCE_2 |
+| LEAD_RESOURCE_3 |
+| LEAD_RESOURCE_4 |
+| LOAD_DTTM |
+
+- → [[CLM_CCM.ODS_LEADS_CONSUMER]]
+| Column Name |
+|---|
+| LEADS_SUBJECT_KEY |
+| LEADS_SUBJECT_TYPE |
+| LEADS_SUPPL_SUBJECT_KEY |
+| LEADS_SUPPL_SUBJECT_TYPE |
+| SRC_NAME |
+| SRC_DELIVERY_ID |
+| SRC_DATADELIVERYDATE |
+| LEADS_CLASSIFICATION |
+| LEADS_TYPE |
+| SRC_MATCH_QUALITY_CATEGORY |
+| NBR_LEAD_RESOURCES |
+| LEAD_RESOURCE_1 |
+| LEAD_RESOURCE_2 |
+| LEAD_RESOURCE_3 |
+| LEAD_RESOURCE_4 |
+| LOAD_DTTM |
+
+- → [[CLM_CCM.ODS_LEADS_CONSUMER_O]]
+- → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME_PARAM |
+| START_DTTM_PARAM |
+| STATUS_PARAM |
+| MESSAGE_PARAM |
+| WF_NAME_PARAM |
+| S_NAME_PARAM |
+
+

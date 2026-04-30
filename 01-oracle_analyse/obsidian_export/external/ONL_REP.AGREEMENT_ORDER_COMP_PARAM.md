@@ -1,5 +1,0 @@
-# ONL_REP.AGREEMENT_ORDER_COMP_PARAM
-
-This is an external dependency, not defined within the analyzed Oracle schemas.
-
-#external-dependency 

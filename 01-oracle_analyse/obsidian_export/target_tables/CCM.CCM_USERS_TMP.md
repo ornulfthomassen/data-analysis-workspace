@@ -1,0 +1,8 @@
+# CCM.CCM_USERS_TMP
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CCM_USER_SERVICES_KURT]]
+- **Columns (5):** `FIRST_ACCESS_TM`, `LAST_ACCESS_TM`, `NUMBER_OF_SERVICES`, `SERVICE_FIRST_DATE`, `USER_ID`
+

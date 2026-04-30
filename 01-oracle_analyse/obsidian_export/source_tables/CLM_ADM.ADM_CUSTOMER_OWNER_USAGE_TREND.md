@@ -1,0 +1,4 @@
+# CLM_ADM.ADM_CUSTOMER_OWNER_USAGE_TREND
+
+**Type:** `Source Tables`
+

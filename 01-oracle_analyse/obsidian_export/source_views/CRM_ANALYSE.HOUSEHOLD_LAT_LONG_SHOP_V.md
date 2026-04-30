@@ -1,0 +1,4 @@
+# CRM_ANALYSE.HOUSEHOLD_LAT_LONG_SHOP_V
+
+**Type:** `Source Views`
+

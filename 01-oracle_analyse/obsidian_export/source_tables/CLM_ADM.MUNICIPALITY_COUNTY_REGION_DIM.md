@@ -1,0 +1,4 @@
+# CLM_ADM.MUNICIPALITY_COUNTY_REGION_DIM
+
+**Type:** `Source Tables`
+

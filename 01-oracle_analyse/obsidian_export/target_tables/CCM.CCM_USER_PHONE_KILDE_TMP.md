@@ -1,0 +1,8 @@
+# CCM.CCM_USER_PHONE_KILDE_TMP
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CCM_USER_SERVICES_KURT]]
+- **Columns (7):** `CUSTOMER_TYPE_CD`, `KILDE_LIST`, `KURT_ID`, `MAIN_NUMBER`, `MAX_VERIFICATION_DTTM`, `SP`, `USER_ID`
+

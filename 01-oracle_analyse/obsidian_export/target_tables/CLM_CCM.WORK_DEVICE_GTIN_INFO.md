@@ -1,0 +1,8 @@
+# CLM_CCM.WORK_DEVICE_GTIN_INFO
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_SU_ODS_SUB_EQUIPM_DEVICE_INFO]]
+- **Columns (8):** `COLOR_NAME`, `GTIN`, `IMEI_FULL`, `IMEI_USE`, `MANUFACTURER`, `MODEL_NAME`, `R_NUM`, `TOTAL_SIZE`
+

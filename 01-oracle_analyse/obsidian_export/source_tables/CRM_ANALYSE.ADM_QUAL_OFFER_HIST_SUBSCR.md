@@ -1,0 +1,4 @@
+# CRM_ANALYSE.ADM_QUAL_OFFER_HIST_SUBSCR
+
+**Type:** `Source Tables`
+

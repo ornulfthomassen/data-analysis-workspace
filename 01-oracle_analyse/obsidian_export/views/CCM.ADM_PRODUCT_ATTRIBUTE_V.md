@@ -1,0 +1,70 @@
+# ADM_PRODUCT_ATTRIBUTE_V
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view, 'ADM_PRODUCT_ATTRIBUTE_V', aims to provide a standardized set of product attributes. It combines current product information from the `GALAXY.PRODUCT_DIM` table with historical or default attribute values from `CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST`. The script applies extensive data cleaning, type conversion, and business logic (e.g., for deriving `DRM_COMMON_BRAND`, `INCLUDED_MB`, and various pricing/bandwidth metrics) to deliver a comprehensive and consistent product attribute dataset.
+
+## Data Sources (Inputs)
+- ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_NAME |
+| PRODUCT_DESC |
+| PRIMARY_PRODUCT_FLAG |
+| PRODUCT_START_DATE |
+| PRODUCT_END_DATE |
+| SOURCE_SYSTEM_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| SOURCE_PRODUCT_ID_2 |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_TECHNOLOGY |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| DRM_COMMON_MARKET_PRODUCT |
+| DRM_COMMON_REPORTING |
+| PRODUCT_FAMILY_NAME |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_SERVICE |
+| ESTABLISHMENT_PRICE |
+| MONTHLY_PRICE |
+| PRICE_VAT_DESC |
+| INCLUDED_MINUTES |
+| INCLUDED_SMS |
+| PRICE_SMS_AFTER_INCLUDED |
+| INCLUDED_MMS |
+| PRICE_MMS |
+| INCLUDED_DATA |
+| PRICE_DATA_AFTER_INCLUDED |
+| MAX_MONTHLY_DATA_CHARGE |
+| BAUD_UPLOAD |
+| BAUD_DOWNLOAD |
+| BAUD_REDUCTION_QUOTA |
+| PRODUCT_PAYMENT_TYPE_NAME |
+| TK_PRODUCT_RANK |
+
+- ← [[CLM_ADM.ADM_PRODUCT_ATTRIBUTE_HIST]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| CURRENT_STATUS |
+| STARTUP_FEE |
+| MONTHLY_FEE |
+| PRICE_VAT_DESC |
+| INCLUDED_MINUTES |
+| PRICE_MIN_AFTER_INCLUDED |
+| INCLUDED_SMS |
+| PRICE_SMS_AFTER_INCLUDED |
+| INCLUDED_MMS |
+| PRICE_MMS_AFTER_INCLUDED |
+| INCLUDED_MB |
+| PRICE_MB_AFTER_INCLUDED |
+| MAX_MONTHLY_CHARGE_MB |
+| BAUD_UPLOAD_MBPS |
+| BAUD_DOWNLOAD_MBPS |
+| BAUD_REDUCTION_QUOTA_MB |
+
+

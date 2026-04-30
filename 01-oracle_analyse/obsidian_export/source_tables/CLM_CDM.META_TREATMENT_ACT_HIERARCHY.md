@@ -1,0 +1,4 @@
+# CLM_CDM.META_TREATMENT_ACT_HIERARCHY
+
+**Type:** `Source Tables`
+

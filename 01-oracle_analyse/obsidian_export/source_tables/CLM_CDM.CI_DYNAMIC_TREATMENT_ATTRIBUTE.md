@@ -1,0 +1,4 @@
+# CLM_CDM.CI_DYNAMIC_TREATMENT_ATTRIBUTE
+
+**Type:** `Source Tables`
+

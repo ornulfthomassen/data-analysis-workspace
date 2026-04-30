@@ -1,0 +1,4 @@
+# CRM_ANALYSE.BR_ANALYTIC_UNIVERSE_SUBSET
+
+**Type:** `Source Tables`
+

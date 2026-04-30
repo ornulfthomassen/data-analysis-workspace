@@ -1,0 +1,4 @@
+# CCM.TABLE_IDENTIFIED_BY_P_TNAME_PARAMETER
+
+**Type:** `Source Tables`
+

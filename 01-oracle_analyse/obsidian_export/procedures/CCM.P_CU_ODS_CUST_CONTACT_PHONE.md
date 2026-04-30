@@ -1,0 +1,160 @@
+# P_CU_ODS_CUST_CONTACT_PHONE
+
+**Schema:** `CCM` | **Type:** `Procedure`
+
+## Description
+Performs a full load of customer contact phone numbers from various internal (installed base, CRM) and external data sources, applies data quality and ranking rules, and updates the `CLM_CCM.ODS_CUST_CONTACT_PHONE` table using a table swap (rename) mechanism. It also logs execution status and errors to `CLM_CCM.CCM_LOAD_HISTORY`.
+
+## Data Sources (Inputs)
+- ← [[CLM_CCM.ODS_CUST_CONTACT_PHONE]]
+- ← [[CLM_CCM.ODS_SUBSCRIPTION_MV]]
+| Column Name |
+|---|
+| MARKET_AREA_ID |
+| KURT_ID_USER |
+| MAIN_NUMBER |
+| SUBSCR_START_DATE |
+| PRODUCT_OFFER_ID |
+| KURT_ID_OWNER |
+| SUBSCRIPTION_ID |
+| BUSINESS_AREA_ID |
+| SECRET_NUMBER |
+
+- ← [[CLM_CCM.ODS_PRODUCT_DIM]]
+| Column Name |
+|---|
+| PRODUCT_KEY |
+| PRODUCT_GROUP |
+| PRODUCT_FAMILY_NAME |
+
+- ← [[CRM_ANALYSE.ADM_USAGE_MOBILE_MONTH_V]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| RELATIVE_MONTH |
+| MIN_TALE_DOM |
+| MB_DATA |
+
+- ← [[CLM_CCM.TELEPHONY_NUMBERPLAN_NO_DIM]]
+| Column Name |
+|---|
+| NR_FROM |
+| NR_TO |
+| NUMBER_TYPE |
+
+- ← [[ODS.CUSTOMER_RES_AND_APP]]
+| Column Name |
+|---|
+| CUSTOMER_ID |
+| SMS_IND |
+| SMS_NUMBER |
+| SMS_AL_MAX_DTTM |
+
+- ← [[ODS.CUSTOMER_ODS]]
+| Column Name |
+|---|
+| CUSTOMER_ID |
+| OWNER_MOB_SUB_NUM |
+| USER_MOB_SUB_NUM |
+| OWNER_FIX_SUB_NUM |
+| USER_FIX_SUB_NUM |
+| OWNER_FTV_SUB_NUM |
+| USER_FTV_SUB_NUM |
+| OWNER_MOB_AGR_NUM |
+| CUSTOMER_STATUS_ID |
+| CUSTOMER_TYPE_ID |
+| CUSTOMER_AGE |
+
+- ← [[REFERENCE.CONSUMER_CUST_INFO]]
+| Column Name |
+|---|
+| NUMBER1 |
+| CONTACTPHONENUMBER1 |
+| NUMBER2 |
+| TEXT3 |
+| DATE1 |
+| DATADELIVERYDATE |
+| DATADELIVERYID |
+| TEXT2 |
+
+- ← [[CLM_CCM.STG_CUST_CONTACT_PHONE]]
+| Column Name |
+|---|
+| CONTACT_PHN |
+| KURT_ID_IB |
+| KURT_ID_CDC |
+| KURT_ID_EXT |
+| IB_PRODUCT_GROUP |
+| IB_USAGE_SPEECH_AND_DATA |
+| IB_CONTACT_PHN_LINK_VER_DT |
+| CDC_SMS_IND_ADJ |
+| CDC_CONTACT_PHN_LINK_VER_DT |
+| NBR_ACTIVE_PRODUCTS |
+| EXT_PREFEREDE_NUMBER |
+| EXT_CONTACT_PHN_LINK_VER_DT |
+
+- ← [[CCM.ALL_INDEXES]]
+| Column Name |
+|---|
+| OWNER |
+| TABLE_NAME |
+| INDEX_NAME |
+
+
+## Target Tables (Outputs)
+- → [[CLM_CCM.STG_CUST_CONTACT_PHONE]]
+| Column Name |
+|---|
+| CONTACT_PHN |
+| KURT_ID_IB |
+| KURT_ID_CDC |
+| KURT_ID_EXT |
+| IB_PRODUCT_GROUP |
+| IB_USAGE_SPEECH_AND_DATA |
+| IB_CONTACT_PHN_LINK_VER_DT |
+| CDC_SMS_IND_ADJ |
+| CDC_CONTACT_PHN_LINK_VER_DT |
+| NBR_ACTIVE_PRODUCTS |
+| EXT_PREFEREDE_NUMBER |
+| EXT_CONTACT_PHN_LINK_VER_DT |
+
+- → [[CLM_CCM.ODS_CUST_CONTACT_PHONE_N]]
+| Column Name |
+|---|
+| KURT_ID |
+| CONTACT_PHN |
+| CONTACT_PHN_TYPE |
+| CONTACT_PHN_SRC |
+| CONTACT_PHN_LINK_VER_DTTM |
+| RANK_CONTACT_PHN |
+| DQ_NBR_USERS |
+| DQ_SOURCE_EVAL |
+| RANK_CONTACT_PHN_ALL |
+| LOAD_DTTM |
+
+- → [[CLM_CCM.ODS_CUST_CONTACT_PHONE_O]]
+- → [[CLM_CCM.ODS_CUST_CONTACT_PHONE]]
+| Column Name |
+|---|
+| KURT_ID |
+| CONTACT_PHN |
+| CONTACT_PHN_TYPE |
+| CONTACT_PHN_SRC |
+| CONTACT_PHN_LINK_VER_DTTM |
+| RANK_CONTACT_PHN |
+| DQ_NBR_USERS |
+| DQ_SOURCE_EVAL |
+| RANK_CONTACT_PHN_ALL |
+| LOAD_DTTM |
+
+- → [[CLM_CCM.CCM_LOAD_HISTORY]]
+| Column Name |
+|---|
+| TABLE_NAME |
+| START_DTTM |
+| STATUS |
+| STATUS_MESSAGE |
+| WORKFLOW_NAME |
+| SESSION_NAME |
+
+

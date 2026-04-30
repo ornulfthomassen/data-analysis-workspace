@@ -1,0 +1,8 @@
+# CLM_CCM.WORK_CUSTOMER_USR_MOB_STATE
+
+**Type:** `Target Tables`
+
+## Created By
+### → [[CCM.P_CU_ODS_CUSTOMER_PROF_SVC_MOB]]
+- **Columns (4):** `KURT_ID_USER`, `NBR_DAYS_ACTIVE`, `NBR_DAYS_LAST_INACTIVE`, `STATE_USER_MOB_SPEECH`
+

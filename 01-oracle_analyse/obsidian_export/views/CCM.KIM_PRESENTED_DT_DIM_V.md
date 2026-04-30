@@ -1,0 +1,67 @@
+# KIM_PRESENTED_DT_DIM_V
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view, "KIM_PRESENTED_DT_DIM_V", serves as a wrapper or presentation layer for an existing date dimension materialized view, "GALAXY.DATE_DIM_MV". It exposes all columns from the underlying date dimension, providing a comprehensive set of date-related attributes for analysis.
+
+## Data Sources (Inputs)
+- ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DATE_KEY |
+| DAY |
+| DAY_OF_WEEK |
+| DAY_OF_WEEK_SHORT |
+| TYPE_OF_DAY |
+| WEEK_ENDING |
+| WEEK_NUMBER |
+| WEEK_YEAR_NUMBER |
+| YEAR_WEEK_NUMBER |
+| MONTH_NAME |
+| MONTH_SHORT_NAME |
+| MONTH_NUMBER |
+| MONTH_YEAR_NUMBER |
+| YEAR_MONTH_NUMBER |
+| QUARTER_NAME |
+| QUARTER_NUMBER |
+| QUARTER_YEAR |
+| QUARTER_YEAR_NUMBER |
+| YEAR_QUARTER_NUMBER |
+| TERTIARY_NAME |
+| TERTIARY_NUMBER |
+| TERTIARY_YEAR_NUMBER |
+| YEAR_TERTIARY_NUMBER |
+| YEAR |
+| HALFYEAR_NAME |
+| HALFYEAR_NUMBER |
+| LAST_12_MONTHS |
+| LAST_12_MONTHS_LAST_YEAR |
+| CURRENT_WEEK |
+| CURRENT_MONTH |
+| CURRENT_YEAR |
+| LAST_WEEK |
+| LAST_MONTH |
+| LAST_YEAR |
+| SECOND_WEEK |
+| SECOND_MONTH |
+| SECOND_YEAR |
+| THIRD_WEEK |
+| THIRD_MONTH |
+| THIRD_YEAR |
+| YEAR_TO_DATE |
+| YTD_LAST_WEEK_ENDING |
+| YTD_LAST_MONTH_ENDING |
+| LAST_YEAR_TO_DATE |
+| LAST_YTD_LAST_MONTH_ENDING |
+| LAST_6_MONTHS |
+| NEXT_WEEK |
+| NEXT_FOUR_WEEKS |
+| NEXT_MONTH |
+| NEXT_12_MONTHS |
+| NEXT_YEAR |
+| SECOND_MONTH_AHEAD |
+| THIRD_MONTH_AHEAD |
+| LAST_52_WEEKS |
+
+

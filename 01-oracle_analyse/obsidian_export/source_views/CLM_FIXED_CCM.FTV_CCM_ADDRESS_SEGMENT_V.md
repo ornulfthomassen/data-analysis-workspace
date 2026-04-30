@@ -1,0 +1,4 @@
+# CLM_FIXED_CCM.FTV_CCM_ADDRESS_SEGMENT_V
+
+**Type:** `Source Views`
+

@@ -1,0 +1,205 @@
+# ORDER_LINE_DETAIL_MOB_V
+
+**Schema:** `CCM` | **Type:** `View`
+
+## Description
+This view provides a comprehensive, denormalized perspective of mobile order line details, integrating data from various dimensions like product, date, customer, dealer, service provider, and segmentation. It calculates a wide array of Key Performance Indicators (KPIs) related to sales (newsale, gross sale, product changes, upsale, downsale, termination) and porting (inbound, outbound). Additionally, it includes enriched context such as customer age, sales matrix categorization, and flags for specific product benefits ('Familiebonus', 'Datakontroll'). The view also incorporates historical information for 'regret' orders and previous order details, primarily focusing on mobile business and specific market areas within a defined date range.
+
+## Data Sources (Inputs)
+- ← [[GALAXY.ORDER_LINE_DETAIL_MOB_FACT_V]]
+| Column Name |
+|---|
+| ORDER_STATUS_TIME_KEY |
+| ORDER_TIME_KEY |
+| ORDERING_DT_KEY |
+| WANTED_DELIVERY_DT_KEY |
+| BINDING_START_DT_KEY |
+| BINDING_END_DT_KEY |
+| CAMPAIGN_DATE_KEY |
+| BUSINESS_AREA_KEY |
+| MARKET_AREA_KEY |
+| MARKET_AREA_FROM_KEY |
+| KPI_NEWSALE |
+| KPI_PRODUCT_CHANGE |
+| DEALER_KEY |
+| EMPLOYEE_DEALER_KEY |
+| EMPLOYEE_SALES_KEY |
+| CAMPAIGN_REF_KEY |
+| ORDER_KEY |
+| ORDER_LINE_TYPE_KEY |
+| ORDER_STATUS_KEY |
+| ORDER_STATUS_REASON_KEY |
+| ORDER_LINE_STATUS_KEY |
+| ORDER_LINE_STATUS_REASON_KEY |
+| SOURCE_ORDER_ID |
+| AGREEMENT_KEY |
+| AGREEMENT_OFFER_KEY |
+| SERVICE_PROVIDER_FROM_KEY |
+| SERVICE_PROVIDER_TO_KEY |
+| PRODUCT_CATEGORY_KEY |
+| SUBSCR_PRIM_PRODUCT_KEY |
+| ORDERLINE_PRODUCT_KEY |
+| FROM_ORDER_PRODUCT_KEY |
+| BINDING_TYPE_BENEFIT_KEY |
+| HANDSET_KEY |
+| DEVICE_AGREEMENT_KEY |
+| IMEI |
+| IMSI |
+| ICC |
+| CARDSIZE |
+| PORT_CASE_ID |
+| ORDER_SUBSCR_KEY |
+| OWNER_CUSTOMER_KEY |
+| USER_CUSTOMER_KEY |
+| RESOURCE_VALUE |
+| SUBSCR_USER_LOC_KEY |
+| ORDER_DT_KEY |
+| MAP2_SEGMENT_KEY |
+| CLMLS_SEGMENT_KEY |
+| REGRET_ORDER_SP_FROM_KEY |
+| REGRET_ORDER_STATUS_DT_KEY |
+| REGRET_ORDER_DEALER_KEY |
+| REGRET_ORDER_CATEGORY_KEY |
+| REGRET_ORDER_STATUS_DAYS |
+| SWAP_NEWSALE_FLAG |
+| KPI_GROSS_SALE |
+| KPI_PORTING_OUTBOUND |
+| KPI_PORTING_INBOUND |
+| KPI_TERMINATION |
+| AGREED_DELIVERY_DT_KEY |
+
+- ← [[GALAXY.PRODUCT_DIM]]
+| Column Name |
+|---|
+| DRM_COMMON_PAYMENT |
+| DRM_COMMON_PORTFOLIO |
+| DRM_COMMON_BRAND |
+| DRM_COMMON_REPORTING |
+| PRODUCT_NAME |
+| SOURCE_PRODUCT_ID_1 |
+| PRODUCT_FAMILY_NAME |
+| MONTHLY_PRICE |
+| PRODUCT_DESC |
+| TK_INCOME_SERVICE |
+| PRODUCT_PAYTYPE |
+| TK_PRODUCT_RANK |
+| DRM_COMMON_PRODUCT_AREA |
+| DRM_COMMON_PRODUCT_CATEGORY |
+| DRM_COMMON_PRODUCT_GROUP |
+| PRIMARY_PRODUCT_FLAG |
+| PRODUCT_KEY |
+
+- ← [[GALAXY.BINDING_TYPE_BENEFIT_DIM]]
+| Column Name |
+|---|
+| BINDING_DESC |
+| BINDING_BENEFIT_DESC |
+| BINDING_TYPE_BENEFIT_KEY |
+
+- ← [[GALAXY.DATE_DIM_MV]]
+| Column Name |
+|---|
+| DAY |
+| WEEK_NUMBER |
+| MONTH_NUMBER |
+| YEAR_WEEK_NUMBER |
+| YEAR_MONTH_NUMBER |
+| RELATIVE_WEEK |
+| YEAR |
+| YEAR_QUARTER_NUMBER |
+| DATE_KEY |
+| CURRENT_YEAR |
+| LAST_YEAR |
+| NEXT_YEAR |
+
+- ← [[GALAXY.CUSTOMER_DIM]]
+| Column Name |
+|---|
+| MUNICIPAL_ID |
+| DATE_OF_BIRTH |
+| CUSTOMER_KEY |
+
+- ← [[GALAXY.SUBSCR_USER_LOC_DIM_V]]
+| Column Name |
+|---|
+| SUBSCR_USER_MUNICIPAL |
+| SUBSCR_USER_COUNTY |
+| SUBSCR_USER_POST_OFFICE |
+| SUBSCR_USER_LOC_KEY |
+
+- ← [[GALAXY.DEALER_DIM]]
+| Column Name |
+|---|
+| DRM_SALES_CHANNEL_GEN02_DESC |
+| DRM_SALES_CHANNEL_GEN03_DESC |
+| DRM_SALES_CHANNEL_GEN04_DESC |
+| DEALER_CHAIN_NAME |
+| DEALER_NAME |
+| SOURCE_DEALER_ID |
+| DRM_SALES_CHANNEL_GEN07_DESC |
+| DRM_SALES_CHANNEL_GEN05_DESC |
+| DRM_SALES_CHANNEL_GEN01_DESC |
+| DRM_SALES_CHANNEL_GEN06_DESC |
+| DEALER_KEY |
+
+- ← [[GALAXY.ORDER_CATEGORY_DIM]]
+| Column Name |
+|---|
+| ORDER_CATEGORY_NAME |
+| ORDER_CATEGORY_KEY |
+
+- ← [[CCDW.SERVICE_PROVIDER]]
+| Column Name |
+|---|
+| SERVICE_PROVIDER_NAME |
+| SERVICE_PROVIDER_ID |
+
+- ← [[GALAXY.ORDER_STATUS_DIM_MV]]
+| Column Name |
+|---|
+| ORDER_STATUS_NAME |
+| ORDER_STATUS_KEY |
+
+- ← [[GALAXY.SEGMENT_DIM_V]]
+| Column Name |
+|---|
+| SEGMENT_NAME |
+| SEGMENT_KEY |
+
+- ← [[CLM_ADM.ADM_SUBSCRIPTION_MASTER_HIST]]
+| Column Name |
+|---|
+| MAIN_NUMBER_SK |
+| SUBSCRIPTION_ID |
+
+- ← [[CLM_ADM.ADM_CUSTOMER_MAPPING]]
+| Column Name |
+|---|
+| CUSTOMER_SK |
+| KURT_ID |
+
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT]]
+| Column Name |
+|---|
+| MAIN_NUMBER |
+| ACTIVITY_ID |
+| CONTACT_DATE_KEY |
+| ACTIVITY_DESC |
+| CONTACT_KEY |
+| CAMPAIGN_ID |
+
+- ← [[CRM_ANALYSE.KIM_CAMPAIGN_DETAIL_FACT_EXT]]
+| Column Name |
+|---|
+| CONTACT_KEY |
+
+- ← [[CCDW.SUBSCRIBED_PRODUCT]]
+| Column Name |
+|---|
+| SUBSCRIPTION_ID |
+| START_DATE |
+| END_DATE |
+| PRODUCT_OFFER_ID |
+| BUSINESS_AREA_ID |
+
+

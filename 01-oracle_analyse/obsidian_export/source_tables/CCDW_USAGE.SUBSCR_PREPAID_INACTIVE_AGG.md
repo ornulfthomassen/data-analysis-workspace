@@ -1,0 +1,4 @@
+# CCDW_USAGE.SUBSCR_PREPAID_INACTIVE_AGG
+
+**Type:** `Source Tables`
+
